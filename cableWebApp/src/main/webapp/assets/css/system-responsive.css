@@ -1,0 +1,790 @@
+@media only screen and (max-width: 480px) {
+    #topbar {
+        height: auto;
+    }
+
+    #topbar #topbar-menu {
+        width: 100%;
+        margin: 0;
+    }
+
+    #topbar #topbar-menu .logo-wrapper {
+        border-bottom: 1px solid #eee;
+        margin: 0;
+        position: fixed;
+        top: 0;
+        width: 100% !important;
+        z-index: 111;
+        background: #fff;
+        left: 0;
+    }
+
+    #topbar #topbar-menu .logo-wrapper > li {
+        float: left;
+    }
+
+    #topbar #topbar-menu .logo-wrapper > li.btn-menu-toggle {
+        position: absolute !important;
+        right: 0 !important;
+    }
+
+    #topbar #topbar-menu .logo-wrapper > li.btn-menu-toggle #menu-toggle {
+        border: none;
+    }
+
+    #topbar #topbar-menu .logo-wrapper > li.btn-menu-toggle #menu-toggle i {
+        font-size: 14px;
+    }
+
+    #topbar #topbar-menu .logo-wrapper > li a#logo {
+        display: inline-block;
+        position: static;
+        padding: 0;
+    }
+
+    #topbar #topbar-menu .navbar-left {
+        margin: 0;
+        float: left;
+        margin-top: 60px;
+        width: 55%;
+    }
+
+    #topbar #topbar-menu .navbar-left > li {
+        float: right;
+        height: 45px !important;
+        display: inline-block;
+    }
+
+    #topbar #topbar-menu .navbar-left > li > a {
+        display: inline-block;
+        padding: 15px !important;
+    }
+
+    #topbar #topbar-menu .navbar-left > li > a > i {
+        font-size: 15px !important;
+    }
+
+    #topbar #topbar-menu .navbar-left > li > ul {
+        position: absolute;
+        background: #fff;
+    }
+
+    #topbar #topbar-menu .navbar-left > li > ul.dropdown-menu {
+        border: 1px solid #DDDDDD;
+        box-shadow: none !important;
+    }
+
+    #topbar #topbar-menu .navbar-left > li > ul.dropdown-alerts {
+        left: -45px;
+    }
+
+    #topbar #topbar-menu .navbar-left > li > ul.dropdown-task {
+        left: -92px;
+    }
+
+    #topbar #topbar-menu .navbar-right {\
+        margin: 0;
+        margin-top: 60px;
+        padding-right: 0;
+        float: right;
+    }
+
+    #topbar #topbar-menu .navbar-right > li {
+        height: 45px !important;
+        display: inline-block;
+        text-align:right;
+    }
+
+    #topbar #topbar-menu .navbar-right > li > a {
+        display: inline-block;
+        padding: 15px !important;
+    }
+
+    #topbar #topbar-menu .navbar-right > li > a > i {
+        font-size: 15px !important;
+    }
+
+    #topbar #topbar-menu .navbar-right > li > a > span:not(.caret) {
+        font-size: 8px !important;
+        min-width: 15px;
+        top: 8px !important;
+        padding: 3px;
+    }
+
+    #topbar #topbar-menu .navbar-right > li > ul {
+        position: absolute;
+        background: #fff;
+    }
+
+    #topbar #topbar-menu .navbar-right > li > ul.dropdown-menu {
+        border: 1px solid #DDDDDD;
+        box-shadow: none !important;
+    }
+
+    #topbar #topbar-menu ul.navbar-nav.navbar-right > li > ul.dropdown-user {
+        margin: 0 10px 0 0;
+        width:300px;
+    }
+
+    #topbar #topbar-menu .navbar-right > li > ul > li .dropdown-slimscroll {
+        overflow: auto !important;
+    }
+
+    #wrapper {
+        overflow: hidden;
+    }
+
+    #wrapper .sidebar-main {
+        overflow: hidden;
+        left: -250px;
+        position: absolute;
+    }
+
+    #wrapper .page-content {
+        position: relative;
+        margin-left: 0;
+        min-height: 500px;
+    }
+
+    #wrapper .page-content .page-title-breadcrumb {
+        padding: 0 20px;
+        height: 50px;
+    }
+
+    #wrapper .page-content .page-title-breadcrumb .page-title {
+        font-size: 16px;
+        line-height: 50px;
+        padding: 0;
+    }
+
+    #wrapper .page-content .box-content {
+        min-height: 500px;
+    }
+
+    #wrapper .page-content .box-content .nav-tabs > li > a {
+        margin-bottom:0;
+        border:0;
+    }
+
+    #wrapper .page-content .box-content .pls {
+        padding-left: 15px !important;
+        margin-bottom: 15px;
+    }
+
+    #wrapper .page-content .box-content .prs {
+        padding-right: 15px !important;
+        margin-bottom: 15px;
+    }
+
+    #wrapper .page-content .box-content .col-md-6 > .panel > .panel-body,
+    #wrapper .page-content .box-content .col-sm-6 > .panel > .panel-body,
+    #wrapper .page-content .box-content .col-lg-6 > .panel > .panel-body {
+        text-align: center;
+    }
+
+    #wrapper .page-content .box-content .col-md-6 > .panel > .panel-body input,
+    #wrapper .page-content .box-content .col-sm-6 > .panel > .panel-body input,
+    #wrapper .page-content .box-content .col-lg-6 > .panel > .panel-body input {
+        width: 100% !important;
+    }
+
+    #wrapper .page-content .box-content .col-md-6 > .panel > .panel-body span.help-block-right,
+    #wrapper .page-content .box-content .col-sm-6 > .panel > .panel-body span.help-block-right,
+    #wrapper .page-content .box-content .col-lg-6 > .panel > .panel-body span.help-block-right {
+        width: 120px !important;
+    }
+
+    #wrapper .page-content .box-content .page-calendar .sidebar-left,
+    #wrapper .page-content .box-content .page-mail .sidebar-left {
+        display: block;
+        width: 100%;
+    }
+
+    #wrapper .page-content .box-content .page-calendar .sidebar-left > .sidebar-wrapper,
+    #wrapper .page-content .box-content .page-mail .sidebar-left > .sidebar-wrapper {
+        width: 100%;
+    }
+
+    #wrapper .page-content .box-content .page-calendar .sidebar-left > .sidebar-wrapper #external-events,
+    #wrapper .page-content .box-content .page-mail .sidebar-left > .sidebar-wrapper #external-events {
+        left: 48px;
+    }
+
+    #wrapper .page-content .box-content .page-calendar .calendar-main,
+    #wrapper .page-content .box-content .page-mail .calendar-main,
+    #wrapper .page-content .box-content .page-calendar .mail-main,
+    #wrapper .page-content .box-content .page-mail .mail-main {
+        margin-left: 15px;
+        display: block;
+    }
+
+    #wrapper .page-content .box-content .page-calendar .calendar-main #calendar > .fc-header,
+    #wrapper .page-content .box-content .page-mail .calendar-main #calendar > .fc-header,
+    #wrapper .page-content .box-content .page-calendar .mail-main #calendar > .fc-header,
+    #wrapper .page-content .box-content .page-mail .mail-main #calendar > .fc-header {
+        position: relative;
+    }
+
+    #wrapper .page-content .box-content .page-calendar .calendar-main #calendar > .fc-header .fc-header-left,
+    #wrapper .page-content .box-content .page-mail .calendar-main #calendar > .fc-header .fc-header-left,
+    #wrapper .page-content .box-content .page-calendar .mail-main #calendar > .fc-header .fc-header-left,
+    #wrapper .page-content .box-content .page-mail .mail-main #calendar > .fc-header .fc-header-left {
+        position: absolute;
+        top: 30px;
+        font-size: 12px;
+    }
+
+    #wrapper .page-content .box-content .page-calendar .calendar-main #calendar > .fc-header .fc-header-right,
+    #wrapper .page-content .box-content .page-mail .calendar-main #calendar > .fc-header .fc-header-right,
+    #wrapper .page-content .box-content .page-calendar .mail-main #calendar > .fc-header .fc-header-right,
+    #wrapper .page-content .box-content .page-mail .mail-main #calendar > .fc-header .fc-header-right {
+        position: absolute;
+        top: 30px;
+        right: 57px;
+        font-size: 12px;
+    }
+
+    #wrapper .page-content .box-content .page-calendar .calendar-main #calendar > .fc-content,
+    #wrapper .page-content .box-content .page-mail .calendar-main #calendar > .fc-content,
+    #wrapper .page-content .box-content .page-calendar .mail-main #calendar > .fc-content,
+    #wrapper .page-content .box-content .page-mail .mail-main #calendar > .fc-content {
+        margin-top: 27px;
+    }
+
+    #wrapper .page-content .box-content .page-calendar .mail-main,
+    #wrapper .page-content .box-content .page-mail .mail-main {
+        white-space: nowrap;
+        overflow: auto;
+    }
+
+    #wrapper .page-content .box-content .page-calendar .mail-main .list-group.mail-box a.list-group-item,
+    #wrapper .page-content .box-content .page-mail .mail-main .list-group.mail-box a.list-group-item {
+        display: table-row;
+        vertical-align: inherit;
+        border-color: inherit;
+    }
+
+    #wrapper .page-content .box-content .page-calendar .mail-main .list-group.mail-box a.list-group-item > .row > div,
+    #wrapper .page-content .box-content .page-mail .mail-main .list-group.mail-box a.list-group-item > .row > div {
+        display: table-cell;
+    }
+
+    #wrapper .page-content .demo-general .panel-body span.label {
+        margin-left: 2px;
+        font-size: 8px;
+    }
+
+    #wrapper .page-content .demo-toastr .btn {
+        display: inline-block;
+        margin-top: 10px;
+    }
+
+    #wrapper .page-content .page-profile #tab-about .st-section {
+        font-size: 10px;
+    }
+
+    #wrapper .page-content .page-profile #tab-about .st-section img {
+        width: 28px;
+    }
+
+    #wrapper .page-content .page-profile #tab-about .st-section .tr-head {
+        font-size: 10px;
+    }
+
+    #wrapper .page-content .page-profile #tab-about .st-section > button {
+        width: 30px;
+        height: 20px;
+        font-size: 10px;
+        padding: 0;
+    }
+
+    #wrapper .page-content .page-profile #tab-mail {
+        text-align: center;
+    }
+
+    #wrapper .page-content .page-profile #tab-mail .input-group.pull-right {
+        margin-top: 10px;
+    }
+
+    #wrapper .page-content .page-profile #tab-mail .list-group.mail-box {
+        text-align: left;
+    }
+
+    #wrapper .page-content .wizard-wrapper .navbar-inner:after {
+        display: none;
+    }
+
+    #wrapper .page-content .wizard-wrapper .navbar-inner ul:after {
+        right: -15px;
+    }
+
+    #wrapper .page-content .wizard-wrapper .navbar-inner ul li:last-child.active a:before {
+        width: 36px;
+        height: 35px;
+        position: absolute;
+        content: "";
+        background: #2196f3;
+        right: -17px;
+        top: 7px;
+        transform: rotate(45deg);
+        z-index: 1;
+        display: block;
+    }
+
+    #wrapper .page-content .wizard-wrapper .navbar-inner ul li:last-child:hover a:before {
+        background: #0c7cd5;
+    }
+
+    #wrapper .page-content .wizard-wrapper .navbar-inner ul li a i {
+        font-size: 20px;
+        margin: 0;
+        position: relative;
+        z-index: 11;
+        margin-left: 32px;
+    }
+
+    #wrapper .page-content .wizard-wrapper .navbar-inner ul li a p {
+        display: none;
+    }
+
+    #wrapper .page-content .wizard .steps > ul > li {
+        clear: both;
+        width: 100%;
+    }
+
+    #wrapper .page-content .timeline-wrapper:before {
+        left: 20px;
+    }
+
+    #wrapper .page-content .timeline-wrapper ul.timeline > li {
+        float: none;
+        width: 100%;
+        margin-top: 20px !important;
+    }
+
+    #wrapper .page-content .timeline-wrapper ul.timeline > li:nth-of-type(odd) {
+        float: none;
+    }
+
+    #wrapper .page-content .timeline-wrapper ul.timeline > li:nth-of-type(odd) .timeline-panel {
+        float: right;
+    }
+
+    #wrapper .page-content .timeline-wrapper ul.timeline > li:nth-of-type(odd) .timeline-panel:after {
+        left: -8px;
+    }
+
+    #wrapper .page-content .timeline-wrapper ul.timeline > li:nth-of-type(odd) .timeline-badge {
+        left: -11px;
+    }
+
+    #wrapper .page-content .timeline-wrapper ul.timeline > li:nth-of-type(even) .timeline-badge {
+        left: -11px;
+    }
+
+    #wrapper .page-content #map-visitor-chart .legend {
+        display: none;
+    }
+
+    #wrapper .page-content #map-visitor-markers .jvectormap-zoomin,
+    #wrapper .page-content #map-visitor-markers .jvectormap-zoomout {
+        left: 50%;
+        margin-left: -10px;
+    }
+
+    #wrapper .page-content .section.section-info .yearly-change {
+        width: 100%;
+        text-align: center;
+    }
+
+    #footer {
+        font-size: 10px;
+        padding-left: 0;
+    }
+
+    #footer .copyright {
+        overflow: hidden;
+    }
+}
+
+@media only screen and (min-width: 481px) and (max-width: 767px) {
+    #topbar {
+        height: auto;
+    }
+
+    #topbar #topbar-menu {
+        width: 100%;
+        margin: 0;
+    }
+
+    #topbar #topbar-menu .logo-wrapper {
+        border-bottom: 1px solid #eee;
+        margin: 0;
+        position: fixed;
+        top: 0;
+        width: 100% !important;
+        z-index: 111;
+        background: #fff;
+        left: 0;
+    }
+
+    #topbar #topbar-menu .logo-wrapper > li {
+        float: left;
+    }
+
+    #topbar #topbar-menu .logo-wrapper > li.btn-menu-toggle {
+        position: absolute;
+        right: 0;
+    }
+
+    #topbar #topbar-menu .logo-wrapper > li.btn-menu-toggle #menu-toggle {
+        border: none;
+    }
+
+    #topbar #topbar-menu .logo-wrapper > li.btn-menu-toggle #menu-toggle i {
+        font-size: 14px;
+    }
+
+    #topbar #topbar-menu .logo-wrapper > li a#logo {
+        display: inline-block;
+        position: static;
+        padding: 0;
+    }
+
+    #topbar #topbar-menu .navbar-left {
+        margin: 0;
+        float: left;
+        margin-top: 60px;
+        width: 55%;
+    }
+
+    #topbar #topbar-menu .navbar-left > li {
+        float: right;
+        height: 45px !important;
+        display: inline-block;
+    }
+
+    #topbar #topbar-menu .navbar-left > li > a {
+        display: inline-block;
+        padding: 15px !important;
+    }
+
+    #topbar #topbar-menu .navbar-left > li > a > i {
+        font-size: 15px !important;
+    }
+
+    #topbar #topbar-menu .navbar-left > li > ul {
+        position: absolute;
+        background: #fff;
+    }
+
+    #topbar #topbar-menu .navbar-left > li > ul.dropdown-menu {
+        border: 1px solid #DDDDDD;
+        box-shadow: none !important;
+    }
+
+    #topbar #topbar-menu .navbar-left > li > ul.dropdown-alerts {
+        left: -45px;
+    }
+
+    #topbar #topbar-menu .navbar-left > li > ul.dropdown-task {
+        left: -92px;
+    }
+
+    #topbar #topbar-menu .navbar-right {
+        margin: 0;
+        margin-top: 60px;
+        padding-right: 0;
+        float: right;
+    }
+
+    #topbar #topbar-menu .navbar-right > li {
+        height: 45px !important;
+        display: inline-block;
+    }
+
+    #topbar #topbar-menu .navbar-right > li > a {
+        display: inline-block;
+        padding: 15px !important;
+    }
+
+    #topbar #topbar-menu .navbar-right > li > a > i {
+        font-size: 15px !important;
+    }
+
+    #topbar #topbar-menu .navbar-right > li > a > span:not(.caret) {
+        font-size: 8px !important;
+        min-width: 15px;
+        top: 8px !important;
+        padding: 3px;
+    }
+
+    #topbar #topbar-menu .navbar-right > li > ul {
+        position: absolute;
+        background: #fff;
+    }
+
+    #topbar #topbar-menu .navbar-right > li > ul.dropdown-menu {
+        border: 1px solid #DDDDDD;
+        box-shadow: none !important;
+    }
+
+    #topbar #topbar-menu .navbar-right > li > ul.dropdown-user {
+        min-width: 300px !important;
+        margin: 0 10px 10px;
+        width: 100%;
+    }
+
+    #topbar #topbar-menu .navbar-right > li > ul > li .dropdown-slimscroll {
+        overflow: auto !important;
+    }
+
+    #wrapper {
+        overflow: hidden;
+    }
+
+    #wrapper .sidebar-main {
+        overflow: hidden;
+        left: -250px;
+        position: absolute;
+        display: block !important;
+    }
+
+    #wrapper .page-content {
+        position: relative;
+        margin-left: 0;
+        min-height: 0;
+    }
+
+    #wrapper .page-content .box-content {
+        min-height: 0;
+    }
+
+    #wrapper .page-content .box-content .ztree {
+        display: inline-block;
+    }
+
+    #wrapper .page-content .box-content #icons-tab > li > a {
+        padding: 5px !important;
+    }
+
+    #wrapper .page-content .box-content .pls {
+        padding-left: 15px !important;
+        margin-bottom: 15px;
+    }
+
+    #wrapper .page-content .box-content .prs {
+        padding-right: 15px !important;
+        margin-bottom: 15px;
+    }
+
+    #wrapper .page-content .box-content .col-md-6 > .panel > .panel-body,
+    #wrapper .page-content .box-content .col-sm-6 > .panel > .panel-body,
+    #wrapper .page-content .box-content .col-lg-6 > .panel > .panel-body {
+        text-align: center;
+    }
+
+    #wrapper .page-content .box-content .col-md-6 > .panel > .panel-body > .btn-toolbar,
+    #wrapper .page-content .box-content .col-sm-6 > .panel > .panel-body > .btn-toolbar,
+    #wrapper .page-content .box-content .col-lg-6 > .panel > .panel-body > .btn-toolbar {
+        display: inline-block;
+    }
+
+    #wrapper .page-content .box-content .col-md-6 > .panel > .panel-body input,
+    #wrapper .page-content .box-content .col-sm-6 > .panel > .panel-body input,
+    #wrapper .page-content .box-content .col-lg-6 > .panel > .panel-body input {
+        width: 100% !important;
+    }
+
+    #wrapper .page-content .box-content .col-md-6 > .panel > .panel-body span.help-block-right,
+    #wrapper .page-content .box-content .col-sm-6 > .panel > .panel-body span.help-block-right,
+    #wrapper .page-content .box-content .col-lg-6 > .panel > .panel-body span.help-block-right {
+        width: 120px !important;
+    }
+
+    #wrapper .page-content .page-calendar .sidebar-left,
+    #wrapper .page-content .page-mail .sidebar-left {
+        display: block;
+        width: 100%;
+    }
+
+    #wrapper .page-content .page-calendar .sidebar-left > .sidebar-wrapper,
+    #wrapper .page-content .page-mail .sidebar-left > .sidebar-wrapper {
+        width: 100%;
+    }
+
+    #wrapper .page-content .page-calendar .calendar-main,
+    #wrapper .page-content .page-mail .calendar-main,
+    #wrapper .page-content .page-calendar .mail-main,
+    #wrapper .page-content .page-mail .mail-main {
+        margin-left: 15px;
+        display: block;
+    }
+
+    #wrapper .page-content .wizard-wrapper .navbar-inner ul li a i {
+        font-size: 20px;
+        margin: 0;
+        position: relative;
+        z-index: 11;
+        display: none;
+    }
+
+    #wrapper .page-content .wizard-wrapper .navbar-inner ul li a p {
+        font-size: 10px;
+        margin: 10px 0 0 20px;
+        position: relative;
+        z-index: 11;
+    }
+
+    #wrapper .page-content #map-visitor-chart .legend > div,
+    #wrapper .page-content #map-visitor-chart .legend > table {
+        bottom: auto !important;
+        left: 60% !important;
+    }
+
+    #footer {
+        font-size: 10px;
+        padding-left: 0;
+    }
+
+    #footer .copyright {
+        overflow: hidden;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+    #menu-toggle {
+        border: none;
+        height: 50px;
+        margin-left: 10px;
+    }
+
+    #menu-toggle i {
+        font-size: 16px;
+    }
+
+    #wrapper {
+        overflow: hidden;
+    }
+
+    #wrapper .sidebar-main {
+        overflow: hidden;
+        left: -250px;
+        position: absolute;
+    }
+
+    #wrapper .page-content {
+        position: relative;
+        margin-left: 0;
+    }
+
+    #wrapper .page-content .ztree {
+        display: inline-block;
+    }
+
+    #wrapper .page-content #icons-tab > li > a {
+        padding: 5px !important;
+    }
+
+    #wrapper .page-content .pls {
+        padding-left: 15px !important;
+        margin-bottom: 15px;
+    }
+
+    #wrapper .page-content .prs {
+        padding-right: 15px !important;
+        margin-bottom: 15px;
+    }
+
+    #wrapper .page-content .col-md-6 > .panel > .panel-body,
+    #wrapper .page-content .col-sm-6 > .panel > .panel-body,
+    #wrapper .page-content .col-lg-6 > .panel > .panel-body {
+        text-align: center;
+    }
+
+    #wrapper .page-content .col-md-6 > .panel > .panel-body > .btn-toolbar,
+    #wrapper .page-content .col-sm-6 > .panel > .panel-body > .btn-toolbar,
+    #wrapper .page-content .col-lg-6 > .panel > .panel-body > .btn-toolbar {
+        display: inline-block;
+    }
+
+    #wrapper .page-content .col-md-6 > .panel > .panel-body input,
+    #wrapper .page-content .col-sm-6 > .panel > .panel-body input,
+    #wrapper .page-content .col-lg-6 > .panel > .panel-body input {
+        width: 100% !important;
+    }
+
+    #wrapper .page-content .col-md-6 > .panel > .panel-body span.help-block-right,
+    #wrapper .page-content .col-sm-6 > .panel > .panel-body span.help-block-right,
+    #wrapper .page-content .col-lg-6 > .panel > .panel-body span.help-block-right {
+        width: 120px !important;
+    }
+
+    #wrapper .page-content .page-calendar .sidebar-left,
+    #wrapper .page-content .page-mail .sidebar-left {
+        display: block;
+        width: 100%;
+    }
+
+    #wrapper .page-content .page-calendar .sidebar-left > .sidebar-wrapper,
+    #wrapper .page-content .page-mail .sidebar-left > .sidebar-wrapper {
+        width: 100%;
+    }
+
+    #wrapper .page-content .page-calendar .calendar-main,
+    #wrapper .page-content .page-mail .calendar-main,
+    #wrapper .page-content .page-calendar .mail-main,
+    #wrapper .page-content .page-mail .mail-main {
+        margin-left: 15px;
+        display: block;
+    }
+
+    #wrapper .page-content .wizard-wrapper .navbar-inner ul li a i {
+        font-size: 20px;
+        margin: 0;
+        position: relative;
+        z-index: 11;
+    }
+
+    #wrapper .page-content .wizard-wrapper .navbar-inner ul li a p {
+        font-size: 10px;
+        margin-left: 5px;
+        position: relative;
+        z-index: 11;
+    }
+
+    #wrapper .page-content #map-visitor-chart {
+        margin-bottom: 10px;
+    }
+
+    #wrapper .page-content #map-visitor-chart .legend > div,
+    #wrapper .page-content #map-visitor-chart .legend > table {
+        bottom: auto !important;
+        left: 60% !important;
+    }
+
+    #footer {
+        padding-left: 0px;
+    }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
+    .demo-general .panel-body span.label {
+        margin-left: 2px;
+        font-size: 8px;
+    }
+
+    .wizard-wrapper .navbar-inner ul li a i {
+        font-size: 20px;
+        margin: 0;
+        position: relative;
+        z-index: 11;
+    }
+
+    .wizard-wrapper .navbar-inner ul li a p {
+        font-size: 10px;
+        margin-left: 5px;
+        position: relative;
+        z-index: 11;
+    }
+}

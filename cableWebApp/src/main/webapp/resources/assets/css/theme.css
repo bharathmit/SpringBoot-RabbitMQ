@@ -1,0 +1,629 @@
+.ui-datatable thead th, .ui-datatable tbody td, .ui-datatable tfoot td {
+	border-bottom: 1px solid #e5e5e5 !important;
+	line-height: 14px;
+	overflow: hidden;
+	padding: 8px 10px;
+}
+.tamil, .tamil-field .ui-message-error-detail 	{
+   font-size:88% !important;
+    }
+.ui-widget-content {
+	border: medium none;
+	color: #777;
+}
+.ui-state-default {
+	box-shadow: none !important;
+}
+.ui-state-default, .ui-widget-content .ui-state-default,
+	.ui-widget-header {
+	color: #555;
+	font-weight: bold;
+	text-shadow: none !important;
+}
+/* .ui-widget-content {
+	border-color: -moz-use-text-color -moz-use-text-color #a8a8a8 !important;
+	border-style: none none solid !important;
+	border-width: medium medium 1px !important;
+	color: #4f4f4f;
+} */
+.ui-widget-content {
+  border-color: #ccc;
+  border-radius: 0 !important;
+  border-style: solid !important;
+  border-width: 1px !important;
+  color: #4f4f4f;
+  margin: -1px 0 0;
+}
+.ui-datepicker .ui-datepicker-calendar a.ui-state-default {
+	text-align:center;
+}
+.ui-datatable thead th, .ui-datatable tbody td, .ui-datatable tfoot td {
+	border-color: -moz-use-text-color -moz-use-text-color #e5e5e5 !important;
+	border-style: none none solid !important;
+	border-width: medium medium 1px !important;
+	line-height:14px !important;
+	overflow: hidden;
+	padding:8px !important;
+}
+.ui-datatable thead th, .ui-datatable tfoot td {
+	padding:10px 8px !important;
+}
+.ui-datatable tbody td.col-40px-center {
+	text-align:center;
+}
+thead tr th {
+	border-bottom: 1px solid #a8a8a8 !important;
+}
+.ui-datatable-odd {
+	background: #f9f9f9 !important;
+}
+.ui-state-highlight, .ui-widget-content .ui-state-highlight,
+	.ui-widget-header .ui-state-highlight {
+	background: none repeat scroll 0 0 #ebe9e9 !important;
+	border: 1px solid #666666;
+	color: #4f4f4f;
+	text-shadow: none !important;
+}
+
+.10per {
+	width: 10%;
+}
+
+.20per {
+	width: 20%;
+}
+
+.30per {
+	width: 30%;
+}
+
+.40per {
+	width: 40%;
+}
+.ui-paginator.ui-paginator-bottom.ui-widget-header.ui-corner-bottom {
+	background: none repeat scroll 0 0 rgba(0, 0, 0, 0) !important;
+	border: medium none !important;
+}
+.ui-paginator span.ui-paginator-pages {
+	padding:0px;
+	vertical-align: top;
+}
+.ui-paginator .ui-state-default, .ui-paginator .ui-widget-content .ui-state-default, .ui-paginator .ui-widget-header .ui-state-default {
+	border-color:#fff;
+}
+.ui-paginator span.ui-paginator-pages span.ui-paginator-page {
+	font-size: 13px;
+	font-weight: normal;
+	height: 22px;
+	margin-top:0px;
+	padding: 0 6px;
+}
+tr:hover {
+	background: none repeat scroll 0 0 #f5f5f5 !important;
+}
+.ui-paginator-rpp-options {
+	float: left;
+	margin-top: 0px;
+	margin-left: 0 !important;
+	padding: 5px;
+}
+
+/** form validation **/
+.ui-state-error, .ui-widget-content .ui-state-error, .ui-widget-header .ui-state-error
+	{
+	background: none repeat scroll 0 0 rgba(0, 0, 0, 0) !important;
+	color: #a94442;
+}
+
+.form-group .ui-messages-error, .ui-message-error {
+	background-color: transparent !important;
+	border-color: transparent !important;
+	color: #a94442 !important;
+}
+
+.form-group .ui-message-error .ui-message-error-icon {
+	display: none !important;
+}
+
+.ui-messages-info-detail, .ui-messages-warn-detail,
+	.ui-messages-error-detail, .ui-messages-fatal-detail,
+	.ui-message-info-detail, .ui-message-warn-detail,
+	.ui-message-error-detail, .ui-message-fatal-detail {
+	margin: 0!importatant;
+	position: relative!importatant;
+	right: 10px!importatant;
+}
+.form-group .ui-message-error {
+	margin: 0;
+	padding: 0;
+}
+.form-group .ui-message-error .ui-message-error-detail {
+	margin: 0 !important;
+}
+.ui-growl {
+	width: auto !important;
+}
+.ui-growl-item {
+	padding: 0 !important;
+}
+.ui-growl-item-container {
+	background: none !important;
+}
+.ui-growl-item-container .ui-shadow {
+	box-shadow: none !important;
+}
+
+.ui-shadow {
+	box-shadow: none !important;
+}
+
+.ui-growl-message {
+	width: auto !important;
+	padding: 10px 10px 10px;
+	border: 1px solid #E5C0A9 !important;
+}
+
+.ui-growl-title {
+	padding-bottom: 0;
+	padding-left: 35px !important;
+	padding-right: 0;
+	padding-top: 0;
+	font-weight: normal;
+}
+
+.ui-growl-item-container {
+	border: medium none !important;
+}
+
+/*** for warning **/
+.ui-growl-image-warn {
+	display: none !important;
+}
+
+.ui-growl-image-warn+.ui-growl-message {
+	background: #FBDDCA;
+	border:1px solid #E5C0A9 !important;
+	background-image: url("../images/exclamation.png") !important;
+	background-position: 15px center;
+	background-repeat: no-repeat;
+}
+
+.ui-growl-image-warn+.ui-growl-message .ui-growl-title {
+	color: #d27637 !important;
+}
+
+/*** for success **/
+.ui-growl-image-info {
+	display: none !important;
+}
+
+.ui-growl-image-info+.ui-growl-message {
+	background: #dff0d8;
+	border: 1px solid #BAD3AF !important;
+	background-image: url("../images/success.png") !important;
+	background-position: 15px center;
+	background-repeat: no-repeat;
+}
+
+.ui-growl-image-info+.ui-growl-message .ui-growl-title {
+	color: #07bf29 !important;
+}
+
+/*** for failure **/
+.ui-growl-image-error {
+	display: none !important;
+}
+
+.ui-growl-image-error+.ui-growl-message {
+	background: #f2d9d7;
+	border: 1px solid #ea2e49 !important;
+	background-image: url("../images/error.png") !important;
+	background-position: 15px center;
+	background-repeat: no-repeat;
+}
+
+.ui-growl-image-error+.ui-growl-message .ui-growl-title {
+	color: #ea2e49 !important;
+}
+
+/** for radio buttom **/
+.ui-helper-hidden-accessible+.ui-radiobutton .ui-radiobutton-box {
+	background: url("../images/blue.png") no-repeat scroll -143px 0
+		rgba(0, 0, 0, 0) !important;
+	border: medium none;
+	border-radius: 100px;
+	height: 22px;
+	width: 23px;
+}
+
+.ui-helper-hidden-accessible+.ui-radiobutton  .ui-state-highlight {
+	background: url("../images/blue.png") no-repeat scroll -167px 0
+		rgba(0, 0, 0, 0) !important;
+	border: medium none;
+	border-radius: 100px;
+	height: 22px;
+	width: 23px;
+}
+
+.ui-helper-hidden-accessible+.ui-radiobutton-box.ui-widget.ui-corner-all.ui-state-default.ui-state-active
+	{
+	/*left:3px; */
+	position: relative;
+}
+/** for requir **/
+.ui-outputlabel-rfi {
+	color: #a94442;
+}
+
+.ui-state-error + div input, .ui-state-error + div select, .ui-state-error + div textarea {
+	border: 1px solid #a94442 !important;
+}
+/* for radio btn */
+.ui-icon-bullet {
+	background-color: #fff !important;
+	background-image: none !important;
+	border: 4px solid #2196f3;
+	border-radius: 100px !important;
+	height: 16px !important;
+	left: -2px;
+	position: relative;
+	top: -1px;
+	width: 16px !important;
+}
+
+.ui-selection-column:last-child {
+	width: 6% !important;
+}
+
+.cus-tooltip {
+	background: #222;
+	padding:3px;
+	border-radius: 5px;
+	padding-left: 5px;
+	padding-right: 5px;
+	color: #fff;
+	font-size: 12px;
+	box-shadow: none !important;
+}
+
+.ui-paginator-rpp-options {
+	border-radius: 3px !important;
+}
+
+span.ui-paginator-prev, select.ui-paginator-rpp-options {
+	margin-top: 0px;
+}
+select.ui-paginator-rpp-options {
+	padding: 1px;
+	text-align:center;
+	margin-right: 0 !important;
+}
+.ui-paginator .ui-paginator-next .ui-icon, .ui-paginator .ui-paginator-prev .ui-icon, .ui-paginator .ui-paginator-first .ui-icon, .ui-paginator .ui-paginator-last .ui-icon{
+	height: 16px;
+}
+.ui-message-error-detail {
+	font-size:12px;
+}
+.ui-paginator .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+	background: #cce1eb;
+}
+.ui-widget-content .ui-radiobutton-box {
+	background:#fff !important
+}
+.ui-widget .ui-widget, .ui-widget, .ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button {
+	font-family: "Open sans", sans-serif;
+	font-size:13px;
+}
+.loading-area .ui-widget-content {
+	height: 100% !important;
+	background-color:#ffffff;
+	opacity: 0.5;
+	filter:alpha(opacity=50);
+	min-height: 800px ! important;
+	min-width: 1366px ! important;
+	width: auto;
+	height: auto;
+	border: medium none ! important;
+}
+
+/** for advance search **/
+.hasDatepicker {
+	background: none repeat scroll 0 0 #fff !important;
+	border: 1px solid #cccccc !important;
+	border-radius: 0 !important;
+}
+
+.ui-datepicker .ui-datepicker-header {
+	background: none repeat scroll 0 0 #fff !important;
+	border-left: medium none;
+	border-radius: 0;
+	border-right: medium none;
+	border-top: medium none;
+}
+
+.ui-datepicker td span, .ui-datepicker td a.ui-state-default {
+	border: none !important;
+	color: #666 !important;
+	/*background:none repeat scroll 0 0 #ccf1ff !important;*/
+}
+
+.ui-datepicker-calendar tr td a:hover {
+	background: #333 !important;
+	color: #fff !important;
+}
+
+.ui-inputfield {
+	color: #666 !important;
+	font-weight: normal !important;
+}
+
+a, a:visited, a:focus, a:active, a:hover {
+	outline: 0 none !important;
+}
+
+input {
+	outline: 0 none !important;
+}
+
+.ui-paginator-rpp-options {
+	border: medium none !important;
+	float: left !important;
+	margin-left: 0 !important;
+	margin-top: 10px;
+	padding: 0;
+}
+
+.bootstrap-select:not ([class*="col-"] ):not ([class*="form-control"] ):not
+	(.input-group-btn ) {
+	width: auto;
+}
+
+.loading-area {
+	background-attachment: scroll;
+	background-clip: border-box;
+	background-color:transparent;
+	background-image: url("../images/Processing.gif");
+	background-origin: padding-box;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: auto auto;
+	height: 100% !important;
+	margin-left:0;
+	opacity: 0.8 !important;
+	filter: alpha(opacity=80) !important;
+	width:auto !important;
+}
+/* Datatable header design removal */
+.table_ui .ui-datatable-header.ui-widget-header {
+	background: none repeat scroll 0 0 #fff;
+	border: medium none !important;
+	text-align: left;
+}
+.ui-datatable-tablewrapper {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border:1px solid #ddd;
+}
+.ui-datatable-tablewrapper table .ui-widget-content {
+	border-width:1px 0px 1px 1px !important;
+}
+
+.ui-datatable thead th {
+	background: #37474F !important;
+	/* background: #587E91 !important; */
+	color : #ffffff;
+	font-weight: normal;
+	color: #ffffff;
+}
+
+.ui-datatable thead th:first-child {
+	border-radius: 5px 0 0;
+}
+
+.ui-datatable thead th:last-child {
+	border-radius: 0 5px 0 0;
+}
+
+#show-search {
+	padding-left: 28px;
+	padding-right: 10px;
+}
+
+.main-search .advance-action-block {
+	bottom: 0;
+	position: absolute;
+	right: 0;
+}
+
+.ui-datatable-footer.ui-widget-header.ui-corner-bottom {
+	background: none repeat scroll 0 0 #eee !important;
+	border: medium none !important;
+	text-align: right;
+}
+
+.total-amount-text {
+	color: #000;
+	font-size: 14px !important;
+	margin-right: 15px;
+	margin-bottom:0;
+}
+
+.total-amount-value {
+	font-size:14px;
+	padding:0px;
+	font-weight:normal;
+	text-align: right;
+	vertical-align:top;
+}
+
+.Beneficiary-details .col-md-3 {
+	background: none repeat scroll 0% 0% rgb(238, 238, 238);
+	border: 1px solid rgb(255, 255, 255);
+}
+
+.ui-paginator.ui-paginator-bottom.ui-widget-header.ui-corner-bottom {
+	background:#37474f !important;
+	color: #fff !important;
+}
+
+.ui-paginator-rpp-options {
+	color: #fff;
+}
+
+.ui-datatable .ui-paginator {
+	padding: 8px;
+}
+
+.operation-date input {
+	width: 100%
+}
+
+/** for godown Inward page table header **/
+.ui-datatable-header.ui-widget-header.ui-corner-top {
+	border: medium none !important;
+	text-align: left;
+}
+
+.ui-inputfield {
+	color: #666 !important;
+	font-weight: normal !important;
+	width: 100%;
+}
+
+/** for time picker **/
+.cus-time-picker.ui-corner-all {
+	border-radius: 0 !important;
+	margin: 0 1%;
+	width: 32%;
+}
+
+.cus-time-picker.ui-corner-all input {
+	border: 1px solid #dddddd !important;
+	border-radius: 0 !important;
+}
+
+.cus-time-picker-select {
+	background: none repeat scroll 0 0 #fff;
+	border: 1px solid #cccccc;
+	padding: 3px 4px 4px;
+}
+
+.cus-time-picker a {
+	border: none !important;
+}
+
+/******* for input-text-icons ********/
+.input-icon-username {
+	padding-left: 30px;
+}
+.input-icon-phone {
+	padding-left: 35px;
+}
+.input-icon-location {
+	background-image: url("../images/map-marker.png");
+	background-position: 5px center;
+	background-repeat: no-repeat;
+	padding-left: 30px;
+}
+.ui-datatable .ui-datatable-tablewrapper thead th {
+	text-align:left
+}
+.associate {
+	text-align:center !important;
+}
+.status_col {
+	text-align:center !important
+}
+.text-right-imp {
+	text-align:right !important
+}
+.text-left-imp {
+	text-align:left !important
+}
+/*** for jsf button **/
+.ui-button.ui-state-default {
+	/* background-color: #2196f3 !important; */
+	border-color: #2196f3;
+	color: #ffffff;
+}
+
+.ui-button.ui-state-default.btn-add {
+	background-image: url("../images/icons/white/16/plus.png") !important;
+	background-position: 5px center !important;
+	background-repeat: no-repeat !important;
+}
+
+.ui-button.ui-state-default.btn-view {
+	background-image: url("../images/icons/white/16/eye.png") !important;
+	background-position: 5px center !important;
+	background-repeat: no-repeat !important;
+	margin-left: 10px !important;
+}
+.cus-model-popup .ui-widget-header {
+	background: #64b5f6;
+}
+.cus-model-popup .ui-widget-header .ui-dialog-title {
+	color:#fff
+}
+.cus-model-popup .ui-widget-header .ui-icon {
+	background: url("../images/icons/white/16/times.png") no-repeat 0 0 !important;
+	margin-top:3px;
+}
+.cus-model-popup a.ui-state-hover {
+	background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+	border: 0 none;
+	padding:1px;
+}
+.cus-model-popup .ui-dialog-content {
+	padding:10px !important;
+}
+.cus-model-popup {
+	padding:0px !important;
+	min-width: 300px !important;
+	border-color:#fff !important
+}
+
+.cus-model-popup .form-actions {
+	margin-top: 10px;
+}
+
+.cus-model-popup .ui-dialog-content.ui-widget-content {
+	border: none !important;
+}
+
+.ufc-action-block {
+	padding-top: 30px;
+}
+
+.ui-selectonemenu {
+	width: 100% !important;
+}
+
+.ui-inputfield, .ui-widget-content .ui-inputfield, .ui-widget-header .ui-inputfield
+	{
+	box-shadow: none !important;
+	color: #313131;
+}
+
+.ui-selectonemenu .ui-selectonemenu-trigger {
+	cursor: pointer;
+	height: 100%;
+	padding: 3px 5px !important;
+	position: absolute;
+	right: 0;
+	top: 0;
+	border-left:1px solid #ccc !important;
+	width: 30px !important;
+}
+
+.ui-selectonemenu-panel .ui-selectonemenu-filter-container {
+	display: inline-block;
+	margin: 0;
+	padding: 8px 0 !important;
+	position: relative;
+	width: 100% !important;
+}
+
+.ui-icon-search {
+	display: none !important;
+}

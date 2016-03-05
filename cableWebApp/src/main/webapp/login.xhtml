@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>PDS | Login</title>
+	<meta charset="utf-8" />
+	<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
+	<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+	<link href="#{request.contextPath}/images/icons/favicon.ico"
+		rel="shortcut icon" />
+	<link
+		href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,700"
+		rel="stylesheet" type="text/css" />
+	<link
+		href="#{request.contextPath}/global/vendors/font-awesome/css/font-awesome.min.css"
+		rel="stylesheet" type="text/css" />
+	<link
+		href="#{request.contextPath}/global/vendors/simple-line-icons/simple-line-icons.css"
+		rel="stylesheet" type="text/css" />
+	<link
+		href="#{request.contextPath}/global/vendors/bootstrap/css/bootstrap.min.css"
+		rel="stylesheet" type="text/css" />
+	<link href="#{request.contextPath}/global/vendors/iCheck/skins/all.css"
+		rel="stylesheet" type="text/css" />
+	<link href="#{request.contextPath}/global/css/core.css"
+		rel="stylesheet" type="text/css" />
+	<link href="#{request.contextPath}/assets/css/system.css"
+		rel="stylesheet" type="text/css" />
+	<!-- custom-->
+	<link href="#{request.contextPath}/assets/css/custom.css"
+		rel="stylesheet" type="text/css" />
+	<link type="text/css" rel="stylesheet"
+		href="http://fonts.googleapis.com/css?family=Anton" />
+	<link href="#{request.contextPath}/assets/css/custom.css"
+		rel="stylesheet" type="text/css" />
+	<link href="#{request.contextPath}/assets/css/theme.css"
+		rel="stylesheet" type="text/css" />
+	<link href="#{request.contextPath}/assets/css/custom-responsive.css"
+		rel="stylesheet" type="text/css" />
+</h:head>
+
+<h:body class="page-signin">
+	<div class="container text-center">
+		<img alt="img" src="#{request.contextPath}/assets/images/tn-logo.png"
+			class="tn-govt-logo" />
+
+		<h2 class="logo-text">Civil Supplies and Consumer Protection
+			department</h2>
+
+		<p class="tamil tamil-title">
+			<img alt="img" src="#{request.contextPath}/assets/images/tamil-txt.png" class="tn-govt-logo img-responsive" />
+		</p>
+
+	</div>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12 col-md-12 col-sm-12 ">
+				<div class="col-md-3 col-lg-4 col-sm-3"></div>
+				<div class="page-form col-lg-4 col-md-6 col-sm-6 col-xs-12">
+					<h:form class="form login-form form-control-shadow">
+						<p:growl id="growl" showDetail="true" sticky="false" life="5000" />
+						<div class="header-content text-center">
+							<h2>PDS Application</h2>
+						</div>
+						<div class="body-content">
+							<div
+								class="alert alert-danger alert-dismissible alert-custom hide"
+								role="alert">
+								<button class="close" data-dismiss="alert" type="button">
+									<span>×</span>
+								</button>
+								Enter any username and password.
+							</div>
+							<div class="list-group">
+								<div class="form-group">
+									<label class="control-label pull-left">Username</label>
+									<div class="clearfix"></div>
+									<div>
+										<p:inputText id="username" value="#{loginBean.loginDto.loginId}"
+											styleClass="form-control username" />
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label  pull-left">Password</label>
+									<div class="clearfix"></div>
+									<div>
+										<p:password id="password" value="#{loginBean.loginDto.password}"
+											styleClass="form-control password" />
+									</div>
+								</div>
+							</div>
+							<div class="form-group pull-left-not-xs text-left">
+								<label class="text-12"> <input type="checkbox"
+									class="form-control-shadow" />&nbsp; Remember me
+								</label>
+							</div>
+							<div class="form-group pull-right-not-xs text-12  text-left">
+								<a class="btn-link" href="#">Forgotten your Password?</a>
+							</div>
+
+							<div class="clearfix"></div>
+
+							<div class="row">
+								<div class="text-right col-sm-12">
+									<input type="submit" value=" Log in" jsfc="h:commandButton"
+										class="btn btn-lock btn-xs cus-btn btn-info"
+										action="#{loginBean.submit}" update="growl"> </input>
+								</div>
+							</div>
+						</div>
+					</h:form>
+				</div>
+				<div class="col-md-3 col-lg-4 col-sm-3"></div>
+			</div>
+		</div>
+	</div>
+	<div class="container-fluid login-form-footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-4 col-md-4 col-sm-4 text-left">
+					<p class="text-12">
+						Contents owned and updated by concerned Departments and
+						coordinated by Information Technology Department, <br />Secretariat,
+						Fort St. George, Chennai 600 009, Tamil Nadu, India
+					</p>
+				</div>
+				<div class="col-lg-4 col-md-4 col-sm-4"></div>
+				<div class="col-lg-4 col-md-4 col-sm-4 pull-right-not-xs">
+					<ul class="list-unstyled text-12">
+						<li><strong>Help Desk - 1800-123-456-789</strong></li>
+						<li>E-Mail: webadmin.tn@nic.in</li>
+						<li>
+						<a href="#">Disclaimer | </a>
+						<a href="#">Privacy Policy | </a>
+						<a href="#">Terms of Use</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="#{request.contextPath}/global/js/jquery-1.10.2.min.js"></script>
+	<script
+		src="#{request.contextPath}/global/js/jquery-migrate-1.2.1.min.js"></script>
+	<script src="#{request.contextPath}/global/js/jquery-ui.js"></script>
+	<script
+		src="#{request.contextPath}/global/vendors/bootstrap/js/bootstrap.min.js"></script>
+	<script
+		src="#{request.contextPath}/global/vendors/bootstrap-hover-dropdown/bootstrap-hover-dropdown.js"></script>
+	<script src="#{request.contextPath}/global/js/html5shiv.js"></script>
+	<script src="#{request.contextPath}/global/js/respond.min.js"></script>
+	<script
+		src="#{request.contextPath}/global/vendors/iCheck/icheck.min.js"></script>
+	<script
+		src="#{request.contextPath}/global/vendors/iCheck/custom.min.js"></script>
+	<!--CORE JAVASCRIPT-->
+	<script src="#{request.contextPath}/global/js/core.js"></script>
+	<script src="#{request.contextPath}/assets/js/system.js"></script>
+
+</h:body>
+</html>

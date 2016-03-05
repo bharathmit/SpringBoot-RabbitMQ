@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config
+    xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_0.xsd" version="2.0">
+    
+    <application>
+		<el-resolver>org.springframework.web.jsf.el.SpringBeanFacesELResolver</el-resolver>
+		
+		<locale-config>
+     	        <default-locale>en_IN</default-locale>
+     	        <supported-locale>ta_IN</supported-locale>
+     	</locale-config>
+		
+		<resource-bundle>
+			<base-name>com.cable.app.localization.messages</base-name>
+			<var>msg</var>
+	   </resource-bundle>
+		
+	</application>
+	
+	<converter>
+	    <converter-id>pickListConverter</converter-id>
+	    <converter-class>com.cable.app.util.PickListConverter</converter-class>
+	</converter>
+	
+	
+
+</faces-config>

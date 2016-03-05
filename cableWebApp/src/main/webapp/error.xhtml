@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui" template="/template/layout.xhtml">
+
+	<ui:define name="content">
+
+		<h:form id="form">
+			<p:growl id="growl"  showDetail="true" sticky="false" life="5000"/>
+
+			<!--BEGIN PAGE CONTENT-->
+			
+					<div class="page-content">
+						<div class="content text-center">
+    <br/>
+    <i class="fa fa-warning fa-5x"></i>
+    <br/>
+            <div class="header-content"><h2 style="font-size: 50px">404</h2><h4>This is not the web page you are looking
+            for.</h4>
+  <!--  <input type="submit" href="#{request.contextPath}/pages/login.xhtml" class="btn btn-lg btn-info" value="Go Back" style="border-radius: 5px ! important; padding: 12px; width: 140px; margin-top: 25px;"/>  -->
+    <input type="submit" value="Go Back" jsfc="h:commandButton"
+							class="btn btn-lg btn-info" style="border-radius: 5px ! important; padding: 12px; width: 140px; margin-top: 25px;"
+							action="#{loginBean.goToErrorPage}" />
+          </div>
+          </div>
+					</div>
+
+			
+			<!--END PAGE CONTENT-->
+
+
+
+		</h:form>
+	</ui:define>
+
+</ui:composition>

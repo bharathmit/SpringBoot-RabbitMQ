@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui" template="/template/layout.xhtml">
+
+	<ui:define name="content">
+
+		<h:form id="form">
+			<p:growl id="growl" showDetail="true" sticky="false" life="5000"
+				globalOnly="true" />
+
+			<!--BEGIN PAGE CONTENT-->
+			<div class="page-content">
+				<!--BEGIN TITLE & BREADCRUMB PAGE-->
+
+				<div class="page-title-breadcrumb">
+
+					<div class="page-header pull-left">
+
+						<div class="page-title">Area List</div>
+					</div>
+
+					<ol class="breadcrumb page-breadcrumb hidden-xs">
+
+						<li><i class="fa fa-home" />&nbsp; <p:commandLink
+								action="#{loginBean.goToHome}" immediate="true" value="Home"
+								styleClass="submenu-title">
+
+								<f:setPropertyActionListener
+									target="#{loginBean.activeMainMenu}" value="" />
+								<f:setPropertyActionListener target="#{loginBean.activeSubMenu}"
+									value="" />
+
+							</p:commandLink> &nbsp;&nbsp;<i class="fa fa-angle-right" />&nbsp;&nbsp;</li>
+
+						<li class="active">Areas</li>
+					</ol>
+				</div>
+				<!--END TITLE & BREADCRUMB PAGE-->
+
+				<div class="box-content">
+					<!--BEGIN CONTENT-->
+
+					<div class="content">
+
+						<div class="row">
+
+							<div class="col-md-12">
+
+								<div class="panel">
+
+									<div class="panel-body">
+
+										<div class="row">
+
+											<div class="col-md-12">
+
+												<!-- Advance Search started  -->
+												<div id="accordion"
+													class="panel-group accordion custom-accordion">
+													<div class="panel cus-grey-block">
+														<div class="panel-heading">
+															<h5 class="panel-title">
+																<a data-toggle="collapse" data-parent="#accordion"
+																	href="#collapseOne" class="accordion-toggle collapsed">
+																	<i class="fa fa-search right-smspace"></i> Search <i
+																	class="fa fa-caret-down top-smspace pull-right"></i>
+																</a>
+															</h5>
+														</div>
+														<div id="collapseOne" class="panel-collapse collapse"
+															style="height: 0px;">
+															<div class="panel-body marg-bot-15">
+																<div class="row">
+																	<div class="col-md-12 col-sm-12 col-lg-12">
+																		<div class="col-md-4 col-sm-4 col-lg-4 col-xs-4">
+																			<div class="form-group">
+																				<label class="control-label"> Project Name</label>
+																				<h:inputText
+																					value="#{areaBean.masterSearch.projectName}"
+																					class="form-control " />
+																			</div>
+																		</div>
+																		<div class="col-md-4 col-sm-4 col-lg-4 col-xs-4">
+																			<div class="form-group">
+																				<label class="control-label">Area Name</label>
+																				<h:inputText
+																					value="#{areaBean.masterSearch.areaName}"
+																					class="form-control " />
+																			</div>
+																		</div>
+																		<div
+																		class="col-md-4 col-sm-4 col-lg-4 text-center top-bigmspace">
+																		<h:commandButton value="Clear"
+																			class="btn btn-clear btn-xs cus-btn btn-info"
+																			actionListener="#{areaBean.clearSearch}">
+																			<f:setPropertyActionListener
+																				target="#{areaBean.action}" value="View" />
+																			</h:commandButton>
+																		&nbsp;
+																		<h:commandButton value="Search" update="growl"
+																			class="btn btn-info btn-sm cus-btn btn-search"
+																			actionListener="#{areaBean.showAreaList}">
+																			<f:setPropertyActionListener
+																				target="#{areaBean.action}" value="Search" />
+																			<p:ajax process="@this form" 
+																				update="areatable" ></p:ajax>
+																		</h:commandButton>
+
+																	</div>
+																		
+																		
+																	</div>
+																	<div class="visible-xs clearfix"></div>
+																	
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+												<!-- Advance Search ended  -->
+
+												<div class="" id="viewcode-table-advanced">
+
+													<div class="table_ui">
+
+														<div class="row">
+
+															<div class="col-lg-6 solrting-blk">
+
+																<div class="col-md-6"></div>
+															</div>
+
+															<div class="col-lg-6">
+
+																<div class="panel pull-right">
+																	<input type="submit" value=" Add"
+																		jsfc="h:commandButton"
+																		class="btn btn-info  cus-btn btn-sm btn-add"
+																		action="#{areaBean.showAreaForm}"
+																		update="growl"> <f:setPropertyActionListener
+																			target="#{areaBean.action}" value="Add" />
+																	</input> &nbsp; <input type="submit" value="Edit"
+																		jsfc="h:commandButton"
+																		class="btn btn-info  cus-btn btn-sm btn-edit"
+																		action="#{areaBean.showAreaForm}"
+																		update="growl"> <f:setPropertyActionListener
+																			target="#{areaBean.action}" value="Edit" />
+																	</input> &nbsp; <input type="submit" value="View"
+																		jsfc="h:commandButton"
+																		class="btn btn-info  cus-btn btn-sm btn-view"
+																		action="#{areaBean.showAreaForm}"
+																		update="growl"> <f:setPropertyActionListener
+																			target="#{areaBean.action}" value="View" />
+																	</input>
+
+																</div>
+															</div>
+														</div>
+														<p:dataTable id="areatable"
+															value="#{areaBean.areaList}" var="itdis"
+															selection="#{areaBean.areaSelected}"
+															currentPageReportTemplate="{currentPage} / {totalPages}"
+															rowKey="#{itdis}" rows="20" paginator="true"
+															paginatorPosition="bottom" rowIndexVar="idx"
+															paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+															rowsPerPageTemplate="20,50,100" lazy="true"
+															styleClass="marginbottom">
+															<f:facet class="red" name="header">
+																<p:outputLabel value="Total: "
+																	rendered="#{areaBean.action ne 'Search'}" />
+																<p:outputLabel value="Searched: "
+																	rendered="#{areaBean.action eq 'Search'}" />
+																<em><p:outputLabel styleClass="text-info"
+																		value="#{areaBean.numberOfRecords} Areas"></p:outputLabel></em>
+															</f:facet>
+															<p:column headerText="#" styleClass="text-left-imp">
+																<h:outputText value="#{idx+1}" />
+															</p:column>
+
+															<p:column headerText="Project Name"
+																sortBy="#{itdis.project.projectName}" styleClass="text-left-imp">
+																<h:outputText value="#{itdis.project.projectName}" />
+															</p:column>
+
+															<p:column headerText="Area Name" sortBy="#{itdis.areaName}">
+																<h:outputText
+																	value="#{itdis.areaName}" />
+															</p:column>
+															
+															<p:column headerText="Status"
+																styleClass="text-left #{itdis.status eq 'Active'? 'text-success' : 'text-danger'}"
+																sortBy="#{itdis.status}">
+																<h:outputText
+																	value="#{itdis.status}" />
+															</p:column>
+
+															<p:column headerText="Select" selectionMode="single"
+																styleClass="associate" />
+														</p:dataTable>
+
+
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!--END CONTENT-->
+				</div>
+			</div>
+
+
+
+
+
+
+			<!--END PAGE CONTENT-->
+
+
+
+		</h:form>
+		<script>
+			$("title").html("Cable | Area Lists");
+		</script>
+	</ui:define>
+
+</ui:composition>

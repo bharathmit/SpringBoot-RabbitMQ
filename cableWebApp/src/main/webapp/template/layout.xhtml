@@ -1,0 +1,781 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions">
+<h:head>
+	<title>Cable-TV</title>
+
+	<meta charset="utf-8" />
+
+	<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
+
+	<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+	<link href="#{request.contextPath}/images/icons/favicon.ico"
+		rel="shortcut icon" />
+	<link href="#{request.contextPath}/images/icons/favicon.png"
+		rel="apple-touch-icon" />
+	<link href="#{request.contextPath}/images/icons/favicon-72x72.png"
+		sizes="72x72" rel="apple-touch-icon" />
+	<link href="#{request.contextPath}/images/icons/favicon-114x114.png"
+		sizes="114x114" rel="apple-touch-icon" />
+	<link
+		href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,700"
+		rel="stylesheet" type="text/css" />
+	<link
+		href="#{request.contextPath}/global/vendors/font-awesome/css/font-awesome.min.css"
+		rel="stylesheet" type="text/css" />
+	<link
+		href="#{request.contextPath}/global/vendors/simple-line-icons/simple-line-icons.css"
+		rel="stylesheet" type="text/css" />
+	<link
+		href="#{request.contextPath}/global/vendors/bootstrap/css/bootstrap.min.css"
+		rel="stylesheet" type="text/css" />
+	<link
+		href="#{request.contextPath}/global/vendors/animate.css/animate.css"
+		rel="stylesheet" type="text/css" />
+	<link href="#{request.contextPath}/global/vendors/iCheck/skins/all.css"
+		rel="stylesheet" type="text/css" />
+	<link
+		href="#{request.contextPath}/assets/vendors/bootstrap-switch/css/bootstrap-switch.css"
+		rel="stylesheet" type="text/css" />
+	<link
+		href="#{request.contextPath}/assets/vendors/google-code-prettify/prettify.css"
+		rel="stylesheet" type="text/css" />
+	<link id="font-layout" href="" rel="stylesheet" type="text/css" />
+	<link
+		href="#{request.contextPath}/assets/vendors/jquery-jvectormap/jquery-jvectormap-2.0.1.css"
+		rel="stylesheet" type="text/css" />
+	<link href="#{request.contextPath}/global/css/core.css"
+		rel="stylesheet" type="text/css" />
+	<link href="#{request.contextPath}/assets/css/system.css"
+		rel="stylesheet" type="text/css" />
+	<link href="#{request.contextPath}/assets/css/system-responsive.css"
+		rel="stylesheet" type="text/css" />
+	<link href="#{request.contextPath}/assets/css/theme.css"
+		rel="stylesheet" type="text/css" />
+	<link href="#{request.contextPath}/assets/css/custom.css"
+		rel="stylesheet" type="text/css" />
+	<link href="#{request.contextPath}/assets/css/custom-responsive.css"
+		rel="stylesheet" type="text/css" />
+	<link href="#{request.contextPath}/assets/css/color-skin.css"
+		rel="stylesheet" type="text/css" />
+	<link href="#{request.contextPath}/assets/css/bootstrap-select.css"
+		rel="stylesheet" type="text/css" />
+	<script src="#{request.contextPath}/global/js/jquery-1.10.2.min.js"></script>
+	<script src="#{request.contextPath}/global/js/jquery-ui.js"></script>
+	<script
+		src="#{request.contextPath}/global/vendors/bootstrap/js/bootstrap.min.js"></script>
+	<p:ajaxStatus onstart="dlg.show()" onsuccess="dlg.hide()" />
+
+
+</h:head>
+<h:body class="sidebar-color-grey font-source-sans-pro ">
+	<script>
+		$(".request-block").click(function() {
+
+			if ($(this).find('.request-block li input').hasClass('active')) {
+				//console.log("Active class seen");
+				$(this).find('.request-block li input').removeClass('active');
+				$(this).addClass('active');
+			}
+		});
+	</script>
+
+	<!--Modal Default-->
+	<div class="fluid">
+		<!--BEGIN TEMPLATE SETTING-->
+		<h:form id="form" class="form-search">
+
+			<div class="hidden-xs hidden-sm">
+
+				<div id="template-setting">
+
+					<div class="content-template-setting">
+
+						<div class="pull-right">
+
+							<div class="make-switch switch-small" data-off="default"
+								data-on="success" id="setting-sidebar-collapsed">
+								<input type="checkbox" class="switch" />
+							</div>
+						</div>
+
+						<div class="mbm clearfix"></div>
+					</div>
+				</div>
+			</div>
+
+			<!--END TEMPLATE SETTING-->
+			<!--BEGIN TOPBAR-->
+
+			<div class="page-header-topbar">
+				<nav class="navbar navbar-default container pln prn"
+					role="navigation" id="topbar">
+
+				<div class="container-fluid pln prn">
+
+					<div class="navbar-collapse pln prn" id="topbar-menu">
+
+						<ul class="nav navbar-nav logo-wrapper">
+
+							<li class="btn-menu-toggle">
+
+								<div class="show-collapsed" id="menu-toggle">
+									<i class="fa fa-bars" />
+								</div>
+							</li>
+
+							<li class="pull-left"><a class="pan" href="#" id="logo"><img
+									src="#{request.contextPath}/assets/images/logo2.png" alt="" /></a></li>
+						</ul>
+
+
+						<ul class="nav navbar-nav navbar-right">
+
+							<li class="dropdown"><a class="dropdown-toggle" href="#"
+								data-toggle="dropdown"><i class="icon-user" />&nbsp;<span
+									class="caret" /></a>
+
+								<ul class="dropdown-menu dropdown-user">
+
+									<li>
+
+										<div class="navbar-content">
+
+											<div class="row">
+
+												<div class="col-md-5 col-xs-5">
+													<img class="img-responsive img-circle" alt=""
+														src="#{request.contextPath}/assets/images/user-placeholder.jpg" />
+
+													<p class="text-center mtm">
+														<a class="change-avatar" href="#"> <small> </small>
+														</a>
+													</p>
+												</div>
+
+												<div class="col-md-7 col-xs-5">
+													<span><p:outputLabel
+															value="#{loginBean.loginResponse.user.firstName}"></p:outputLabel></span>
+
+													<p class="text-muted small">
+														<p:outputLabel value="#{loginBean.loginResponse.user.userId}"></p:outputLabel>
+													</p>
+
+													<div class="divider" />
+													<a href="#"> <h:commandButton
+															action="#{userDetailBean.showUserForm}" immediate="true"
+															value="Edit Profile" styleClass="btn btn-default btn-sm">
+															<f:setPropertyActionListener
+																target="#{userDetailBean.action}" value="Edit" />
+															<f:setPropertyActionListener
+																target="#{userDetailBean.isProfile}" value="true" />
+															<f:setPropertyActionListener
+																target="#{loginBean.activeMainMenu}" value="Users" />
+															<f:setPropertyActionListener
+																target="#{loginBean.activeSubMenu}" value="Users" />
+														</h:commandButton>
+													</a>
+												</div>
+											</div>
+										</div>
+
+										<div class="navbar-footer">
+
+											<div class="navbar-footer-content">
+
+												<div class="row">
+
+													<div class="col-md-6 col-xs-6">
+														<a href="#"> <h:commandButton
+																action="#{userDetailBean.showUserForm}" immediate="true"
+																value="Change Password"
+																styleClass="btn btn-default btn-sm">
+																<f:setPropertyActionListener
+																	target="#{userDetailBean.action}" value="Edit" />
+																<f:setPropertyActionListener
+																	target="#{userDetailBean.isProfile}" value="true" />
+																<f:setPropertyActionListener
+																	target="#{loginBean.activeMainMenu}" value="Users" />
+																<f:setPropertyActionListener
+																	target="#{loginBean.activeSubMenu}" value="Users" />
+															</h:commandButton>
+														</a>
+													</div>
+
+													<div class="col-md-6 col-xs-6">
+														<a href="#"> <h:commandButton value="Sign Out"
+																immediate="true" class="btn btn-info btn-sm pull-right"
+																action="#{loginBean.logout}" update="growl" />
+														</a>
+													</div>
+												</div>
+											</div>
+										</div>
+									</li>
+								</ul></li>
+						</ul>
+					</div>
+				</div>
+				</nav>
+			</div>
+
+			<!--END HORIZONTAL MENU-->
+
+			<div id="wrapper">
+				<!--BEGIN PAGE WRAPPER-->
+
+				<div id="page-wrapper">
+					<!--BEGIN SIDEBAR MAIN-->
+
+					<div class="sidebar-main sidebar">
+
+						<div class="sidebar-collapse sidebar-scroll">
+
+							<ul class="nav" id="sidebar-main">
+
+								<li class="sidebar-search">
+
+
+									<div class="input-icon right">
+										<i class="icon-magnifier" /><input type="text"
+											class="form-control" placeholder="Search..." />
+
+									</div>
+								</li>
+								<li
+									class="#{loginBean.activeMainMenu eq 'TV Connection' ? 'active open' : ''}"><a
+									href="#"> <i class="icon-home" /> <span class="menu-title">TV Connection</span> <span class="arrow"></span>
+								</a>
+
+									<ul
+										class="#{loginBean.activeMainMenu eq 'TV Connection' ? 'nav nav-second-level collapse in' : 'nav nav-second-level collapse'}">
+
+										<li
+											class="#{loginBean.activeSubMenu eq 'Connection List' ? 'active' : ''}"><h:commandLink
+												action="#{connectionBean.showAccountList}"
+												immediate="true" value="Connection List"
+												styleClass="submenu-title">
+												<i class="fa fa-angle-right"></i>
+
+												<f:setPropertyActionListener
+													target="#{connectionBean.action}" value="View" />
+												<f:setPropertyActionListener
+													target="#{loginBean.activeMainMenu}"
+													value="TV Connection" />
+												<f:setPropertyActionListener
+													target="#{loginBean.activeSubMenu}"
+													value="Connection List" />
+
+											</h:commandLink></li>
+										</ul></li>
+								<li
+									class="#{loginBean.activeMainMenu eq 'Report' ? 'active open' : ''}">
+									<a href="#"> <i class="icon-grid"></i> <span
+										class="menu-title">Report</span> <span class="arrow"></span></a>
+									<ul
+										class="#{loginBean.activeMainMenu eq 'Report' ? 'nav nav-second-level collapse in' : 'nav nav-second-level collapse'}">
+										<li
+											class="#{loginBean.activeSubMenu eq 'Reports' ? 'active' : ''}">
+											<h:commandLink action="#{godownBean.showGodownList}"
+												immediate="true" value="Reports" styleClass="submenu-title">
+												<i class="fa fa-angle-right"></i>
+
+												<f:setPropertyActionListener
+													target="#{loginBean.activeMainMenu}" value="Report" />
+												<f:setPropertyActionListener
+													target="#{loginBean.activeSubMenu}" value="Reports" />
+											</h:commandLink>
+										</li>
+
+									</ul>
+								</li>
+								<li
+									class="#{loginBean.activeMainMenu eq 'Payment' ? 'active open' : ''}"><a
+									href="#"><i class="icon-handbag" /><span
+										class="menu-title">Payment</span><span class="arrow" /></a>
+									<ul
+										class="#{loginBean.activeMainMenu eq 'Payment' ? 'nav nav-second-level collapse in' : 'nav nav-second-level collapse'}">
+										<li
+											class="#{loginBean.activeSubMenu eq 'Device List' ? 'active' : ''}"><h:commandLink
+												action="#{deviceBean.showDeviceList}" immediate="true"
+												value="Device List " styleClass="submenu-title">
+												<i class="fa fa-angle-right"></i>
+												<f:setPropertyActionListener target="#{deviceBean.action}"
+													value="View" />
+												<f:setPropertyActionListener
+													target="#{loginBean.activeMainMenu}" value="FPS" />
+												<f:setPropertyActionListener
+													target="#{loginBean.activeSubMenu}" value="Device List" />
+											</h:commandLink></li>
+										<li
+											class="#{loginBean.activeSubMenu eq 'SIM List' ? 'active' : ''}"><h:commandLink
+												action="#{simBean.showSimList}" immediate="true"
+												value="SIM List " styleClass="submenu-title">
+												<i class="fa fa-angle-right"></i>
+
+												<f:setPropertyActionListener target="#{simBean.action}"
+													value="View" />
+												<f:setPropertyActionListener
+													target="#{loginBean.activeMainMenu}" value="FPS" />
+												<f:setPropertyActionListener
+													target="#{loginBean.activeSubMenu}" value="SIM List" />
+											</h:commandLink></li>
+										<li
+											class="#{loginBean.activeSubMenu eq 'Device Registration' ? 'active' : ''}"><h:commandLink
+												action="#{deviceRegistrationBean.showDeviceRegistrationList}"
+												immediate="true" value="Device Registration "
+												styleClass="submenu-title">
+												<i class="fa fa-angle-right"></i>
+
+												<f:setPropertyActionListener
+													target="#{loginBean.activeMainMenu}" value="FPS" />
+												<f:setPropertyActionListener
+													target="#{loginBean.activeSubMenu}"
+													value="Device Registration" />
+											</h:commandLink></li>
+										<li
+											class="#{loginBean.activeSubMenu eq 'Store List' ? 'active' : ''}"><h:commandLink
+												action="#{fpsStoreBean.showFpsStoreList}" value="Store List"
+												immediate="true" styleClass="submenu-title">
+												<i class="fa fa-angle-right"></i>
+												<f:setPropertyActionListener target="#{fpsStoreBean.action}"
+													value="View" />
+												<f:setPropertyActionListener
+													target="#{loginBean.activeMainMenu}" value="FPS" />
+												<f:setPropertyActionListener
+													target="#{loginBean.activeSubMenu}" value="Store List" />
+											</h:commandLink></li>
+										<li
+											class="#{loginBean.activeSubMenu eq 'Sales Transaction' ? 'active' : ''}"><h:commandLink
+												action="#{fpsTransactionBean.showFpsTransactionList}"
+												value="Sales Transaction" immediate="true"
+												styleClass="submenu-title">
+												<i class="fa fa-angle-right"></i>
+
+												<f:setPropertyActionListener
+													target="#{fpsTransactionBean.action}" value="View" />
+												<f:setPropertyActionListener
+													target="#{loginBean.activeMainMenu}" value="FPS" />
+												<f:setPropertyActionListener
+													target="#{loginBean.activeSubMenu}"
+													value="Sales Transaction" />
+											</h:commandLink></li>
+										<li
+											class="#{loginBean.activeSubMenu eq 'Stock Receipt' ? 'active' : ''}"><h:commandLink
+												action="#{fPSStockInwardBean.showFPSStockInwardList}"
+												value="Stock Receipt" immediate="true"
+												styleClass="submenu-title">
+												<i class="fa fa-angle-right"></i>
+
+												<f:setPropertyActionListener
+													target="#{fPSStockInwardBean.action}" value="View" />
+												<f:setPropertyActionListener
+													target="#{loginBean.activeMainMenu}" value="FPS" />
+												<f:setPropertyActionListener
+													target="#{loginBean.activeSubMenu}" value="Stock Receipt" />
+											</h:commandLink></li>
+										<li
+											class="#{loginBean.activeSubMenu eq 'Opening Stock' ? 'active' : ''}"><h:commandLink
+												action="#{fpsStockHistoryBean.showFpsStockHistoryList}"
+												value="Opening Stock" immediate="true"
+												styleClass="submenu-title">
+												<i class="fa fa-angle-right"></i>
+
+												<f:setPropertyActionListener
+													target="#{loginBean.activeMainMenu}" value="FPS" />
+												<f:setPropertyActionListener
+													target="#{loginBean.activeSubMenu}" value="Opening Stock" />
+
+											</h:commandLink></li>
+										<li
+											class="#{loginBean.activeSubMenu eq 'Stock' ? 'active' : ''}"><h:commandLink
+												action="#{fpsStockBean.showFpsStockList}" value="Stock"
+												immediate="true" styleClass="submenu-title">
+												<i class="fa fa-angle-right"></i>
+
+												<f:setPropertyActionListener
+													target="#{loginBean.activeMainMenu}" value="FPS" />
+												<f:setPropertyActionListener
+													target="#{loginBean.activeSubMenu}" value="Stock" />
+
+											</h:commandLink></li>
+
+									</ul></li>
+
+								<li
+									class="#{loginBean.activeMainMenu eq 'Masters' ? 'active open' : ''}"><a
+									href="#"><i class="icon-layers" /><span class="menu-title">Masters</span>
+										<span class="arrow"></span> </a>
+
+									<ul
+										class="#{loginBean.activeMainMenu eq 'Masters' ? 'nav nav-second-level collapse in' : 'nav nav-second-level collapse'}">
+
+										<li
+											class="#{loginBean.activeSubMenu eq 'Organization' ? 'active' : ''}">
+
+											<h:commandLink action="#{organizationBean.getOrganizationValue}"
+												value="Organization" immediate="true" id="state"
+												styleClass="submenu-title ">
+												<i class="fa fa-angle-right"></i>
+												<f:setPropertyActionListener
+													target="#{organizationBean.action}" value="View" />
+												<f:setPropertyActionListener
+													target="#{loginBean.activeMainMenu}" value="Masters" />
+
+												<f:setPropertyActionListener
+													target="#{loginBean.activeSubMenu}" value="Organization" />
+											</h:commandLink>
+
+
+
+										</li>
+
+										<li
+											class="#{loginBean.activeSubMenu eq 'Project' ? 'active' : ''}">
+
+											<h:commandLink
+												action="#{projectBean.showProjectList}"
+												value="Project " immediate="true" id="project"
+												styleClass="submenu-title ">
+												<i class="fa fa-angle-right"></i>
+												<f:setPropertyActionListener
+													target="#{projectBean.action}" value="View" />
+												<f:setPropertyActionListener
+													target="#{loginBean.activeMainMenu}" value="Masters" />
+												<f:setPropertyActionListener
+													target="#{loginBean.activeSubMenu}" value="Project" />
+											</h:commandLink>
+										</li>
+
+										<li
+											class="#{loginBean.activeSubMenu eq 'ZipCode' ? 'active' : ''}"><h:commandLink
+												action="#{zipCodeBean.getZipCodeValue}" value="ZipCode "
+												immediate="true" id="zipcode" styleClass="submenu-title">
+												<i class="fa fa-angle-right"></i>
+												<f:setPropertyActionListener
+													target="#{zipCodeBean.action}" value="View" />
+												<f:setPropertyActionListener
+													target="#{loginBean.activeMainMenu}" value="Masters" />
+												<f:setPropertyActionListener
+													target="#{loginBean.activeSubMenu}" value="ZipCode" />
+											</h:commandLink></li>
+										<li
+											class="#{loginBean.activeSubMenu eq 'Area' ? 'active' : ''}"><h:commandLink
+												action="#{areaBean.showAreaList}"
+												immediate="true" value="Area " id="area"
+												styleClass="submenu-title">
+												<i class="fa fa-angle-right"></i>
+												<f:setPropertyActionListener
+													target="#{areaBean.action}" value="View" />
+												<f:setPropertyActionListener
+													target="#{loginBean.activeMainMenu}" value="Masters" />
+												<f:setPropertyActionListener
+													target="#{loginBean.activeSubMenu}" value="Area" />
+											</h:commandLink></li>
+										<li
+											class="#{loginBean.activeSubMenu eq 'Street' ? 'active' : ''}"><h:commandLink
+												action="#{streetBean.showStreetList}"
+												immediate="true" value="Street " id="street"
+												styleClass="submenu-title">
+												<i class="fa fa-angle-right"></i>
+												<f:setPropertyActionListener
+													target="#{streetBean.action}" value="View" />
+												<f:setPropertyActionListener
+													target="#{loginBean.activeMainMenu}" value="Masters" />
+												<f:setPropertyActionListener
+													target="#{loginBean.activeSubMenu}" value="Street" />
+											</h:commandLink></li>
+										
+										
+
+									</ul></li>
+
+
+								<li
+									class="#{loginBean.activeMainMenu eq 'Users' ? 'active open' : ''}"><a
+									href="#"><i class="icon-users" /><span class="menu-title">Users</span>
+										<span class="arrow"></span></a>
+									<ul
+										class="#{loginBean.activeMainMenu eq 'Users' ? 'nav nav-second-level collapse in' : 'nav nav-second-level collapse'}">
+										<li
+											class="#{loginBean.activeSubMenu eq 'Users' ? 'active' : ''}"><h:commandLink
+												action="#{userBean.showUserList}" value="Users"
+												immediate="true" styleClass="submenu-title">
+												<i class="fa fa-angle-right"></i>
+												<f:setPropertyActionListener
+													target="#{userBean.action}" value="View" />
+												<f:setPropertyActionListener
+													target="#{loginBean.activeMainMenu}" value="Users" />
+												<f:setPropertyActionListener
+													target="#{loginBean.activeSubMenu}" value="Users" />
+
+											</h:commandLink></li>
+									</ul></li>
+
+
+								
+
+								<li
+									class="#{loginBean.activeMainMenu eq 'Key Management' ? 'active open' : ''}"><a
+									href="#"><i class="icon-key" /><span class="menu-title">Key
+											Management</span> <span class="arrow"></span> </a>
+									<ul
+										class="#{loginBean.activeMainMenu eq 'Key Management' ? 'nav nav-second-level collapse in' : 'nav nav-second-level collapse'}">
+										<li
+											class="#{loginBean.activeSubMenu eq 'MasterKey' ? 'active' : ''}"><h:commandLink
+												action="#{masterKeyBean.showMasterKeyList}"
+												value="MasterKey" immediate="true"
+												styleClass="submenu-title">
+												<i class="fa fa-angle-right"></i>
+												<f:setPropertyActionListener
+													target="#{userDetailBean.action}" value="View" />
+												<f:setPropertyActionListener
+													target="#{loginBean.activeMainMenu}" value="Key Management" />
+												<f:setPropertyActionListener
+													target="#{loginBean.activeSubMenu}" value="MasterKey" />
+
+											</h:commandLink></li>
+										<li
+											class="#{loginBean.activeSubMenu eq 'MasterKey' ? 'active' : ''}"><h:commandLink
+												action="#{keyBean.showKeyList}" value="Key" immediate="true"
+												styleClass="submenu-title">
+												<i class="fa fa-angle-right"></i>
+												<f:setPropertyActionListener target="#{keyBean.action}"
+													value="View" />
+												<f:setPropertyActionListener
+													target="#{loginBean.activeMainMenu}" value="Key Management" />
+												<f:setPropertyActionListener
+													target="#{loginBean.activeSubMenu}" value="Key" />
+
+											</h:commandLink></li>
+									</ul></li>
+								<li
+									class="#{loginBean.activeMainMenu eq 'Notification' ? 'active open' : ''}"><a
+									href="#"><i class="icon-screen-smartphone" /><span
+										class="menu-title">Notification</span> <span class="arrow"></span>
+								</a>
+									<ul
+										class="#{loginBean.activeMainMenu eq 'Notification' ? 'nav nav-second-level collapse in' : 'nav nav-second-level collapse'}">
+										<li
+											class="#{loginBean.activeSubMenu eq 'SMS Providers' ? 'active' : ''}"><h:commandLink
+												action="#{sMSProviderBean.showSMSProviderList}"
+												value="SMS Providers" immediate="true"
+												styleClass="submenu-title">
+												<i class="fa fa-angle-right"></i>
+												<f:setPropertyActionListener target="#{keyBean.action}"
+													value="View" />
+												<f:setPropertyActionListener
+													target="#{loginBean.activeMainMenu}" value="Notification" />
+												<f:setPropertyActionListener
+													target="#{loginBean.activeSubMenu}" value="SMS Providers" />
+
+											</h:commandLink></li>
+									</ul>
+									<ul
+										class="#{loginBean.activeMainMenu eq 'Notification' ? 'nav nav-second-level collapse in' : 'nav nav-second-level collapse'}">
+										<li
+											class="#{loginBean.activeSubMenu eq 'SMS Template' ? 'active' : ''}"><h:commandLink
+												action="#{sMSTemplateBean.showSMSTemplateList}"
+												value="SMS Template" immediate="true"
+												styleClass="submenu-title">
+												<i class="fa fa-angle-right"></i>
+												<f:setPropertyActionListener target="#{keyBean.action}"
+													value="View" />
+												<f:setPropertyActionListener
+													target="#{loginBean.activeMainMenu}" value="Notification" />
+												<f:setPropertyActionListener
+													target="#{loginBean.activeSubMenu}" value="SMS Template" />
+											</h:commandLink></li>
+									</ul></li>
+								<li><a href="#"><i class="icon-pie-chart" /><span
+										class="menu-title">UFC</span> <span class="arrow"></span> </a>
+									<ul
+										class="#{loginBean.activeMainMenu eq 'UFC' ? 'nav nav-second-level collapse in' : 'nav nav-second-level collapse'}">
+										<li
+											class="#{loginBean.activeSubMenu eq 'Generate' ? 'active' : ''}"><h:commandLink
+												action="#{generateUFCBean.showGenerateUFC}" value="Generate"
+												immediate="true" styleClass="submenu-title">
+												<i class="fa fa-angle-right"></i>
+												<f:setPropertyActionListener
+													target="#{generateUFCBean.action}" value="View" />
+												<f:setPropertyActionListener
+													target="#{loginBean.activeMainMenu}" value="UFC" />
+												<f:setPropertyActionListener
+													target="#{loginBean.activeSubMenu}" value="Generate" />
+
+											</h:commandLink></li>
+
+									</ul></li>
+								<li><a href="#"><i class="icon-share" /><span
+										class="menu-title">Stock Allotment</span> <span class="arrow"></span>
+								</a>
+									<ul
+										class="#{loginBean.activeMainMenu eq 'Stock Allotment' ? 'nav nav-second-level collapse in' : 'nav nav-second-level collapse'}">
+										<li
+											class="#{loginBean.activeSubMenu eq 'Allotment' ? 'active' : ''}"><h:commandLink
+												action="#{fPSStockAllotmentBean.showFPSStockAllotmentList}"
+												value="Allotment" immediate="true"
+												styleClass="submenu-title">
+												<i class="fa fa-angle-right"></i>
+												<f:setPropertyActionListener
+													target="#{fPSStockAllotmentBean.action}" value="View" />
+												<f:setPropertyActionListener
+													target="#{loginBean.activeMainMenu}"
+													value="Stock Allotment" />
+												<f:setPropertyActionListener
+													target="#{loginBean.activeSubMenu}" value="Allotment" />
+
+											</h:commandLink></li>
+
+									</ul>
+									<ul
+										class="#{loginBean.activeMainMenu eq 'Stock Allotment' ? 'nav nav-second-level collapse in' : 'nav nav-second-level collapse'}">
+										<li
+											class="#{loginBean.activeSubMenu eq 'History' ? 'active' : ''}"><h:commandLink
+												action="#{fPSStockAllotmentHistoryBean.showFPSStockAllotmentHistoryList}"
+												value="History" immediate="true" styleClass="submenu-title">
+												<i class="fa fa-angle-right"></i>
+												<f:setPropertyActionListener
+													target="#{fPSStockAllotmentHistoryBean.action}"
+													value="View" />
+												<f:setPropertyActionListener
+													target="#{loginBean.activeMainMenu}"
+													value="Stock Allotment" />
+												<f:setPropertyActionListener
+													target="#{loginBean.activeSubMenu}" value="History" />
+											</h:commandLink></li>
+
+									</ul></li>
+							</ul>
+						</div>
+					</div>
+					<!--END SIDEBAR MAIN-->
+
+					<!--BEGIN PAGE CONTENT-->
+					<ui:insert name="content">
+						<div class="page-content">
+							<!--BEGIN TITLE & BREADCRUMB PAGE-->
+
+							<div class="page-title-breadcrumb">
+
+								<div class="page-header pull-left">
+
+									<div class="page-title">Masters</div>
+								</div>
+							</div>
+							<!--END TITLE & BREADCRUMB PAGE-->
+
+							<div class="box-content">
+								<!--BEGIN CONTENT-->
+
+								<div class="content">
+
+									<h2>Sample text</h2>
+								</div>
+								<!--END CONTENT-->
+							</div>
+						</div>
+					</ui:insert>
+					<!--END PAGE CONTENT-->
+				</div>
+				<!--END PAGE WRAPPER-->
+			</div>
+			<!--BEGIN FOOTER-->
+
+			<div id="footer">
+
+				<div class="copyright">
+
+					<div class="text-left">©2015 Cable-TV</div>
+				</div>
+			</div>
+		</h:form>
+		<p:dialog widgetVar="dlg" id="progress" styleClass="loading-area"
+			style="opacity:0.5;" showHeader="false">
+
+		</p:dialog>
+		<!--END FOOTER-->
+	</div>
+
+
+
+	<script
+		src="#{request.contextPath}/global/js/jquery-migrate-1.2.1.min.js"></script>
+	<script
+		src="#{request.contextPath}/global/vendors/bootstrap-hover-dropdown/bootstrap-hover-dropdown.js"></script>
+	<script src="#{request.contextPath}/global/js/html5shiv.js"></script>
+	<script src="#{request.contextPath}/global/js/respond.min.js"></script>
+	<script
+		src="#{request.contextPath}/global/vendors/metisMenu/jquery.metisMenu.js"></script>
+	<script
+		src="#{request.contextPath}/global/vendors/slimScroll/jquery.slimscroll.js"></script>
+	<script
+		src="#{request.contextPath}/global/vendors/iCheck/icheck.min.js"></script>
+	<script
+		src="#{request.contextPath}/global/vendors/iCheck/custom.min.js"></script>
+	<script
+		src="#{request.contextPath}/assets/vendors/bootstrap-switch/js/bootstrap-switch.min.js"></script>
+	<script
+		src="#{request.contextPath}/assets/vendors/google-code-prettify/prettify.js"></script>
+	<script
+		src="#{request.contextPath}/assets/vendors/jquery-cookie/jquery.cookie.js"></script>
+	<script src="#{request.contextPath}/assets/vendors/jquery.pulsate.js"></script>
+	<!--LOADING SCRIPTS FOR PAGE-->
+	<script
+		src="#{request.contextPath}/assets/vendors/jquery-jvectormap/jquery-jvectormap-2.0.1.min.js"></script>
+	<script
+		src="#{request.contextPath}/assets/vendors/jquery-jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+	<script
+		src="#{request.contextPath}/assets/vendors/jquery-jvectormap/jquery-jvectormap-us-lcc-en.js"></script>
+	<script
+		src="#{request.contextPath}/assets/vendors/jquery-jvectormap/gdp-data.js"></script>
+
+	<script
+		src="#{request.contextPath}/assets/vendors/jquery-animateNumber/jquery.animateNumber.min.js"></script>
+	<script
+		src="#{request.contextPath}/assets/vendors/jquery.sparkline.min.js"></script>
+	<script src="#{request.contextPath}/assets/vendors/skycons/skycons.js"></script>
+	<script src="#{request.contextPath}/assets/js/index.js"></script>
+	<!--CORE JAVASCRIPT-->
+	<script src="#{request.contextPath}/global/js/core.js"></script>
+	<script src="#{request.contextPath}/assets/js/system-layout.js"></script>
+	<script src="#{request.contextPath}/assets/js/jquery-responsive.js"></script>
+	<script src="#{request.contextPath}/assets/js/bootstrap-select.js"></script>
+	<script>
+		$('.selectpicker').selectpicker();
+	</script>
+	<script>
+		jQuery(document).ready(function() {
+			"use strict";
+			JQueryResponsive.init();
+			Layout.init();
+		});
+	</script>
+	<script>
+			function isAlphabetKey(evt) {
+				var theEvent = evt || window.event;
+				var key = theEvent.keyCode || theEvent.which;
+
+				var keychar = String.fromCharCode(key);
+				var keycheck = /[a-zA-Z]|\+/;
+
+				if (!(key == 8 || key == 27 || key == 46 || key == 9 || key == 45)) // backspace delete  escape arrows
+				{
+					if (!keycheck.test(keychar)) {
+						theEvent.returnValue = false;//for IE
+						if (theEvent.preventDefault)
+							theEvent.preventDefault();//Firefox
+
+					}
+				}
+			}
+		</script>
+</h:body>
+</html>

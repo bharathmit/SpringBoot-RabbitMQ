@@ -1,0 +1,1684 @@
+.border-circle {
+  -webkit-border-radius: 50% !important;
+  -moz-border-radius: 50% !important;
+  border-radius: 50% !important;
+}
+.clear {
+  display: block;
+  overflow: hidden;
+}
+body {
+  font-family: 'Lato', sans-serif;
+}
+.frontend-one-page {
+  background-color: #ffffff;
+  /*****
+  Begin Header
+  *****/
+  /*****
+  End Header
+  *****/
+  /*****
+  Begin Menu
+  *****/
+  /*****
+  End Menu
+  *****/
+  /*****
+  Begin Section
+  *****/
+  /*****
+  End Section
+  *****/
+  /*****
+  Begin Footer
+  *****/
+  /*****
+  End Footer
+  *****/
+  /*****
+  Begin Page Loader
+  *****/
+  /*****
+  End Page Loader
+  *****/
+  /*****
+Begin Theme Setting
+*****/
+  /*****
+  End Theme Setting
+  *****/
+  /*****
+  Begin Back To Top
+  *****/
+  /*****
+  End Back To Top
+  *****/
+}
+.frontend-one-page .bg-overlay {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+.frontend-one-page .bg-overlay.pattern {
+  background-color: rgba(178, 145, 6, 0.3);
+}
+.frontend-one-page .bg-overlay.no-overlay {
+  background-color: transparent;
+}
+.frontend-one-page header {
+  display: block;
+  background: url(http://next-themes.com/mtek/code/frontend/assets/images/banner_1.jpg) no-repeat center bottom fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+  z-index: 110 !important;
+}
+.frontend-one-page header .navbar .space-right > a {
+  margin-right: 150px ;
+}
+.frontend-one-page header .navbar .space-left > a {
+  margin-left: 150px ;
+}
+.frontend-one-page header .intro {
+  display: table;
+  width: 100%;
+  height: auto;
+  padding: 18% 0 20%;
+  text-align: center;
+  color: #fff;
+  z-index: 111 !important;
+}
+.frontend-one-page header .intro .intro-body #slide-intro {
+  padding: 0 20%;
+}
+.frontend-one-page header .intro .intro-body #slide-intro h1 {
+  font-size: 350%;
+  font-weight: 300;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.frontend-one-page header .intro .intro-body #slide-intro h1 #rotate {
+  display: inline-block;
+  font-weight: bold;
+  margin-left: 10px;
+}
+.frontend-one-page header .intro .intro-body #slide-intro .intro-text {
+  font-size: 140%;
+}
+.frontend-one-page header .intro .intro-body .section-next {
+  margin-top: 20px;
+}
+.frontend-one-page header .intro .intro-body .section-next a {
+  color: #ffffff;
+  font-size: 20px;
+  margin-right: 20px;
+}
+.frontend-one-page header .intro .intro-body .section-next a:last-child {
+  margin-right: 0;
+}
+.frontend-one-page .navbar-custom {
+  padding: 23px 0;
+  border-bottom: 0;
+  letter-spacing: 1px;
+  background-color: #fff;
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2) !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2) !important;
+  -webkit-transition: background 0.2s ease-in-out, padding 0.2s ease-in-out;
+  -moz-transition: background 0.2s ease-in-out, padding 0.2s ease-in-out;
+  transition: background 0.2s ease-in-out, padding 0.2s ease-in-out;
+}
+.frontend-one-page .navbar-custom a#logo {
+  position: absolute;
+  margin: 0 auto;
+  text-align: center;
+  top: 15px;
+  left: 50%;
+  margin-left: -98px;
+  z-index: 999;
+  -webkit-transition: width 0.2s ease-in-out, top 0.2s ease-in-out;
+  -moz-transition: width 0.2s ease-in-out, top 0.2s ease-in-out;
+  transition: width 0.2s ease-in-out, top 0.2s ease-in-out;
+}
+.frontend-one-page .navbar-custom ul.main-menu li a {
+  color: #777777;
+  font-size: 18px;
+}
+.frontend-one-page .navbar-custom ul.main-menu li a:hover,
+.frontend-one-page .navbar-custom ul.main-menu li a:focus {
+  background-color: transparent;
+  color: #f8d026;
+}
+.frontend-one-page .navbar-custom ul.main-menu li.active a {
+  background: transparent;
+  color: #f8d026;
+}
+.frontend-one-page .navbar-custom ul.main-menu li.open a {
+  background-color: transparent;
+  color: #f8d026;
+}
+.frontend-one-page .navbar-custom ul.main-menu li .dropdown-menu {
+  left: 0;
+  right: auto;
+  padding: 0;
+  margin-top: 10px;
+}
+.frontend-one-page .navbar-custom ul.main-menu li .dropdown-menu li a {
+  color: #777777 !important;
+}
+.frontend-one-page .navbar-custom ul.main-menu li .dropdown-menu li a:hover,
+.frontend-one-page .navbar-custom ul.main-menu li .dropdown-menu li a:focus {
+  background-color: #f1f1f1;
+}
+.frontend-one-page .navbar-custom.top-nav-collapse {
+  padding: 0;
+  background-color: #ffffff;
+}
+.frontend-one-page .navbar-custom.top-nav-collapse #logo {
+  width: 150px;
+  top: 0;
+  margin-left: -75px;
+}
+.frontend-one-page .section-content {
+  padding-top: 70px;
+  padding-bottom: 70px;
+  background-color: #ffffff;
+}
+.frontend-one-page .section-content .section-heading {
+  font-size: 45px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #000000;
+  margin-bottom: 20px;
+  margin-top: 10px;
+  text-align: center;
+}
+.frontend-one-page .section-content .section-heading span {
+  color: #f8d026;
+}
+.frontend-one-page .section-content .section-subheading {
+  font-size: 28px;
+  text-transform: uppercase;
+  color: #999999;
+  margin-bottom: 0;
+  text-align: center;
+}
+.frontend-one-page .section-content .section-description {
+  font-size: 25px;
+  font-weight: 300;
+  text-align: center;
+  padding: 0 12% 30px;
+  margin-top: 30px;
+  color: #777777;
+}
+.frontend-one-page .section-content .section-description strong {
+  color: #555555;
+  font-weight: 400;
+}
+.frontend-one-page .section-content .feature-list li {
+  margin-bottom: 25px;
+}
+.frontend-one-page .section-content .feature-list li i {
+  margin-right: 10px;
+  vertical-align: inherit;
+}
+.frontend-one-page .section-content .feature-box {
+  margin-bottom: 30px;
+}
+.frontend-one-page .section-content .feature-box h3 {
+  text-transform: uppercase;
+  color: #777777;
+}
+.frontend-one-page .section-content .feature-box h3 i {
+  margin-right: 20px;
+}
+.frontend-one-page .section-content.section-parallax {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  background-color: transparent;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+  color: #ffffff;
+}
+.frontend-one-page .section-content.section-parallax .section-heading {
+  color: #ffffff;
+}
+.frontend-one-page .section-content.section-parallax .section-description {
+  color: #FFFFFF;
+}
+.frontend-one-page .section-content.section-parallax .bg-overlay {
+  padding-top: 70px;
+  padding-bottom: 70px;
+}
+.frontend-one-page a.btn-outlined {
+  padding: 10px 20px;
+  text-transform: uppercase;
+  -webkit-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  transition: all 0.2s;
+}
+.frontend-one-page #about {
+  text-align: center;
+  background-color: transparent;
+}
+.frontend-one-page #about a .icon {
+  display: block;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 1px solid #777;
+  color: #777777;
+  text-align: center;
+  font-size: 5em;
+  line-height: 2em;
+  margin: 0 auto;
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.frontend-one-page #about a .icon:hover,
+.frontend-one-page #about a .icon:focus {
+  background: #777777;
+  color: #ffffff;
+}
+.frontend-one-page #about h3 {
+  color: #777777;
+  font-family: "Oswald", sans-serif;
+  font-weight: bold;
+  margin-bottom: 15px;
+  text-align: center;
+  font-size: 20px;
+  text-transform: uppercase;
+}
+.frontend-one-page #team {
+  background-color: #ffffff;
+}
+.frontend-one-page #team .social {
+  margin-top: 60px;
+}
+.frontend-one-page #team .social a {
+  color: #000000;
+  margin-right: 20px;
+  font-size: 22px;
+}
+.frontend-one-page #team .social a:hover {
+  color: #f8d026;
+}
+.frontend-one-page #services {
+  background: url(http://next-themes.com/mtek/code/frontend/assets/images/banner_2.jpg) no-repeat center center fixed;
+}
+.frontend-one-page #services > .bg-overlay.pattern {
+  background-color: rgba(255, 255, 255, 0.9);
+  background-image: none;
+}
+.frontend-one-page #services .section-heading {
+  color: #000000;
+}
+.frontend-one-page #services .section-description {
+  color: #777777 !important;
+}
+.frontend-one-page #services .box .box-desc {
+  color: #777777;
+}
+.frontend-one-page #work {
+  background: url(http://next-themes.com/mtek/code/frontend/assets/images/banner_2.jpg) no-repeat center center fixed;
+}
+.frontend-one-page #work > .bg-overlay.pattern {
+  background-color: rgba(178, 145, 6, 0.9);
+}
+.frontend-one-page #work .section-heading {
+  color: #ffffff;
+  font-weight: 300;
+}
+.frontend-one-page #banner {
+  background: url(http://next-themes.com/mtek/code/frontend/assets/images/about_img_2.png) no-repeat center center;
+}
+.frontend-one-page #banner h2 {
+  font-size: 50px;
+  font-weight: 300;
+  text-transform: uppercase;
+  display: inline-block;
+  color: #000000;
+  margin-bottom: 20px;
+}
+.frontend-one-page #banner p {
+  display: inline-block;
+  font-size: 20px;
+  margin-bottom: 0;
+  color: #555555;
+}
+.frontend-one-page #skills {
+  background: url(http://next-themes.com/mtek/code/frontend/assets/images/banner_2.jpg) no-repeat center center fixed;
+  min-height: 650px;
+}
+.frontend-one-page #skills .bg-overlay {
+  min-height: 650px;
+}
+.frontend-one-page #skills .bg-overlay.pattern {
+  background-color: rgba(178, 145, 6, 0.9);
+}
+.frontend-one-page #skills .section-heading {
+  text-align: left;
+}
+.frontend-one-page #skills .section-description {
+  text-align: left;
+  padding: 0;
+}
+.frontend-one-page #skills img {
+  position: absolute;
+  top: -180px;
+}
+.frontend-one-page #skills .our-skill {
+  margin-top: 40px;
+}
+.frontend-one-page #skills .our-skill .progress {
+  height: 60px;
+  margin-bottom: 40px;
+  background-color: rgba(255, 255, 255, 0.8);
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+}
+.frontend-one-page #skills .our-skill .progress .progress-bar {
+  text-align: left;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 3;
+  text-transform: uppercase;
+  padding-left: 20px;
+  background-color: #f8d026;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+}
+.frontend-one-page #skills .our-skill .progress .progress-bar-striped {
+  background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+  background-size: 10px 10px;
+}
+.frontend-one-page #clients {
+  padding-bottom: 0;
+}
+.frontend-one-page #clients #owl-our-clients .item {
+  text-align: center;
+  width: 100%;
+  height: 80px;
+  line-height: 80px;
+}
+.frontend-one-page #clients #owl-our-clients .item img {
+  -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  filter: grayscale(100%);
+  vertical-align: middle;
+}
+.frontend-one-page #clients #owl-our-clients .item:hover img {
+  -webkit-filter: grayscale(0%);
+  -moz-filter: grayscale(0%);
+  filter: grayscale(0%);
+}
+.frontend-one-page #client-say {
+  margin-top: 70px;
+  background: url(http://next-themes.com/mtek/code/frontend/assets/images/banner_2.jpg) no-repeat center center fixed;
+}
+.frontend-one-page #client-say > .bg-overlay.pattern {
+  background-color: rgba(178, 145, 6, 0.9);
+}
+.frontend-one-page #client-say .section-heading {
+  color: #ffffff;
+  font-weight: 300;
+}
+.frontend-one-page #client-say .box {
+  margin-top: 20px;
+  margin-bottom: 0;
+}
+.frontend-one-page #client-say .box .box-icon i {
+  color: #ffffff;
+}
+.frontend-one-page #client-say .box .box-title {
+  color: #ffffff;
+  border-left-color: #ffffff;
+  font-size: 30px;
+}
+.frontend-one-page #client-say .box .box-title .sub-title {
+  color: #ffffff;
+  font-weight: 400;
+  font-size: 14px;
+}
+.frontend-one-page #blog .box {
+  margin-top: 20px;
+  margin-bottom: 0;
+}
+.frontend-one-page #blog .box .box-icon {
+  color: #f8d026;
+  margin-right: 20px;
+}
+.frontend-one-page #blog .box .box-icon .number {
+  font-size: 25px;
+}
+.frontend-one-page #blog .box .box-icon .month {
+  font-size: 20px;
+}
+.frontend-one-page #portfolio a {
+  overflow: hidden;
+  position: relative;
+}
+.frontend-one-page #portfolio a.gallery-image {
+  position: relative;
+  overflow: hidden;
+  display: block;
+}
+.frontend-one-page #portfolio a.gallery-image:hover img {
+  transform: scale(1.2);
+}
+.frontend-one-page #portfolio a.gallery-image:hover .gallery-overlay {
+  opacity: 1;
+}
+.frontend-one-page #portfolio a.gallery-image img {
+  transition: transform 0.15s ease-in-out;
+}
+.frontend-one-page #portfolio a.gallery-image .gallery-overlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  background-color: rgba(248, 208, 38, 0.82);
+  color: #ffffff;
+  opacity: 0;
+  transition: opacity 0.15s ease-in-out;
+}
+.frontend-one-page #portfolio a.gallery-image .gallery-overlay .box {
+  position: absolute;
+  left: 40px;
+  bottom: 20px;
+}
+.frontend-one-page #portfolio a.gallery-image .gallery-overlay .box .box-title {
+  border-left-color: #ffffff;
+  color: #ffffff;
+  text-transform: none;
+}
+.frontend-one-page #portfolio a.gallery-image .gallery-overlay .box .box-title .sub-title {
+  color: #ffffff;
+  font-weight: 400;
+  font-size: 14px;
+}
+.frontend-one-page #pricing {
+  background: url(http://next-themes.com/mtek/code/frontend/assets/images/banner_2.jpg) no-repeat center center fixed;
+}
+.frontend-one-page #pricing > .bg-overlay.pattern {
+  background-color: rgba(178, 145, 6, 0.9);
+}
+.frontend-one-page #pricing .section-heading {
+  color: #ffffff;
+  font-weight: 300;
+}
+.frontend-one-page #pricing .row .pricing-widget {
+  position: relative;
+  border: 0;
+  cursor: pointer;
+  margin: 20px 0;
+}
+.frontend-one-page #pricing .row .pricing-widget .pricing-body {
+  border: 1px solid #ffffff;
+}
+.frontend-one-page #pricing .row .pricing-widget .pricing-cost {
+  background: #f7cb0d;
+  text-align: center;
+  padding: 30px 0;
+  font-size: 18px;
+  color: #000000;
+  background-color: #ffffff;
+  min-height: 125px;
+}
+.frontend-one-page #pricing .row .pricing-widget .pricing-cost strong {
+  font-size: 60px;
+}
+.frontend-one-page #pricing .row .pricing-widget .pricing-list {
+  list-style: none;
+  padding: 20px 0 40px;
+  margin: 0;
+  text-align: left;
+}
+.frontend-one-page #pricing .row .pricing-widget .pricing-list li {
+  padding: 10px 40px;
+  background-color: transparent;
+  font-size: 20px;
+}
+.frontend-one-page #pricing .row .pricing-widget .pricing-list li:last-child {
+  margin-top: 30px;
+}
+.frontend-one-page #pricing .row .pricing-widget .pricing-list li .box {
+  margin-bottom: 0;
+}
+.frontend-one-page #pricing .row .pricing-widget .pricing-list li .box .box-title {
+  color: #ffffff;
+  border-left-color: #ffffff;
+  font-size: 30px;
+}
+.frontend-one-page #pricing .row .pricing-widget .pricing-list li .btn {
+  border: 1px solid #ffffff;
+  color: #ffffff;
+  padding: 20px 30px;
+}
+.frontend-one-page #pricing .row .pricing-widget:hover .pricing-body {
+  border: 1px solid #f8d026;
+}
+.frontend-one-page #pricing .row .pricing-widget:hover .pricing-cost {
+  background-color: #f8d026;
+  color: #ffffff;
+}
+.frontend-one-page #pricing .row .pricing-widget:hover .pricing-list {
+  background-color: rgba(255, 255, 255, 0.7);
+}
+.frontend-one-page #pricing .row .pricing-widget:hover .pricing-list li {
+  color: #000000;
+}
+.frontend-one-page #pricing .row .pricing-widget:hover .pricing-list li .box .box-title {
+  color: #000000;
+  border-left-color: #000000;
+}
+.frontend-one-page #pricing .row .pricing-widget:hover .pricing-list li .btn {
+  border: 1px solid #f8d026;
+  color: #f8d026;
+}
+.frontend-one-page #pricing .row .pricing-widget:hover .pricing-list li .btn:hover {
+  background-color: #f8d026;
+  color: #ffffff;
+}
+.frontend-one-page #contact {
+  background: url(http://next-themes.com/mtek/code/frontend/assets/images/banner_2.jpg) no-repeat center center fixed;
+}
+.frontend-one-page #contact > .bg-overlay.pattern {
+  background-color: rgba(255, 255, 255, 0.9);
+  background-image: none;
+}
+.frontend-one-page #contact .section-heading {
+  color: #000000;
+}
+.frontend-one-page #contact .section-description {
+  color: #777777 !important;
+}
+.frontend-one-page #contact .box .box-desc,
+.frontend-one-page #contact .box a {
+  color: #777777;
+}
+.frontend-one-page #contact .btn {
+  border-color: #f8d026;
+  color: #f8d026;
+  background-color: transparent;
+}
+.frontend-one-page #contact .btn:hover {
+  background-color: #f8d026;
+  color: #ffffff;
+}
+.frontend-one-page #footer {
+  padding-bottom: 40px;
+}
+.frontend-one-page #footer .list-tags {
+  margin: 0;
+}
+.frontend-one-page #footer .list-tags li {
+  background-color: #dddddd;
+  color: #777777;
+  padding: 3px 10px;
+  margin: 0 5px 5px 0;
+  cursor: pointer;
+}
+.frontend-one-page #footer .list-tags li:hover {
+  background-color: #cccccc;
+}
+.frontend-one-page #footer .list-flickr li {
+  margin: 0 5px 5px 0;
+}
+.frontend-one-page #footer .box {
+  margin-bottom: 0;
+}
+.frontend-one-page #page-loader {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 9999999;
+  background-color: #ffffff;
+}
+.frontend-one-page #page-loader img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -64px 0 0 -64px;
+  width: 128px;
+  height: 128px;
+}
+.frontend-one-page #theme-setting {
+  position: fixed;
+  right: -250px;
+  top: 20%;
+  background: #ffffff;
+  border: 0;
+  width: 250px;
+  z-index: 999;
+  -webkit-transition: 0.2s all ease-in-out;
+  -o-transition: 0.2s all ease-in-out;
+  transition: 0.2s all ease-in-out;
+  -webkit-box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.15) !important;
+  box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.15) !important;
+}
+.frontend-one-page #theme-setting .btn-theme-setting {
+  padding: 10px 14px 10px;
+  background-color: #f8d026;
+  position: absolute;
+  z-index: 999;
+  left: -47px;
+  top: 0;
+  -webkit-box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.15) !important;
+  box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.15) !important;
+  -webkit-border-radius: 5px 0 0 5px !important;
+  -moz-border-radius: 5px 0 0 5px !important;
+  border-radius: 5px 0 0 5px !important;
+}
+.frontend-one-page #theme-setting .btn-theme-setting i {
+  font-size: 20px;
+  color: #ffffff;
+}
+.frontend-one-page #theme-setting ul.color-skins {
+  margin: 0;
+  padding: 5px 15px 4px;
+}
+.frontend-one-page #theme-setting ul.color-skins li {
+  cursor: pointer;
+  width: 25px;
+  height: 25px;
+  margin: 4px 5px 1px;
+}
+.frontend-one-page #theme-setting ul.color-skins li.active,
+.frontend-one-page #theme-setting ul.color-skins li:hover,
+.frontend-one-page #theme-setting ul.color-skins li:focus {
+  -webkit-border-radius: 50% !important;
+  -moz-border-radius: 50% !important;
+  border-radius: 50% !important;
+  -webkit-transition: 0.1s all ease-in-out;
+  -o-transition: 0.1s all ease-in-out;
+  transition: 0.1s all ease-in-out;
+}
+.frontend-one-page #theme-setting ul.color-skins li.red {
+  background: #e53f51;
+}
+.frontend-one-page #theme-setting ul.color-skins li.orange {
+  background: #d95113;
+}
+.frontend-one-page #theme-setting ul.color-skins li.green {
+  background: #0fa285;
+}
+.frontend-one-page #theme-setting ul.color-skins li.purple {
+  background: #6157d2;
+}
+.frontend-one-page #theme-setting ul.color-skins li.yellow {
+  background: #f8d026;
+}
+.frontend-one-page #theme-setting ul.color-skins li.blue {
+  background: #0094d2;
+}
+.frontend-one-page #theme-setting .theme-setting-content h4.switcher-title {
+  padding: 15px;
+  background-color: #f1f1f1;
+  color: #777777;
+  font-family: 'Oswald', sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: right;
+  margin: 0;
+}
+.frontend-one-page #totop {
+  position: fixed;
+  bottom: 6%;
+  right: 1.5%;
+  display: none;
+  z-index: 9999;
+  background: transparent;
+  border: 2px solid #f8d026;
+  height: 40px;
+  width: 40px;
+  text-align: center;
+}
+.frontend-one-page #totop i {
+  color: #f8d026;
+  line-height: 35px;
+  font-size: 33px;
+}
+.frontend-one-page #totop:hover {
+  background: #f8d026;
+}
+.frontend-one-page #totop:hover i {
+  color: #ffffff;
+}
+.line {
+  position: relative;
+  width: 400px;
+  height: 1px;
+  background-color: #ffffff;
+  margin: 30px auto;
+}
+.line.dark {
+  background-color: #333333;
+}
+.line.dark .dot {
+  background-color: #333333;
+}
+.line .dot {
+  position: absolute;
+  top: -5px;
+  width: 10px;
+  height: 10px;
+  left: 50%;
+  margin-left: -5px;
+  border-radius: 50%;
+  background-color: #ffffff;
+}
+.box-title {
+  border-left: 1px solid #f8d026;
+  padding-left: 15px;
+  font-size: 23px;
+  font-weight: bold;
+  color: #f8d026;
+  text-transform: uppercase;
+  display: inline-block;
+}
+.box-title .sub-title {
+  font-size: 13px;
+  font-style: italic;
+  font-weight: 400;
+  text-transform: none;
+  color: #555;
+  margin-top: 10px;
+}
+.box-icon {
+  display: inline-block;
+  float: left;
+}
+.box-icon i {
+  font-size: 50px;
+  color: #f8d026;
+  margin-right: 20px;
+  margin-top: 8px;
+}
+.box {
+  text-align: left;
+  margin-bottom: 50px;
+}
+.box .box-desc {
+  font-size: 16px;
+  margin-top: 15px;
+  text-align: justify;
+}
+.box.square {
+  background-color: #ffffff;
+  padding: 20px;
+  margin-bottom: 0;
+}
+.box.square:hover {
+  background-color: #f8d026;
+}
+.box.square:hover .box-icon i {
+  color: #ffffff;
+}
+.box.square:hover .box-title {
+  color: #ffffff;
+  border-left: 1px solid #ffffff;
+}
+.box.square:hover .box-desc h2 {
+  color: #ffffff;
+}
+.box.square .box-icon {
+  margin-top: 40px;
+}
+.box.square .box-icon i {
+  color: #000000;
+}
+.box.square .box-title {
+  margin-top: 40px;
+  color: #000000;
+  border-left: 1px solid #000000;
+}
+.box.square .box-desc {
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+.box.square .box-desc h2 {
+  font-size: 60px;
+  font-weight: 300;
+  color: #000000;
+}
+.btn-dark.btn-outlined {
+  background: none;
+  border: 1px solid #000000;
+  color: #000000;
+  padding: 20px 30px !important;
+}
+.btn-dark.btn-outlined:hover {
+  background-color: #000000;
+  color: #ffffff;
+}
+.more-info {
+  color: #000000;
+}
+.box:hover .more-info {
+  color: #f8d026;
+}
+/*****
+Begin Responsive
+*****/
+@media only screen and (max-width: 480px) {
+  .frontend-one-page .line {
+    width: auto;
+    margin: 20px auto;
+  }
+  .frontend-one-page section h2.section-heading {
+    font-size: 170% !important;
+    margin-bottom: 10px !important;
+    text-align: center !important;
+  }
+  .frontend-one-page section p.section-description {
+    font-size: 120% !important;
+    margin-top: 0 !important;
+    padding: 0 !important;
+  }
+  .frontend-one-page section .box {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  .frontend-one-page section .box .box-icon {
+    float: none;
+  }
+  .frontend-one-page section .box .box-icon > i {
+    top: -7px;
+    position: relative;
+    font-size: 36px;
+  }
+  .frontend-one-page section .box .box-title {
+    font-size: 140%;
+  }
+  .frontend-one-page section .box .box-desc {
+    font-size: 100%;
+  }
+  .frontend-one-page header .navbar .navbar-main-collapse > ul > li > a {
+    margin: 0 !important;
+  }
+  .frontend-one-page header .navbar button.navbar-toggle > i {
+    font-size: 20px;
+  }
+  .frontend-one-page header .navbar #logo {
+    left: 0;
+    margin-left: 10px !important;
+  }
+  .frontend-one-page header .intro .intro-body {
+    margin-top: 20px;
+  }
+  .frontend-one-page header .intro .intro-body #slide-intro {
+    padding: 0;
+  }
+  .frontend-one-page header .intro .intro-body #slide-intro h1 {
+    font-size: 170%;
+  }
+  .frontend-one-page header .intro .intro-body #slide-intro .intro-text {
+    font-size: 100%;
+  }
+  .frontend-one-page header .intro .intro-body #slide-intro .section-next > a {
+    font-size: 14px;
+  }
+  .frontend-one-page #welcome {
+    padding: 30px 0;
+  }
+  .frontend-one-page #welcome h4.section-subheading {
+    font-size: 16px;
+  }
+  .frontend-one-page #welcome img {
+    display: none !important;
+  }
+  .frontend-one-page #welcome .box {
+    padding: 0 30px;
+  }
+  .frontend-one-page #welcome .box .box-title {
+    padding: 0;
+    border-left: none;
+  }
+  .frontend-one-page #banner {
+    text-align: center;
+  }
+  .frontend-one-page #banner .bg-overlay {
+    padding: 0 30px;
+  }
+  .frontend-one-page #banner .bg-overlay h2 {
+    font-size: 170%;
+    margin-top: 30px;
+  }
+  .frontend-one-page #banner .bg-overlay p {
+    font-size: 100%;
+  }
+  .frontend-one-page #banner .bg-overlay .col-md-3 {
+    text-align: center;
+  }
+  .frontend-one-page #banner .bg-overlay a {
+    margin: 25px 0 30px !important;
+    padding: 10px 20px !important;
+  }
+  .frontend-one-page #about {
+    padding: 30px 0;
+  }
+  .frontend-one-page #about > .container > .row {
+    margin-bottom: 0 !important;
+  }
+  .frontend-one-page #about p.section-description {
+    margin-bottom: 30px;
+  }
+  .frontend-one-page #about .box {
+    padding: 0 30px;
+  }
+  .frontend-one-page #about #skills {
+    min-height: 0;
+    margin: 0 !important;
+  }
+  .frontend-one-page #about #skills .bg-overlay {
+    padding: 30px 0;
+    min-height: 0;
+  }
+  .frontend-one-page #about #skills .bg-overlay .our-skill .progress {
+    height: 40px;
+    margin-bottom: 20px;
+  }
+  .frontend-one-page #about #skills .bg-overlay .our-skill .progress .progress-bar {
+    line-height: 2;
+  }
+  .frontend-one-page #about #skills .bg-overlay .box {
+    display: none;
+  }
+  .frontend-one-page #team {
+    padding: 0 30px;
+    padding-bottom: 10px;
+  }
+  .frontend-one-page #team > .container > .row {
+    margin-bottom: 0 !important;
+  }
+  .frontend-one-page #team .box {
+    position: relative;
+    text-align: left;
+  }
+  .frontend-one-page #team .box .box-title {
+    margin-top: 10px;
+  }
+  .frontend-one-page #team .box .box-title .sub-title {
+    font-size: 10px;
+    margin-top: 5px;
+  }
+  .frontend-one-page #team .box .social {
+    margin-top: -10px;
+    position: absolute;
+    top: 48px;
+    right: -15px;
+  }
+  .frontend-one-page #team .box .social > a {
+    font-size: 12px;
+  }
+  .frontend-one-page #services > .bg-overlay {
+    padding: 30px 30px 0;
+  }
+  .frontend-one-page #services #work .bg-overlay {
+    padding: 30px 30px 10px;
+  }
+  .frontend-one-page #services #work .bg-overlay h2 {
+    padding-bottom: 20px;
+  }
+  .frontend-one-page #services #work .bg-overlay > .container > .row {
+    margin-bottom: 0 !important;
+  }
+  .frontend-one-page #services #work .bg-overlay .square .box-icon {
+    margin-top: 0;
+  }
+  .frontend-one-page #services #work .bg-overlay .square .box-title {
+    margin-top: 0;
+  }
+  .frontend-one-page #services #work .bg-overlay .square .box-desc {
+    margin: 0;
+  }
+  .frontend-one-page #services #work .bg-overlay .square .box-desc > h2 {
+    padding: 0;
+    margin-bottom: 0;
+  }
+  .frontend-one-page #portfolio {
+    padding: 30px 0;
+  }
+  .frontend-one-page #portfolio > .container > .row {
+    margin-bottom: 0!important;
+    text-align: center;
+  }
+  .frontend-one-page #portfolio > .container > .row img {
+    margin: 10px auto;
+  }
+  .frontend-one-page #portfolio > .container > .row a.btn {
+    margin: 20px 0 0 !important;
+    padding: 10px 20px !important;
+  }
+  .frontend-one-page #pricing .bg-overlay {
+    padding: 30px 0 20px;
+  }
+  .frontend-one-page #pricing .bg-overlay > .container > .row {
+    margin-bottom: 0!important;
+  }
+  .frontend-one-page #pricing .bg-overlay .pricing-widget .pricing-body {
+    max-width: 290px;
+    margin: 0 auto;
+  }
+  .frontend-one-page #pricing .bg-overlay .pricing-widget .pricing-body .pricing-cost strong {
+    font-size: 220%;
+  }
+  .frontend-one-page #pricing .bg-overlay .pricing-widget .pricing-body .pricing-list {
+    padding-bottom: 10px;
+  }
+  .frontend-one-page #pricing .bg-overlay .pricing-widget .pricing-body .pricing-list > li {
+    font-size: 100%;
+  }
+  .frontend-one-page #pricing .bg-overlay .pricing-widget .pricing-body .pricing-list > li:last-child {
+    margin-top: 0;
+  }
+  .frontend-one-page #pricing .bg-overlay .pricing-widget .pricing-body .pricing-list > li > .box {
+    text-align: left;
+  }
+  .frontend-one-page #pricing .bg-overlay .pricing-widget .pricing-body .pricing-list > li > .box .box-title {
+    font-size: 20px;
+  }
+  .frontend-one-page #pricing .bg-overlay .pricing-widget .pricing-body .pricing-list > li > a.btn {
+    padding: 10px 19px !important;
+  }
+  .frontend-one-page #clients {
+    padding: 30px 0 20px;
+  }
+  .frontend-one-page #clients > .container > .row {
+    margin-bottom: 0!important;
+  }
+  .frontend-one-page #clients #client-say {
+    margin-top: 10px;
+  }
+  .frontend-one-page #clients #client-say .bg-overlay {
+    padding: 30px 0 20px;
+  }
+  .frontend-one-page #clients #client-say .bg-overlay > .container > .row {
+    margin-bottom: 0!important;
+  }
+  .frontend-one-page #clients #client-say .bg-overlay #owl-our-clients-say {
+    margin-top: 10px;
+  }
+  .frontend-one-page #clients #client-say .bg-overlay #owl-our-clients-say .box .box-icon i {
+    top: -26px;
+    font-size: 28px;
+  }
+  .frontend-one-page #clients #client-say .bg-overlay #owl-our-clients-say .box .box-title {
+    font-size: 18px;
+    text-align: left;
+  }
+  .frontend-one-page #blog {
+    padding: 20px 0;
+  }
+  .frontend-one-page #blog img {
+    padding: 0 30px;
+  }
+  .frontend-one-page #blog .box {
+    padding: 0 30px;
+  }
+  .frontend-one-page #blog .box .box-title {
+    text-align: left;
+  }
+  .frontend-one-page #blog .box .box-desc > p {
+    margin: 10px 0 30px;
+  }
+  .frontend-one-page #contact .bg-overlay {
+    padding: 30px 0 0;
+  }
+  .frontend-one-page #contact .bg-overlay > .container > .row {
+    margin-bottom: 0!important;
+  }
+  .frontend-one-page #contact .bg-overlay .section-description {
+    margin-bottom: 20px;
+  }
+  .frontend-one-page #contact .bg-overlay .box .box-desc {
+    text-align: center;
+  }
+  .frontend-one-page #contact .bg-overlay form {
+    padding: 0 20px;
+  }
+  .frontend-one-page #contact .bg-overlay form input {
+    margin: 11px 0;
+  }
+  .frontend-one-page #contact .bg-overlay form .col-md-offset-5 {
+    text-align: center;
+  }
+  .frontend-one-page #contact .bg-overlay form .col-md-offset-5 input[type="submit"] {
+    padding: 10px 20px !important;
+    margin: 10px 0 30px;
+  }
+  .frontend-one-page #footer {
+    padding: 30px 20px 20px;
+  }
+  .frontend-one-page #footer .box {
+    text-align: left;
+    margin-bottom: 10px;
+  }
+}
+@media only screen and (min-width: 481px) and (max-width: 767px) {
+  .frontend-one-page .line {
+    width: 250px;
+    margin: 20px auto;
+  }
+  .frontend-one-page section h2.section-heading {
+    font-size: 170% !important;
+    margin-bottom: 10px !important;
+    text-align: center !important;
+  }
+  .frontend-one-page section p.section-description {
+    font-size: 120% !important;
+    margin-top: 0 !important;
+    padding: 0 !important;
+  }
+  .frontend-one-page section .box {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  .frontend-one-page section .box .box-icon {
+    float: none;
+  }
+  .frontend-one-page section .box .box-icon > i {
+    top: -7px;
+    position: relative;
+    font-size: 36px;
+  }
+  .frontend-one-page section .box .box-title {
+    font-size: 140%;
+  }
+  .frontend-one-page section .box .box-desc {
+    font-size: 100%;
+  }
+  .frontend-one-page header .navbar .navbar-main-collapse > ul > li > a {
+    margin: 0 !important;
+  }
+  .frontend-one-page header .navbar button.navbar-toggle > i {
+    font-size: 20px;
+  }
+  .frontend-one-page header .navbar #logo {
+    left: 0;
+    margin-left: 10px !important;
+  }
+  .frontend-one-page header .intro .intro-body {
+    margin-top: 20px;
+  }
+  .frontend-one-page header .intro .intro-body #slide-intro h1 {
+    font-size: 170%;
+  }
+  .frontend-one-page header .intro .intro-body #slide-intro .intro-text {
+    font-size: 100%;
+  }
+  .frontend-one-page header .intro .intro-body #slide-intro .section-next > a {
+    font-size: 14px;
+  }
+  .frontend-one-page #welcome {
+    padding: 30px 0;
+  }
+  .frontend-one-page #welcome h4.section-subheading {
+    font-size: 16px;
+  }
+  .frontend-one-page #welcome img {
+    display: none !important;
+  }
+  .frontend-one-page #welcome .box {
+    max-width: 300px;
+    margin: 0 auto 30px;
+  }
+  .frontend-one-page #welcome .box .box-title {
+    padding: 0;
+    border-left: none;
+  }
+  .frontend-one-page #banner {
+    text-align: center;
+  }
+  .frontend-one-page #banner .bg-overlay {
+    padding: 0 30px;
+  }
+  .frontend-one-page #banner .bg-overlay h2 {
+    font-size: 170%;
+    margin-top: 30px;
+  }
+  .frontend-one-page #banner .bg-overlay p {
+    font-size: 100%;
+  }
+  .frontend-one-page #banner .bg-overlay .col-md-3 {
+    text-align: center;
+  }
+  .frontend-one-page #banner .bg-overlay a {
+    margin: 25px 0 30px !important;
+    padding: 10px 20px !important;
+  }
+  .frontend-one-page #about {
+    padding: 30px 0;
+  }
+  .frontend-one-page #about > .container > .row {
+    margin-bottom: 0 !important;
+  }
+  .frontend-one-page #about p.section-description {
+    margin-bottom: 30px;
+  }
+  .frontend-one-page #about .box {
+    max-width: 300px;
+    margin: 0 auto 30px;
+  }
+  .frontend-one-page #about #skills {
+    min-height: 0;
+    margin: 0 !important;
+  }
+  .frontend-one-page #about #skills .bg-overlay {
+    padding: 30px 0;
+    min-height: 0;
+  }
+  .frontend-one-page #about #skills .bg-overlay .our-skill .progress {
+    height: 40px;
+    margin-bottom: 20px;
+  }
+  .frontend-one-page #about #skills .bg-overlay .our-skill .progress .progress-bar {
+    line-height: 2;
+  }
+  .frontend-one-page #about #skills .bg-overlay .box {
+    display: none;
+  }
+  .frontend-one-page #team {
+    padding: 0 30px;
+    padding-bottom: 10px;
+  }
+  .frontend-one-page #team > .container > .row {
+    margin-bottom: 0 !important;
+  }
+  .frontend-one-page #team .avatar img {
+    max-width: 300px;
+    margin: 0 auto;
+  }
+  .frontend-one-page #team .box {
+    position: relative;
+    text-align: left;
+    max-width: 300px;
+    margin: 0 auto 30px;
+  }
+  .frontend-one-page #team .box .box-title {
+    margin-top: 10px;
+  }
+  .frontend-one-page #team .box .box-title .sub-title {
+    font-size: 10px;
+    margin-top: 5px;
+  }
+  .frontend-one-page #team .box .social {
+    margin-top: -10px;
+    position: absolute;
+    top: 48px;
+    right: -15px;
+  }
+  .frontend-one-page #team .box .social > a {
+    font-size: 12px;
+  }
+  .frontend-one-page #services > .bg-overlay {
+    padding: 30px 30px 0;
+  }
+  .frontend-one-page #services > .bg-overlay .box {
+    max-width: 300px;
+    margin: 0 auto 30px;
+  }
+  .frontend-one-page #services #work .bg-overlay {
+    padding: 30px 30px 10px;
+  }
+  .frontend-one-page #services #work .bg-overlay h2 {
+    padding-bottom: 20px;
+  }
+  .frontend-one-page #services #work .bg-overlay > .container > .row {
+    margin-bottom: 0 !important;
+  }
+  .frontend-one-page #services #work .bg-overlay .square {
+    max-width: 300px;
+    margin: 0 auto 30px;
+  }
+  .frontend-one-page #services #work .bg-overlay .square .box-icon {
+    margin-top: 0;
+  }
+  .frontend-one-page #services #work .bg-overlay .square .box-title {
+    margin-top: 0;
+  }
+  .frontend-one-page #services #work .bg-overlay .square .box-desc {
+    margin: 0;
+  }
+  .frontend-one-page #services #work .bg-overlay .square .box-desc > h2 {
+    padding: 0;
+    margin-bottom: 0;
+  }
+  .frontend-one-page #portfolio {
+    padding: 30px 0;
+  }
+  .frontend-one-page #portfolio > .container > .row {
+    margin-bottom: 0!important;
+    text-align: center;
+  }
+  .frontend-one-page #portfolio > .container > .row img {
+    margin: 10px auto;
+  }
+  .frontend-one-page #portfolio > .container > .row a.btn {
+    margin: 20px 0 0 !important;
+    padding: 10px 20px !important;
+  }
+  .frontend-one-page #pricing .bg-overlay {
+    padding: 30px 0 20px;
+  }
+  .frontend-one-page #pricing .bg-overlay > .container > .row {
+    margin-bottom: 0!important;
+  }
+  .frontend-one-page #pricing .bg-overlay .pricing-widget .pricing-body {
+    max-width: 290px;
+    margin: 0 auto;
+  }
+  .frontend-one-page #pricing .bg-overlay .pricing-widget .pricing-body .pricing-cost strong {
+    font-size: 220%;
+  }
+  .frontend-one-page #pricing .bg-overlay .pricing-widget .pricing-body .pricing-list {
+    padding-bottom: 10px;
+  }
+  .frontend-one-page #pricing .bg-overlay .pricing-widget .pricing-body .pricing-list > li {
+    font-size: 100%;
+  }
+  .frontend-one-page #pricing .bg-overlay .pricing-widget .pricing-body .pricing-list > li:last-child {
+    margin-top: 0;
+  }
+  .frontend-one-page #pricing .bg-overlay .pricing-widget .pricing-body .pricing-list > li > .box {
+    text-align: left;
+  }
+  .frontend-one-page #pricing .bg-overlay .pricing-widget .pricing-body .pricing-list > li > .box .box-title {
+    font-size: 20px;
+  }
+  .frontend-one-page #pricing .bg-overlay .pricing-widget .pricing-body .pricing-list > li > a.btn {
+    padding: 10px 19px !important;
+  }
+  .frontend-one-page #clients {
+    padding: 30px 0 20px;
+  }
+  .frontend-one-page #clients > .container > .row {
+    margin-bottom: 0!important;
+  }
+  .frontend-one-page #clients #client-say {
+    margin-top: 10px;
+  }
+  .frontend-one-page #clients #client-say .bg-overlay {
+    padding: 30px 0 20px;
+  }
+  .frontend-one-page #clients #client-say .bg-overlay > .container > .row {
+    margin-bottom: 0!important;
+  }
+  .frontend-one-page #clients #client-say .bg-overlay #owl-our-clients-say {
+    margin-top: 10px;
+  }
+  .frontend-one-page #clients #client-say .bg-overlay #owl-our-clients-say .box .box-icon i {
+    top: -26px;
+    font-size: 28px;
+  }
+  .frontend-one-page #clients #client-say .bg-overlay #owl-our-clients-say .box .box-title {
+    font-size: 18px;
+    text-align: left;
+  }
+  .frontend-one-page #blog {
+    padding: 20px 0;
+  }
+  .frontend-one-page #blog img {
+    max-width: 300px;
+    margin: 0 auto 30px;
+  }
+  .frontend-one-page #blog .box {
+    max-width: 300px;
+    margin: 0 auto 30px;
+  }
+  .frontend-one-page #blog .box .box-title {
+    text-align: left;
+  }
+  .frontend-one-page #blog .box .box-desc > p {
+    margin: 10px 0 30px;
+  }
+  .frontend-one-page #contact .bg-overlay {
+    padding: 30px 0 0;
+  }
+  .frontend-one-page #contact .bg-overlay > .container > .row {
+    margin-bottom: 0!important;
+  }
+  .frontend-one-page #contact .bg-overlay .section-description {
+    margin-bottom: 20px;
+  }
+  .frontend-one-page #contact .bg-overlay .box .box-desc {
+    text-align: center;
+  }
+  .frontend-one-page #contact .bg-overlay form {
+    padding: 0 20px;
+  }
+  .frontend-one-page #contact .bg-overlay form input {
+    margin: 11px 0;
+  }
+  .frontend-one-page #contact .bg-overlay form .col-md-offset-5 {
+    text-align: center;
+  }
+  .frontend-one-page #contact .bg-overlay form .col-md-offset-5 input[type="submit"] {
+    padding: 10px 20px !important;
+    margin: 10px 0 30px;
+  }
+  .frontend-one-page #footer {
+    padding: 30px 20px 20px;
+  }
+  .frontend-one-page #footer .box {
+    text-align: left;
+    margin-bottom: 10px;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .frontend-one-page .container {
+    width: auto;
+  }
+  header .navbar .navbar-header {
+    width: 100%;
+  }
+  header .navbar .navbar-header #logo {
+    position: static;
+    margin: 0 !important;
+    padding: 0 !important;
+    float: none !important;
+  }
+  header .navbar .navbar-header #logo img {
+    margin: 10px auto 0;
+    width: 15%;
+  }
+  header .navbar .main-menu > li > a {
+    font-size: 15px !important;
+    padding: 10px !important;
+  }
+  header .navbar .main-menu > li.space-right > a {
+    margin-right: 0 !important;
+  }
+  header .navbar .main-menu > li.space-left > a {
+    margin-left: 0 !important;
+  }
+  header .intro #slide-intro > h1 {
+    font-size: 250% !important;
+  }
+  header .intro #slide-intro p.intro-text {
+    font-size: 120%;
+  }
+  section h2.section-heading {
+    font-size: 250% !important;
+  }
+  section h4.section-subheading {
+    font-size: 180% !important;
+  }
+  section p.section-description {
+    font-size: 120% !important;
+  }
+  section .box .box-icon i {
+    font-size: 40px;
+    margin-top: 3px;
+  }
+  section .box .box-title {
+    font-size: 120% !important;
+  }
+  section .box .box-desc {
+    font-size: 100% !important;
+  }
+  #banner {
+    text-align: center;
+  }
+  #banner .bg-overlay .container {
+    width: auto !important;
+    padding: 0 30px;
+  }
+  #banner .bg-overlay .container h2 {
+    font-size: 170%;
+    margin-top: 30px;
+  }
+  #banner .bg-overlay .container p {
+    font-size: 100%;
+  }
+  #banner .bg-overlay .container .col-md-3 {
+    text-align: center;
+  }
+  #banner .bg-overlay .container a {
+    margin: 25px 0 30px !important;
+    padding: 10px 20px !important;
+  }
+  #about .box {
+    max-width: 300px;
+  }
+  #about #skills {
+    min-height: 0;
+    margin: 60px 0 0 !important;
+  }
+  #about #skills .bg-overlay {
+    padding: 30px 0;
+    min-height: 0;
+  }
+  #about #skills .bg-overlay .our-skill .progress {
+    height: 40px;
+    margin-bottom: 20px;
+  }
+  #about #skills .bg-overlay .our-skill .progress .progress-bar {
+    line-height: 2;
+  }
+  #about #skills .bg-overlay .box img {
+    top: -133px;
+    right: 16px;
+  }
+  #team {
+    padding-bottom: 30px;
+  }
+  #team > .container {
+    width: auto;
+  }
+  #team > .container > .row {
+    margin-bottom: 0 !important;
+  }
+  #team .box {
+    min-height: 380px;
+  }
+  #services #work .bg-overlay .square {
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  #services #work .bg-overlay .square .box-icon {
+    float: none;
+  }
+  #portfolio > .container > .row {
+    margin-bottom: 0!important;
+    text-align: center;
+  }
+  #portfolio > .container > .row img {
+    margin: 10px auto;
+  }
+  #portfolio > .container > .row a.btn {
+    margin: 20px 0 0 !important;
+    padding: 10px 20px !important;
+  }
+  #pricing .bg-overlay > .container > .row {
+    margin-bottom: 0!important;
+  }
+  #pricing .bg-overlay .pricing-widget .pricing-body {
+    max-width: 290px;
+    margin: 0 auto;
+  }
+  #pricing .bg-overlay .pricing-widget .pricing-body .pricing-cost strong {
+    font-size: 220%;
+  }
+  #pricing .bg-overlay .pricing-widget .pricing-body .pricing-list {
+    padding-bottom: 10px;
+  }
+  #pricing .bg-overlay .pricing-widget .pricing-body .pricing-list > li {
+    font-size: 100%;
+  }
+  #pricing .bg-overlay .pricing-widget .pricing-body .pricing-list > li:last-child {
+    margin-top: 0;
+  }
+  #pricing .bg-overlay .pricing-widget .pricing-body .pricing-list > li > .box {
+    text-align: left;
+  }
+  #pricing .bg-overlay .pricing-widget .pricing-body .pricing-list > li > .box .box-title {
+    font-size: 20px;
+  }
+  #pricing .bg-overlay .pricing-widget .pricing-body .pricing-list > li > a.btn {
+    padding: 10px 19px !important;
+  }
+  #clients > .container > .row {
+    margin-bottom: 0!important;
+  }
+  #clients #client-say .bg-overlay > .container > .row {
+    margin-bottom: 0!important;
+  }
+  #clients #client-say .bg-overlay #owl-our-clients-say {
+    margin-top: 10px;
+  }
+  #clients #client-say .bg-overlay #owl-our-clients-say .box .box-icon i {
+    top: -26px;
+    font-size: 28px;
+  }
+  #clients #client-say .bg-overlay #owl-our-clients-say .box .box-title {
+    font-size: 18px;
+    text-align: left;
+  }
+  #contact .bg-overlay form {
+    padding: 0 20px;
+  }
+  #contact .bg-overlay form input {
+    margin: 11px 0;
+  }
+  #contact .bg-overlay form .col-md-offset-5 {
+    text-align: center;
+  }
+  #contact .bg-overlay form .col-md-offset-5 input[type="submit"] {
+    padding: 10px 20px !important;
+    margin: 10px 0 30px;
+  }
+  #footer .box {
+    text-align: left;
+    margin-bottom: 10px;
+  }
+}
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
+  header .navbar .main-menu > li.space-right > a {
+    margin-right: 120px !important;
+  }
+  header .navbar .main-menu > li.space-left > a {
+    margin-left: 120px !important;
+  }
+  #team .box .box-desc .social {
+    margin-top: -10px;
+  }
+  #team .box .box-desc .social > a {
+    font-size: 18px;
+  }
+  #work .square .box-icon {
+    margin-top: 50px;
+  }
+  #work .square .box-icon > i {
+    font-size: 25px;
+  }
+  #work .square .box-desc h2 {
+    font-size: 45px;
+  }
+}

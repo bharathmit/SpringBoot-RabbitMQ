@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui" template="/template/layout.xhtml">
+
+	<ui:define name="content">
+
+		<h:form id="form">
+			<p:growl id="growl" showDetail="true" sticky="false" life="5000"
+				globalOnly="true" />
+
+			<!--BEGIN PAGE CONTENT-->
+			<div class="page-content">
+				<!--BEGIN TITLE & BREADCRUMB PAGE-->
+
+				<div class="page-title-breadcrumb">
+					<div class="page-header pull-left">
+						<div class="page-title">
+										Street
+						</div>
+					</div>
+
+					<ol class="breadcrumb page-breadcrumb hidden-xs">
+						<li><i class="fa fa-home" />&nbsp; <p:commandLink
+								action="#{loginBean.goToHome}" immediate="true" value="Home"
+								styleClass="submenu-title">
+
+								<f:setPropertyActionListener
+									target="#{loginBean.activeMainMenu}" value="" />
+								<f:setPropertyActionListener target="#{loginBean.activeSubMenu}"
+									value="" />
+
+							</p:commandLink> &nbsp;&nbsp;<i class="fa fa-angle-right" />&nbsp;&nbsp;</li>
+
+						<li>&nbsp;<a
+							href="#{request.contextPath}/pages/master/districtlist.xhtml">
+							Street
+							</a>&nbsp;&nbsp;<i class="fa fa-angle-right" />&nbsp;&nbsp;
+						</li>
+						
+					</ol>
+				</div>
+				<!--END TITLE & BREADCRUMB PAGE-->
+
+				<div class="box-content">
+					<!--BEGIN CONTENT-->
+
+					<div class="content">
+
+						<div class="row">
+
+							<div class="col-lg-12">
+
+								<div class="panel top-space">
+									<div class="hor-space mspace require-block text-right">
+										<p:outputPanel>
+											<div class="require">
+												<p:outputLabel value="* Required" />
+											</div>
+										</p:outputPanel>
+									</div>
+
+
+									<div class="body current" role="tabpanel" id="Add-street">
+										<div class="row panel-body">
+											<div class="col-md-12">
+												<p:outputPanel id="addstreet">
+												
+												<div class="row">														
+														<div class="col-md-6 col-sm-6 col-lg-6">
+															<div class="form-group">
+
+																<p:outputLabel class="control-label" for="project"
+																	value="Project Name" />
+																<div>
+																	<h:selectOneMenu id="project" value="#{organizationBean.organizionEL.status}"																		
+																		class="form-control ">
+																		<f:selectItems value="#{applicationBean.statusList}"/>	
+																	</h:selectOneMenu>
+																	
+																</div>
+															</div>
+
+														</div>
+													</div>
+													
+													<div class="row">														
+														<div class="col-md-6 col-sm-6 col-lg-6">
+															<div class="form-group">
+
+																<p:outputLabel class="control-label" for="area"
+																	value="Area Name" />
+																<div>
+																	<h:selectOneMenu id="area" value="#{organizationBean.organizionEL.status}"																		
+																		class="form-control ">
+																		<f:selectItems value="#{applicationBean.statusList}"/>	
+																	</h:selectOneMenu>
+																	
+																</div>
+															</div>
+
+														</div>
+													</div>
+
+													<div class="row">
+														<div class="col-md-6 col-sm-6 col-lg-6">
+															<div class="form-group">
+																<p:outputLabel class="control-label" for="street"
+																	value="Street Name" />
+
+																<div>
+																	<h:inputText id="street"
+																		value="#{organizationBean.organizionEL.orgName}"
+																		class="form-control" required="true"
+																		requiredMessage="Organization Name Required"
+																		validatorMessage="Organization Name should be alphabets only"
+																		onkeypress="return isNumberKey(event)">
+																		<f:validateRegex pattern="[a-zA-Z ]*"></f:validateRegex>
+																	</h:inputText>
+																	<p:message for="street" styleClass="form-control" />
+																	<p:tooltip styleClass="cus-tooltip" for="street"
+																		value="Location Name should be alphabets only"></p:tooltip>
+																</div>
+
+															</div>
+														</div>
+														
+													</div>							
+
+													<div class="row">														
+														<div class="col-md-6 col-sm-6 col-lg-6">
+															<div class="form-group">
+
+																<p:outputLabel class="control-label" for="status"
+																	value="Status" />
+																<div>
+																	<h:selectOneMenu id="status" value="#{organizationBean.organizionEL.status}"																		
+																		class="form-control ">
+																		<f:selectItems value="#{applicationBean.statusList}"/>	
+																	</h:selectOneMenu>
+																	
+																</div>
+															</div>
+
+														</div>
+													</div>
+
+												</p:outputPanel>
+												<div class="form-group">
+													<div class="form-actions">
+														<h:commandButton value=" Cancel"
+															class="btn btn-cancel btn-xs cus-btn btn-info"
+															immediate="true"
+															action="#{organizationBean.cancelDistrict}"/>
+														&nbsp;
+														<h:commandButton value=" Submit"
+															class="btn btn-submit btn-xs cus-btn btn-info"
+															action="#{organizationBean.saveOrganization}"
+															update="addorganizion,growl" />
+														&nbsp;
+														<h:commandButton value=" Back"
+															class="btn btn-back btn-xs cus-btn btn-info"
+															action="#{organizationBean.cancelDistrict}" />
+															
+													</div>
+												</div>
+
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!--END CONTENT-->
+				</div>
+			</div>
+			<!--END PAGE CONTENT-->
+		</h:form>
+		<script>
+			$("title").html("Cable | Organization Details");
+		</script>
+
+	</ui:define>
+
+</ui:composition>

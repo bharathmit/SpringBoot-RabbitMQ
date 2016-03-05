@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui" template="/template/layout.xhtml">
+
+	<ui:define name="content">
+
+		<h:form id="form">
+			<p:growl id="growl"  showDetail="true" sticky="false" life="5000" />
+
+			<!--BEGIN PAGE CONTENT-->
+			
+					<div class="page-content">
+						<!--BEGIN TITLE & BREADCRUMB PAGE-->
+
+						<div class="page-title-breadcrumb">
+
+							<div class="page-header pull-left">
+
+								<div class="page-title">Dashboard</div>
+							</div>
+						</div>
+						<!--END TITLE & BREADCRUMB PAGE-->
+
+						<div class="box-content">
+							<!--BEGIN CONTENT-->
+
+							<div class="content">
+
+								<h2>Welcome to PDS</h2>
+							</div>
+							<!--END CONTENT-->
+						</div>
+					</div>
+
+			
+			<!--END PAGE CONTENT-->
+
+
+
+		</h:form>
+	</ui:define>
+
+</ui:composition>

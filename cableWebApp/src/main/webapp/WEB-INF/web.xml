@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	id="WebApp_ID" version="3.0">
+	
+	<display-name>Cable-Card</display-name>
+	
+	<!-- Spring Config Start -->
+	
+	<!-- Java-based Spring container definition -->
+	 <context-param>
+    	<param-name>contextClass</param-name>
+    	<param-value>org.springframework.web.context.support.AnnotationConfigWebApplicationContext</param-value>
+	</context-param> 
+
+	<!-- Location of Java @Configuration classes that configure the components that makeup this application -->
+	
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+			com.cable.app.config.AppConfig
+		</param-value>
+	</context-param>
+	
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+    
+    <listener>
+		<listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
+  	</listener>
+  	
+	<!-- Spring Config End -->
+	
+	<!-- Filter Start-->
+    <!-- 
+    <filter>
+        <filter-name>loginFilter</filter-name>
+        <filter-class>com.cable.app.security.LoginFilter</filter-class>
+   
+    </filter>
+    <filter-mapping>
+        <filter-name>loginFilter</filter-name>
+        <url-pattern>/pages/*</url-pattern> 
+        <dispatcher>REQUEST</dispatcher>
+    	<dispatcher>FORWARD</dispatcher>              
+    </filter-mapping>  
+     -->
+    <!-- Filter End -->
+	
+	
+	
+	
+	<!-- Welcome File -->
+	
+	<welcome-file-list>  
+	   <welcome-file>login.xhtml</welcome-file> 
+  	</welcome-file-list>  
+	
+	
+	<!-- Welcome File End-->
+	
+	<!-- Error Page Start -->
+	
+	<error-page>
+		<error-code>404</error-code>
+		<location>/error.xhtml</location>
+	</error-page>
+	<error-page>
+		<error-code>500</error-code>
+		<location>/error.xhtml</location>
+	</error-page>
+	<error-page>
+		<exception-type>java.lang.Exception</exception-type>
+		<location>/error.xhtml</location>
+	</error-page>
+	<error-page>
+	    <exception-type>javax.faces.application.ViewExpiredException</exception-type>
+	    <location>/login.xhtml</location>
+	</error-page>
+	
+	
+	<!-- Error Page End -->
+	
+	<!-- JSF Config Start -->
+	
+	<servlet>
+		<servlet-name>Faces Servlet</servlet-name>
+		<servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>Faces Servlet</servlet-name>
+		<url-pattern>*.xhtml</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+        <servlet-name>Faces Servlet</servlet-name>
+        <url-pattern>*.jsf</url-pattern>
+    </servlet-mapping>
+	
+	<context-param>
+		<description>State saving method: 'client' or 'server' (=default). See JSF Specification 2.5.2</description>
+		<param-name>javax.faces.STATE_SAVING_METHOD</param-name>
+		<param-value>server</param-value>
+	</context-param>
+	
+	<context-param>
+	    <param-name>javax.faces.PROJECT_STAGE</param-name>
+	    <param-value>Production</param-value>
+  </context-param>
+	
+	<context-param>
+		<param-name>javax.servlet.jsp.jstl.fmt.localizationContext</param-name>
+		<param-value>resources.application</param-value>
+	</context-param>
+	
+	<context-param>
+		<param-name>primefaces.THEME</param-name>
+		<param-value>bootstrap</param-value>
+	</context-param>
+	
+	<listener>
+		<listener-class>com.sun.faces.config.ConfigureListener</listener-class>
+	</listener>
+	
+	<!-- JSF Config End -->
+	
+	<!-- Log4j Config Start -->
+	
+	<context-param>
+        <param-name>log4jConfigLocation</param-name>
+        <param-value>/WEB-INF/classes/log4j.properties</param-value>
+    </context-param>
+    
+	<!-- Log4j Config End -->
+	
+	
+	
+	
+</web-app>
