@@ -12,7 +12,6 @@ def jsfApi = '2.2.5'
 def primefaces = '4.0'
 
 
-
 eclipse {
 project {
 natures 'org.springsource.ide.eclipse.gradle.core.nature', 'org.eclipse.jdt.groovy.core.groovyNature', 'org.eclipse.wst.common.project.facet.core.nature'
