@@ -1,7 +1,7 @@
 
 Introduction:
 
- SpringBoot-RabbitMq is an open-source, CableTV Management framework written entirely in Java on top of the Spring framework.
+ SpringBoot-RabbitMq is an open-source CableTV Management framework written entirely in Java on top of the Spring framework.
 
 Key Features and Technologies: 
 
@@ -26,7 +26,9 @@ Persistence
 JPA and Hibernate represent ORM infrastructure for controlling persistence of our rich domain model.
 
 MySQL 
+
  MySql is an open-source relational database management system (RDBMS). 
+ 
 Email
 
 Email support is provided throughout the framework in either synchronous or asynchronous (Spring Batch) modes. Email presentation customization is achieved via velocity templates.
