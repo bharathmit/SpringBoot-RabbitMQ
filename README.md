@@ -1,5 +1,6 @@
 
 Introduction:
+
  SpringBoot-RabbitMq is an open-source, CableTV Management framework written entirely in Java on top of the Spring framework.
 
 Key Features and Technologies: 
@@ -37,5 +38,14 @@ Spring Batch provides reusable functions that are essential in processing large 
 RabbitMQ 
 
 RabbitMQ is an open source message broker software (sometimes called message-oriented middleware) that implements the Advanced Message Queuing Protocol (AMQP). JMS can be used as a mechanism to allow asynchronous HTTP request processing.
+
+Prerequisites
+
+1. Java
+2. Eclipse Kepler 
+3. Gradle-2.3
+4. Apache-Tomcat 7
+5. Git
+6. Rabbitmq
 
 
