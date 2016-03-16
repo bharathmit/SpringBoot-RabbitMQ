@@ -37,6 +37,10 @@ Spring Batch
 
 Spring Batch provides reusable functions that are essential in processing large volumes of records, including job processing statistics, job restart, skip, and resource management. Simple as well as complex, high-volume batch jobs can leverage the framework in a highly scalable manner to process significant volumes of information.
 
+Paypal 
+
+Cablecard currently offers integration with the PayPal RestRull API. This module allows users to complete their online payment experience using their PayPal account.
+
 RabbitMQ 
 
 RabbitMQ is an open source message broker software (sometimes called message-oriented middleware) that implements the Advanced Message Queuing Protocol (AMQP). JMS can be used as a mechanism to allow asynchronous HTTP request processing.
