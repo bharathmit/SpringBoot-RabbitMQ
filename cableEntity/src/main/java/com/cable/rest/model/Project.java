@@ -29,9 +29,9 @@ public class Project extends Audit implements Serializable{
 	@Getter	@Setter	
 	private Long projectId;
 	
-	@Column(nullable=false)
+	@Column(unique=true,nullable=false)
 	@Getter	@Setter	
-	private String projectName;
+	private String projectCityVillage;
 	
 	@ManyToOne
 	@JoinColumn(name="org_Id", nullable=false)
