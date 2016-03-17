@@ -143,8 +143,8 @@ public class ProjectService {
 				criteria.add(Restrictions.eq("projectId", search.getProjectId()));
 			}
 			
-			if(!org.apache.commons.lang.StringUtils.isEmpty(search.getProjectName())){
-				criteria.add(Restrictions.eq("projectName", search.getProjectName()));
+			if(!org.apache.commons.lang.StringUtils.isEmpty(search.getProjectCityVillage())){
+				criteria.add(Restrictions.eq("projectCityVillage", search.getProjectCityVillage()));
 			}
 			
 			List<Project> list=criteria.list();
