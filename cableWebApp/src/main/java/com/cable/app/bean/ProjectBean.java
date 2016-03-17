@@ -153,7 +153,7 @@ public class ProjectBean {
 	}
 	
 	public void clearForm(){
-		projectSelected.setProjectName ("");
+		projectSelected.setProjectCityVillage("");
 		projectSelected.setOrganization(new OrganizationDto());
 		projectSelected.setAddress("");
 		projectSelected.setZipCode(new ZipCodeDto());		

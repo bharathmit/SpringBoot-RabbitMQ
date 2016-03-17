@@ -73,42 +73,42 @@
 													<div class="row">
 														<div class="col-md-6 col-sm-6 col-lg-6">
 															<div class="form-group">
-																<p:outputLabel class="control-label" for="projectname"
+																<p:outputLabel class="control-label" for="firstname"
 																	value="First Name" />
 
 																<div>
-																	<h:inputText id="projectname"
-																		value="#{projectBean.projectSelected.projectName}"
-																		maxlength="2" class="form-control" required="true"
-																		requiredMessage="Project Name Required"
-																		validatorMessage="Project Name should be alphabets only"
+																	<h:inputText id="firstname"
+																		value="#{userBean.userSelected.firstName}"
+																		class="form-control" required="true"
+																		requiredMessage="First Name Required"
+																		validatorMessage="First Name should be alphabets only"
 																		onkeypress="return isNumberKey(event)">
 																		<f:validateRegex pattern="[a-zA-Z ]*"></f:validateRegex>
 																	</h:inputText>
-																	<p:message for="projectname" styleClass="form-control" />
-																	<p:tooltip styleClass="cus-tooltip" for="projectname"
-																		value="Project Name should be alphabets only"></p:tooltip>
+																	<p:message for="firstname" styleClass="form-control" />
+																	<p:tooltip styleClass="cus-tooltip" for="firstname"
+																		value="First Name should be alphabets only"></p:tooltip>
 																</div>
 
 															</div>
 														</div>
 														<div class="col-md-6 col-sm-6 col-lg-6">
 															<div class="form-group">
-																<p:outputLabel class="control-label" for="mobile"
+																<p:outputLabel class="control-label" for="lastname"
 																	value="Lasr Name" />
 
 																<div>
-																	<h:inputText id="mobile"
-																		value="#{projectBean.projectSelected.mobile}"
-																		maxlength="10" class="form-control" required="true"
-																		requiredMessage="Mobile Number Required"
-																		validatorMessage="Mobile Number should be numeric and length should be 10"																		
+																	<h:inputText id="lastname"
+																		value="#{userBean.userSelected.lastName}"
+																		class="form-control" required="true"
+																		requiredMessage="Last Name Required"
+																		validatorMessage="Last Name should be alphabets only"
 																		onkeypress="return isNumberKey(event)">
-																		<f:validateLength minimum="10" maximum="10" />
+																		<f:validateRegex pattern="[a-zA-Z ]*"></f:validateRegex>
 																	</h:inputText>
-																	<p:message for="mobile" styleClass="form-control" />
-																	<p:tooltip styleClass="cus-tooltip" for="mobile"
-																		value="Mobile Number should be numeric and length should be 10"></p:tooltip>
+																	<p:message for="lastname" styleClass="form-control" />
+																	<p:tooltip styleClass="cus-tooltip" for="lastname"
+																		value="Last Name should be alphabets only"></p:tooltip>
 																</div>
 
 															</div>
@@ -121,26 +121,46 @@
 													<div class="row">
 														<div class="col-md-6 col-sm-6 col-lg-6">
 															<div class="form-group">
-																<p:outputLabel class="control-label" for="amount"
-																	value="Sex" />
+																<p:outputLabel class="control-label" for="gender"
+																	value="Gender" />
 																<div>
-																	<h:inputText id="amount"
-																		value="#{projectBean.projectSelected.advanceAmount}"
-																		class="form-control" required="true"
-																		requiredMessage="Advance Amount Required"																																		
-																		onkeypress="return isNumberKey(event)">																		
-																	</h:inputText>
-																	<p:message for="amount" styleClass="form-control" />																	
+																	<h:selectOneMenu id="gender" required="true" requiredMessage="Select Title"																		
+																		value="#{userBean.userSelected.gender}" class="form-control ">
+																		<f:selectItem itemLabel="Select Gender"  noSelectionOption="true" />
+																		<f:selectItems value="#{applicationBean.genderList}"/>
+																	</h:selectOneMenu>
+																	<p:message for="gender" styleClass="form-control" />																	
 																</div>
 															</div>
 														</div>
+														
+														<div class="col-md-6 col-sm-6 col-lg-6">
+															<div class="form-group">
+																<p:outputLabel class="control-label" for="dob"
+																	value="Date Of Birth" />
+																<div>
+																	<p:calendar id="dob" styleClass="calender-form-control"
+																		maxdate="#{currentDate}" value="#{userBean.userSelected.dob}"
+																		pattern="dd-MMM-yyyy"
+																		navigator="true" >
+																	</p:calendar>
+																</div>
+															</div>
+														</div>
+
+
+
+
+													</div>
+													
+													<div class="row">
 														<div class="col-md-6 col-sm-6 col-lg-6">
 															<div class="form-group">
 																<p:outputLabel class="control-label" for="email"
-																	value="Date Of Birth" />
+																	value="Email Id" />
 																<div>
 																	<h:inputText id="email"
-																		value="#{projectBean.projectSelected.email}"
+																		value="#{userBean.userSelected.emailId}"
 																		class="form-control" required="true"
 																		requiredMessage="Email Id Required"
 																		validatorMessage="Email Id should be numeric and length should be 2"																		
@@ -152,49 +172,23 @@
 																</div>
 															</div>
 														</div>
-
-
-
-
-													</div>
-													
-													<div class="row">
-														<div class="col-md-6 col-sm-6 col-lg-6">
-															<div class="form-group">
-																<p:outputLabel class="control-label" for="duedate"
-																	value="Email Id" />
-																<div>
-																	<h:inputText id="duedate"
-																		value="#{projectBean.projectSelected.paymentDueDate}"
-																		maxlength="2" class="form-control" required="true"
-																		requiredMessage="Payment Due Date Required"
-																		validatorMessage="Payment Due Date should be numeric and length should be 2"																		
-																		onkeypress="return isNumberKey(event)">
-																		<f:validateRegex pattern="[0-9]{1,2}"></f:validateRegex>
-																	</h:inputText>
-																	<p:message for="duedate" styleClass="form-control" />
-																	<p:tooltip styleClass="cus-tooltip" for="duedate"
-																		value="Payment Due Date should be numeric and length should be 2"></p:tooltip>
-																</div>
-															</div>
-														</div>
 														<div class="col-md-6 col-sm-6 col-lg-6">
 															<div class="form-group">
 
-																<p:outputLabel class="control-label" for="generatedate"
+																<p:outputLabel class="control-label" for="mobile"
 																	value="Mobile Number" />
 																<div>
-																	<h:inputText id="generatedate"
-																		value="#{projectBean.projectSelected.paymentGenerateDate}"
-																		maxlength="2" class="form-control" required="true"
-																		requiredMessage="Payment Generate Date Required"
-																		validatorMessage="Payment Generate Date should be numeric and length should be 2"																		
+																	<h:inputText id="mobile"
+																		value="#{userBean.userSelected.mobile}"
+																		maxlength="10" class="form-control" required="true"
+																		requiredMessage="Mobile Number Required"
+																		validatorMessage="Mobile Number should be numeric and length should be 10"																		
 																		onkeypress="return isNumberKey(event)">
-																		<f:validateRegex pattern="[0-9]{1,2}"></f:validateRegex>
+																		<f:validateLength minimum="10" maximum="10" />
 																	</h:inputText>
-																	<p:message for="generatedate" styleClass="form-control" />
-																	<p:tooltip styleClass="cus-tooltip" for="generatedate"
-																		value="Payment Generate Date should be numeric and length should be 2"></p:tooltip>
+																	<p:message for="mobile" styleClass="form-control" />
+																	<p:tooltip styleClass="cus-tooltip" for="mobile"
+																		value="Mobile Number should be numeric and length should be 10"></p:tooltip>
 																</div>
 															</div>
 
@@ -204,35 +198,40 @@
 													<div class="row">
 														<div class="col-md-6 col-sm-6 col-lg-6">
 															<div class="form-group">
-																<p:outputLabel class="control-label" for="address"
+																<p:outputLabel class="control-label" for="loginid"
 																	value="Login Id" />
 																<div>
-																	<h:inputText id="address"
-																		value="#{projectBean.projectSelected.address}"
-																		maxlength="2" class="form-control" required="true"
-																		requiredMessage="Country Name Required"
-																		validatorMessage="Country Name should be numeric and length should be 2"																		
+																	<h:inputText id="loginid"
+																		value="#{userBean.userSelected.loginId}"
+																		maxlength="10" class="form-control" required="true"
+																		requiredMessage="Login ID Required"
+																		validatorMessage="Login ID should be alphabets only"
 																		onkeypress="return isNumberKey(event)">
-																		<f:validateRegex pattern="[0-9]{1,2}"></f:validateRegex>
+																		<f:validateRegex pattern="[a-zA-Z ]*"></f:validateRegex>
 																	</h:inputText>
-																	<p:message for="address" styleClass="form-control" />
-																	<p:tooltip styleClass="cus-tooltip" for="address"
-																		value="Country Name should be numeric and length should be 2"></p:tooltip>
+																	<p:message for="loginid" styleClass="form-control" />
+																	<p:tooltip styleClass="cus-tooltip" for="loginid"
+																		value="Login ID should be alphabets only"></p:tooltip>
 																</div>
 															</div>
 														</div>
 														<div class="col-md-6 col-sm-6 col-lg-6">
 															<div class="form-group">
 
-																<p:outputLabel class="control-label" for="zipcode"
+																<p:outputLabel class="control-label" for="password"
 																	value="Password " />
 																<div>
-																	<h:selectOneMenu id="zipcode"
-																		
-																		class="form-control ">
-																		<f:selectItem itemLabel="Active" itemValue="true" />
-																		<f:selectItem itemLabel="Inactive" itemValue="false" />
-																	</h:selectOneMenu>
+																	<h:inputText id="password"
+																		value="#{userBean.userSelected.loginId}"
+																		maxlength="10" class="form-control" required="true"
+																		requiredMessage="Password Required"
+																		validatorMessage="Password should be alphabets only"
+																		onkeypress="return isNumberKey(event)">
+																		<f:validateRegex pattern="[a-zA-Z ]*"></f:validateRegex>
+																	</h:inputText>
+																	<p:message for="password" styleClass="form-control" />
+																	<p:tooltip styleClass="cus-tooltip" for="password"
+																		value="Password should be alphabets only"></p:tooltip>
 																	
 																</div>
 															</div>
@@ -243,14 +242,16 @@
 													<div class="row">
 														<div class="col-md-6 col-sm-6 col-lg-6">
 															<div class="form-group">
-																<p:outputLabel class="control-label" for="flag"
+																<p:outputLabel class="control-label" for="address"
 																	value="Adress" />
-																<h:selectOneMenu id="flag"
-																		
-																		class="form-control ">
-																		<f:selectItem itemLabel="Active" itemValue="true" />
-																		<f:selectItem itemLabel="Inactive" itemValue="false" />
-																	</h:selectOneMenu>
+																<h:inputTextarea rows="6" id="address" required="true" requiredMessage="Address Detail Required"
+																	styleClass="form-control"
+																	value="#{userBean.userSelected.address}">
+																</h:inputTextarea>
+																	
+																	<p:message for="address" styleClass="form-control" />
+																	<p:tooltip styleClass="cus-tooltip" for="address"
+																		value="User Current Address Details "></p:tooltip>
 																
 																
 															</div>
@@ -261,18 +262,41 @@
 																<p:outputLabel class="control-label" for="status"
 																	value="Status" />
 																<div>
-																	<h:selectOneMenu id="status"
-																		
-																		class="form-control ">
-																		<f:selectItem itemLabel="Active" itemValue="true" />
-																		<f:selectItem itemLabel="Inactive" itemValue="false" />
+																	<h:selectOneMenu id="status" required="true" requiredMessage="Select Title"																		
+																		value="#{userBean.userSelected.status}" class="form-control ">
+																		<f:selectItem itemLabel="Select Status"  noSelectionOption="true" />
+																		<f:selectItems value="#{applicationBean.statusList}"/>
 																	</h:selectOneMenu>
+																	<p:message for="status" styleClass="form-control" />
 																	
 																</div>
 															</div>
 
 														</div>
 													</div>
+													
+													
+													<div class="row">
+									
+										<div class="col-md-4  col-sm-4  no-left-padding">
+											<div class="form-group">
+												<p:pickList id="list" value="#{userBean.projectList}"
+															var="projects" converter="pickListConverter" itemLabel="#{projects.projectCityVillage}"  
+							                    itemValue="#{projects}" >
+													<f:facet name="sourceCaption">Available</f:facet>
+	        							<f:facet name="targetCaption">Selected</f:facet>
+								        
+									    
+									    <p:column style="width:75%;">  
+								            #{projects.projectCityVillage}  
+								        </p:column>		
+														</p:pickList>
+
+											</div>
+										</div>
+										
+										
+									</div>
 
 												</p:outputPanel>
 												<div class="form-group pull-right">

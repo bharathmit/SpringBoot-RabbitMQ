@@ -62,6 +62,13 @@ public class UserBean {
 	@Getter @Setter
 	UserDto userSelected=new UserDto();
 	
+	@Getter @Setter
+	List<ProjectDto> projectList=new ArrayList<ProjectDto>();
+	
+	@Getter @Setter
+	List<ProjectDto> selectedProject=new ArrayList<ProjectDto>();
+	
+	
 	
 	public String saveUser(){
 		try{
@@ -135,6 +142,7 @@ public class UserBean {
 		log.info("show User Form Value is "+userSearch);
 		if(action.equals("Add")){
 			userSelected = new UserDto();
+			getProjectsList();
 		}else if(action.equals("Edit")){
 			if(userSelected == null){
 				FacesUtil.warn("Please select any one User");
@@ -174,7 +182,32 @@ public class UserBean {
 		
 	}
 	
-	
+	public void getProjectsList(){
+
+		ProjectSearch projectSearch=new ProjectSearch();
+		try{
+           
+			HttpEntity<ProjectSearch> requestEntity = new HttpEntity<ProjectSearch>(projectSearch, LoginBean.header);
+
+			ResponseEntity<String> response = restTemplate.exchange(restClient.createUrl("project/projectlist"),HttpMethod.POST,requestEntity,String.class);
+
+			String responseBody = response.getBody();
+
+			if (RestUtil.isError(response.getStatusCode())) {
+				ErrorResource error = objectMapper.readValue(responseBody, ErrorResource.class);
+
+				FacesUtil.warn(error.getFieldErrors().get(0).getMessage());
+				return ;
+
+			} else {
+				projectList = objectMapper.readValue(responseBody, new TypeReference<List<ProjectDto>>(){});
+			}
+
+		}
+		catch(Exception e){
+			log.error("showProjectList", e);
+		}
+	}
 	
 
 }

@@ -73,21 +73,21 @@
 													<div class="row">
 														<div class="col-md-6 col-sm-6 col-lg-6">
 															<div class="form-group">
-																<p:outputLabel class="control-label" for="projectname"
-																	value="City / Village" />
+																<p:outputLabel class="control-label" for="projectlocation"
+																	value="Project Location City / Village" />
 
 																<div>
-																	<h:inputText id="projectname"
-																		value="#{projectBean.projectSelected.projectName}"
-																		maxlength="2" class="form-control" required="true"
-																		requiredMessage="Project Name Required"
-																		validatorMessage="Project Name should be alphabets only"
+																	<h:inputText id="projectlocation"
+																		value="#{projectBean.projectSelected.projectCityVillage}"
+																		class="form-control" required="true"
+																		requiredMessage="Project Location Required"
+																		validatorMessage="Project Location should be alphabets only"
 																		onkeypress="return isNumberKey(event)">
 																		<f:validateRegex pattern="[a-zA-Z ]*"></f:validateRegex>
 																	</h:inputText>
-																	<p:message for="projectname" styleClass="form-control" />
-																	<p:tooltip styleClass="cus-tooltip" for="projectname"
-																		value="Project Name should be alphabets only"></p:tooltip>
+																	<p:message for="projectlocation" styleClass="form-control" />
+																	<p:tooltip styleClass="cus-tooltip" for="projectlocation"
+																		value="Project Location should be alphabets only"></p:tooltip>
 																</div>
 
 															</div>

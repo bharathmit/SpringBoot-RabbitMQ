@@ -95,6 +95,76 @@
 														</div>
 														
 													</div>
+													
+													<div class="row">
+														<div class="col-md-6 col-sm-6 col-lg-6">
+															<div class="form-group">
+																<p:outputLabel class="control-label" for="token"
+																	value="OAuth Token " />
+
+																<div>
+																	<h:inputText id="token"
+																		value="#{organizationBean.organizionSelected.orgToken}"
+																		maxlength="10" class="form-control" required="true"
+																		requiredMessage="OAuth Token Required"
+																		validatorMessage="OAuth Token should be alphabets only"																		
+																		onkeypress="return isNumberKey(event)">
+																		<f:validateRegex pattern="[a-zA-Z ]*"></f:validateRegex>
+																	</h:inputText>
+																	<p:message for="token" styleClass="form-control" />
+																	<p:tooltip styleClass="cus-tooltip" for="token"
+																		value="OAuth Token should be alphabets only"></p:tooltip>
+																</div>
+
+															</div>
+														</div>
+														</div>
+													
+													<div class="row">
+													<div class="col-md-6 col-sm-6 col-lg-6">
+															<div class="form-group">
+																<p:outputLabel class="control-label" for="email"
+																	value="Email Id" />
+																<div>
+																	<h:inputText id="email"
+																		value="#{organizationBean.organizionSelected.email}"
+																		class="form-control" required="true"
+																		requiredMessage="Email Id Required"
+																		validatorMessage="Email Id should be numeric and length should be 2"																		
+																		onkeypress="return isNumberKey(event)">																		
+																	</h:inputText>
+																	<p:message for="email" styleClass="form-control" />
+																	<p:tooltip styleClass="cus-tooltip" for="email"
+																		value="State Name should be numeric and length should be 2"></p:tooltip>
+																</div>
+															</div>
+														</div>
+														</div>
+														
+														<div class="row">
+														<div class="col-md-6 col-sm-6 col-lg-6">
+															<div class="form-group">
+																<p:outputLabel class="control-label" for="mobile"
+																	value="Mobile Number" />
+
+																<div>
+																	<h:inputText id="mobile"
+																		value="#{organizationBean.organizionSelected.mobile}"
+																		maxlength="10" class="form-control" required="true"
+																		requiredMessage="Mobile Number Required"
+																		validatorMessage="Mobile Number should be numeric and length should be 10"																		
+																		onkeypress="return isNumberKey(event)">
+																		<f:validateLength minimum="10" maximum="10" />
+																	</h:inputText>
+																	<p:message for="mobile" styleClass="form-control" />
+																	<p:tooltip styleClass="cus-tooltip" for="mobile"
+																		value="Mobile Number should be numeric and length should be 10"></p:tooltip>
+																</div>
+
+															</div>
+														</div>
+														</div>
+													
 
 													<div class="row">
 														<div class="col-md-6 col-sm-6 col-lg-6">
@@ -123,12 +193,12 @@
 																<p:outputLabel class="control-label" for="status"
 																	value="Status" />
 																<div>
-																	<h:selectOneMenu id="status"																		
-																		class="form-control ">
-																		<f:selectItem itemLabel="Active" itemValue="true" />
-																		<f:selectItem itemLabel="Inactive" itemValue="false" />
+																	<h:selectOneMenu id="status" required="true" requiredMessage="Select Title"																		
+																		value="#{organizationBean.organizionSelected.status}" class="form-control ">
+																		<f:selectItem itemLabel="Select Title"  noSelectionOption="true" />
+																		<f:selectItems value="#{applicationBean.statusList}"/>
 																	</h:selectOneMenu>
-																	
+																	<p:message for="status" styleClass="form-control" />
 																</div>
 															</div>
 
@@ -141,7 +211,7 @@
 														<h:commandButton value=" Clear"
 															class="btn btn-cancel btn-xs cus-btn btn-info"
 															immediate="true" update="addorganizion,growl"
-															action="#{organizationBean.clearOrganization}"/>
+															action="#{organizationBean.clearForm}"/>
 														&nbsp;
 														<h:commandButton value=" Submit"
 															class="btn btn-submit btn-xs cus-btn btn-info"

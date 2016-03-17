@@ -75,13 +75,9 @@
 														<div class="col-md-6 col-sm-6 col-lg-6">
 															<div class="form-group">
 
-																<p:outputLabel class="control-label" for="project"
+																<p:outputLabel class="control-label" 
 																	value="Project Name" />
 																<div>
-																	<h:selectOneMenu id="project" value="#{organizationBean.organizionEL.status}"																		
-																		class="form-control ">
-																		<f:selectItems value="#{applicationBean.statusList}"/>	
-																	</h:selectOneMenu>
 																	
 																</div>
 															</div>
@@ -92,21 +88,11 @@
 													<div class="row">
 														<div class="col-md-6 col-sm-6 col-lg-6">
 															<div class="form-group">
-																<p:outputLabel class="control-label" for="area"
+																<p:outputLabel class="control-label"
 																	value="Area Name" />
 
 																<div>
-																	<h:inputText id="area"
-																		value="#{organizationBean.organizionEL.orgName}"
-																		class="form-control" required="true"
-																		requiredMessage="Organization Name Required"
-																		validatorMessage="Organization Name should be alphabets only"
-																		onkeypress="return isNumberKey(event)">
-																		<f:validateRegex pattern="[a-zA-Z ]*"></f:validateRegex>
-																	</h:inputText>
-																	<p:message for="area" styleClass="form-control" />
-																	<p:tooltip styleClass="cus-tooltip" for="area"
-																		value="Location Name should be alphabets only"></p:tooltip>
+																	
 																</div>
 
 															</div>
@@ -118,13 +104,10 @@
 														<div class="col-md-6 col-sm-6 col-lg-6">
 															<div class="form-group">
 
-																<p:outputLabel class="control-label" for="status"
+																<p:outputLabel class="control-label" 
 																	value="Status" />
 																<div>
-																	<h:selectOneMenu id="status" value="#{organizationBean.organizionEL.status}"																		
-																		class="form-control ">
-																		<f:selectItems value="#{applicationBean.statusList}"/>	
-																	</h:selectOneMenu>
+																	
 																	
 																</div>
 															</div>
