@@ -16,7 +16,7 @@ public class ProjectDto extends BaseDto implements Serializable  {
 	@Getter @Setter
 	private Long projectId;
 	@Getter @Setter
-	private String projectName;
+	private String projectCityVillage;
 	@Getter @Setter
 	private OrganizationDto organization;
 	@Getter @Setter

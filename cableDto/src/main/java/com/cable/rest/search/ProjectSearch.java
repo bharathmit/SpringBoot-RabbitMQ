@@ -18,7 +18,7 @@ public class ProjectSearch {
 	private Long projectId;
 	
 	@Getter	@Setter	
-	private String projectName;
+	private String projectCityVillage;
 	
 
 }
