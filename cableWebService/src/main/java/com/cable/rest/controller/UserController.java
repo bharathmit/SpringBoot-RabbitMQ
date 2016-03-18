@@ -37,8 +37,8 @@ public class UserController extends BaseController {
 	
 	
 	@RequestMapping(value="/userlist",method=RequestMethod.POST)
-	public List<UserDto> getUser(@RequestBody UserSearch searchObject){
-		return (List<UserDto>) sendtoMQ(searchObject, "getUser", "userService");
+	public Object getUser(@RequestBody UserSearch searchObject){
+		return sendtoMQ(searchObject, "getUser", "userService");
 	}
 	
 	@RequestMapping(value="/deleteuser",method=RequestMethod.POST)

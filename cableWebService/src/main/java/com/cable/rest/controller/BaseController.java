@@ -15,8 +15,11 @@ import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;*/
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.util.StringUtils;
 
 import com.cable.rest.config.SpringApplicationContext;
+import com.cable.rest.exception.ExceptionResolver;
+import com.cable.rest.exception.RestException;
 @Log4j
 public class BaseController {
 
@@ -33,7 +36,24 @@ public class BaseController {
     public Object sendtoMQ(Object request, final String serviceMethodName, final String serviceName) {
        
     	if(MQFlag.equalsIgnoreCase("false")){
-    		return SpringApplicationContext.getAppResponse(request, serviceMethodName, serviceName);
+    		Object returnObject=null;
+    		try{
+    			returnObject = SpringApplicationContext.getAppResponse(request, serviceMethodName, serviceName);
+    		}
+    		catch(Exception e) {
+            	if(e.getCause() instanceof RestException){
+            		returnObject=ExceptionResolver.businessRule(e.getCause());
+            	}
+            	else{
+            		log.error("Service Exception", e);
+            		returnObject=ExceptionResolver.invalidDataAccess(e);
+            	}
+            }
+            
+            if(StringUtils.isEmpty(returnObject)){
+            	returnObject=ExceptionResolver.nullPointer();
+            }
+    		return returnObject;
     	}
     	
         return mq.convertSendAndReceive(queueName, request, new MessagePostProcessor() {
