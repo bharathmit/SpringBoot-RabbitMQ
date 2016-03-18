@@ -39,11 +39,6 @@ public class UserRole extends Audit implements Serializable{
 	@Getter	@Setter	
 	private Role role;
 	
-	@ManyToOne
-	@JoinColumn(name="project_Id", nullable=false)
-	@Getter	@Setter	
-	private Project project;
-	
 	@Column(nullable=false)
 	@Enumerated(EnumType.STRING)
 	@Getter	@Setter	
