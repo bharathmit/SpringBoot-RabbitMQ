@@ -36,7 +36,7 @@ import org.springframework.ui.velocity.VelocityEngineFactoryBean;
 @EnableAutoConfiguration
 @EntityScan(value = {"com.cable.rest.model"})
 @EnableJpaRepositories(value = {"com.cable.rest.repository"})
-@ComponentScan("com.cable.rest")
+@ComponentScan({"com.cable.rest","com.cable.batch"})
 @PropertySource("classpath:application.properties")
 @EnableJpaAuditing
 @EnableCaching

@@ -25,6 +25,7 @@ dependencies {
     compile project(':cableDto')
     compile project(':cableEntity')
 	
+	compile ("org.quartz-scheduler:quartz:2.2.1")
 	compile("org.springframework.boot:spring-boot-starter-batch")
 	compile("org.springframework.boot:spring-boot-starter-web")
 	providedRuntime("org.springframework.boot:spring-boot-starter-tomcat")

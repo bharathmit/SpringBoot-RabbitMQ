@@ -72,7 +72,7 @@ public class PaymentGenerationJobConfiguration {
 	public ItemReader<GeneratePayment> paymentGenerationReader(){
 		
 		JdbcCursorItemReader<GeneratePayment> reader = new JdbcCursorItemReader<GeneratePayment>();
-		String sql = "select * from generate_payment where is_email_subscriber is not null";
+		String sql = "select c.account_id,c.email_id,c.rent_amount from organization o, project p,connection_account c where o.org_id=p.org_id and p.project_id=c.project_id and o.`status`='ACTIVE' and p.`status`='ACTIVE' and c.`status`='ACTIVE' ";
 		
 		reader.setSql(sql);
 		reader.setDataSource(dataSource);
