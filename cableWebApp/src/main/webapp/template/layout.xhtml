@@ -299,9 +299,9 @@
 									<ul
 										class="#{loginBean.activeMainMenu eq 'Payment' ? 'nav nav-second-level collapse in' : 'nav nav-second-level collapse'}">
 										<li
-											class="#{loginBean.activeSubMenu eq 'Device List' ? 'active' : ''}"><h:commandLink
+											class="#{loginBean.activeSubMenu eq 'Payment View' ? 'active' : ''}"><h:commandLink
 												action="#{deviceBean.showDeviceList}" immediate="true"
-												value="Device List " styleClass="submenu-title">
+												value="Payment View" styleClass="submenu-title">
 												<i class="fa fa-angle-right"></i>
 												<f:setPropertyActionListener target="#{deviceBean.action}"
 													value="View" />
@@ -377,32 +377,7 @@
 												<f:setPropertyActionListener
 													target="#{loginBean.activeSubMenu}" value="Stock Receipt" />
 											</h:commandLink></li>
-										<li
-											class="#{loginBean.activeSubMenu eq 'Opening Stock' ? 'active' : ''}"><h:commandLink
-												action="#{fpsStockHistoryBean.showFpsStockHistoryList}"
-												value="Opening Stock" immediate="true"
-												styleClass="submenu-title">
-												<i class="fa fa-angle-right"></i>
-
-												<f:setPropertyActionListener
-													target="#{loginBean.activeMainMenu}" value="FPS" />
-												<f:setPropertyActionListener
-													target="#{loginBean.activeSubMenu}" value="Opening Stock" />
-
-											</h:commandLink></li>
-										<li
-											class="#{loginBean.activeSubMenu eq 'Stock' ? 'active' : ''}"><h:commandLink
-												action="#{fpsStockBean.showFpsStockList}" value="Stock"
-												immediate="true" styleClass="submenu-title">
-												<i class="fa fa-angle-right"></i>
-
-												<f:setPropertyActionListener
-													target="#{loginBean.activeMainMenu}" value="FPS" />
-												<f:setPropertyActionListener
-													target="#{loginBean.activeSubMenu}" value="Stock" />
-
-											</h:commandLink></li>
-
+																			
 									</ul></li>
 
 								<li

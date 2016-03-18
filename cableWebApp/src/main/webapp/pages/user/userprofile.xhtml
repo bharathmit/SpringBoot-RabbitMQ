@@ -280,18 +280,27 @@
 									
 										<div class="col-md-4  col-sm-4  no-left-padding">
 											<div class="form-group">
-												<p:pickList id="list" value="#{userBean.projectList}"
-															var="projects" converter="pickListConverter" itemLabel="#{projects.projectCityVillage}"  
-							                    itemValue="#{projects}" >
-													<f:facet name="sourceCaption">Available</f:facet>
-	        							<f:facet name="targetCaption">Selected</f:facet>
-								        
-									    
-									    <p:column style="width:75%;">  
-								            #{projects.projectCityVillage}  
-								        </p:column>		
-														</p:pickList>
+												<p:dataTable id="list" value="#{userBean.roleList}"
+															var="role" selection="#{userBean.selectedRole}"
+															currentPageReportTemplate="{currentPage} / {totalPages}"
+															rowKey="#{role.roleId}" rows="20" paginator="true"
+															paginatorPosition="bottom" rowIndexVar="idx"
+															paginatorTemplate=" {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+															rowsPerPageTemplate="5,10" 
+															styleClass="marginbottom">
+															
+															<p:column headerText="#" styleClass="text-left">
+																<h:outputText value="#{idx+1}" />
+															</p:column>
 
+															<p:column headerText="Role Name" 
+																styleClass="text-left">
+																<h:outputText value="#{role.roleName}" />
+															</p:column>
+						
+															<p:column headerText="Select" selectionMode="single"
+																styleClass="associate" />
+														</p:dataTable>
 											</div>
 										</div>
 										

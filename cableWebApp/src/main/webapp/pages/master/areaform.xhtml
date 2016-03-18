@@ -71,49 +71,72 @@
 											<div class="col-md-12">
 												<p:outputPanel id="addarea">
 												
+												
 												<div class="row">														
 														<div class="col-md-6 col-sm-6 col-lg-6">
 															<div class="form-group">
 
-																<p:outputLabel class="control-label" 
+																<p:outputLabel class="control-label" for="project"
 																	value="Project Name" />
 																<div>
-																	
+																	<h:selectOneMenu id="project" required="true" requiredMessage="Select Project"																		
+																		value="#{areaBean.areaSelected.project}" class="form-control ">
+																		<f:selectItem itemLabel="Select Project"  noSelectionOption="true" />
+																		<f:selectItems value="#{areaBean.projectList}"/>
+																	</h:selectOneMenu>
+																	<p:message for="status" styleClass="form-control" />
 																</div>
 															</div>
 
 														</div>
-													</div>
-
-													<div class="row">
+													</div>	
+												
+												
+												<div class="row">
 														<div class="col-md-6 col-sm-6 col-lg-6">
 															<div class="form-group">
-																<p:outputLabel class="control-label"
+																<p:outputLabel class="control-label" for="areaname"
 																	value="Area Name" />
 
 																<div>
-																	
+																	<h:inputText id="areaname"
+																		value="#{areaBean.areaSelected.areaName}"
+																		class="form-control" required="true"
+																		requiredMessage="Area Name Required"
+																		validatorMessage="Area Name should be alphabets only"
+																		onkeypress="return isNumberKey(event)">
+																		<f:validateRegex pattern="[a-zA-Z ]*"></f:validateRegex>
+																	</h:inputText>
+																	<p:message for="areaname" styleClass="form-control" />
+																	<p:tooltip styleClass="cus-tooltip" for="areaname"
+																		value="Area Name should be alphabets only"></p:tooltip>
 																</div>
 
 															</div>
 														</div>
 														
-													</div>							
+													</div>
 
 													<div class="row">														
 														<div class="col-md-6 col-sm-6 col-lg-6">
 															<div class="form-group">
 
-																<p:outputLabel class="control-label" 
+																<p:outputLabel class="control-label" for="status"
 																	value="Status" />
 																<div>
-																	
-																	
+																	<h:selectOneMenu id="status" required="true" requiredMessage="Select Title"																		
+																		value="#{areaBean.areaSelected.status}" class="form-control ">
+																		<f:selectItem itemLabel="Select Title"  noSelectionOption="true" />
+																		<f:selectItems value="#{applicationBean.statusList}"/>
+																	</h:selectOneMenu>
+																	<p:message for="status" styleClass="form-control" />
 																</div>
 															</div>
 
 														</div>
-													</div>
+													</div>						
+
+													
 
 												</p:outputPanel>
 												<div class="form-group">
@@ -148,7 +171,7 @@
 			<!--END PAGE CONTENT-->
 		</h:form>
 		<script>
-			$("title").html("Cable | Organization Details");
+			$("title").html("Cable | Area Details");
 		</script>
 
 	</ui:define>

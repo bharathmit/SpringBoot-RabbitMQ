@@ -18,7 +18,9 @@ import com.cable.app.utils.RestClient;
 import com.cable.rest.constants.Gender;
 import com.cable.rest.constants.Status;
 import com.cable.rest.dto.ProjectDto;
+import com.cable.rest.dto.RoleDto;
 import com.cable.rest.dto.UserDto;
+import com.cable.rest.dto.UserRoleDto;
 import com.cable.rest.dto.ZipCodeDto;
 import com.cable.rest.response.ErrorResource;
 import com.cable.rest.search.ProjectSearch;
@@ -63,16 +65,22 @@ public class UserBean {
 	UserDto userSelected=new UserDto();
 	
 	@Getter @Setter
-	List<ProjectDto> projectList=new ArrayList<ProjectDto>();
+	List<RoleDto> roleList=new ArrayList<RoleDto>();
 	
 	@Getter @Setter
-	List<ProjectDto> selectedProject=new ArrayList<ProjectDto>();
+	RoleDto selectedRole=new RoleDto();
 	
 	
 	
 	public String saveUser(){
 		try{
-
+			
+			UserRoleDto userRole=new UserRoleDto();
+			
+			userRole.setRole(selectedRole);
+			userRole.setStatus(Status.Active);
+			userSelected.getUserRoles().add(userRole);
+			
 			HttpEntity<UserDto> requestEntity = new HttpEntity<UserDto>(userSelected, LoginBean.header);
 
 			ResponseEntity<String> response = restTemplate.exchange(restClient.createUrl("user/saveuser"),HttpMethod.POST,requestEntity,String.class);
@@ -87,7 +95,7 @@ public class UserBean {
 
 			} else {
 				UserDto result = objectMapper.readValue(responseBody, UserDto.class);
-				FacesUtil.info("ZIP Code has been saved.");
+				FacesUtil.info("saveUser has been saved.");
 
 			}
 		}
@@ -142,7 +150,7 @@ public class UserBean {
 		log.info("show User Form Value is "+userSearch);
 		if(action.equals("Add")){
 			userSelected = new UserDto();
-			getProjectsList();
+			getRolesList();
 		}else if(action.equals("Edit")){
 			if(userSelected == null){
 				FacesUtil.warn("Please select any one User");
@@ -182,14 +190,14 @@ public class UserBean {
 		
 	}
 	
-	public void getProjectsList(){
+	public void getRolesList(){
 
-		ProjectSearch projectSearch=new ProjectSearch();
+		UserSearch userSearch=new UserSearch();
 		try{
            
-			HttpEntity<ProjectSearch> requestEntity = new HttpEntity<ProjectSearch>(projectSearch, LoginBean.header);
+			HttpEntity<UserSearch> requestEntity = new HttpEntity<UserSearch>(userSearch, LoginBean.header);
 
-			ResponseEntity<String> response = restTemplate.exchange(restClient.createUrl("project/projectlist"),HttpMethod.POST,requestEntity,String.class);
+			ResponseEntity<String> response = restTemplate.exchange(restClient.createUrl("role/getrolelist"),HttpMethod.POST,requestEntity,String.class);
 
 			String responseBody = response.getBody();
 
@@ -200,12 +208,12 @@ public class UserBean {
 				return ;
 
 			} else {
-				projectList = objectMapper.readValue(responseBody, new TypeReference<List<ProjectDto>>(){});
+				roleList = objectMapper.readValue(responseBody, new TypeReference<List<RoleDto>>(){});
 			}
 
 		}
 		catch(Exception e){
-			log.error("showProjectList", e);
+			log.error("getRolesList", e);
 		}
 	}
 	

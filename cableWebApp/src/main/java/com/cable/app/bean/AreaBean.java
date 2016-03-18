@@ -25,6 +25,8 @@ import com.cable.rest.dto.ProjectDto;
 import com.cable.rest.dto.ZipCodeDto;
 import com.cable.rest.response.ErrorResource;
 import com.cable.rest.search.MasterSearch;
+import com.cable.rest.search.ProjectSearch;
+import com.cable.rest.search.UserSearch;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -54,6 +56,8 @@ public class AreaBean {
 	@Getter @Setter
 	AreaDto areaSelected=new AreaDto();
 	
+	@Getter @Setter
+	List<ProjectDto> projectList=new ArrayList<ProjectDto>();
 	
 	@Setter @Getter
 	String action;
@@ -133,6 +137,7 @@ public class AreaBean {
 		
 		if(action.equals("Add")){
 			areaSelected = new AreaDto();
+			getProjectsList();
 		}else if(action.equals("Edit")){
 			if(areaSelected == null){
 				FacesUtil.warn("Please select any one Area");
@@ -161,6 +166,33 @@ public class AreaBean {
 		areaSelected = new AreaDto();
 		return "/pages/master/arealist.xhtml";
 		
+	}
+	
+	public void getProjectsList(){
+
+		ProjectSearch projectSearch=new ProjectSearch();
+		try{
+           
+			HttpEntity<ProjectSearch> requestEntity = new HttpEntity<ProjectSearch>(projectSearch, LoginBean.header);
+
+			ResponseEntity<String> response = restTemplate.exchange(restClient.createUrl("project/projectlist"),HttpMethod.POST,requestEntity,String.class);
+
+			String responseBody = response.getBody();
+
+			if (RestUtil.isError(response.getStatusCode())) {
+				ErrorResource error = objectMapper.readValue(responseBody, ErrorResource.class);
+
+				FacesUtil.warn(error.getFieldErrors().get(0).getMessage());
+				return ;
+
+			} else {
+				projectList = objectMapper.readValue(responseBody, new TypeReference<List<ProjectDto>>(){});
+			}
+
+		}
+		catch(Exception e){
+			log.error("showProjectList", e);
+		}
 	}
 	
 	

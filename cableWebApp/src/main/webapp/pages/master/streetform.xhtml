@@ -71,23 +71,25 @@
 											<div class="col-md-12">
 												<p:outputPanel id="addstreet">
 												
-												<div class="row">														
+													<div class="row">														
 														<div class="col-md-6 col-sm-6 col-lg-6">
 															<div class="form-group">
 
 																<p:outputLabel class="control-label" for="project"
 																	value="Project Name" />
 																<div>
-																	<h:selectOneMenu id="project" value="#{organizationBean.organizionEL.status}"																		
-																		class="form-control ">
-																		<f:selectItems value="#{applicationBean.statusList}"/>	
+																	<h:selectOneMenu id="project" required="true" requiredMessage="Select Project"																		
+																		value="#{areaBean.areaSelected.project}" class="form-control ">
+																		<f:selectItem itemLabel="Select Project"  noSelectionOption="true" />
+																		<f:selectItems value="#{areaBean.projectList}"/>
 																	</h:selectOneMenu>
-																	
+																	<p:message for="status" styleClass="form-control" />
 																</div>
 															</div>
 
 														</div>
-													</div>
+													</div>	
+													
 													
 													<div class="row">														
 														<div class="col-md-6 col-sm-6 col-lg-6">
@@ -96,16 +98,17 @@
 																<p:outputLabel class="control-label" for="area"
 																	value="Area Name" />
 																<div>
-																	<h:selectOneMenu id="area" value="#{organizationBean.organizionEL.status}"																		
-																		class="form-control ">
-																		<f:selectItems value="#{applicationBean.statusList}"/>	
+																	<h:selectOneMenu id="area" required="true" requiredMessage="Select Area"																		
+																		value="#{areaBean.areaSelected.project}" class="form-control ">
+																		<f:selectItem itemLabel="Select Project"  noSelectionOption="true" />
+																		<f:selectItems value="#{areaBean.projectList}"/>
 																	</h:selectOneMenu>
-																	
+																	<p:message for="area" styleClass="form-control" />
 																</div>
 															</div>
 
 														</div>
-													</div>
+													</div>	
 
 													<div class="row">
 														<div class="col-md-6 col-sm-6 col-lg-6">
@@ -115,22 +118,22 @@
 
 																<div>
 																	<h:inputText id="street"
-																		value="#{organizationBean.organizionEL.orgName}"
+																		value="#{areaBean.areaSelected.areaName}"
 																		class="form-control" required="true"
-																		requiredMessage="Organization Name Required"
-																		validatorMessage="Organization Name should be alphabets only"
+																		requiredMessage="Street Name Required"
+																		validatorMessage="Street Name should be alphabets only"
 																		onkeypress="return isNumberKey(event)">
 																		<f:validateRegex pattern="[a-zA-Z ]*"></f:validateRegex>
 																	</h:inputText>
 																	<p:message for="street" styleClass="form-control" />
 																	<p:tooltip styleClass="cus-tooltip" for="street"
-																		value="Location Name should be alphabets only"></p:tooltip>
+																		value="Street Name should be alphabets only"></p:tooltip>
 																</div>
 
 															</div>
 														</div>
 														
-													</div>							
+													</div>
 
 													<div class="row">														
 														<div class="col-md-6 col-sm-6 col-lg-6">
@@ -139,16 +142,17 @@
 																<p:outputLabel class="control-label" for="status"
 																	value="Status" />
 																<div>
-																	<h:selectOneMenu id="status" value="#{organizationBean.organizionEL.status}"																		
-																		class="form-control ">
-																		<f:selectItems value="#{applicationBean.statusList}"/>	
+																	<h:selectOneMenu id="status" required="true" requiredMessage="Select Title"																		
+																		value="#{areaBean.areaSelected.status}" class="form-control ">
+																		<f:selectItem itemLabel="Select Title"  noSelectionOption="true" />
+																		<f:selectItems value="#{applicationBean.statusList}"/>
 																	</h:selectOneMenu>
-																	
+																	<p:message for="status" styleClass="form-control" />
 																</div>
 															</div>
 
 														</div>
-													</div>
+													</div>	
 
 												</p:outputPanel>
 												<div class="form-group">
