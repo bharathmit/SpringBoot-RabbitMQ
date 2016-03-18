@@ -24,9 +24,6 @@ public class UserRoleDto implements Serializable {
 	@Getter	@Setter	
 	private RoleDto role;
 	
-	@Getter	@Setter	
-	private ProjectDto project;
-	
 	@Getter @Setter
 	private Status status;
 }
