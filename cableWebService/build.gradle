@@ -12,7 +12,7 @@ buildscript {
 }
 
 apply plugin: 'spring-boot'
-apply plugin: 'war'
+apply plugin: 'java'
 
 
 configurations {
