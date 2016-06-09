@@ -57,7 +57,7 @@ private static final long serialVersionUID = 1L;
 	@Getter	@Setter	
 	private Double invoiceAmount;
 	
-	@Column(nullable=false)
+	@Column
 	@Getter	@Setter	
 	private Double discountAmount;
 	
