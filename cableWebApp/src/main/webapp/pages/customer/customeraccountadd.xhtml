@@ -78,7 +78,7 @@
 																<p:outputLabel class="control-label" for="project"
 																	value="Project Name" />
 																<div>
-																	<h:selectOneMenu id="project" value="#{organizationBean.organizionEL.status}"																		
+																	<h:selectOneMenu id="project" value="#{organizationBean.organizionSelected.status}"																		
 																		class="form-control ">
 																		<f:selectItems value="#{applicationBean.statusList}"/>	
 																	</h:selectOneMenu>
@@ -96,7 +96,7 @@
 																<p:outputLabel class="control-label" for="area"
 																	value="Area Name" />
 																<div>
-																	<h:selectOneMenu id="area" value="#{organizationBean.organizionEL.status}"																		
+																	<h:selectOneMenu id="area" value="#{organizationBean.organizionSelected.status}"																		
 																		class="form-control ">
 																		<f:selectItems value="#{applicationBean.statusList}"/>	
 																	</h:selectOneMenu>
@@ -115,7 +115,7 @@
 
 																<div>
 																	<h:inputText id="street"
-																		value="#{organizationBean.organizionEL.orgName}"
+																		value="#{organizationBean.organizionSelected.orgName}"
 																		class="form-control" required="true"
 																		requiredMessage="Organization Name Required"
 																		validatorMessage="Organization Name should be alphabets only"
@@ -139,7 +139,7 @@
 																<p:outputLabel class="control-label" for="status"
 																	value="Status" />
 																<div>
-																	<h:selectOneMenu id="status" value="#{organizationBean.organizionEL.status}"																		
+																	<h:selectOneMenu id="status" value="#{organizationBean.organizionSelected.status}"																		
 																		class="form-control ">
 																		<f:selectItems value="#{applicationBean.statusList}"/>	
 																	</h:selectOneMenu>
