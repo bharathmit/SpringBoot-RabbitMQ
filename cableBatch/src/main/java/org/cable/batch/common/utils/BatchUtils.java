@@ -13,6 +13,6 @@ public class  BatchUtils {
 	public static int getCurrentMonth(){
 		Calendar calendar = Calendar.getInstance();
 		// month start from 0 to 11
-		return calendar.get(Calendar.MONTH+1);
+		return calendar.get(Calendar.MONTH)+1;
 	}
 }

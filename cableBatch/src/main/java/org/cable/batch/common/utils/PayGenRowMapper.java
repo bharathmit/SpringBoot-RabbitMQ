@@ -36,7 +36,7 @@ public class PayGenRowMapper implements RowMapper<GeneratePayment> {
 			payGenEntity.setBillDate(billDate);
 		}
 		catch(Exception e){
-			
+			e.printStackTrace();
 		}
 		
 		payGenEntity.setInvoiceAmount(Double.parseDouble(rs.getString("rent_amount")));
