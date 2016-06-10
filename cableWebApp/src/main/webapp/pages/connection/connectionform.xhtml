@@ -78,7 +78,7 @@
 
 																<div>
 																	<h:inputText id="customer"
-																		value="#{projectBean.projectSelected.projectCityVillage}"
+																		value="#{connectionBean.accountSelected.name}"
 																		maxlength="2" class="form-control" required="true"
 																		requiredMessage="Customer Name Required"
 																		validatorMessage="Customer Name should be alphabets only"
@@ -100,7 +100,7 @@
 
 																<div>
 																	<h:inputText id="number"
-																		value="#{projectBean.projectSelected.projectCityVillage}"
+																		value="#{connectionBean.accountSelected.accountToken}"
 																		maxlength="2" class="form-control" required="true"
 																		requiredMessage="Connection Number Required"
 																		validatorMessage="Connection Number should be alphabets only"
@@ -126,7 +126,7 @@
 
 																<div>
 																	<h:inputText id="mobile"
-																		value="#{projectBean.projectSelected.mobile}"
+																		value="#{connectionBean.accountSelected.mobile}"
 																		maxlength="10" class="form-control" required="true"
 																		requiredMessage="Mobile Number Required"
 																		validatorMessage="Mobile Number should be numeric and length should be 10"																		
@@ -147,7 +147,7 @@
 																	value="Email Id" />
 																<div>
 																	<h:inputText id="email"
-																		value="#{projectBean.projectSelected.email}"
+																		value="#{connectionBean.accountSelected.emailId}"
 																		class="form-control" required="true"
 																		requiredMessage="Email Id Required"
 																		validatorMessage="Email Id should be vaild"																		
@@ -170,7 +170,7 @@
 																	value="Advance Paid" />
 																<div>
 																	<h:inputText id="amount"
-																		value="#{projectBean.projectSelected.advanceAmount}"
+																		value="#{connectionBean.accountSelected.advancePaid}"
 																		class="form-control" required="true"
 																		requiredMessage="Advance Amount Required"																																		
 																		onkeypress="return isNumberKey(event)">																		
@@ -188,7 +188,7 @@
 																	value="Monthly Rent" />
 																<div>
 																	<h:inputText id="rent"
-																		value="#{projectBean.projectSelected.advanceAmount}"
+																		value="#{connectionBean.accountSelected.rentAmount}"
 																		class="form-control" required="true"
 																		requiredMessage="Monthly Rent Amount Required"																																		
 																		onkeypress="return isNumberKey(event)">																		
@@ -210,11 +210,16 @@
 																	value="Project Name" />
 																<div>
 																	<h:selectOneMenu id="project" required="true" requiredMessage="Select Project"																		
-																		value="#{areaBean.areaSelected.project}" class="form-control ">
-																		<f:selectItem itemLabel="Select Project"  noSelectionOption="true" />
-																		<f:selectItems value="#{areaBean.projectList}"/>
-																	</h:selectOneMenu>
-																	<p:message for="status" styleClass="form-control" />
+																		value="#{connectionBean.accountSelected.project.projectId}" class="form-control ">
+																		<f:selectItem itemLabel="Select Project"
+																			noSelectionOption="true" />
+																		<f:selectItems
+																			value="#{connectionBean.projectList}" var="rl"
+																			itemLabel="#{rl.projectCityVillage}" itemValue="#{rl.projectId}" />	
+																			<p:ajax listener="#{connectionBean.updateArea}"
+																				update="area"></p:ajax>																	
+																	</h:selectOneMenu>																	
+																	<p:message for="project" styleClass="form-control" />
 																</div>
 															</div>
 
@@ -227,11 +232,16 @@
 																	value="Area Name" />
 																<div>
 																	<h:selectOneMenu id="area" required="true" requiredMessage="Select Area"																		
-																		value="#{areaBean.areaSelected.project}" class="form-control ">
-																		<f:selectItem itemLabel="Select Project"  noSelectionOption="true" />
-																		<f:selectItems value="#{areaBean.projectList}"/>
-																	</h:selectOneMenu>
-																	<p:message for="area" styleClass="form-control" />
+																		value="#{connectionBean.accountSelected.area.areaId}" class="form-control ">
+																		<f:selectItem itemLabel="Select Area"
+																			noSelectionOption="true" />
+																		<f:selectItems
+																			value="#{connectionBean.areaList}" var="rl"
+																			itemLabel="#{rl.areaName}" itemValue="#{rl.areaId}" />
+																			<p:ajax listener="#{connectionBean.updateStreet}"
+																				update="area"></p:ajax>																																					
+																	</h:selectOneMenu>	
+																	<p:message for="street" styleClass="form-control" />
 																</div>
 															</div>
 
@@ -246,11 +256,14 @@
 																<p:outputLabel class="control-label" for="street"
 																	value="Street Name" />
 																<div>
-																	<h:selectOneMenu id="street" required="true" requiredMessage="Select Street"																		
-																		value="#{areaBean.areaSelected.project}" class="form-control ">
-																		<f:selectItem itemLabel="Select Street"  noSelectionOption="true" />
-																		<f:selectItems value="#{areaBean.projectList}"/>
-																	</h:selectOneMenu>
+																	<h:selectOneMenu id="street" required="true" requiredMessage="Select Area"																		
+																		value="#{connectionBean.accountSelected.street.streetId}" class="form-control ">
+																		<f:selectItem itemLabel="Select Area"
+																			noSelectionOption="true" />
+																		<f:selectItems
+																			value="#{connectionBean.streetList}" var="rl"
+																			itemLabel="#{rl.streetName}" itemValue="#{rl.streetId}" />																																				
+																	</h:selectOneMenu>	
 																	<p:message for="street" styleClass="form-control" />
 																</div>
 															</div>
@@ -264,7 +277,7 @@
 
 																<div>
 																	<h:inputText id="address"
-																		value="#{areaBean.areaSelected.areaName}"
+																		value="#{connectionBean.accountSelected.address}"
 																		class="form-control" required="true"
 																		requiredMessage="Address Details Required"
 																		validatorMessage="Address Details should be alphabets only"
@@ -290,7 +303,7 @@
 
 																<div>
 																	<h:inputText id="notes"
-																		value="#{projectBean.projectSelected.projectCityVillage}"
+																		value="#{connectionBean.accountSelected.notes}"
 																		maxlength="2" class="form-control" required="true"
 																		requiredMessage="Customer Name Required"
 																		validatorMessage="Customer Name should be alphabets only"
@@ -314,7 +327,7 @@
 																	value="Status" />
 																<div>
 																	<h:selectOneMenu id="status" required="true" requiredMessage="Select Title"																		
-																		value="#{areaBean.areaSelected.status}" class="form-control ">
+																		value="#{connectionBean.accountSelected.status}" class="form-control ">
 																		<f:selectItem itemLabel="Select Status"  noSelectionOption="true" />
 																		<f:selectItems value="#{applicationBean.statusList}"/>
 																	</h:selectOneMenu>

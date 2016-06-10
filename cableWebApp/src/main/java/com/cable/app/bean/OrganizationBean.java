@@ -167,5 +167,44 @@ public String getOrganizationValue(){
 		
 	}
 	
+	
+	public String DisplayOrganizationForm() {
+		log.info("Display Organization Form ");		
+		
+		ProjectSearch projectSearch = new ProjectSearch();
+		
+		try{
+	           
+			//need to change UserContext Value
+			projectSearch.setOrgId(1l);
+			
+			HttpEntity<ProjectSearch> requestEntity = new HttpEntity<ProjectSearch>(projectSearch, LoginBean.header);
+
+			ResponseEntity<String> response = restTemplate.exchange(restClient.createUrl("project/organizationlist"),HttpMethod.POST,requestEntity,String.class);
+
+			String responseBody = response.getBody();
+
+			if (RestUtil.isError(response.getStatusCode())) {
+				ErrorResource error = objectMapper.readValue(responseBody, ErrorResource.class);
+
+				FacesUtil.warn(error.getFieldErrors().get(0).getMessage());
+				return "";
+
+			} else {				
+				organizionList = objectMapper.readValue(responseBody, new TypeReference<List<OrganizationDto>>(){});
+				if(organizionList != null){
+					organizionSelected=organizionList.get(0);
+				}
+
+			}
+
+		}
+		catch(Exception e){
+			log.error("getOrganizationValue", e);
+		}
+		
+		return "/pages/master/organizationform.xhtml";
+	}
+	
 
 }

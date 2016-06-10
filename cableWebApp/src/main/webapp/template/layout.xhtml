@@ -388,11 +388,26 @@
 									<ul
 										class="#{loginBean.activeMainMenu eq 'Masters' ? 'nav nav-second-level collapse in' : 'nav nav-second-level collapse'}">
 
-										<li
-											class="#{loginBean.activeSubMenu eq 'Organization' ? 'active' : ''}">
-
+										
+										
+										<li class="#{loginBean.activeSubMenu eq 'Organization List' ? 'active' : ''}">
 											<h:commandLink action="#{organizationBean.getOrganizationValue}"
-												value="Organization" immediate="true" id="state"
+												value="Organization List" immediate="true" id="organizationlist"
+												styleClass="submenu-title ">
+												<i class="fa fa-angle-right"></i>
+												<f:setPropertyActionListener
+													target="#{organizationBean.action}" value="View" />
+												<f:setPropertyActionListener
+													target="#{loginBean.activeMainMenu}" value="Masters" />
+
+												<f:setPropertyActionListener
+													target="#{loginBean.activeSubMenu}" value="Organization List" />
+											</h:commandLink>
+										</li>
+										
+										<li class="#{loginBean.activeSubMenu eq 'Organization' ? 'active' : ''}">
+											<h:commandLink action="#{organizationBean.DisplayOrganizationForm}"
+												value="Organization" immediate="true" id="organization"
 												styleClass="submenu-title ">
 												<i class="fa fa-angle-right"></i>
 												<f:setPropertyActionListener
@@ -403,9 +418,6 @@
 												<f:setPropertyActionListener
 													target="#{loginBean.activeSubMenu}" value="Organization" />
 											</h:commandLink>
-
-
-
 										</li>
 
 										<li
@@ -585,7 +597,7 @@
 
 									</ul></li>
 								<li><a href="#"><i class="icon-share" /><span
-										class="menu-title">Stock Allotment</span> <span class="arrow"></span>
+										class="menu-title">Migration</span> <span class="arrow"></span>
 								</a>
 									<ul
 										class="#{loginBean.activeMainMenu eq 'Stock Allotment' ? 'nav nav-second-level collapse in' : 'nav nav-second-level collapse'}">

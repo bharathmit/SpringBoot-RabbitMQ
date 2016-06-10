@@ -69,6 +69,15 @@ public class AreaBean {
 	public String saveArea(){
 		try{
 
+			//need to change the JPA Casscade Type
+			
+			ProjectDto project=new ProjectDto();
+			project.setProjectId(areaSelected.getProject().getProjectId());
+			OrganizationDto org=new OrganizationDto();
+			org.setOrgId(1l);
+			project.setOrganization(org);
+			
+			areaSelected.setProject(project);
 			HttpEntity<AreaDto> requestEntity = new HttpEntity<AreaDto>(areaSelected, LoginBean.header);
 
 			ResponseEntity<String> response = restTemplate.exchange(restClient.createUrl("master/savearea"),HttpMethod.POST,requestEntity,String.class);

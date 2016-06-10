@@ -78,7 +78,7 @@ public class UserBean {
 			UserRoleDto userRole=new UserRoleDto();
 			
 			userRole.setRole(selectedRole);
-			userRole.setStatus(Status.Active);
+			userRole.setStatus(Status.Active);			
 			userSelected.getUserRoles().add(userRole);
 			
 			HttpEntity<UserDto> requestEntity = new HttpEntity<UserDto>(userSelected, LoginBean.header);

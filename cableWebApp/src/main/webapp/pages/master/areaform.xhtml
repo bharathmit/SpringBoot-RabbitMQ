@@ -78,13 +78,16 @@
 
 																<p:outputLabel class="control-label" for="project"
 																	value="Project Name" />
-																<div>
+																<div>																	
 																	<h:selectOneMenu id="project" required="true" requiredMessage="Select Project"																		
-																		value="#{areaBean.areaSelected.project}" class="form-control ">
-																		<f:selectItem itemLabel="Select Project"  noSelectionOption="true" />
-																		<f:selectItems value="#{areaBean.projectList}"/>
-																	</h:selectOneMenu>
-																	<p:message for="status" styleClass="form-control" />
+																		value="#{areaBean.areaSelected.project.projectId}" class="form-control ">
+																		<f:selectItem itemLabel="Select Project"
+																			noSelectionOption="true" />
+																		<f:selectItems
+																			value="#{areaBean.projectList}" var="rl"
+																			itemLabel="#{rl.projectCityVillage}" itemValue="#{rl.projectId}" />																		
+																	</h:selectOneMenu>																	
+																	<p:message for="project" styleClass="form-control" />
 																</div>
 															</div>
 
@@ -148,7 +151,7 @@
 														&nbsp;
 														<h:commandButton value=" Submit"
 															class="btn btn-submit btn-xs cus-btn btn-info"
-															action="#{organizationBean.saveOrganization}"
+															action="#{areaBean.saveArea}"
 															update="addorganizion,growl" />
 														&nbsp;
 														<h:commandButton value=" Back"

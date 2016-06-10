@@ -20,10 +20,12 @@ import com.cable.app.exception.FacesUtil;
 import com.cable.app.exception.RestUtil;
 import com.cable.app.utils.RestClient;
 import com.cable.rest.dto.AreaDto;
+import com.cable.rest.dto.OrganizationDto;
 import com.cable.rest.dto.ProjectDto;
 import com.cable.rest.dto.StreetDto;
 import com.cable.rest.response.ErrorResource;
 import com.cable.rest.search.MasterSearch;
+import com.cable.rest.search.ProjectSearch;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -53,6 +55,12 @@ public class StreetBean {
 	@Getter @Setter
 	StreetDto streetSelected=new StreetDto();
 	
+	@Getter @Setter
+	List<ProjectDto> projectList=new ArrayList<ProjectDto>();
+	
+	@Getter @Setter
+	List<AreaDto> areaList=new ArrayList<AreaDto>();
+	
 	@Setter @Getter
 	String action;
 	
@@ -62,7 +70,19 @@ public class StreetBean {
 	
 	public String saveStreet(){
 		try{
-
+			
+			
+			/*//need to change to JPA
+			ProjectDto project=new ProjectDto();
+			project.setProjectId(1l);
+			OrganizationDto org=new OrganizationDto();
+			org.setOrgId(1l);
+			project.setOrganization(org);
+			
+			AreaDto area=new AreaDto();
+			area.setProject(project);
+			streetSelected.setArea(area);*/
+			
 			HttpEntity<StreetDto> requestEntity = new HttpEntity<StreetDto>(streetSelected, LoginBean.header);
 
 			ResponseEntity<String> response = restTemplate.exchange(restClient.createUrl("master/savestreet"),HttpMethod.POST,requestEntity,String.class);
@@ -130,6 +150,7 @@ public class StreetBean {
 		log.info("show Street Form Called Action is "+action);
 		
 		if(action.equals("Add")){
+			getProjectsList();
 			streetSelected = new StreetDto();
 		}else if(action.equals("Edit")){
 			if(streetSelected == null){
@@ -160,5 +181,63 @@ public class StreetBean {
 		return "/pages/master/streetlist.xhtml";
 		
 	}
+	
+	
+	public void getProjectsList(){
+
+		ProjectSearch projectSearch=new ProjectSearch();
+		try{
+           
+			HttpEntity<ProjectSearch> requestEntity = new HttpEntity<ProjectSearch>(projectSearch, LoginBean.header);
+
+			ResponseEntity<String> response = restTemplate.exchange(restClient.createUrl("project/projectlist"),HttpMethod.POST,requestEntity,String.class);
+
+			String responseBody = response.getBody();
+
+			if (RestUtil.isError(response.getStatusCode())) {
+				ErrorResource error = objectMapper.readValue(responseBody, ErrorResource.class);
+
+				FacesUtil.warn(error.getFieldErrors().get(0).getMessage());
+				return ;
+
+			} else {
+				projectList = objectMapper.readValue(responseBody, new TypeReference<List<ProjectDto>>(){});
+			}
+
+		}
+		catch(Exception e){
+			log.error("showProjectList", e);
+		}
+	}
+	
+	
+	public void updateArea(){
+		masterSearch.setProjectId(streetSelected.getArea().getProject().getProjectId());
+		getAreaLists();
+	}
+	
+	public void getAreaLists(){
+
+		try{
+           
+			HttpEntity<MasterSearch> requestEntity = new HttpEntity<MasterSearch>(masterSearch, LoginBean.header);
+
+			ResponseEntity<String> response = restTemplate.exchange(restClient.createUrl("master/arealist"),HttpMethod.POST,requestEntity,String.class);
+
+			String responseBody = response.getBody();
+
+			if (RestUtil.isError(response.getStatusCode())) {
+				ErrorResource error = objectMapper.readValue(responseBody, ErrorResource.class);
+				FacesUtil.warn(error.getFieldErrors().get(0).getMessage());
+			} else {
+				areaList = objectMapper.readValue(responseBody, new TypeReference<List<AreaDto>>(){});
+			}
+
+		}
+		catch(Exception e){
+			log.error("showAreaList", e);
+		}
+	}
+	
 	
 }

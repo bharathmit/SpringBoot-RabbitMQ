@@ -79,11 +79,16 @@
 																	value="Project Name" />
 																<div>
 																	<h:selectOneMenu id="project" required="true" requiredMessage="Select Project"																		
-																		value="#{areaBean.areaSelected.project}" class="form-control ">
-																		<f:selectItem itemLabel="Select Project"  noSelectionOption="true" />
-																		<f:selectItems value="#{areaBean.projectList}"/>
-																	</h:selectOneMenu>
-																	<p:message for="status" styleClass="form-control" />
+																		value="#{streetBean.streetSelected.area.project.projectId}" class="form-control ">
+																		<f:selectItem itemLabel="Select Project"
+																			noSelectionOption="true" />
+																		<f:selectItems
+																			value="#{streetBean.projectList}" var="rl"
+																			itemLabel="#{rl.projectCityVillage}" itemValue="#{rl.projectId}" />	
+																			<p:ajax listener="#{streetBean.updateArea}"
+																				update="area"></p:ajax>																	
+																	</h:selectOneMenu>																	
+																	<p:message for="project" styleClass="form-control" />
 																</div>
 															</div>
 
@@ -98,11 +103,14 @@
 																<p:outputLabel class="control-label" for="area"
 																	value="Area Name" />
 																<div>
-																	<h:selectOneMenu id="area" required="true" requiredMessage="Select Area"																		
-																		value="#{areaBean.areaSelected.project}" class="form-control ">
-																		<f:selectItem itemLabel="Select Project"  noSelectionOption="true" />
-																		<f:selectItems value="#{areaBean.projectList}"/>
-																	</h:selectOneMenu>
+																<h:selectOneMenu id="area" required="true" requiredMessage="Select Area"																		
+																		value="#{streetBean.streetSelected.area.areaId}" class="form-control ">
+																		<f:selectItem itemLabel="Select Area"
+																			noSelectionOption="true" />
+																		<f:selectItems
+																			value="#{streetBean.areaList}" var="rl"
+																			itemLabel="#{rl.areaName}" itemValue="#{rl.areaId}" />																																				
+																	</h:selectOneMenu>	
 																	<p:message for="area" styleClass="form-control" />
 																</div>
 															</div>
@@ -118,7 +126,7 @@
 
 																<div>
 																	<h:inputText id="street"
-																		value="#{areaBean.areaSelected.areaName}"
+																		value="#{streetBean.streetSelected.streetName}"
 																		class="form-control" required="true"
 																		requiredMessage="Street Name Required"
 																		validatorMessage="Street Name should be alphabets only"
@@ -143,7 +151,7 @@
 																	value="Status" />
 																<div>
 																	<h:selectOneMenu id="status" required="true" requiredMessage="Select Title"																		
-																		value="#{areaBean.areaSelected.status}" class="form-control ">
+																		value="#{streetBean.streetSelected.status}" class="form-control ">
 																		<f:selectItem itemLabel="Select Title"  noSelectionOption="true" />
 																		<f:selectItems value="#{applicationBean.statusList}"/>
 																	</h:selectOneMenu>
@@ -164,7 +172,7 @@
 														&nbsp;
 														<h:commandButton value=" Submit"
 															class="btn btn-submit btn-xs cus-btn btn-info"
-															action="#{organizationBean.saveOrganization}"
+															action="#{streetBean.saveStreet}"
 															update="addorganizion,growl" />
 														&nbsp;
 														<h:commandButton value=" Back"

@@ -144,7 +144,7 @@
 																		class="form-control" required="true"
 																		requiredMessage="Email Id Required"
 																		validatorMessage="Email Id should be numeric and length should be 2"																		
-																		onkeypress="return isNumberKey(event)">																		
+																		>																		
 																	</h:inputText>
 																	<p:message for="email" styleClass="form-control" />
 																	<p:tooltip styleClass="cus-tooltip" for="email"
@@ -167,10 +167,7 @@
 																	<h:inputText id="duedate"
 																		value="#{projectBean.projectSelected.paymentDueDate}"
 																		maxlength="2" class="form-control" required="true"
-																		requiredMessage="Payment Due Date Required"
-																		validatorMessage="Payment Due Date should be numeric and length should be 2"																		
-																		onkeypress="return isNumberKey(event)">
-																		<f:validateRegex pattern="[0-9]{1,2}"></f:validateRegex>
+																		requiredMessage="Payment Due Date Required" >																		
 																	</h:inputText>
 																	<p:message for="duedate" styleClass="form-control" />
 																	<p:tooltip styleClass="cus-tooltip" for="duedate"
@@ -188,9 +185,7 @@
 																		value="#{projectBean.projectSelected.paymentGenerateDate}"
 																		maxlength="2" class="form-control" required="true"
 																		requiredMessage="Payment Generate Date Required"
-																		validatorMessage="Payment Generate Date should be numeric and length should be 2"																		
-																		onkeypress="return isNumberKey(event)">
-																		<f:validateRegex pattern="[0-9]{1,2}"></f:validateRegex>
+																		validatorMessage="Payment Generate Date should be numeric and length should be 2" >																		
 																	</h:inputText>
 																	<p:message for="generatedate" styleClass="form-control" />
 																	<p:tooltip styleClass="cus-tooltip" for="generatedate"
@@ -209,15 +204,12 @@
 																<div>
 																	<h:inputText id="address"
 																		value="#{projectBean.projectSelected.address}"
-																		maxlength="2" class="form-control" required="true"
-																		requiredMessage="Country Name Required"
-																		validatorMessage="Country Name should be numeric and length should be 2"																		
-																		onkeypress="return isNumberKey(event)">
-																		<f:validateRegex pattern="[0-9]{1,2}"></f:validateRegex>
+																		class="form-control" required="true"
+																		requiredMessage="Address Required">																		
 																	</h:inputText>
 																	<p:message for="address" styleClass="form-control" />
 																	<p:tooltip styleClass="cus-tooltip" for="address"
-																		value="Country Name should be numeric and length should be 2"></p:tooltip>
+																		value="Address Required"></p:tooltip>
 																</div>
 															</div>
 														</div>
@@ -228,12 +220,16 @@
 																	value="Zip Code" />
 																<div>
 																	<h:selectOneMenu id="zipcode"
-																		
-																		class="form-control ">
-																		<f:selectItem itemLabel="Active" itemValue="true" />
-																		<f:selectItem itemLabel="Inactive" itemValue="false" />
-																	</h:selectOneMenu>
-																	
+																		value="#{projectBean.projectSelected.zipCode.zipCode}"
+																		class="form-control " required="true"
+																		requiredMessage="Select must be ZipCpde">																	
+																		<f:selectItem itemLabel="Select ZipCode"
+																			noSelectionOption="true" />
+																		<f:selectItems
+																			value="#{projectBean.zipcodeList}" var="rl"
+																			itemLabel="#{rl.locationName} #{rl.pinCode}" itemValue="#{rl.zipCode}" />
+
+																	</h:selectOneMenu>																	
 																</div>
 															</div>
 
@@ -245,14 +241,12 @@
 															<div class="form-group">
 																<p:outputLabel class="control-label" for="flag"
 																	value="Online Flag" />
-																<h:selectOneMenu id="flag"
-																		
-																		class="form-control ">
-																		<f:selectItem itemLabel="Active" itemValue="true" />
-																		<f:selectItem itemLabel="Inactive" itemValue="false" />
+																<h:selectOneMenu id="flag" required="true" requiredMessage="Select Flag"																		
+																		value="#{projectBean.projectSelected.status}" class="form-control ">
+																		<f:selectItem itemLabel="Select Flag"  noSelectionOption="true" />
+																		<f:selectItems value="#{applicationBean.statusList}"/>
 																	</h:selectOneMenu>
-																
-																
+																	<p:message for="flag" styleClass="form-control" />																
 															</div>
 														</div>
 														<div class="col-md-6 col-sm-6 col-lg-6">
@@ -261,13 +255,12 @@
 																<p:outputLabel class="control-label" for="status"
 																	value="Status" />
 																<div>
-																	<h:selectOneMenu id="status"
-																		
-																		class="form-control ">
-																		<f:selectItem itemLabel="Active" itemValue="true" />
-																		<f:selectItem itemLabel="Inactive" itemValue="false" />
+																	<h:selectOneMenu id="status" required="true" requiredMessage="Select Status"																		
+																		value="#{projectBean.projectSelected.onlinePaymentFlag}" class="form-control ">
+																		<f:selectItem itemLabel="Select Status"  noSelectionOption="true" />
+																		<f:selectItems value="#{applicationBean.statusList}"/>
 																	</h:selectOneMenu>
-																	
+																	<p:message for="status" styleClass="form-control" />
 																</div>
 															</div>
 
@@ -291,7 +284,7 @@
 														&nbsp;
 														<h:commandButton value=" Submit"
 															class="btn btn-submit btn-xs cus-btn btn-info"
-															action="#{zipCodeBean.saveZipCode}"
+															action="#{projectBean.saveProject}"
 															update="addzipcode,growl"
 															rendered="#{zipCodeBean.action ne 'View'}" />
 														
