@@ -65,8 +65,9 @@ public class Project extends Audit implements Serializable{
 	private Double advanceAmount;
 	
 	@Column(nullable=false)
+	@Enumerated(EnumType.STRING)
 	@Getter	@Setter	
-	private Boolean onlinePaymentFlag = false;
+	private Status onlinePaymentFlag;
 	
 	@Column(nullable=false)
 	@Getter	@Setter	

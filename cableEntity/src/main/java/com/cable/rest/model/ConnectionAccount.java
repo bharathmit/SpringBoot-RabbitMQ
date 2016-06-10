@@ -50,6 +50,10 @@ public class ConnectionAccount extends Audit implements Serializable{
 	@Getter	@Setter	
 	private String address;
 	
+	@Column(nullable=false)
+	@Getter	@Setter	
+	private String notes;
+	
 	@ManyToOne
 	@JoinColumn(name="street_Id", nullable=false)
 	@Getter	@Setter	
@@ -66,7 +70,7 @@ public class ConnectionAccount extends Audit implements Serializable{
 	
 	@Column(nullable=false)
 	@Getter	@Setter	
-	private double advanceAmount;
+	private double advancePaid;
 	
 	@Column(nullable=false)
 	@Enumerated(EnumType.STRING)
