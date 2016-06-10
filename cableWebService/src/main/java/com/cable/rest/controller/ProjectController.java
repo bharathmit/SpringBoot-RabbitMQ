@@ -1,6 +1,5 @@
 package com.cable.rest.controller;
 
-import java.util.List;
 
 import lombok.extern.log4j.Log4j;
 
@@ -27,8 +26,8 @@ public class ProjectController extends BaseController {
 	}
 	
 	@RequestMapping(value="/organizationlist",method=RequestMethod.POST)
-	public List<OrganizationDto> getOrganization(@RequestBody ProjectSearch searchObject){
-		return (List<OrganizationDto>) sendtoMQ(searchObject, "getOrganization", "projectService");
+	public Object getOrganization(@RequestBody ProjectSearch searchObject){
+		return sendtoMQ(searchObject, "getOrganization", "projectService");
 	}
 	
 	@RequestMapping(value="/deleteorganization",method=RequestMethod.POST)
