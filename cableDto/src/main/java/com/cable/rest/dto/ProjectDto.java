@@ -22,7 +22,7 @@ public class ProjectDto extends BaseDto implements Serializable  {
 	@Getter @Setter
 	private String address;
 	@Getter @Setter
-	private ZipCodeDto zipCode;
+	private ZipCodeDto zipCode=new ZipCodeDto();
 	@Getter @Setter
 	private Status status;
 	@Getter @Setter
@@ -32,7 +32,7 @@ public class ProjectDto extends BaseDto implements Serializable  {
 	@Getter @Setter
 	private Double advanceAmount;
 	@Getter @Setter
-	private Boolean onlinePaymentFlag = false;
+	private Status onlinePaymentFlag;
 	@Getter @Setter
 	private int paymentGenerateDate;
 	@Getter @Setter

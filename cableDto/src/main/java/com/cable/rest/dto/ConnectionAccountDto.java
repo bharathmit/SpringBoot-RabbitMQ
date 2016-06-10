@@ -32,16 +32,22 @@ public class ConnectionAccountDto implements Serializable  {
 	private String address;
 	
 	@Getter	@Setter	
-	private StreetDto street;
+	private String notes;
 	
 	@Getter	@Setter	
-	private ProjectDto project;
+	private StreetDto street=new StreetDto();
+	
+	@Getter	@Setter	
+	private AreaDto area=new AreaDto();
+	
+	@Getter	@Setter	
+	private ProjectDto project=new ProjectDto();
 	
 	@Getter	@Setter	
 	private double rentAmount;
 	
 	@Getter	@Setter	
-	private double advanceAmount;
+	private double advancePaid;
 	
 	@Getter	@Setter	
 	private Status status;

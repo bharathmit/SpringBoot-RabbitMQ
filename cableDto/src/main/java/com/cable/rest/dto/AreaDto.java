@@ -20,7 +20,7 @@ public class AreaDto implements Serializable {
 	private String areaName;
 	
 	@Getter	@Setter	
-	private ProjectDto project;
+	private ProjectDto project=new ProjectDto();
 	
 	@Getter	@Setter	
 	private Status status;

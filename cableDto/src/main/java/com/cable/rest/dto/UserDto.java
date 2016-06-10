@@ -1,6 +1,7 @@
 package com.cable.rest.dto;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -65,6 +66,6 @@ public class UserDto  implements Serializable  {
 	private Status status;
 	
 	@Getter	@Setter	
-	private List<UserRoleDto> userRoles;
+	private List<UserRoleDto> userRoles=new ArrayList<UserRoleDto>();
 	
 }

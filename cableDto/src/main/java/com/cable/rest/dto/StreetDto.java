@@ -20,7 +20,7 @@ public class StreetDto implements Serializable {
 	private String streetName;
 	
 	@Getter	@Setter	
-	private AreaDto area;
+	private AreaDto area=new AreaDto();
 	
 	@Getter	@Setter	
 	private Status status;
