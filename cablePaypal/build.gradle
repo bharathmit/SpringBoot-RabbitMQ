@@ -1,15 +1,6 @@
-buildscript {
-	ext {
-		springBootVersion = '1.2.1.RELEASE'
-	}
-	repositories {
-		mavenCentral()
-	}
-	dependencies {
-		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-		classpath("org.springframework:springloaded:${springBootVersion}")
-	}
-}
+
+apply plugin: 'java'
+apply plugin: 'maven'
 
 dependencies {
    
@@ -21,4 +12,13 @@ dependencies {
   	
   	
 	
+}
+task createPom  {
+    pom {
+        project {
+            groupId 'com.cable.rest'
+            artifactId 'cablePaypal'
+            version '1.0.0-SNAPSHOT'
+        }
+    }.writeTo("newpom.xml")
 }

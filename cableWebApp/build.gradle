@@ -3,6 +3,7 @@ apply plugin: 'java'
 apply plugin: 'war'
 apply plugin: 'eclipse'
 apply plugin: 'eclipse-wtp'
+apply plugin: 'maven'
 
 sourceCompatibility = '1.7'
 targetCompatibility = '1.7'
@@ -64,5 +65,15 @@ dependencies {
 		[group: 'com.fasterxml.jackson.core', name: 'jackson-annotations', version: '2.4.1'],
 		[group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.4.1']
 	)
+}
+
+task createPom  {
+    pom {
+        project {
+            groupId 'com.cable.rest'
+            artifactId 'cableWebApp'
+            version '1.0.0-SNAPSHOT'
+        }
+    }.writeTo("newpom.xml")
 }
 

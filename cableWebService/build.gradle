@@ -13,6 +13,7 @@ buildscript {
 
 apply plugin: 'spring-boot'
 apply plugin: 'java'
+apply plugin: 'maven'
 
 
 configurations {
@@ -53,6 +54,16 @@ dependencies {
 	testCompile("org.springframework.boot:spring-boot-starter-test")
 	
 	
+}
+
+task createPom  {
+    pom {
+        project {
+            groupId 'com.cable.rest'
+            artifactId 'cableWebService'
+            version '1.0.0-SNAPSHOT'
+        }
+    }.writeTo("newpom.xml")
 }
 
 
