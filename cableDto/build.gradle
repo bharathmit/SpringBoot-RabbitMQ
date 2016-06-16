@@ -1,3 +1,7 @@
+apply plugin: 'java'
+apply plugin: 'maven'
+
+
 dependencies {
    
 	compile "org.projectlombok:lombok:0.11.6"
@@ -11,4 +15,14 @@ dependencies {
 		[group: 'com.fasterxml.jackson.core', name: 'jackson-annotations', version: '2.4.1'],
 		[group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.4.1']
 	)
+}
+
+task createPom  {
+    pom {
+        project {
+            groupId 'com.cable.rest'
+            artifactId 'cableDto'
+            version '1.0.0-SNAPSHOT'
+        }
+    }.writeTo("newpom.xml")
 }
