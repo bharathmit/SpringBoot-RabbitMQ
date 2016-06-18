@@ -30,6 +30,7 @@ private static final long serialVersionUID = 1L;
 	@Getter	@Setter	
 	private GeneratePayment generatepayment;
 	
+	//need to change enum. online or manual
 	@Column(nullable=false)
 	@Getter	@Setter	
 	private int paymentType;

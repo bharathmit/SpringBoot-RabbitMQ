@@ -50,6 +50,9 @@ public class ConnectionAccountDto implements Serializable  {
 	private double advancePaid;
 	
 	@Getter	@Setter	
+	private int payGenMonth;
+	
+	@Getter	@Setter	
 	private Status status;
 
 }

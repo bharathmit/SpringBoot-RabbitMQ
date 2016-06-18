@@ -4,6 +4,7 @@ import javax.sql.DataSource;
 
 import org.cable.batch.common.listeners.LogProcessListener;
 import org.cable.batch.common.listeners.ProtocolListener;
+import org.cable.batch.common.utils.BatchUtils;
 import org.cable.batch.common.utils.PayGenRowMapper;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
@@ -72,7 +73,10 @@ public class PaymentGenerationJobConfiguration {
 	public ItemReader<GeneratePayment> paymentGenerationReader(){
 		
 		JdbcCursorItemReader<GeneratePayment> reader = new JdbcCursorItemReader<GeneratePayment>();
-		String sql = " select c.account_id,c.mobile,c.email_id,c.rent_amount,p.payment_due_date,p.payment_generate_date from organization o, project p,connection_account c where o.org_id=p.org_id and p.project_id=c.project_id and o.`status`='ACTIVE' and p.`status`='ACTIVE' and c.`status`='ACTIVE' ";
+		String sql = " select c.account_id,c.mobile,c.email_id,c.rent_amount,p.payment_due_date,p.payment_generate_date ,u.user_id "
+						+ " from organization o, project p,connection_account c,user u  "
+						+ "	where o.org_id=p.org_id and p.org_id=u.org_id and p.project_id=c.project_id  "
+						+ " and o.`status`='ACTIVE' and p.`status`='ACTIVE' and c.`status`='ACTIVE' and c.pay_gen_month <> "+BatchUtils.getCurrentMonth()+" ";
 		reader.setSql(sql);
 		reader.setDataSource(dataSource);
 		reader.setRowMapper(rowMapper());		

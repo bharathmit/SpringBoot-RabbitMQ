@@ -40,6 +40,8 @@ public class PayGenRowMapper implements RowMapper<GeneratePayment> {
 		}
 		
 		payGenEntity.setInvoiceAmount(Double.parseDouble(rs.getString("rent_amount")));
+		payGenEntity.setBillAmount(Double.parseDouble(rs.getString("rent_amount")));
+		payGenEntity.setDiscountAmount(0.0);
 		payGenEntity.setPayGenDate(new Date());
 		payGenEntity.setPayGenStatus(PaymentStatus.PENDING);
 		ConnectionAccount connection=new ConnectionAccount();

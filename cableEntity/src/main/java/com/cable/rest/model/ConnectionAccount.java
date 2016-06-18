@@ -73,6 +73,10 @@ public class ConnectionAccount extends Audit implements Serializable{
 	private double advancePaid;
 	
 	@Column(nullable=false)
+	@Getter	@Setter	
+	private int payGenMonth;
+	
+	@Column(nullable=false)
 	@Enumerated(EnumType.STRING)
 	@Getter	@Setter	
 	private Status status;
