@@ -1,51 +1,51 @@
 
-Introduction:
+## Introduction:
 
  SpringBoot-RabbitMq is an open-source CableTV Management framework written entirely in Java on top of the Spring framework.
 
-Key Features and Technologies: 
+## Key Features and Technologies: 
 
-Maven Build Tool
+### Maven Build Tool
 
 Maven is a project management and comprehension tool. Maven provides developers a complete build lifecycle framework. Development team can automate the project's build infrastructure in almost no time as Maven uses a standard directory layout and a default build lifecycle. 
 
-Java Server Faces(JSF) / PrimeFaces.
+### Java Server Faces(JSF) / PrimeFaces.
 
 JavaServer Faces (JSF) is a Java-based web application framework intended to simplify development integration of web-based user interfaces. UI component implement to  PrimeFaces. PrimeFaces is a component suite open source User Interface (UI) component library for JavaServer Faces (JSF) based applications.
 
-Spring Framework
+### Spring Framework
 
 Spring is the enterprise Java platform. It provides numerous features, including dependency injection and transaction control.
 
-Security
+### Security
 
 Spring Security provides a robust security framework for controlling authentication and authorization at both the code and page level and is utilized by Application for access control.
 
-Persistence
+### Persistence
 
 JPA and Hibernate represent ORM infrastructure for controlling persistence of our rich domain model.
 
-MySQL 
+### MySQL 
 
  MySql is an open-source relational database management system (RDBMS). 
  
-Email
+### Email
 
 Email support is provided throughout the framework in either synchronous or asynchronous (Spring Batch) modes. Email presentation customization is achieved via velocity templates.
 
-Spring Batch 
+### Spring Batch 
 
 Spring Batch provides reusable functions that are essential in processing large volumes of records, including job processing statistics, job restart, skip, and resource management. Simple as well as complex, high-volume batch jobs can leverage the framework in a highly scalable manner to process significant volumes of information.
 
-Paypal 
+### Paypal 
 
 Cablecard currently offers integration with the PayPal RestRull API. This module allows users to complete their online payment experience using their PayPal account.
 
-RabbitMQ 
+### RabbitMQ 
 
 RabbitMQ is an open source message broker software (sometimes called message-oriented middleware) that implements the Advanced Message Queuing Protocol (AMQP). JMS can be used as a mechanism to allow asynchronous HTTP request processing.
 
-Prerequisites
+## Prerequisites
 
 1. Java
 2. Eclipse Kepler 
