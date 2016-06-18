@@ -5,9 +5,9 @@ Introduction:
 
 Key Features and Technologies: 
 
-Gradle Build Tool
+Maven Build Tool
 
-Gradle is an open source build automation system that builds upon the concepts of Apache Ant and Apache Maven and introduces a Groovy-based domain-specific language (DSL) instead of the XML form used by Apache Maven of declaring the project configuration.
+Maven is a project management and comprehension tool. Maven provides developers a complete build lifecycle framework. Development team can automate the project's build infrastructure in almost no time as Maven uses a standard directory layout and a default build lifecycle. 
 
 Java Server Faces(JSF) / PrimeFaces.
 
@@ -49,7 +49,7 @@ Prerequisites
 
 1. Java
 2. Eclipse Kepler 
-3. Gradle-2.3
+3. Maven
 4. Apache-Tomcat 7
 5. Git
 6. Rabbitmq
