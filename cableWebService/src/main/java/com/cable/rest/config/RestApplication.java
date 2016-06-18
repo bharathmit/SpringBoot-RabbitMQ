@@ -69,6 +69,11 @@ public class RestApplication {
         return new Jackson2JsonMessageConverter();
     }
 
+    
+    
+    //RabbitMQ Bean creation started
+    
+    /*
     @Bean
     RabbitTemplate template(ConnectionFactory connectionFactory, MessageConverter converter) {
         RabbitTemplate template = new RabbitTemplate(connectionFactory);
@@ -93,6 +98,11 @@ public class RestApplication {
     MessageListenerAdapter listenerAdapter(Listener listener, MessageConverter converter) {
         return new MessageListenerAdapter(listener, converter);
     }
+    */
+    
+    //RabbitMQ Bean creation ended
+    
+    
     
     @Bean
 	StringDigester PasswordHash() {
