@@ -61,7 +61,6 @@ RabbitMQ is an open source message broker software (sometimes called message-ori
 
 5.Recommended to user Eclipse IDE.
 
-### Steps
 
 Now that all of the pre-requisites are installed, let's set up the Cable-Card.
 
