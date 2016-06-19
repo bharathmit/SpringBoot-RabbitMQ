@@ -45,13 +45,55 @@ Cablecard currently offers integration with the PayPal RestRull API. This module
 
 RabbitMQ is an open source message broker software (sometimes called message-oriented middleware) that implements the Advanced Message Queuing Protocol (AMQP). JMS can be used as a mechanism to allow asynchronous HTTP request processing.
 
+
+## Local Framework Development
+
+
 ## Prerequisites
 
-1. Java
-2. Eclipse Kepler 
-3. Maven
-4. Apache-Tomcat 7
-5. Git
-6. Rabbitmq
+1.Download and install Java 1.7 Development Kit: 
+2.Download and install the latest version of Maven (at least version 3.3.1)
+3.Download and install the Git Client.
+4.Download and install the MySQL Server and GUI.
+5.Recommended to user Eclipse IDE.
+
+### Steps
+
+Now that all of the pre-requisites are installed, let's set up the Cable-Card.
+
+## Install Cable-Card.
+
+1.The easiest way to get the Cable-Card framework locally set up with the Eclipse. Clone this repository using Git.
+
+2.At the command line for your operating system, change your directory to where the Cable-Card Cloned and execute a clean install via Maven:
+
+
+```sh
+mvn clean install
+```
+
+
+> Note: This might take a while as all of the Cable-Card dependencies are downloaded.
+
+
+## Developers who contributed to this work
+
+Currently none
+
+*contributions are welcome!* 
+
+*If you have any improvement suggestions or bug fix, just fork to your GitHub and issue pull requests*
+
+## Licensing
+
+Copyright 2016 Bharath Mannaperumal
+
+This work is licensed under <a rel="license" href="http://www.apache.org/licenses/LICENSE-2.0">Apache License Version 2.0</a>.
+
+
+
+
+
+
 
 
