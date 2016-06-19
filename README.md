@@ -51,10 +51,14 @@ RabbitMQ is an open source message broker software (sometimes called message-ori
 
 ## Prerequisites
 
-1.Download and install Java 1.7 Development Kit: 
-2.Download and install the latest version of Maven (at least version 3.3.1)
+1.Download and install Java 1.7 Development Kit.
+
+2.Download and install the latest version of Maven (at least version 3.3.1).
+
 3.Download and install the Git Client.
+
 4.Download and install the MySQL Server and GUI.
+
 5.Recommended to user Eclipse IDE.
 
 ### Steps
