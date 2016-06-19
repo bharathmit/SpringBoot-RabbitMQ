@@ -37,11 +37,7 @@
 
 							</p:commandLink> &nbsp;&nbsp;<i class="fa fa-angle-right" />&nbsp;&nbsp;</li>
 
-						<li>&nbsp;<a
-							href="#{request.contextPath}/pages/master/organizationform.xhtml">
-							Organization
-							</a>&nbsp;&nbsp;<i class="fa fa-angle-right" />&nbsp;&nbsp;
-						</li>
+						<li class="active">Organization </li>
 						
 					</ol>
 				</div>
@@ -88,7 +84,7 @@
 																	</h:inputText>
 																	<p:message for="organization" styleClass="form-control" />
 																	<p:tooltip styleClass="cus-tooltip" for="organization"
-																		value="Location Name should be alphabets only"></p:tooltip>
+																		value="Organizaion Name should be alphabets only"></p:tooltip>
 																</div>
 
 															</div>
@@ -129,13 +125,14 @@
 																	<h:inputText id="email"
 																		value="#{organizationBean.organizionSelected.email}"
 																		class="form-control" required="true"
-																		requiredMessage="Email Id Required"
-																		validatorMessage="Email Id should be numeric and length should be 2"																		
-																		onkeypress="return isNumberKey(event)">																		
+																		requiredMessage="Email Address Required."
+																		validatorMessage="Invalid email format"																		
+																		onkeypress="return isNumberKey(event)">	
+																		<f:validateRegex pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />																	
 																	</h:inputText>
 																	<p:message for="email" styleClass="form-control" />
 																	<p:tooltip styleClass="cus-tooltip" for="email"
-																		value="State Name should be numeric and length should be 2"></p:tooltip>
+																		value="Email ID should be valid"></p:tooltip>
 																</div>
 															</div>
 														</div>
@@ -172,14 +169,14 @@
 																<p:outputLabel class="control-label" for="address"
 																	value="Address" />
 																<div>
-																	<h:inputTextarea rows="6" id="address" required="true" requiredMessage="Address Name Required"
+																	<h:inputTextarea rows="6" id="address" required="true" requiredMessage="Address Required"
 													styleClass="form-control"
 													value="#{organizationBean.organizionSelected.address}">
 												</h:inputTextarea>
 																	
 																	<p:message for="address" styleClass="form-control" />
 																	<p:tooltip styleClass="cus-tooltip" for="address"
-																		value="Address Name "></p:tooltip>
+																		value="Location of the Address "></p:tooltip>
 																</div>
 															</div>
 														</div>
@@ -193,9 +190,9 @@
 																<p:outputLabel class="control-label" for="status"
 																	value="Status" />
 																<div>
-																	<h:selectOneMenu id="status" required="true" requiredMessage="Select Title"																		
+																	<h:selectOneMenu id="status" required="true" requiredMessage="Select Status"																		
 																		value="#{organizationBean.organizionSelected.status}" class="form-control ">
-																		<f:selectItem itemLabel="Select Title"  noSelectionOption="true" />
+																		<f:selectItem itemLabel="Select Status"  noSelectionOption="true" />
 																		<f:selectItems value="#{applicationBean.statusList}"/>
 																	</h:selectOneMenu>
 																	<p:message for="status" styleClass="form-control" />

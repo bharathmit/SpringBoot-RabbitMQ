@@ -10,6 +10,16 @@
   <groupId>com.cable.app</groupId>
   <artifactId>cableWebApp</artifactId>
   <packaging>war</packaging>
+  
+  <repositories>
+        <repository>
+            <url>http://repository.primefaces.org/</url>
+            <id>PrimeFaces-maven-lib</id>
+            <layout>default</layout>
+            <name>Repository for library PrimeFaces-maven-lib</name>
+        </repository>
+    </repositories>
+  
   <dependencies>
     <dependency>
       <groupId>com.sun.faces</groupId>
@@ -27,6 +37,12 @@
       <groupId>org.primefaces</groupId>
       <artifactId>primefaces</artifactId>
       <version>4.0</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.primefaces.themes</groupId>
+      <artifactId>bootstrap</artifactId>
+      <version>1.0.10</version>
       <scope>compile</scope>
     </dependency>
     <dependency>
