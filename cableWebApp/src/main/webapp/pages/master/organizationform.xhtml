@@ -152,6 +152,7 @@
 																		validatorMessage="Mobile Number should be numeric and length should be 10"																		
 																		onkeypress="return isNumberKey(event)">
 																		<f:validateLength minimum="10" maximum="10" />
+																		<f:convertNumber integerOnly="true" type="number" />
 																	</h:inputText>
 																	<p:message for="mobile" styleClass="form-control" />
 																	<p:tooltip styleClass="cus-tooltip" for="mobile"

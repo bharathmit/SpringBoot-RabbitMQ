@@ -37,10 +37,7 @@
 
 							</p:commandLink> &nbsp;&nbsp;<i class="fa fa-angle-right" />&nbsp;&nbsp;</li>
 
-						<li>&nbsp;<a
-							href="#{request.contextPath}/pages/master/districtlist.xhtml">
-								Project</a>&nbsp;&nbsp;<i class="fa fa-angle-right" />&nbsp;&nbsp;
-						</li>
+						<li class="active">Project </li>
 						
 					</ol>
 				</div>
@@ -105,6 +102,7 @@
 																		validatorMessage="Mobile Number should be numeric and length should be 10"																		
 																		onkeypress="return isNumberKey(event)">
 																		<f:validateLength minimum="10" maximum="10" />
+																		<f:convertNumber integerOnly="true" type="number" />
 																	</h:inputText>
 																	<p:message for="mobile" styleClass="form-control" />
 																	<p:tooltip styleClass="cus-tooltip" for="mobile"
@@ -127,10 +125,15 @@
 																	<h:inputText id="amount"
 																		value="#{projectBean.projectSelected.advanceAmount}"
 																		class="form-control" required="true"
-																		requiredMessage="Advance Amount Required"																																		
-																		onkeypress="return isNumberKey(event)">																		
+																		requiredMessage="Advance Amount Required"	
+																		validatorMessage="Advance Amount should be numeric"																																		
+																		onkeypress="return isNumberKey(event)">	
+																		<f:validateLength minimum="3" maximum="4" />
+																		<f:convertNumber integerOnly="true" type="number" />																	
 																	</h:inputText>
-																	<p:message for="amount" styleClass="form-control" />																	
+																	<p:message for="amount" styleClass="form-control" />	
+																	<p:tooltip styleClass="cus-tooltip" for="amount"
+																		value="Advance Amount should be numeric"></p:tooltip>																
 																</div>
 															</div>
 														</div>
@@ -142,13 +145,14 @@
 																	<h:inputText id="email"
 																		value="#{projectBean.projectSelected.email}"
 																		class="form-control" required="true"
-																		requiredMessage="Email Id Required"
-																		validatorMessage="Email Id should be numeric and length should be 2"																		
-																		>																		
+																		requiredMessage="Email Address Required."
+																		validatorMessage="Invalid email format"																		
+																		onkeypress="return isNumberKey(event)">	
+																		<f:validateRegex pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />																	
 																	</h:inputText>
 																	<p:message for="email" styleClass="form-control" />
 																	<p:tooltip styleClass="cus-tooltip" for="email"
-																		value="State Name should be numeric and length should be 2"></p:tooltip>
+																		value="Email ID should be valid"></p:tooltip>
 																</div>
 															</div>
 														</div>
@@ -167,11 +171,14 @@
 																	<h:inputText id="duedate"
 																		value="#{projectBean.projectSelected.paymentDueDate}"
 																		maxlength="2" class="form-control" required="true"
-																		requiredMessage="Payment Due Date Required" >																		
+																		validatorMessage="Payment Due Date should be numeric"			
+																		requiredMessage="Payment Due Date Required" >	
+																		<f:validateLength minimum="1" maximum="2" />
+																		<f:convertNumber integerOnly="true" type="number" />																	
 																	</h:inputText>
 																	<p:message for="duedate" styleClass="form-control" />
 																	<p:tooltip styleClass="cus-tooltip" for="duedate"
-																		value="Payment Due Date should be numeric and length should be 2"></p:tooltip>
+																		value="Payment Due Date should be numeric"></p:tooltip>
 																</div>
 															</div>
 														</div>
@@ -185,11 +192,13 @@
 																		value="#{projectBean.projectSelected.paymentGenerateDate}"
 																		maxlength="2" class="form-control" required="true"
 																		requiredMessage="Payment Generate Date Required"
-																		validatorMessage="Payment Generate Date should be numeric and length should be 2" >																		
+																		validatorMessage="Payment Generate Date should be numeric" >	
+																		<f:validateLength minimum="1" maximum="2" />
+																		<f:convertNumber integerOnly="true" type="number" />																	
 																	</h:inputText>
 																	<p:message for="generatedate" styleClass="form-control" />
 																	<p:tooltip styleClass="cus-tooltip" for="generatedate"
-																		value="Payment Generate Date should be numeric and length should be 2"></p:tooltip>
+																		value="Payment Generate Date should be numeric"></p:tooltip>
 																</div>
 															</div>
 

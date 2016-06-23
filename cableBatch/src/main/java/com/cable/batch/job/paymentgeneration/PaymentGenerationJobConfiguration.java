@@ -8,24 +8,31 @@ import org.cable.batch.common.utils.BatchUtils;
 import org.cable.batch.common.utils.PayGenRowMapper;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
+import org.springframework.batch.core.configuration.annotation.DefaultBatchConfigurer;
 import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;
 import org.springframework.batch.core.configuration.annotation.JobBuilderFactory;
 import org.springframework.batch.core.configuration.annotation.StepBuilderFactory;
 import org.springframework.batch.core.configuration.annotation.StepScope;
+import org.springframework.batch.core.launch.JobLauncher;
+import org.springframework.batch.core.launch.support.SimpleJobLauncher;
+import org.springframework.batch.core.repository.JobRepository;
+import org.springframework.batch.core.repository.support.MapJobRepositoryFactoryBean;
 import org.springframework.batch.item.ItemProcessor;
 import org.springframework.batch.item.ItemReader;
 import org.springframework.batch.item.ItemWriter;
 import org.springframework.batch.item.database.JdbcCursorItemReader;
+import org.springframework.batch.support.transaction.ResourcelessTransactionManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.transaction.PlatformTransactionManager;
 
 import com.cable.rest.model.GeneratePayment;
 import com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException;
 
 @Configuration
 @EnableBatchProcessing
-public class PaymentGenerationJobConfiguration {
+public class PaymentGenerationJobConfiguration extends DefaultBatchConfigurer {
 	
 	@Autowired
 	private JobBuilderFactory jobBuilders;
@@ -35,6 +42,24 @@ public class PaymentGenerationJobConfiguration {
 	
 	@Autowired
 	private DataSource dataSource;
+	
+	
+	@Bean
+    public PlatformTransactionManager transactionManager() {
+        return new ResourcelessTransactionManager();
+    }
+	
+	@Bean
+    public JobRepository jobRepository() throws Exception {
+        return new MapJobRepositoryFactoryBean(transactionManager()).getJobRepository();
+    }
+	
+	@Bean
+    public JobLauncher jobLauncher() throws Exception {
+        SimpleJobLauncher jobLauncher = new SimpleJobLauncher();
+        jobLauncher.setJobRepository(jobRepository());
+        return jobLauncher;
+    }
 	
 	@Bean
 	public ProtocolListener protocolListener(){
