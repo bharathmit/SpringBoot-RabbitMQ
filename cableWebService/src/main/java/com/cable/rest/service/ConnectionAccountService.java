@@ -1,3 +1,4 @@
+
 package com.cable.rest.service;
 
 import java.util.ArrayList;
@@ -13,7 +14,6 @@ import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
-import org.springframework.test.annotation.Rollback;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.cable.rest.dto.ConnectionAccountDto;
@@ -28,62 +28,55 @@ import com.cable.rest.utils.ModelEntityMapper;
 @Service
 @Log4j
 public class ConnectionAccountService {
-	
-	@PersistenceContext
-	private EntityManager entityManager;
-	
-	@Autowired
-	ConnectionAccountJPARepo accountRepo;
-	
-	@Transactional
-	public ConnectionAccountDto saveAccount(ConnectionAccountDto Object) {
-		try{
-			
-			ConnectionAccount accountEntity=(ConnectionAccount) ModelEntityMapper.converObjectToPoJo(Object, ConnectionAccount.class);
-			accountRepo.saveAndFlush(accountEntity);
-			Object.setAccountId(accountEntity.getAccountId());
-		}
-		catch(Exception e){
-			log.error("saveAccount", e);
-			throw new RestException(ErrorCodeDescription.TRANSACTION_FAILED);
-		}
-		return Object;
-	}
-	
-	
-	@Transactional
-	@Rollback(false)
-	public List<ConnectionAccountDto> getAccount(AccountSearch search) {
-		try{
-			
-			List<ConnectionAccountDto> accountList=new ArrayList<ConnectionAccountDto>();
-			Session session = entityManager.unwrap(Session.class);
-			
-			Criteria criteria= session.createCriteria(ConnectionAccount.class);
-			
-			
-			
-			List<ConnectionAccount> list=criteria.list();
-			
-			accountList = (List<ConnectionAccountDto>) ModelEntityMapper.convertListToCollection(list);
-				
-			return accountList;
-		}
-		catch(Exception e){
-			throw new RestException(ErrorCodeDescription.DATA_ACCESS);
-		}
-	}
 
-	@Transactional
-	public ResponseResource deleteZipCode(AccountSearch search) {
-		try{
-			
-			//accountRepo.delete(search.);
-			return new ResponseResource(ErrorCodeDescription.TRANSACTION_SUCCESS);
-		}
-		catch(DataIntegrityViolationException e){
-			throw new RestException(ErrorCodeDescription.TRANSACTION_FAILED);
-		}
-	}
-	
+    @PersistenceContext
+    private EntityManager entityManager;
+
+    @Autowired
+    ConnectionAccountJPARepo accountRepo;
+
+    @Transactional
+    public ConnectionAccountDto saveAccount(ConnectionAccountDto Object) {
+        try {
+
+            ConnectionAccount accountEntity = (ConnectionAccount) ModelEntityMapper.converObjectToPoJo(Object, ConnectionAccount.class);
+            accountRepo.saveAndFlush(accountEntity);
+            Object.setAccountId(accountEntity.getAccountId());
+        } catch (Exception e) {
+            log.error("saveAccount", e);
+            throw new RestException(ErrorCodeDescription.TRANSACTION_FAILED);
+        }
+        return Object;
+    }
+
+    @Transactional
+    public List<ConnectionAccountDto> getAccount(AccountSearch search) {
+        try {
+
+            List<ConnectionAccountDto> accountList = new ArrayList<ConnectionAccountDto>();
+            Session session = entityManager.unwrap(Session.class);
+
+            Criteria criteria = session.createCriteria(ConnectionAccount.class);
+
+            List<ConnectionAccount> list = criteria.list();
+
+            accountList = (List<ConnectionAccountDto>) ModelEntityMapper.convertListToCollection(list);
+
+            return accountList;
+        } catch (Exception e) {
+            throw new RestException(ErrorCodeDescription.DATA_ACCESS);
+        }
+    }
+
+    @Transactional
+    public ResponseResource deleteZipCode(AccountSearch search) {
+        try {
+
+            //accountRepo.delete(search.);
+            return new ResponseResource(ErrorCodeDescription.TRANSACTION_SUCCESS);
+        } catch (DataIntegrityViolationException e) {
+            throw new RestException(ErrorCodeDescription.TRANSACTION_FAILED);
+        }
+    }
+
 }

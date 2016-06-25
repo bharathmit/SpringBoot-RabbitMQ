@@ -1,7 +1,5 @@
 package com.cable.rest.controller;
 
-import java.util.List;
-
 import javax.validation.Valid;
 
 import lombok.extern.log4j.Log4j;
@@ -32,7 +30,7 @@ public class UserController extends BaseController {
 		if (bindingResult.hasErrors()){
 			throw new InvalidRequestException("Exception", bindingResult);
 		}
-		return (Object) sendtoMQ(reqObject, "saveUser", "userService");
+		return sendtoMQ(reqObject, "saveUser", "userService");
 	}
 	
 	

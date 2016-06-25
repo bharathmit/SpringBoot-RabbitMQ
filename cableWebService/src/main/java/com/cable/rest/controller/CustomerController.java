@@ -25,12 +25,12 @@ public class CustomerController extends BaseController {
 		if (bindingResult.hasErrors()){
 			throw new InvalidRequestException("Exception", bindingResult);
 		}
-		return (Object) sendtoMQ(reqObject, "saveCustomer", "customerService");
+		return sendtoMQ(reqObject, "saveCustomer", "customerService");
 	}
 	
 	@RequestMapping(value = "/regitrationConfirm", method = RequestMethod.GET)
     public Object confirmRegistration(@RequestParam("token") final String token) {
-		return (Object) sendtoMQ(token, "confirmRegistration", "customerService");
+		return sendtoMQ(token, "confirmRegistration", "customerService");
 	}
 	
 	
@@ -39,7 +39,7 @@ public class CustomerController extends BaseController {
 		if (bindingResult.hasErrors()){
 			throw new InvalidRequestException("Exception", bindingResult);
 		}
-		return (Object) sendtoMQ(reqObject, "resendRegistrationToken", "customerService");
+		return sendtoMQ(reqObject, "resendRegistrationToken", "customerService");
 	}
 	
 	@RequestMapping(value="/forgotPassword",method=RequestMethod.POST)
@@ -47,12 +47,12 @@ public class CustomerController extends BaseController {
 		if (bindingResult.hasErrors()){
 			throw new InvalidRequestException("Exception", bindingResult);
 		}
-		return (Object) sendtoMQ(reqObject, "forgotPassword", "customerService");
+		return sendtoMQ(reqObject, "forgotPassword", "customerService");
 	}
 	
 	@RequestMapping(value = "/passwordConfirm", method = RequestMethod.GET)
     public Object confirmPassword(@RequestParam("token") final String token) {
-		return (Object) sendtoMQ(token, "confirmPassword", "customerService");
+		return sendtoMQ(token, "confirmPassword", "customerService");
 	}
 	
 	
@@ -61,7 +61,7 @@ public class CustomerController extends BaseController {
 		if (bindingResult.hasErrors()){
 			throw new InvalidRequestException("Exception", bindingResult);
 		}
-		return (Object) sendtoMQ(reqObject, "changePassword", "customerService");
+		return sendtoMQ(reqObject, "changePassword", "customerService");
 	}
 	
 	

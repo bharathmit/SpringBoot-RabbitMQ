@@ -24,7 +24,7 @@ public class ConnectionAccountController extends BaseController {
 		if (bindingResult.hasErrors()){
 			throw new InvalidRequestException("Exception", bindingResult);
 		}
-		return (Object) sendtoMQ(reqObject, "saveAccount", "connectionAccountService");
+		return sendtoMQ(reqObject, "saveAccount", "connectionAccountService");
 	}
 	
 	@RequestMapping(value="/accountlist",method=RequestMethod.POST)

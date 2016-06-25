@@ -1,9 +1,6 @@
 package com.cable.rest.service;
 
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-
 import javax.mail.internet.MimeMessage;
 
 import lombok.extern.log4j.Log4j;
@@ -37,7 +34,8 @@ public class EmailNotificationService {
 	public boolean constructEmailMessage(final EmailDto request) {
 		try{
 			MimeMessagePreparator preparator = new MimeMessagePreparator() {
-		        @SuppressWarnings({ "rawtypes", "unchecked" })
+		        @Override
+                @SuppressWarnings({ "rawtypes", "unchecked" })
 				public void prepare(MimeMessage mimeMessage) throws Exception {
 		             MimeMessageHelper message = new MimeMessageHelper(mimeMessage);
 		             message.setTo(request.getTo());
