@@ -4,10 +4,21 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.cable.card</groupId>
   <artifactId>cable-card</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
+  <version>${app.version}</version>
   <packaging>pom</packaging>
-  <modules>
-		<module>cableParent</module>
+  
+  
+  <properties>
+		<app.version>1.0.0-SNAPSHOT</app.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <org.springframework.boot>1.2.1.RELEASE</org.springframework.boot>
+        <maven.source.plugin.version>3.1</maven.source.plugin.version>
+		<java.source.plugin.version>1.7</java.source.plugin.version>        
+        <project.uri>${project.baseUri}</project.uri>
+  </properties>
+  
+  
+  <modules>		
 		<module>cableDto</module>
 		<module>cableEntity</module>		
 		<module>cablePaypal</module>
@@ -23,10 +34,10 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.1</version>
+				<version>${maven.source.plugin.version}</version>
 				<configuration>
-					<source>1.7</source>
-					<target>1.7</target>
+					<source>${java.source.plugin.version}</source>
+					<target>${java.source.plugin.version}</target>
 				</configuration>
 			</plugin>
 		</plugins>

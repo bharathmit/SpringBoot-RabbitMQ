@@ -1,8 +1,0 @@
-include 'cableDto'
-include 'cableEntity'
-include 'cableWebService'
-include 'cableWebApp'
-include 'cableBatch'
-include 'cablePaypal'
-
-
