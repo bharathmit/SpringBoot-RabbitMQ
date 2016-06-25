@@ -1,3 +1,4 @@
+
 package com.cable.batch.config;
 
 import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;
@@ -9,11 +10,11 @@ import org.springframework.context.annotation.Configuration;
 import com.cable.batch.job.paymentgeneration.PaymentGenerationJobConfiguration;
 
 @Configuration
-@EnableBatchProcessing(modular=true)
+@EnableBatchProcessing(modular = true)
 public class JobConfiguration {
-	
-	@Bean
-    public ApplicationContextFactory newEpisodesNotificationJobs(){
-    	return new GenericApplicationContextFactory(PaymentGenerationJobConfiguration.class);
-    }    
+
+    @Bean
+    public ApplicationContextFactory paymentGenerationJobs() {
+        return new GenericApplicationContextFactory(PaymentGenerationJobConfiguration.class);
+    }
 }
