@@ -1,7 +1,7 @@
 
 ## Introduction:
 
- SpringBoot-RabbitMq is an open-source CableTV Management framework written entirely in Java on top of the Spring framework.
+ cableCard is an open-source CableTV Management framework written entirely in Java on top of the Spring framework.
 
 ## Key Features and Technologies: 
 
