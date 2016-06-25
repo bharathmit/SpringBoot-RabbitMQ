@@ -14,7 +14,6 @@
         <org.springframework.boot>1.2.1.RELEASE</org.springframework.boot>
         <maven.source.plugin.version>3.1</maven.source.plugin.version>
 		<java.source.plugin.version>1.7</java.source.plugin.version>        
-        <project.uri>${project.baseUri}</project.uri>
   </properties>
   
   
