@@ -22,7 +22,7 @@
 
 					<div class="page-header pull-left">
 
-						<div class="page-title">Organization List</div>
+						<div class="page-title">Invoice</div>
 					</div>
 
 					<ol class="breadcrumb page-breadcrumb hidden-xs">
@@ -38,7 +38,7 @@
 
 							</p:commandLink> &nbsp;&nbsp;<i class="fa fa-angle-right" />&nbsp;&nbsp;</li>
 
-						<li class="active">Organization List</li>
+						<li class="active">Invoice</li>
 					</ol>
 				</div>
 				<!--END TITLE & BREADCRUMB PAGE-->
@@ -80,17 +80,17 @@
 																	<div class="col-md-12 col-sm-12 col-lg-12">
 																		<div class="col-md-4 col-sm-4 col-lg-4 col-xs-4">
 																			<div class="form-group">
-																				<label class="control-label"> Project Name</label>
+																				<label class="control-label">Project Location</label>
 																				<h:inputText
-																					value="#{areaBean.masterSearch.projectName}"
+																					value="#{projectBean.projectSearch.projectCityVillage}"
 																					class="form-control " />
 																			</div>
 																		</div>
 																		<div class="col-md-4 col-sm-4 col-lg-4 col-xs-4">
 																			<div class="form-group">
-																				<label class="control-label">Area Name</label>
+																				<label class="control-label">Organization Name</label>
 																				<h:inputText
-																					value="#{areaBean.masterSearch.areaName}"
+																					value="#{projectBean.projectSearch.orgName}"
 																					class="form-control " />
 																			</div>
 																		</div>
@@ -98,18 +98,18 @@
 																		class="col-md-4 col-sm-4 col-lg-4 text-center top-bigmspace">
 																		<h:commandButton value="Clear"
 																			class="btn btn-clear btn-xs cus-btn btn-info"
-																			actionListener="#{areaBean.clearSearch}">
+																			actionListener="#{projectBean.clearSearch}">
 																			<f:setPropertyActionListener
-																				target="#{areaBean.action}" value="View" />
+																				target="#{projectBean.action}" value="View" />
 																			</h:commandButton>
 																		&nbsp;
 																		<h:commandButton value="Search" update="growl"
 																			class="btn btn-info btn-sm cus-btn btn-search"
-																			actionListener="#{areaBean.showAreaList}">
+																			actionListener="#{projectBean.showProjectList}">
 																			<f:setPropertyActionListener
-																				target="#{areaBean.action}" value="Search" />
+																				target="#{projectBean.action}" value="Search" />
 																			<p:ajax process="@this form" 
-																				update="orgtable" ></p:ajax>
+																				update="projecttable" ></p:ajax>
 																		</h:commandButton>
 
 																	</div>
@@ -142,29 +142,29 @@
 																	<input type="submit" value=" Add"
 																		jsfc="h:commandButton"
 																		class="btn btn-info  cus-btn btn-sm btn-add"
-																		action="#{organizationBean.showOrganizationForm}"
+																		action="#{projectBean.showProjectForm}"
 																		update="growl"> <f:setPropertyActionListener
-																			target="#{organizationBean.action}" value="Add" />
+																			target="#{projectBean.action}" value="Add" />
 																	</input> &nbsp; <input type="submit" value="Edit"
 																		jsfc="h:commandButton"
 																		class="btn btn-info  cus-btn btn-sm btn-edit"
-																		action="#{organizationBean.showOrganizationForm}"
+																		action="#{projectBean.showProjectForm}"
 																		update="growl"> <f:setPropertyActionListener
-																			target="#{organizationBean.action}" value="Edit" />
+																			target="#{projectBean.action}" value="Edit" />
 																	</input> &nbsp; <input type="submit" value="View"
 																		jsfc="h:commandButton"
 																		class="btn btn-info  cus-btn btn-sm btn-view"
-																		action="#{organizationBean.showOrganizationForm}"
+																		action="#{projectBean.showProjectForm}"
 																		update="growl"> <f:setPropertyActionListener
-																			target="#{organizationBean.action}" value="View" />
+																			target="#{projectBean.action}" value="View" />
 																	</input>
 
 																</div>
 															</div>
 														</div>
-														<p:dataTable id="orgtable"
-															value="#{organizationBean.organizionList}" var="itdis"
-															selection="#{organizationBean.organizionSelected}"
+														<p:dataTable id="projecttable"
+															value="#{projectBean.projectList}" var="itdis"
+															selection="#{projectBean.projectSelected}"
 															currentPageReportTemplate="{currentPage} / {totalPages}"
 															rowKey="#{itdis}" rows="20" paginator="true"
 															paginatorPosition="bottom" rowIndexVar="idx"
@@ -173,34 +173,42 @@
 															styleClass="marginbottom">
 															<f:facet class="red" name="header">
 																<p:outputLabel value="Total: "
-																	rendered="#{organizationBean.action ne 'Search'}" />
+																	rendered="#{projectBean.action ne 'Search'}" />
 																<p:outputLabel value="Searched: "
-																	rendered="#{organizationBean.action eq 'Search'}" />
+																	rendered="#{projectBean.action eq 'Search'}" />
 																<em><p:outputLabel styleClass="text-info"
-																		value="#{organizationBean.numberOfRecords} Organization"></p:outputLabel></em>
+																		value="#{projectBean.numberOfRecords} Projects"></p:outputLabel></em>
 															</f:facet>
 															<p:column headerText="#" styleClass="text-left-imp">
 																<h:outputText value="#{idx+1}" />
 															</p:column>
 
-															<p:column headerText="Organization Name"
-																sortBy="#{itdis.orgName}" styleClass="text-left-imp">
-																<h:outputText value="#{itdis.orgName}" />
+															<p:column headerText="PayGen ID"
+																sortBy="#{itdis.projectCityVillage}" styleClass="text-left-imp">
+																<h:outputText value="#{itdis.projectCityVillage}" />
 															</p:column>
 
-															<p:column headerText="Organization Token" sortBy="#{itdis.areaName}">
+															<p:column headerText="PayGen Month" sortBy="#{itdis.email}">
 																<h:outputText
-																	value="#{itdis.orgToken}" />
+																	value="#{itdis.email}" />
 															</p:column>
-															
-															<p:column headerText="Status"
-																styleClass="text-left #{itdis.status eq 'Active'? 'text-success' : 'text-danger'}"
-																sortBy="#{itdis.status}">
+															<p:column headerText="Connection ID"
+																sortBy="#{itdis.mobile}">
 																<h:outputText
-																	value="#{itdis.status}" />
+																	value="#{itdis.mobile}" />
 															</p:column>
-
-															<p:column headerText="Select" selectionMode="single"
+															<p:column headerText="Invoice Amount"
+																sortBy="#{itdis.paymentDueDate}">
+																<h:outputText
+																	value="#{itdis.paymentDueDate}" />
+															</p:column>
+															<p:column headerText="PayGen Status"
+																sortBy="#{itdis.paymentGenerateDate}">
+																<h:outputText
+																	value="#{itdis.paymentGenerateDate}" />
+															</p:column>
+																														
+															<p:column headerText="Action" selectionMode="single"
 																styleClass="associate" />
 														</p:dataTable>
 
@@ -229,7 +237,7 @@
 
 		</h:form>
 		<script>
-			$("title").html("Cable | Area Lists");
+			$("title").html("Cable | Invoice");
 		</script>
 	</ui:define>
 
