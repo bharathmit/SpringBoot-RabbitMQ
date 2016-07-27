@@ -5,7 +5,7 @@ public class JavaAPI {
 	public static void main(String[] args) {
 		Mailin http = new Mailin("https://api.sendinblue.com/v2.0","LKYd2PIqvb4hOMj9");
 		Map < String, String > to = new HashMap < String, String > ();
-			to.put("bharathkumar.feb14@gmail.com", "to whom!");
+			to.put("divya.c.balakrishnan@accenture.com", "to whom!");
 
 		Map < String, Object > data = new HashMap < String, Object > ();
 			data.put("to", to);

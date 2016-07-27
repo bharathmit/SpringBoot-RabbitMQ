@@ -312,11 +312,11 @@
 										
 										<li
 											class="#{loginBean.activeSubMenu eq 'Invoice' ? 'active' : ''}"><h:commandLink
-												action="#{simBean.showSimList}" immediate="true"
+												action="#{invoiceBean.showInvoiceList}" immediate="true"
 												value="Invoice" styleClass="submenu-title">
 												<i class="fa fa-angle-right"></i>
 
-												<f:setPropertyActionListener target="#{simBean.action}"
+												<f:setPropertyActionListener target="#{invoiceBean.action}"
 													value="View" />
 												<f:setPropertyActionListener
 													target="#{loginBean.activeMainMenu}" value="Payment" />
@@ -326,10 +326,10 @@
 										
 										<li
 											class="#{loginBean.activeSubMenu eq 'Payment' ? 'active' : ''}"><h:commandLink
-												action="#{deviceBean.showDeviceList}" immediate="true"
+												action="#{paymentBean.showPaymentList}" immediate="true"
 												value="Payment" styleClass="submenu-title">
 												<i class="fa fa-angle-right"></i>
-												<f:setPropertyActionListener target="#{deviceBean.action}"
+												<f:setPropertyActionListener target="#{paymentBean.action}"
 													value="View" />
 												<f:setPropertyActionListener
 													target="#{loginBean.activeMainMenu}" value="Payment" />
@@ -340,10 +340,10 @@
 										
 										<li
 											class="#{loginBean.activeSubMenu eq 'Remittance' ? 'active' : ''}"><h:commandLink
-												action="#{deviceBean.showDeviceList}" immediate="true"
+												action="#{remittanceBean.showRemittanceList}" immediate="true"
 												value="Remittance" styleClass="submenu-title">
 												<i class="fa fa-angle-right"></i>
-												<f:setPropertyActionListener target="#{deviceBean.action}"
+												<f:setPropertyActionListener target="#{remittanceBean.action}"
 													value="View" />
 												<f:setPropertyActionListener
 													target="#{loginBean.activeMainMenu}" value="Payment" />
@@ -353,10 +353,10 @@
 											
 										<li
 											class="#{loginBean.activeSubMenu eq 'Collection' ? 'active' : ''}"><h:commandLink
-												action="#{deviceBean.showDeviceList}" immediate="true"
+												action="#{collectionBean.showCollectionList}" immediate="true"
 												value="Collection" styleClass="submenu-title">
 												<i class="fa fa-angle-right"></i>
-												<f:setPropertyActionListener target="#{deviceBean.action}"
+												<f:setPropertyActionListener target="#{collectionBean.action}"
 													value="View" />
 												<f:setPropertyActionListener
 													target="#{loginBean.activeMainMenu}" value="Payment" />

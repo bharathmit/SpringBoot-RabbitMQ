@@ -10,7 +10,7 @@ import java.net.URLEncoder;
 public class ElasticEmail {
     
 	public static void main(String[] args) {
-		SendElasticEmail("bharathkumar.feb14@gmail.com", "9443ea28-88ee-47c6-b9aa-131224be4dcd", "bharathkumar.feb14@gmail.com", "bharath" , "Sample" , "Welcome", "bharathkumar.feb14@gmail.com");
+		SendElasticEmail("bharathkumar.feb14@gmail.com", "9443ea28-88ee-47c6-b9aa-131224be4dcd", "bharathkumar.feb14@gmail.com", "bharath" , "Sample" , "Welcome", "divya.c.balakrishnan@accenture.com");
 	}
 	
     public static String SendElasticEmail(String userName, String apiKey, String from, String fromName, String subject, String body, String to)  {
