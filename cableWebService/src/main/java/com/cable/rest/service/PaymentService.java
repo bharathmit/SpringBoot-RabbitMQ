@@ -16,8 +16,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.cable.rest.dto.GeneratePaymentDto;
 import com.cable.rest.dto.PaymentDetailDto;
 import com.cable.rest.exception.RestException;
+import com.cable.rest.model.GeneratePayment;
 import com.cable.rest.model.PaymentDetails;
 import com.cable.rest.repository.PaymentDetailJPARepo;
 import com.cable.rest.response.ErrorCodeDescription;
@@ -69,8 +71,7 @@ public class PaymentService {
             	criteria.add(Restrictions.eq("pinCode", search.getPinCode()));
             }*/
             List<PaymentDetails> list = criteria.list();
-
-            paymentList = criteria.setResultTransformer(Transformers.aliasToBean(PaymentDetailDto.class)).list();
+            paymentList=(List<PaymentDetailDto>) ModelEntityMapper.convertListToCollection(list);
 
             return paymentList;
 
@@ -90,5 +91,37 @@ public class PaymentService {
         }
 
     }
+    
+    @Transactional
+    public List<GeneratePaymentDto> getInvoiceList(PaymentSearch search) {
+        try {
+
+            List<GeneratePaymentDto> invoiceList = new ArrayList<GeneratePaymentDto>();
+            Session session = entityManager.unwrap(Session.class);
+
+            Criteria criteria = session.createCriteria(GeneratePayment.class);
+
+            /*if(search.getOrgId() !=null && search.getOrgId() >0l){
+            	criteria.add(Restrictions.eq("orgId", search.getOrgId()));
+            }
+            
+            if(!StringUtils.isEmpty(search.getOrgName())){
+            	criteria.add(Restrictions.eq("orgName", search.getOrgName()));
+            }
+            
+            if(!StringUtils.isEmpty(search.getPinCode())){
+            	criteria.add(Restrictions.eq("pinCode", search.getPinCode()));
+            }*/
+            List<GeneratePayment> list=criteria.list();
+            invoiceList=(List<GeneratePaymentDto>) ModelEntityMapper.convertListToCollection(list);
+            
+            return invoiceList;
+
+        } catch (Exception e) {
+            throw new RestException(ErrorCodeDescription.DATA_ACCESS);
+        }
+
+    }
+
 
 }

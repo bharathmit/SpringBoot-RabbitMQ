@@ -131,8 +131,8 @@
 
 														
 														<p:dataTable id="projecttable"
-															value="#{projectBean.projectList}" var="itdis"
-															selection="#{projectBean.projectSelected}"
+															value="#{invoiceBean.invoiceList}" var="itdis"
+															selection="#{invoiceBean.invoicSelected}"
 															currentPageReportTemplate="{currentPage} / {totalPages}"
 															rowKey="#{itdis}" rows="20" paginator="true"
 															paginatorPosition="bottom" rowIndexVar="idx"
@@ -141,39 +141,39 @@
 															styleClass="marginbottom">
 															<f:facet class="red" name="header">
 																<p:outputLabel value="Total: "
-																	rendered="#{projectBean.action ne 'Search'}" />
+																	rendered="#{invoiceBean.action ne 'Search'}" />
 																<p:outputLabel value="Searched: "
-																	rendered="#{projectBean.action eq 'Search'}" />
+																	rendered="#{invoiceBean.action eq 'Search'}" />
 																<em><p:outputLabel styleClass="text-info"
-																		value="#{projectBean.numberOfRecords} Projects"></p:outputLabel></em>
+																		value="#{invoiceBean.numberOfRecords} Invoice"></p:outputLabel></em>
 															</f:facet>
 															<p:column headerText="#" styleClass="text-left-imp">
 																<h:outputText value="#{idx+1}" />
 															</p:column>
 
 															<p:column headerText="PayGen ID"
-																sortBy="#{itdis.projectCityVillage}" styleClass="text-left-imp">
-																<h:outputText value="#{itdis.projectCityVillage}" />
+																sortBy="#{itdis.payGenId}" styleClass="text-left-imp">
+																<h:outputText value="#{itdis.payGenId}" />
 															</p:column>
 
-															<p:column headerText="PayGen Month" sortBy="#{itdis.email}">
+															<p:column headerText="PayGen Month" sortBy="#{itdis.payGenDate}">
 																<h:outputText
-																	value="#{itdis.email}" />
+																	value="#{itdis.payGenDate}" />
 															</p:column>
 															<p:column headerText="Connection ID"
-																sortBy="#{itdis.mobile}">
+																sortBy="#{itdis.connectionAccount.accountId}">
 																<h:outputText
-																	value="#{itdis.mobile}" />
+																	value="#{itdis.connectionAccount.accountId}" />
 															</p:column>
 															<p:column headerText="Invoice Amount"
-																sortBy="#{itdis.paymentDueDate}">
+																sortBy="#{itdis.invoiceAmount}">
 																<h:outputText
-																	value="#{itdis.paymentDueDate}" />
+																	value="#{itdis.invoiceAmount}" />
 															</p:column>
 															<p:column headerText="PayGen Status"
-																sortBy="#{itdis.paymentGenerateDate}">
+																sortBy="#{itdis.payGenStatus}">
 																<h:outputText
-																	value="#{itdis.paymentGenerateDate}" />
+																	value="#{itdis.payGenStatus}" />
 															</p:column>
 																														
 															<p:column headerText="Action" selectionMode="single"

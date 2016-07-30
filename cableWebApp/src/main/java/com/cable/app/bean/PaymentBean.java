@@ -49,9 +49,6 @@ public class PaymentBean {
 	@Getter @Setter
 	List<PaymentDetailDto> paymentList=new ArrayList<PaymentDetailDto>();
 	
-	@Getter @Setter
-	PaymentDetailDto paymentSelected=new PaymentDetailDto();
-	
 	@Setter @Getter
 	String action;
 	
@@ -60,9 +57,6 @@ public class PaymentBean {
 	
 	
 	public String showPaymentList(){
-
-		
-		paymentSelected=new PaymentDetailDto();
 		numberOfRecords = 0;
 		
 		try{
@@ -100,71 +94,6 @@ public class PaymentBean {
 		paymentSearch = new PaymentSearch();
 	}
 	
-	public String showPaymentForm(){
-		log.info("show Payment Form Called Action is "+action);
-		log.info("show Project Form Value is "+paymentSelected);
-		
-		if(action.equals("Add")){
-			paymentSelected = new PaymentDetailDto();
-		}else if(action.equals("Edit")){
-			if(paymentSelected == null){
-				FacesUtil.warn("Please select any one Payment");
-				return null;
-			}
-		}else if(action.equals("View")){
-			if(paymentSelected == null){
-				FacesUtil.warn("Please select any one Payment");
-				return null;
-			}
-		}
-		return "/pages/payment/paymentform.xhtml";
-	}
-	
-	
-	public void clearForm(){
-		//paymentSelected.	  
-	}
-	
-	public String cancelPaymentForm(){
-		paymentSelected = new PaymentDetailDto();
-		return "/pages/master/projectlist.xhtml";
-		
-	}
-	
-	
-	public String savePayment(){
-		try{
-			
-			//need to change UserContext
-			OrganizationDto org=new OrganizationDto();
-			org.setOrgId(1l);
-			//paymentSelected.setOrganization(org);
-			
-			HttpEntity<PaymentDetailDto> requestEntity = new HttpEntity<PaymentDetailDto>(paymentSelected, LoginBean.header);
-
-			ResponseEntity<String> response = restTemplate.exchange(restClient.createUrl("payment/savepayment"),HttpMethod.POST,requestEntity,String.class);
-
-			String responseBody = response.getBody();
-
-			if (RestUtil.isError(response.getStatusCode())) {
-				ErrorResource error = objectMapper.readValue(responseBody, ErrorResource.class);
-
-				FacesUtil.error(error.getFieldErrors().get(0).getMessage());
-				return null;
-
-			} else {
-				PaymentDetailDto result = objectMapper.readValue(responseBody, PaymentDetailDto.class);
-				FacesUtil.info("Payment has been saved.");
-
-			}
-		}
-		catch(Exception e){
-			log.error("saveProject", e);
-
-		}
-		showPaymentList();
-		return "/pages/payment/paymentlist.xhtml";
-	}
 	
 
 }

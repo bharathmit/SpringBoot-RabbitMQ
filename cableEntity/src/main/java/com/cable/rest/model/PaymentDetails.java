@@ -4,12 +4,17 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import com.cable.rest.constants.PaymentStatus;
+import com.cable.rest.constants.PaymentType;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -30,14 +35,15 @@ private static final long serialVersionUID = 1L;
 	@Getter	@Setter	
 	private GeneratePayment generatepayment;
 	
-	//need to change enum. online or manual
 	@Column(nullable=false)
+	@Enumerated(EnumType.STRING)
 	@Getter	@Setter	
-	private int paymentType;
+	private PaymentType paymentType;
 	
 	@Column(nullable=false)
+	@Enumerated(EnumType.STRING)
 	@Getter	@Setter	
-	private int paymentStatus;
+	private PaymentStatus paymentStatus;
 	
 	@Column(nullable=false)
 	@Getter	@Setter	
@@ -49,7 +55,7 @@ private static final long serialVersionUID = 1L;
 	
 	@Column(nullable=false)
 	@Getter	@Setter	
-	private Long paymentCustomer;
+	private ConnectionAccount paymentCustomer;
 	
 	
 }

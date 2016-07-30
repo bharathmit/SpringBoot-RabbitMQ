@@ -24,11 +24,18 @@ public class PaymentController extends BaseController {
 	
 	@RequestMapping(value="/paymentlist",method=RequestMethod.POST)
 	public Object getPaymentList(@RequestBody PaymentSearch searchObject){
-		return sendtoMQ(searchObject, "getPaymentList", "projectService");
+		return sendtoMQ(searchObject, "getPaymentList", "paymentService");
 	}
 	
 	@RequestMapping(value="/deletepayment",method=RequestMethod.POST)
 	public ResponseResource deletePayment(@RequestBody PaymentSearch searchObject){
-		return (ResponseResource) sendtoMQ(searchObject, "deletePayment", "projectService");
+		return (ResponseResource) sendtoMQ(searchObject, "deletePayment", "paymentService");
 	}
+	
+	@RequestMapping(value="/invoicelist",method=RequestMethod.POST)
+	public Object getInvoiceList(@RequestBody PaymentSearch searchObject){
+		return sendtoMQ(searchObject, "getInvoiceList", "paymentService");
+	}
+	
+	
 }

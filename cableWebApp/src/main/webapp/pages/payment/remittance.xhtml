@@ -22,7 +22,7 @@
 
 					<div class="page-header pull-left">
 
-						<div class="page-title">Collection</div>
+						<div class="page-title">Remittance</div>
 					</div>
 
 					<ol class="breadcrumb page-breadcrumb hidden-xs">
@@ -38,7 +38,7 @@
 
 							</p:commandLink> &nbsp;&nbsp;<i class="fa fa-angle-right" />&nbsp;&nbsp;</li>
 
-						<li class="active">Collection</li>
+						<li class="active">Remittance</li>
 					</ol>
 				</div>
 				<!--END TITLE & BREADCRUMB PAGE-->
@@ -66,39 +66,7 @@
 
 													<div class="table_ui">
 
-														<div class="row">
-
-															<div class="col-lg-6 solrting-blk">
-
-																<div class="col-md-6"></div>
-															</div>
-
-															<div class="col-lg-6">
-
-																<div class="panel pull-right">
-																	<input type="submit" value=" Add"
-																		jsfc="h:commandButton"
-																		class="btn btn-info  cus-btn btn-sm btn-add"
-																		action="#{projectBean.showProjectForm}"
-																		update="growl"> <f:setPropertyActionListener
-																			target="#{projectBean.action}" value="Add" />
-																	</input> &nbsp; <input type="submit" value="Edit"
-																		jsfc="h:commandButton"
-																		class="btn btn-info  cus-btn btn-sm btn-edit"
-																		action="#{projectBean.showProjectForm}"
-																		update="growl"> <f:setPropertyActionListener
-																			target="#{projectBean.action}" value="Edit" />
-																	</input> &nbsp; <input type="submit" value="View"
-																		jsfc="h:commandButton"
-																		class="btn btn-info  cus-btn btn-sm btn-view"
-																		action="#{projectBean.showProjectForm}"
-																		update="growl"> <f:setPropertyActionListener
-																			target="#{projectBean.action}" value="View" />
-																	</input>
-
-																</div>
-															</div>
-														</div>
+														
 														<p:dataTable id="projecttable"
 															value="#{projectBean.projectList}" var="itdis"
 															selection="#{projectBean.projectSelected}"
@@ -114,7 +82,7 @@
 																<p:outputLabel value="Searched: "
 																	rendered="#{projectBean.action eq 'Search'}" />
 																<em><p:outputLabel styleClass="text-info"
-																		value="#{projectBean.numberOfRecords} Projects"></p:outputLabel></em>
+																		value="#{projectBean.numberOfRecords} Remittance"></p:outputLabel></em>
 															</f:facet>
 															<p:column headerText="#" styleClass="text-left-imp">
 																<h:outputText value="#{idx+1}" />
@@ -125,38 +93,40 @@
 																<h:outputText value="#{itdis.projectCityVillage}" />
 															</p:column>
 
-															<p:column headerText="Remittance Date" sortBy="#{itdis.email}">
+															<p:column headerText="Start Date" sortBy="#{itdis.email}">
 																<h:outputText
 																	value="#{itdis.email}" />
 															</p:column>
-															
-															<p:column headerText="Invoice Amount"
+															<p:column headerText="End Date"
+																sortBy="#{itdis.mobile}">
+																<h:outputText
+																	value="#{itdis.mobile}" />
+															</p:column>
+															<p:column headerText="No Of Payments"
 																sortBy="#{itdis.paymentDueDate}">
 																<h:outputText
 																	value="#{itdis.paymentDueDate}" />
+															</p:column>															
+															<p:column headerText="Invoice Amount"
+																sortBy="#{itdis.zipCode.pinCode}">
+																<h:outputText
+																	value="#{itdis.zipCode.pinCode}" />
 															</p:column>
-															
 															<p:column headerText="Discount Amount"
-																sortBy="#{itdis.mobile}">
+																sortBy="#{itdis.paymentGenerateDate}">
 																<h:outputText
-																	value="#{itdis.mobile}" />
+																	value="#{itdis.paymentGenerateDate}" />
 															</p:column>
-															
 															<p:column headerText="Remittance Amount"
-																sortBy="#{itdis.mobile}">
-																<h:outputText
-																	value="#{itdis.mobile}" />
-															</p:column>
-															
-															<p:column headerText="Total Connection"
 																styleClass="text-left #{itdis.status eq 'Active'? 'text-success' : 'text-danger'}"
 																sortBy="#{itdis.status}">
 																<h:outputText
 																	value="#{itdis.status}" />
 															</p:column>
-
+															
 															<p:column headerText="Action" selectionMode="single"
 																styleClass="associate" />
+															
 														</p:dataTable>
 
 

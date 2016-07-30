@@ -46,6 +46,10 @@ public class ProjectBean {
 	@Getter @Setter
 	ObjectMapper objectMapper;
 	
+	@ManagedProperty(value="#{applicationBean}")
+	@Getter @Setter
+	ApplicationBean applicationBean;
+	
 	@Getter @Setter
 	ProjectSearch projectSearch=new ProjectSearch();
 	
@@ -68,10 +72,7 @@ public class ProjectBean {
 	public String saveProject(){
 		try{
 			
-			//need to change UserContext
-			OrganizationDto org=new OrganizationDto();
-			org.setOrgId(1l);
-			projectSelected.setOrganization(org);
+			projectSelected.setOrganization(applicationBean.userContext.getOrganization());
 			
 			HttpEntity<ProjectDto> requestEntity = new HttpEntity<ProjectDto>(projectSelected, LoginBean.header);
 
