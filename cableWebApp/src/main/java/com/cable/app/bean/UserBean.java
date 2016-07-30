@@ -17,6 +17,7 @@ import com.cable.app.exception.RestUtil;
 import com.cable.app.utils.RestClient;
 import com.cable.rest.constants.Gender;
 import com.cable.rest.constants.Status;
+import com.cable.rest.dto.OrganizationDto;
 import com.cable.rest.dto.ProjectDto;
 import com.cable.rest.dto.RoleDto;
 import com.cable.rest.dto.UserDto;
@@ -80,6 +81,11 @@ public class UserBean {
 			userRole.setRole(selectedRole);
 			userRole.setStatus(Status.Active);			
 			userSelected.getUserRoles().add(userRole);
+			
+			//Temp
+			OrganizationDto org=new OrganizationDto();
+			org.setOrgId(1l);
+			userSelected.setOrganization(org);
 			
 			HttpEntity<UserDto> requestEntity = new HttpEntity<UserDto>(userSelected, LoginBean.header);
 

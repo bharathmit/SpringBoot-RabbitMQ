@@ -13,6 +13,7 @@ import lombok.extern.log4j.Log4j;
 
 import com.cable.rest.constants.Gender;
 import com.cable.rest.constants.Status;
+import com.cable.rest.dto.UserDto;
 
 @ManagedBean
 @ApplicationScoped
@@ -24,6 +25,9 @@ public class ApplicationBean {
 	
 	@Getter @Setter
 	List<Gender> genderList=new ArrayList<Gender>();
+	
+	@Getter @Setter
+	UserDto userContext=new UserDto();
 	
 	@PostConstruct
 	public void lookUp(){

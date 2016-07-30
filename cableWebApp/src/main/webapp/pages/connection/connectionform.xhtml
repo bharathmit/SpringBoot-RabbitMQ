@@ -79,7 +79,7 @@
 																<div>
 																	<h:inputText id="customer"
 																		value="#{connectionBean.accountSelected.name}"
-																		maxlength="2" class="form-control" required="true"
+																		class="form-control" required="true"
 																		requiredMessage="Customer Name Required"
 																		validatorMessage="Customer Name should be alphabets only"
 																		onkeypress="return isNumberKey(event)">
@@ -101,7 +101,7 @@
 																<div>
 																	<h:inputText id="number"
 																		value="#{connectionBean.accountSelected.accountToken}"
-																		maxlength="2" class="form-control" required="true"
+																		class="form-control" required="true"
 																		requiredMessage="Connection Number Required"
 																		validatorMessage="Connection Number should be alphabets only"
 																		onkeypress="return isNumberKey(event)">
@@ -149,57 +149,18 @@
 																	<h:inputText id="email"
 																		value="#{connectionBean.accountSelected.emailId}"
 																		class="form-control" required="true"
-																		requiredMessage="Email Id Required"
-																		validatorMessage="Email Id should be vaild"																		
-																		onkeypress="return isNumberKey(event)">																		
+																		requiredMessage="Email Address Required."
+																		validatorMessage="Invalid email format"																		
+																		onkeypress="return isNumberKey(event)">	
+																		<f:validateRegex pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$"/>																		
 																	</h:inputText>
 																	<p:message for="email" styleClass="form-control" />
 																	<p:tooltip styleClass="cus-tooltip" for="email"
-																		value="Email Id should be vaild"></p:tooltip>
+																		value="Email ID should be valid"></p:tooltip>
 																</div>
 															</div>
 														</div>
 
-													</div>
-													
-													<div class="row">
-														
-														<div class="col-md-6 col-sm-6 col-lg-6">
-															<div class="form-group">
-																<p:outputLabel class="control-label" for="amount"
-																	value="Advance Paid" />
-																<div>
-																	<h:inputText id="amount"
-																		value="#{connectionBean.accountSelected.advancePaid}"
-																		class="form-control" required="true"
-																		requiredMessage="Advance Amount Required"																																		
-																		onkeypress="return isNumberKey(event)">																		
-																	</h:inputText>
-																	<p:message for="amount" styleClass="form-control" />
-																	<p:tooltip styleClass="cus-tooltip" for="mobile"
-																		value="Advance Amount should be numeric and length should be 10"></p:tooltip>																	
-																</div>
-															</div>
-														</div>
-														
-														<div class="col-md-6 col-sm-6 col-lg-6">
-															<div class="form-group">
-																<p:outputLabel class="control-label" for="rent"
-																	value="Monthly Rent" />
-																<div>
-																	<h:inputText id="rent"
-																		value="#{connectionBean.accountSelected.rentAmount}"
-																		class="form-control" required="true"
-																		requiredMessage="Monthly Rent Amount Required"																																		
-																		onkeypress="return isNumberKey(event)">																		
-																	</h:inputText>
-																	<p:message for="rent" styleClass="form-control" />
-																	<p:tooltip styleClass="cus-tooltip" for="mobile"
-																		value="Monthly Rent Amount should be numeric and length should be 10"></p:tooltip>																	
-																</div>
-															</div>
-														</div>
-														
 													</div>
 													
 													<div class="row">
@@ -293,7 +254,48 @@
 														</div>
 														
 													</div>
-	
+													
+													<div class="row">
+														
+														<div class="col-md-6 col-sm-6 col-lg-6">
+															<div class="form-group">
+																<p:outputLabel class="control-label" for="amount"
+																	value="Advance Paid" />
+																<div>
+																	<h:inputText id="amount"
+																		value="#{connectionBean.accountSelected.advancePaid}"
+																		class="form-control" required="true"
+																		requiredMessage="Advance Amount Required"																																		
+																		onkeypress="return isNumberKey(event)">																		
+																	</h:inputText>
+																	<p:message for="amount" styleClass="form-control" />
+																	<p:tooltip styleClass="cus-tooltip" for="mobile"
+																		value="Advance Amount should be numeric and length should be 10"></p:tooltip>																	
+																</div>
+															</div>
+														</div>
+														
+														<div class="col-md-6 col-sm-6 col-lg-6">
+															<div class="form-group">
+																<p:outputLabel class="control-label" for="rent"
+																	value="Monthly Rent" />
+																<div>
+																	<h:inputText id="rent"
+																		value="#{connectionBean.accountSelected.rentAmount}"
+																		class="form-control" required="true"
+																		requiredMessage="Monthly Rent Amount Required"																																		
+																		onkeypress="return isNumberKey(event)">																		
+																	</h:inputText>
+																	<p:message for="rent" styleClass="form-control" />
+																	<p:tooltip styleClass="cus-tooltip" for="mobile"
+																		value="Monthly Rent Amount should be numeric and length should be 10"></p:tooltip>																	
+																</div>
+															</div>
+														</div>
+														
+													</div>													
+													
+													
 													<div class="row">
 														
 														<div class="col-md-6 col-sm-6 col-lg-6">
@@ -304,7 +306,7 @@
 																<div>
 																	<h:inputText id="notes"
 																		value="#{connectionBean.accountSelected.notes}"
-																		maxlength="2" class="form-control" required="true"
+																		class="form-control" required="true"
 																		requiredMessage="Customer Name Required"
 																		validatorMessage="Customer Name should be alphabets only"
 																		onkeypress="return isNumberKey(event)">

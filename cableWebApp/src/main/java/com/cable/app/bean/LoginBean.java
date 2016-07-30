@@ -51,6 +51,9 @@ public class LoginBean implements Serializable{
 	@Getter @Setter
 	ObjectMapper objectMapper;
 	
+	@ManagedProperty(value="#{applicationBean}")
+	@Getter @Setter
+	ApplicationBean applicationBean;
 	
 	@Getter @Setter
 	LoginDto loginDto=new LoginDto();
@@ -146,9 +149,9 @@ public class LoginBean implements Serializable{
 				req =(HttpServletRequest) extCon.getRequest();	
 				FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put(AUTH_KEY, loginDto.getLoginId());
 				FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("UserObject", loginResponseDto);
-				loginResponse=loginResponseDto;
-				
-				extCon.redirect(extCon.getRequestContextPath()+"/pages/index.xhtml?faces-redirect=true");
+				applicationBean.setUserContext(loginResponseDto.getUser());
+				loginResponse=loginResponseDto;				
+				extCon.redirect(extCon.getRequestContextPath()+"/pages/connection/connectionlist.xhtml?faces-redirect=true");
 				
 	    		
 	    	}else{
