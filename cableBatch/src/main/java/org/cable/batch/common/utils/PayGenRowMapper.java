@@ -29,7 +29,7 @@ public class PayGenRowMapper implements RowMapper<GeneratePayment> {
                 dueDate = formatter.parse("" + BatchUtils.getCurrentYear() + 1 + "-01-" + rs.getString("payment_due_date"));
             }
             else {
-                dueDate = formatter.parse("" + BatchUtils.getCurrentYear() + "-" + BatchUtils.getCurrentMonth() + "-" + rs.getString("payment_due_date"));
+                dueDate = formatter.parse("" + BatchUtils.getCurrentYear() + "-" + BatchUtils.getCurrentMonth()+1 + "-" + rs.getString("payment_due_date"));
             }
 
             billDate = formatter.parse("" + BatchUtils.getCurrentYear() + "-" + BatchUtils.getCurrentMonth() + "-" + rs.getString("payment_generate_date"));

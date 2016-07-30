@@ -66,6 +66,9 @@ public class UserDto  implements Serializable  {
 	private Status status;
 	
 	@Getter	@Setter	
+	private OrganizationDto organization;
+	
+	@Getter	@Setter	
 	private List<UserRoleDto> userRoles=new ArrayList<UserRoleDto>();
 	
 }

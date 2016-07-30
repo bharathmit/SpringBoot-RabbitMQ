@@ -12,6 +12,6 @@ public interface ConnectionAccountJPARepo extends JpaRepository<ConnectionAccoun
 	
 	@Modifying(clearAutomatically = true)
 	@Query("update ConnectionAccount a SET a.payGenMonth=:payGenMonth  where a.accountId = :accountId")
-    public ConnectionAccount updatePayGenMonth(@Param("accountId") String accountId,@Param("payGenMonth") String payGenMonth);
+    public int updatePayGenMonth(@Param("accountId") Long accountId,@Param("payGenMonth") Integer payGenMonth);
 
 }

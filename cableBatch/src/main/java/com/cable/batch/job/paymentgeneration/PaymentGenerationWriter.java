@@ -3,6 +3,7 @@ package com.cable.batch.job.paymentgeneration;
 
 import java.util.List;
 
+import org.cable.batch.common.utils.BatchUtils;
 import org.springframework.batch.item.ItemWriter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
@@ -26,10 +27,9 @@ public class PaymentGenerationWriter implements ItemWriter<GeneratePayment> {
         for (GeneratePayment item : items) {
 
             System.out.println("************* WRITER **************");
-            System.out.println("Item Values" + item.getConnectionAccount().getAccountId());
+            System.out.println("Item Values" + item.getConnectionAccount().getAccountId() +" Month "+BatchUtils.getCurrentMonth());
             generatePaymentJPARepo.saveAndFlush(item);
-
-            //connectionAccountJPARepo.updatePayGenMonth("" + item.getConnectionAccount().getAccountId(), "" + item.getBillDate().getMonth());
+            connectionAccountJPARepo.updatePayGenMonth(item.getConnectionAccount().getAccountId(), BatchUtils.getCurrentMonth());
         }
 
     }
