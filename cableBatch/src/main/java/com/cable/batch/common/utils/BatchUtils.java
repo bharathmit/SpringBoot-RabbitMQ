@@ -1,4 +1,4 @@
-package org.cable.batch.common.utils;
+package com.cable.batch.common.utils;
 
 import java.util.Calendar;
 

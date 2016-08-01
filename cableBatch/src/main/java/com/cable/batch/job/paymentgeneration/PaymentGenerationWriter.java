@@ -3,11 +3,12 @@ package com.cable.batch.job.paymentgeneration;
 
 import java.util.List;
 
-import org.cable.batch.common.utils.BatchUtils;
 import org.springframework.batch.item.ItemWriter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
+
+import com.cable.batch.common.utils.BatchUtils;
 import com.cable.rest.model.GeneratePayment;
 import com.cable.rest.repository.ConnectionAccountJPARepo;
 import com.cable.rest.repository.GeneratePaymentJPARepo;

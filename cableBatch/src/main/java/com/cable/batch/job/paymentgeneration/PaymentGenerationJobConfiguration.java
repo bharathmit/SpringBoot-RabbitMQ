@@ -5,10 +5,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.sql.DataSource;
 
-import org.cable.batch.common.listeners.LogProcessListener;
-import org.cable.batch.common.listeners.ProtocolListener;
-import org.cable.batch.common.utils.BatchUtils;
-import org.cable.batch.common.utils.PayGenRowMapper;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
 import org.springframework.batch.core.configuration.annotation.DefaultBatchConfigurer;
@@ -27,6 +23,10 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.orm.jpa.JpaTransactionManager;
 
+
+import com.cable.batch.common.listeners.LogProcessListener;
+import com.cable.batch.common.listeners.ProtocolListener;
+import com.cable.batch.common.utils.BatchUtils;
 import com.cable.rest.model.GeneratePayment;
 import com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException;
 

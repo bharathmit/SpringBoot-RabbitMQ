@@ -1,5 +1,5 @@
 
-package org.cable.batch.common.utils;
+package com.cable.batch.job.paymentgeneration;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -9,6 +9,7 @@ import java.util.Date;
 
 import org.springframework.jdbc.core.RowMapper;
 
+import com.cable.batch.common.utils.BatchUtils;
 import com.cable.rest.constants.PaymentStatus;
 import com.cable.rest.model.ConnectionAccount;
 import com.cable.rest.model.GeneratePayment;
