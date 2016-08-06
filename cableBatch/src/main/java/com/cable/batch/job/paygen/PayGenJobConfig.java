@@ -5,24 +5,40 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.sql.DataSource;
 
+import org.quartz.JobExecutionContext;
+import org.quartz.JobExecutionException;
 import org.springframework.batch.core.Job;
+import org.springframework.batch.core.JobExecution;
+import org.springframework.batch.core.JobParameters;
+import org.springframework.batch.core.JobParametersBuilder;
+import org.springframework.batch.core.JobParametersInvalidException;
 import org.springframework.batch.core.Step;
 import org.springframework.batch.core.configuration.annotation.DefaultBatchConfigurer;
 import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;
 import org.springframework.batch.core.configuration.annotation.JobBuilderFactory;
 import org.springframework.batch.core.configuration.annotation.StepBuilderFactory;
+import org.springframework.batch.core.configuration.support.JobRegistryBeanPostProcessor;
+import org.springframework.batch.core.configuration.support.MapJobRegistry;
 import org.springframework.batch.core.launch.JobLauncher;
 import org.springframework.batch.core.launch.support.SimpleJobLauncher;
+import org.springframework.batch.core.repository.JobExecutionAlreadyRunningException;
+import org.springframework.batch.core.repository.JobInstanceAlreadyCompleteException;
 import org.springframework.batch.core.repository.JobRepository;
+import org.springframework.batch.core.repository.JobRestartException;
 import org.springframework.batch.core.repository.support.MapJobRepositoryFactoryBean;
 import org.springframework.batch.item.ItemReader;
 import org.springframework.batch.item.ItemWriter;
 import org.springframework.batch.item.database.JdbcCursorItemReader;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.orm.jpa.JpaTransactionManager;
 
+
+
+import org.springframework.stereotype.Component;
+import org.springframework.transaction.PlatformTransactionManager;
 
 import com.cable.batch.common.listeners.LogProcessListener;
 import com.cable.batch.common.listeners.ProtocolListener;
@@ -32,62 +48,57 @@ import com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationExceptio
 
 @Configuration
 @EnableBatchProcessing
-public class PayGenJobConfig extends DefaultBatchConfigurer {
+@Component
+public class PayGenJobConfig {
 
     @Autowired
     private JobBuilderFactory jobBuilders;
 
     @Autowired
     private StepBuilderFactory stepBuilders;
-
+    
+    @Autowired
+    private JobLauncher jobLauncher;
+    
     @Autowired
     private DataSource dataSource;
-
-    @PersistenceContext
-    private EntityManager entityManager;
-
-    @Bean
-    public JpaTransactionManager transactionManager() {
-        JpaTransactionManager transactionManager = new JpaTransactionManager();
-        transactionManager.setEntityManagerFactory(entityManager.getEntityManagerFactory());
-        return transactionManager;
+    
+    @Autowired
+    private PlatformTransactionManager jpaTransactionManager;
+    
+    
+    /*@Bean
+    public MapJobRegistry jobRegistry(){
+    	return new MapJobRegistry();
     }
-
-    @Bean
-    public JobRepository jobRepository() throws Exception {
-        MapJobRepositoryFactoryBean mapJobRepositoryFactoryBean = new MapJobRepositoryFactoryBean(transactionManager());
-        mapJobRepositoryFactoryBean.setTransactionManager(transactionManager());
-        return mapJobRepositoryFactoryBean.getObject();
-    }
-
-    @Bean
-    public JobLauncher jobLauncher() throws Exception {
-        SimpleJobLauncher jobLauncher = new SimpleJobLauncher();
-        jobLauncher.setJobRepository(jobRepository());
-        return jobLauncher;
-    }
-
-    @Bean
-    public ProtocolListener protocolListener() {
-        return new ProtocolListener();
-    }
-
-    @Bean
-    public LogProcessListener logProcessListener() {
-        return new LogProcessListener();
-    }
-
-    @Bean
+    
+    @Bean 
+    public JobRegistryBeanPostProcessor jobRegistryBeanPostProcessor(){
+    	JobRegistryBeanPostProcessor jobRegistryBeanPostProcessor=new JobRegistryBeanPostProcessor();
+    	jobRegistryBeanPostProcessor.setJobRegistry(jobRegistry());
+    	return jobRegistryBeanPostProcessor;
+    }*/
+    
     public Job paymentGenerationJob() {
         return jobBuilders.get("paymentGenerationJob")
                 .listener(protocolListener())
                 .start(paymentGenerationStep())
                 .build();
     }
+    
+    public ProtocolListener protocolListener() {
+        return new ProtocolListener();
+    }
 
-    @Bean
+    
+    public LogProcessListener logProcessListener() {
+        return new LogProcessListener();
+    }
+
+    
     public Step paymentGenerationStep() {
         return stepBuilders.get("paymentGenerationStep")
+        		.transactionManager(jpaTransactionManager)
                 .<GeneratePayment, GeneratePayment> chunk(1) //important to be one in this case to commit after every line read
                 .reader(paymentGenerationReader())
                 //.processor(paymentGenerationProcessor())
@@ -99,7 +110,7 @@ public class PayGenJobConfig extends DefaultBatchConfigurer {
                 .build();
     }
 
-    @Bean
+    
     public ItemReader<GeneratePayment> paymentGenerationReader() {
 
         JdbcCursorItemReader<GeneratePayment> reader = new JdbcCursorItemReader<GeneratePayment>();
@@ -114,7 +125,7 @@ public class PayGenJobConfig extends DefaultBatchConfigurer {
         return reader;
     }
 
-    @Bean
+    
     public PayGenRowMapper rowMapper() {
         return new PayGenRowMapper();
     }
@@ -126,9 +137,21 @@ public class PayGenJobConfig extends DefaultBatchConfigurer {
         return new NotifySubscribersItemProcessor();
     }*/
 
-    @Bean
+    
     public ItemWriter<GeneratePayment> paymentGenerationWriter() {
         return new PayGenWriter();
     }
+    
+    public void performJob() {
+
+		try {
+			JobParameters jobParameters =new JobParametersBuilder().addLong("time",System.currentTimeMillis()).toJobParameters();
+			JobExecution result = this.jobLauncher.run(this.paymentGenerationJob(), jobParameters);
+			System.out.println("ExamResult Job completetion details : "+result.toString()); 
+		} catch (Exception  e) {
+			e.printStackTrace();
+		}
+    }
+
 
 }

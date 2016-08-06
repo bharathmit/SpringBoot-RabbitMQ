@@ -17,12 +17,14 @@ import org.springframework.core.env.Environment;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+@ComponentScan({"com.cable.rest","com.cable.batch"})
 @Configuration  
 @EnableAutoConfiguration
-@EntityScan(value = {"com.cable.rest.model"})
-@EnableJpaRepositories(value = {"com.cable.rest.repository"})
-@ComponentScan({"com.cable.rest","com.cable.batch"})
+@EntityScan(basePackages  = {"com.cable.rest.model"})
+@EnableJpaRepositories(basePackages  = {"com.cable.rest.repository"})
+@EnableTransactionManagement 
 @PropertySource("classpath:application.properties")
 @EnableJpaAuditing
 @EnableCaching
@@ -48,8 +50,7 @@ public class BatchApplication {
     
     public static void main(String[] args) {
     	ConfigurableApplicationContext ctx= SpringApplication.run(BatchApplication.class, args);
-    	
-    	
+    	  	
     	
 
     }
