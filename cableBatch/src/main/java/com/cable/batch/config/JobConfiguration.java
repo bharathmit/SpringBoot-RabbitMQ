@@ -7,7 +7,7 @@ import org.springframework.batch.core.configuration.support.GenericApplicationCo
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import com.cable.batch.job.paymentgeneration.PaymentGenerationJobConfiguration;
+import com.cable.batch.job.paygen.PayGenJobConfig;
 
 @Configuration
 @EnableBatchProcessing(modular = true)
@@ -15,6 +15,6 @@ public class JobConfiguration {
 
     @Bean
     public ApplicationContextFactory paymentGenerationJobs() {
-        return new GenericApplicationContextFactory(PaymentGenerationJobConfiguration.class);
+        return new GenericApplicationContextFactory(PayGenJobConfig.class);
     }
 }

@@ -1,5 +1,5 @@
 
-package com.cable.batch.job.paymentgeneration;
+package com.cable.batch.job.paygen;
 
 import java.util.List;
 
@@ -13,7 +13,7 @@ import com.cable.rest.model.GeneratePayment;
 import com.cable.rest.repository.ConnectionAccountJPARepo;
 import com.cable.rest.repository.GeneratePaymentJPARepo;
 
-public class PaymentGenerationWriter implements ItemWriter<GeneratePayment> {
+public class PayGenWriter implements ItemWriter<GeneratePayment> {
 
     @Autowired
     GeneratePaymentJPARepo generatePaymentJPARepo;
@@ -30,7 +30,7 @@ public class PaymentGenerationWriter implements ItemWriter<GeneratePayment> {
             System.out.println("************* WRITER **************");
             System.out.println("Item Values" + item.getConnectionAccount().getAccountId() +" Month "+BatchUtils.getCurrentMonth());
             generatePaymentJPARepo.saveAndFlush(item);
-            connectionAccountJPARepo.updatePayGenMonth(item.getConnectionAccount().getAccountId(), BatchUtils.getCurrentMonth());
+           //connectionAccountJPARepo.updatePayGenMonth(item.getConnectionAccount().getAccountId(), BatchUtils.getCurrentMonth());
         }
 
     }

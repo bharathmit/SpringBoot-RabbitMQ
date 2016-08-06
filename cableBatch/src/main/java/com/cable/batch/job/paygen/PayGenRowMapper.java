@@ -1,5 +1,5 @@
 
-package com.cable.batch.job.paymentgeneration;
+package com.cable.batch.job.paygen;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

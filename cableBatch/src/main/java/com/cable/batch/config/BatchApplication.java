@@ -29,8 +29,6 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 // This class is the entry point of the application.
 public class BatchApplication {
-    
-	private static final String PAYMENT_GENERATION_JOB = "paymentGenerationJob";
 	
 	@Autowired
 	private Environment env;

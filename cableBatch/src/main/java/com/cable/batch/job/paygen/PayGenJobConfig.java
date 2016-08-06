@@ -1,5 +1,5 @@
 
-package com.cable.batch.job.paymentgeneration;
+package com.cable.batch.job.paygen;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -32,7 +32,7 @@ import com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationExceptio
 
 @Configuration
 @EnableBatchProcessing
-public class PaymentGenerationJobConfiguration extends DefaultBatchConfigurer {
+public class PayGenJobConfig extends DefaultBatchConfigurer {
 
     @Autowired
     private JobBuilderFactory jobBuilders;
@@ -128,7 +128,7 @@ public class PaymentGenerationJobConfiguration extends DefaultBatchConfigurer {
 
     @Bean
     public ItemWriter<GeneratePayment> paymentGenerationWriter() {
-        return new PaymentGenerationWriter();
+        return new PayGenWriter();
     }
 
 }
