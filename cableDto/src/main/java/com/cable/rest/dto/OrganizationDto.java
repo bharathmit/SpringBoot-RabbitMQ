@@ -23,6 +23,9 @@ public class OrganizationDto implements Serializable  {
 	private String orgToken;
 	
 	@Getter	@Setter	
+	private byte[] logo;
+	
+	@Getter	@Setter	
 	private String address;
 	
 	@Getter @Setter

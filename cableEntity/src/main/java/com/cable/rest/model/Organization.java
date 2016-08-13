@@ -36,6 +36,10 @@ public class Organization extends Audit implements Serializable{
 	@Getter	@Setter	
 	private String orgToken;
 	
+	@Column(nullable=false)
+	@Getter	@Setter	
+	private byte[] logo;
+	
 	@Column(nullable=false,length = 65535,columnDefinition="Text")
 	@Getter	@Setter	
 	private String address;
@@ -52,6 +56,8 @@ public class Organization extends Audit implements Serializable{
 	@Enumerated(EnumType.STRING)
 	@Getter	@Setter	
 	private Status status;
+	
+	
 	
 	
 

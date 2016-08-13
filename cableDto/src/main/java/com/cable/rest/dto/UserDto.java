@@ -57,6 +57,9 @@ public class UserDto  implements Serializable  {
 	private Date dob;
 	
 	@Getter	@Setter	
+	private Date doj;
+	
+	@Getter	@Setter	
 	private Gender gender;
 	
 	@Getter	@Setter	
@@ -70,5 +73,14 @@ public class UserDto  implements Serializable  {
 	
 	@Getter	@Setter	
 	private List<UserRoleDto> userRoles=new ArrayList<UserRoleDto>();
+	
+	@Getter	@Setter	
+	private Date lastLoginDate;
+	
+	@Getter	@Setter	
+	private Date passwordChangeDate;
+	
+	@Getter	@Setter	
+	private Date lockDate;
 	
 }

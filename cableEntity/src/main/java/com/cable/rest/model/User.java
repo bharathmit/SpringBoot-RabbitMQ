@@ -65,6 +65,11 @@ public class User extends Audit implements Serializable{
 	@Getter	@Setter	
 	private Date dob;
 	
+	@Temporal( TemporalType.DATE)
+	@Column(nullable=false)
+	@Getter	@Setter	
+	private Date doj;
+	
 	@Column(nullable=false)
 	@Enumerated(EnumType.STRING)
 	@Getter	@Setter	
@@ -87,6 +92,22 @@ public class User extends Audit implements Serializable{
 	@OneToMany(fetch = FetchType.EAGER,mappedBy="user")
 	@Getter	@Setter	
 	private List<UserRole> userRoles;
+	
+	
+	@Temporal( TemporalType.TIMESTAMP)
+	@Column(nullable=false)
+	@Getter	@Setter	
+	private Date lastLoginDate;
+	
+	@Temporal( TemporalType.TIMESTAMP)
+	@Column(nullable=false)
+	@Getter	@Setter	
+	private Date passwordChangeDate;
+	
+	@Temporal( TemporalType.TIMESTAMP)
+	@Column(nullable=false)
+	@Getter	@Setter	
+	private Date lockDate;
 	
 	
 

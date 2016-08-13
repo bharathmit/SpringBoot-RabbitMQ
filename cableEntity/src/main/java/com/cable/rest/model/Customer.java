@@ -38,9 +38,22 @@ public class Customer extends Audit implements Serializable{
 	@Getter	@Setter	
 	private String lastName;
 	
+	@Column(nullable=false)
+	@Getter	@Setter	
+	private String mobile;
+	
 	@Column(unique=true,nullable=false)
 	@Getter	@Setter	
 	private String emailId;
+	
+	@Column
+	@Getter	@Setter	
+	private int mobileVerified;
+	
+	@Column
+	@Getter	@Setter	
+	private int emailIdVerified;
+	
 	
 	@Column(nullable=false)
 	@Getter	@Setter	
@@ -55,10 +68,6 @@ public class Customer extends Audit implements Serializable{
 	@Enumerated(EnumType.STRING)
 	@Getter	@Setter	
 	private Gender gender;
-	
-	@Column(nullable=false)
-	@Getter	@Setter	
-	private String mobile;
 	
 	@Column(nullable=false)
 	@Enumerated(EnumType.STRING)

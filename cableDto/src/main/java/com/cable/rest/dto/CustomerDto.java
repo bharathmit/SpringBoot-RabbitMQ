@@ -23,6 +23,9 @@ public class CustomerDto {
 	private String emailId;
 	
 	@Getter	@Setter	
+	private int emailIdVerified;
+	
+	@Getter	@Setter	
 	private String password;
 	
 	@Getter	@Setter	
@@ -30,6 +33,9 @@ public class CustomerDto {
 	
 	@Getter	@Setter	
 	private String mobile;
+	
+	@Getter	@Setter	
+	private int mobileVerified;
 	
 	@Getter	@Setter	
 	private Gender gender;
