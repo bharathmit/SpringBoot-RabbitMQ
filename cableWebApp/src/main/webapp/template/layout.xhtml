@@ -254,7 +254,26 @@
 								</li>
 								
 													
-								
+								<li><a href="#"><i class="icon-screen-desktop" /><span
+										class="menu-title">Dashboard</span> <span class="arrow"></span> </a>
+									<ul
+										class="#{loginBean.activeMainMenu eq 'UFC' ? 'nav nav-second-level collapse in' : 'nav nav-second-level collapse'}">
+										<li
+											class="#{loginBean.activeSubMenu eq 'Generate' ? 'active' : ''}"><h:commandLink
+												action="#{generateUFCBean.showGenerateUFC}" value="Generate"
+												immediate="true" styleClass="submenu-title">
+												<i class="fa fa-angle-right"></i>
+												<f:setPropertyActionListener
+													target="#{generateUFCBean.action}" value="View" />
+												<f:setPropertyActionListener
+													target="#{loginBean.activeMainMenu}" value="UFC" />
+												<f:setPropertyActionListener
+													target="#{loginBean.activeSubMenu}" value="Generate" />
+
+											</h:commandLink></li>
+
+									</ul></li>
+									
 								<li
 									class="#{loginBean.activeMainMenu eq 'TV Connection' ? 'active open' : ''}"><a
 									href="#"> <i class="icon-home" /> <span class="menu-title">TV Connection</span> <span class="arrow"></span>
@@ -281,27 +300,7 @@
 
 											</h:commandLink></li>
 										</ul></li>
-								<li
-									class="#{loginBean.activeMainMenu eq 'Report' ? 'active open' : ''}">
-									<a href="#"> <i class="icon-grid"></i> <span
-										class="menu-title">Report</span> <span class="arrow"></span></a>
-									<ul
-										class="#{loginBean.activeMainMenu eq 'Report' ? 'nav nav-second-level collapse in' : 'nav nav-second-level collapse'}">
-										<li
-											class="#{loginBean.activeSubMenu eq 'Reports' ? 'active' : ''}">
-											<h:commandLink action="#{reportBean.showReportList}"
-												immediate="true" value="Reports" styleClass="submenu-title">
-												<i class="fa fa-angle-right"></i>
-
-												<f:setPropertyActionListener
-													target="#{loginBean.activeMainMenu}" value="Report" />
-												<f:setPropertyActionListener
-													target="#{loginBean.activeSubMenu}" value="Reports" />
-											</h:commandLink>
-										</li>
-
-									</ul>
-								</li>
+								
 								<li
 									class="#{loginBean.activeMainMenu eq 'Payment' ? 'active open' : ''}"><a
 									href="#"><i class="icon-handbag" /><span
@@ -366,6 +365,30 @@
 										
 																			
 									</ul></li>
+									
+									
+									<li
+									class="#{loginBean.activeMainMenu eq 'Report' ? 'active open' : ''}">
+									<a href="#"> <i class="icon-grid"></i> <span
+										class="menu-title">Report</span> <span class="arrow"></span></a>
+									<ul
+										class="#{loginBean.activeMainMenu eq 'Report' ? 'nav nav-second-level collapse in' : 'nav nav-second-level collapse'}">
+										<li
+											class="#{loginBean.activeSubMenu eq 'Reports' ? 'active' : ''}">
+											<h:commandLink action="#{reportBean.showReportList}"
+												immediate="true" value="Reports" styleClass="submenu-title">
+												<i class="fa fa-angle-right"></i>
+
+												<f:setPropertyActionListener
+													target="#{loginBean.activeMainMenu}" value="Report" />
+												<f:setPropertyActionListener
+													target="#{loginBean.activeSubMenu}" value="Reports" />
+											</h:commandLink>
+										</li>
+
+									</ul>
+								</li>
+									
 
 								<li
 									class="#{loginBean.activeMainMenu eq 'Masters' ? 'active open' : ''}"><a
@@ -622,25 +645,6 @@
 												<f:setPropertyActionListener
 													target="#{loginBean.activeSubMenu}" value="SMS Template" />
 											</h:commandLink></li>
-									</ul></li>
-								<li><a href="#"><i class="icon-pie-chart" /><span
-										class="menu-title">UFC</span> <span class="arrow"></span> </a>
-									<ul
-										class="#{loginBean.activeMainMenu eq 'UFC' ? 'nav nav-second-level collapse in' : 'nav nav-second-level collapse'}">
-										<li
-											class="#{loginBean.activeSubMenu eq 'Generate' ? 'active' : ''}"><h:commandLink
-												action="#{generateUFCBean.showGenerateUFC}" value="Generate"
-												immediate="true" styleClass="submenu-title">
-												<i class="fa fa-angle-right"></i>
-												<f:setPropertyActionListener
-													target="#{generateUFCBean.action}" value="View" />
-												<f:setPropertyActionListener
-													target="#{loginBean.activeMainMenu}" value="UFC" />
-												<f:setPropertyActionListener
-													target="#{loginBean.activeSubMenu}" value="Generate" />
-
-											</h:commandLink></li>
-
 									</ul></li>
 								
 							</ul>
