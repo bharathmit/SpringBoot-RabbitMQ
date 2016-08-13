@@ -109,6 +109,10 @@ public class User extends Audit implements Serializable{
 	@Getter	@Setter	
 	private Date lockDate;
 	
+	@Column(nullable=false)
+	@Getter	@Setter	
+	private byte[] photo;
+	
 	
 
 }

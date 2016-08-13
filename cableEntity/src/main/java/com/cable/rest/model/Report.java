@@ -14,6 +14,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.cable.rest.constants.ReportType;
 import com.cable.rest.constants.Status;
 
 import lombok.Getter;
@@ -39,8 +40,9 @@ public class Report implements Serializable{
 	private String reportFileName;
 	
 	@Column(nullable=false)
+	@Enumerated(EnumType.STRING)
 	@Getter	@Setter	
-	private String reportType;
+	private ReportType reportType;
 	
 	@Column(nullable=false)
 	@Enumerated(EnumType.STRING)

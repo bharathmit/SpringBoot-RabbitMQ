@@ -115,6 +115,30 @@
 															</div>
 														</div>
 														</div>
+														
+														<div class="row">
+														<div class="col-md-6 col-sm-6 col-lg-6">
+															<div class="form-group">
+																<p:outputLabel class="control-label" for="logo"
+																	value="Organizaion Logo" />
+
+																<div>
+																	<h:inputText id="logo"
+																		value="#{organizationBean.organizionSelected.orgToken}"
+																		maxlength="10" class="form-control" required="true"
+																		requiredMessage="OAuth Token Required"
+																		validatorMessage="OAuth Token should be alphabets only"																		
+																		onkeypress="return isNumberKey(event)">
+																		<f:validateRegex pattern="[a-zA-Z ]*"></f:validateRegex>
+																	</h:inputText>
+																	<p:message for="logo" styleClass="form-control" />
+																	<p:tooltip styleClass="cus-tooltip" for="logo"
+																		value="OAuth Token should be alphabets only"></p:tooltip>
+																</div>
+
+															</div>
+														</div>
+														</div>
 													
 													<div class="row">
 													<div class="col-md-6 col-sm-6 col-lg-6">

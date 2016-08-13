@@ -83,4 +83,7 @@ public class UserDto  implements Serializable  {
 	@Getter	@Setter	
 	private Date lockDate;
 	
+	@Getter	@Setter	
+	private byte[] photo;
+	
 }

@@ -256,6 +256,42 @@
 																
 															</div>
 														</div>
+														
+														<div class="col-md-6 col-sm-6 col-lg-6">
+															<div class="form-group">
+																<p:outputLabel class="control-label" for="photo"
+																	value="Photo" />
+																<h:inputTextarea rows="6" id="photo" required="true" requiredMessage="Address Detail Required"
+																	styleClass="form-control"
+																	value="#{userBean.userSelected.address}">
+																</h:inputTextarea>
+																	
+																	<p:message for="address" styleClass="form-control" />
+																	<p:tooltip styleClass="cus-tooltip" for="photo"
+																		value="User Current Address Details "></p:tooltip>
+																
+																
+															</div>
+														</div>
+														
+													</div>
+													
+													<div class="row">
+														
+														<div class="col-md-6 col-sm-6 col-lg-6">
+															<div class="form-group">
+																<p:outputLabel class="control-label" for="doj"
+																	value="Date Of Join" />
+																<div>
+																	<p:calendar id="doj" styleClass="calender-form-control"
+																		maxdate="#{currentDate}" value="#{userBean.userSelected.dob}"
+																		pattern="dd-MMM-yyyy"
+																		navigator="true" >
+																	</p:calendar>
+																</div>
+															</div>
+														</div>
+														
 														<div class="col-md-6 col-sm-6 col-lg-6">
 															<div class="form-group">
 
@@ -274,6 +310,7 @@
 
 														</div>
 													</div>
+													
 													
 													
 													<div class="row">
