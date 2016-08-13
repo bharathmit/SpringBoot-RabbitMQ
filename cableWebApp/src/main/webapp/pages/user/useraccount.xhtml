@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui" template="/template/layout.xhtml">
+
+	<ui:define name="content">
+
+		<h:form id="form">
+			<p:growl id="growl" showDetail="true" sticky="false" life="5000"
+				globalOnly="true" />
+
+			<!--BEGIN PAGE CONTENT-->
+			<div class="page-content">
+				<!--BEGIN TITLE & BREADCRUMB PAGE-->
+
+				<div class="page-title-breadcrumb">
+
+					<div class="page-header pull-left">
+
+						<div class="page-title">User Account</div>
+					</div>
+
+					<ol class="breadcrumb page-breadcrumb hidden-xs">
+
+						<li><i class="fa fa-home" />&nbsp; <p:commandLink
+								action="#{loginBean.goToHome}" immediate="true" value="Home"
+								styleClass="submenu-title">
+
+								<f:setPropertyActionListener
+									target="#{loginBean.activeMainMenu}" value="" />
+								<f:setPropertyActionListener target="#{loginBean.activeSubMenu}"
+									value="" />
+
+							</p:commandLink> &nbsp;&nbsp;<i class="fa fa-angle-right" />&nbsp;&nbsp;</li>
+
+						<li class="active">User Account</li>
+					</ol>
+				</div>
+				<!--END TITLE & BREADCRUMB PAGE-->
+
+				<div class="box-content">
+					<!--BEGIN CONTENT-->
+
+					<div class="content">
+
+						<div class="row">
+
+							<div class="col-md-12">
+
+								<div class="panel">
+
+									<div class="panel-body">
+
+										<div class="row">
+
+											<div class="col-md-12">
+
+												<!-- Advance Search started  -->
+												<div id="accordion"
+													class="panel-group accordion custom-accordion">
+													<div class="panel cus-grey-block">
+														<div class="panel-heading">
+															<h5 class="panel-title">
+																<a data-toggle="collapse" data-parent="#accordion"
+																	href="#collapseOne" class="accordion-toggle collapsed">
+																	<i class="fa fa-search right-smspace"></i> Search <i
+																	class="fa fa-caret-down top-smspace pull-right"></i>
+																</a>
+															</h5>
+														</div>
+														<div id="collapseOne" class="panel-collapse collapse"
+															style="height: 0px;">
+															<div class="panel-body marg-bot-15">
+																<div class="row">
+																	<div class="col-md-12 col-sm-12 col-lg-12">
+																		<div class="col-md-4 col-sm-4 col-lg-4 col-xs-4">
+																			<div class="form-group">
+																				<label class="control-label">Email Id</label>
+																				<h:inputText
+																					value="#{userBean.userSearch.email}"
+																					class="form-control " />
+																			</div>
+																		</div>
+																		<div class="col-md-4 col-sm-4 col-lg-4 col-xs-4">
+																			<div class="form-group">
+																				<label class="control-label">Mobile Number</label>
+																				<h:inputText
+																					value="#{userBean.userSearch.mobile}"
+																					class="form-control " />
+																			</div>
+																		</div>
+																		<div
+																		class="col-md-4 col-sm-4 col-lg-4 text-center top-bigmspace">
+																		<h:commandButton value="Clear"
+																			class="btn btn-clear btn-xs cus-btn btn-info"
+																			actionListener="#{userBean.clearSearch}">
+																			<f:setPropertyActionListener
+																				target="#{userBean.action}" value="View" />
+																			</h:commandButton>
+																		&nbsp;
+																		<h:commandButton value="Search" update="growl"
+																			class="btn btn-info btn-sm cus-btn btn-search"
+																			actionListener="#{userBean.showUserList}">
+																			<f:setPropertyActionListener
+																				target="#{userBean.action}" value="Search" />
+																			<p:ajax process="@this form" 
+																				update="usertable" ></p:ajax>
+																		</h:commandButton>
+
+																	</div>
+																		
+																		
+																	</div>
+																	<div class="visible-xs clearfix"></div>
+																	
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+												<!-- Advance Search ended  -->
+
+												<div class="" id="viewcode-table-advanced">
+
+													<div class="table_ui">
+
+														
+														<p:dataTable id="usertable"
+															value="#{userBean.userList}" var="itdis"
+															selection="#{userBean.userSelected}"
+															currentPageReportTemplate="{currentPage} / {totalPages}"
+															rowKey="#{itdis}" rows="20" paginator="true"
+															paginatorPosition="bottom" rowIndexVar="idx"
+															paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+															rowsPerPageTemplate="20,50,100" lazy="true"
+															styleClass="marginbottom">
+															<f:facet class="red" name="header">
+																<p:outputLabel value="Total: "
+																	rendered="#{userBean.action ne 'Search'}" />
+																<p:outputLabel value="Searched: "
+																	rendered="#{userBean.action eq 'Search'}" />
+																<em><p:outputLabel styleClass="text-info"
+																		value="#{userBean.numberOfRecords} User Account(s)"></p:outputLabel></em>
+															</f:facet>
+															<p:column headerText="#" styleClass="text-left-imp">
+																<h:outputText value="#{idx+1}" />
+															</p:column>
+
+															<p:column headerText="First Name"
+																sortBy="#{itdis.firstName}" styleClass="text-left-imp">
+																<h:outputText value="#{itdis.firstName}" />
+															</p:column>
+
+															<p:column headerText="Login Id" sortBy="#{itdis.lastName}">
+																<h:outputText
+																	value="#{itdis.lastName}" />
+															</p:column>
+															<p:column headerText="Last Login Date"
+																sortBy="#{itdis.mobile}">
+																<h:outputText
+																	value="#{itdis.mobile}" />
+															</p:column>
+															<p:column headerText="Password Change Date"
+																sortBy="#{itdis.emailId}">
+																<h:outputText
+																	value="#{itdis.emailId}" />
+															</p:column>
+															<p:column headerText="Lock Date"
+																sortBy="#{itdis.address}">
+																<h:outputText
+																	value="#{itdis.address}" />
+															</p:column>
+															<p:column headerText="reset Password"
+																styleClass="text-left #{itdis.status eq 'Active'? 'text-success' : 'text-danger'}"
+																sortBy="#{itdis.status}">
+																<h:outputText
+																	value="#{itdis.status}" />
+															</p:column>
+												
+														</p:dataTable>
+
+
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!--END CONTENT-->
+				</div>
+			</div>
+
+
+
+
+
+
+			<!--END PAGE CONTENT-->
+
+
+
+		</h:form>
+		<script>
+			$("title").html("Cable | User Lists");
+		</script>
+	</ui:define>
+
+</ui:composition>

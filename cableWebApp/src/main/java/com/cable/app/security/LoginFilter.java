@@ -15,6 +15,8 @@ import lombok.extern.log4j.Log4j;
 
 import org.springframework.util.StringUtils;
 
+import com.cable.rest.dto.LoginResponseDto;
+
 
 
 
@@ -34,7 +36,7 @@ public class LoginFilter implements Filter {
         	
         	log.info("Entered into Login Filter");
         	
-        	/*HttpServletRequest req = (HttpServletRequest) request;
+        	HttpServletRequest req = (HttpServletRequest) request;
         	HttpServletResponse res = (HttpServletResponse) response;
         	
         	LoginResponseDto loginBean = (LoginResponseDto) ((HttpServletRequest) request).getSession()
@@ -44,7 +46,7 @@ public class LoginFilter implements Filter {
         	 if (path.contains("/pages/")) {
         		 String contextPath = ((HttpServletRequest)request).getContextPath();
 	        	if (!StringUtils.isEmpty(loginBean)) {
-	        		 if (!StringUtils.isEmpty(loginBean.getUserDetailDto())) {
+	        		 if (!StringUtils.isEmpty(loginBean.getUser())) {
 	        			 chain.doFilter(request, response);
 	                 } else {	   
 	                	 res.sendRedirect(contextPath+"/login.xhtml");
@@ -56,10 +58,10 @@ public class LoginFilter implements Filter {
         	 }
         	 else{
         		 chain.doFilter(request, response);
-        	 }*/
+        	 }
         	 
         	
-        	chain.doFilter(request, response);
+        	//chain.doFilter(request, response);
         	 
         } catch (Throwable e) {
             log.error("Login Filtter Error", e);

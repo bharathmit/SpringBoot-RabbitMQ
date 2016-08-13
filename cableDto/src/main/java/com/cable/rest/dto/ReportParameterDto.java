@@ -9,7 +9,7 @@ import com.cable.rest.constants.ReportParamType;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ReportParameterDto implements Serializable  {
+public class ReportParameterDto extends BaseDto implements Serializable  {
 	
 	private static final long serialVersionUID = 1L;
 	

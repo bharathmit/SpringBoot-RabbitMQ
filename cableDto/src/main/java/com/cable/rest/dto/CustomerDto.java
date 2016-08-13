@@ -1,5 +1,6 @@
 package com.cable.rest.dto;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import lombok.Getter;
@@ -7,8 +8,12 @@ import lombok.Setter;
 
 import com.cable.rest.constants.Gender;
 import com.cable.rest.constants.Status;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-public class CustomerDto {
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class CustomerDto extends BaseDto implements Serializable  {
+	
+	private static final long serialVersionUID = 1L;
 	
 	@Getter	@Setter	
 	private Long customerId;

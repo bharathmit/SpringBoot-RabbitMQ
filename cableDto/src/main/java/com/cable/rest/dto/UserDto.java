@@ -23,7 +23,7 @@ import lombok.Setter;
 
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class UserDto  implements Serializable  {
+public class UserDto extends BaseDto implements Serializable  {
 	
 	private static final long serialVersionUID = 1L;
 

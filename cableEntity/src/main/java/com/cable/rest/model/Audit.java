@@ -51,11 +51,10 @@ public abstract class Audit implements Serializable{
 	@PrePersist
 	public void prePersist() {
 		try {
-			/*UserDto userAccountModel = (UserDto) SecurityContextHolder
+			UserDto userAccountModel = (UserDto) SecurityContextHolder
 					.getContext().getAuthentication().getCredentials();
 
-			setCreatedBy(userAccountModel.getUserId());*/
-			setCreatedBy(4l);
+			setCreatedBy(userAccountModel.getUserId());
 			setCreatedDate(new Date());
 			
 		} catch (Exception e) {
@@ -68,11 +67,10 @@ public abstract class Audit implements Serializable{
 	@PreUpdate
 	public void preUpdate() {
 		try {
-			/*UserDto userAccountModel = (UserDto) SecurityContextHolder
+			UserDto userAccountModel = (UserDto) SecurityContextHolder
 					.getContext().getAuthentication().getCredentials();
 			
-			setLastModifiedBy(userAccountModel.getUserId());*/
-			setLastModifiedBy(4l);
+			setLastModifiedBy(userAccountModel.getUserId());			
 			setLastModifiedDate(new Date());
 			
 		} catch (Exception e) {

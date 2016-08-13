@@ -12,14 +12,14 @@ http://www.springframework.org/schema/security/spring-security-3.2.xsd">
 	<security:http realm="Protected API" use-expressions="true"
 		auto-config="true" create-session="never" entry-point-ref="CustomAuthenticationEntryPoint">
 	
-		<security:intercept-url pattern="/*"
-			access="permitAll" />
-		
-		<!-- <security:intercept-url pattern="/login/*"
+		<!-- <security:intercept-url pattern="/*"
 			access="permitAll" /> -->
 		
-		<!-- <security:intercept-url pattern="/**"
-			access="isAuthenticated()" /> -->
+		<security:intercept-url pattern="/login/*"
+			access="permitAll" />
+		
+		<security:intercept-url pattern="/**"
+			access="isAuthenticated()" />
 		
 		<security:logout invalidate-session="true" logout-url="/logout" />
 

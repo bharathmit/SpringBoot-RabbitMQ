@@ -11,7 +11,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class UserRoleDto implements Serializable {
+public class UserRoleDto extends BaseDto implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	

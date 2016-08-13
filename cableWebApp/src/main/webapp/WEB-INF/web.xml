@@ -34,7 +34,7 @@
 	<!-- Spring Config End -->
 	
 	<!-- Filter Start-->
-    <!-- 
+    
     <filter>
         <filter-name>loginFilter</filter-name>
         <filter-class>com.cable.app.security.LoginFilter</filter-class>
@@ -46,7 +46,7 @@
         <dispatcher>REQUEST</dispatcher>
     	<dispatcher>FORWARD</dispatcher>              
     </filter-mapping>  
-     -->
+    
     <!-- Filter End -->
 	
 	

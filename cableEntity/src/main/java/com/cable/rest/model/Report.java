@@ -22,7 +22,7 @@ import lombok.Setter;
 
 @Entity
 @Table(name="report")
-public class Report implements Serializable{
+public class Report extends Audit implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	@Id

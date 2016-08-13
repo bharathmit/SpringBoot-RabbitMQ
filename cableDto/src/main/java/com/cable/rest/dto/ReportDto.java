@@ -11,7 +11,7 @@ import com.cable.rest.constants.Status;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ReportDto implements Serializable  {
+public class ReportDto extends BaseDto implements Serializable  {
 	
 	private static final long serialVersionUID = 1L;
 	

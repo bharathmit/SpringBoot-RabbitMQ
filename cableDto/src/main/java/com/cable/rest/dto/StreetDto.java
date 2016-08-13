@@ -9,7 +9,7 @@ import com.cable.rest.constants.Status;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class StreetDto implements Serializable {
+public class StreetDto extends BaseDto implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
