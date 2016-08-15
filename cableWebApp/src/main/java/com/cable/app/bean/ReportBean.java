@@ -5,6 +5,10 @@ import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.ExternalContext;
+import javax.faces.context.FacesContext;
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletResponse;
 
 import org.primefaces.model.DefaultTreeNode;
 import org.primefaces.model.TreeNode;
@@ -95,6 +99,44 @@ public class ReportBean {
 		
 	
 	}
+	
+	public void printReport(){
+		
+	}
+	
+	
+	public String printPDF() {
+		FacesContext facesContext = FacesContext.getCurrentInstance();
+		ExternalContext externalContext = facesContext.getExternalContext();
+		HttpServletResponse response = (HttpServletResponse) externalContext.getResponse();
+
+		try {
+			/*HashMap rMap = new HashMap();
+
+			rMap.put("icr_id", 180);
+
+			sessionModel.setReportName("jaspertest.jasper");
+			sessionModel.setrPramMap(rMap);
+			
+			response.reset();
+			response.resetBuffer();
+			response.setContentType("application/pdf");
+			response.setContentLength(bytes.length);
+	        ServletOutputStream ouputStream = response.getOutputStream();
+	        ouputStream.write(bytes, 0, bytes.length);
+	        ouputStream.flush();
+	        ouputStream.close();*/
+			
+			facesContext.responseComplete();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return "";
+	}
+	
+	
 	
 	
 }
