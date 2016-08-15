@@ -1,6 +1,7 @@
 package com.cable.rest.dto;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import lombok.Getter;
@@ -26,7 +27,7 @@ public class ReportDto extends BaseDto implements Serializable  {
 	@Getter	@Setter	  
 	private Status status;  
 	@Getter	@Setter	  
-	private List<ReportParameterDto> reportParameters;
+	private List<ReportParameterDto> reportParameters= new ArrayList<ReportParameterDto>();;
 	
 	
 }

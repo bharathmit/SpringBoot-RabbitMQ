@@ -24,23 +24,12 @@
 					</div>
 
 					<ol class="breadcrumb page-breadcrumb hidden-xs">
-						<li><i class="fa fa-home" />&nbsp; <p:commandLink
-								action="#{loginBean.goToHome}" immediate="true" value="Home"
-								styleClass="submenu-title">
+						<li><i class="fa fa-home" />&nbsp; Home &nbsp;&nbsp;<i class="fa fa-angle-right" />&nbsp;&nbsp;</li>
 
-								<f:setPropertyActionListener
-									target="#{loginBean.activeMainMenu}" value="" />
-								<f:setPropertyActionListener target="#{loginBean.activeSubMenu}"
-									value="" />
-
-							</p:commandLink> &nbsp;&nbsp;<i class="fa fa-angle-right" />&nbsp;&nbsp;</li>
-
-						<li>&nbsp;<a
-							href="#{request.contextPath}/pages/master/zipcodelist.xhtml">ZIP
-								Code</a>&nbsp;&nbsp;<i class="fa fa-angle-right" />&nbsp;&nbsp;
-						</li><p:outputLabel value="#{zipCodeBean.action}"/> 
-
+						<li class="active">Zip Code</li>
+						
 					</ol>
+					
 				</div>
 				<!--END TITLE & BREADCRUMB PAGE-->
 

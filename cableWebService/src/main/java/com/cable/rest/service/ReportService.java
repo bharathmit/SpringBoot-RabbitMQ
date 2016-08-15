@@ -21,9 +21,11 @@ import com.cable.rest.constants.ReportType;
 import com.cable.rest.dto.ConnectionAccountDto;
 import com.cable.rest.dto.OrganizationDto;
 import com.cable.rest.dto.ReportDto;
+import com.cable.rest.dto.UserDto;
 import com.cable.rest.exception.RestException;
 import com.cable.rest.model.Organization;
 import com.cable.rest.model.Report;
+import com.cable.rest.model.User;
 import com.cable.rest.repository.ReportJPARepo;
 import com.cable.rest.response.ErrorCodeDescription;
 import com.cable.rest.search.ProjectSearch;
@@ -53,7 +55,10 @@ public class ReportService {
             
             List<Report> list = criteria.list();
             
-            reportLists = (List<ReportDto>) ModelEntityMapper.convertListToCollection(list);
+            for (Report entityObject : list) {
+            	ReportDto reportDto = (ReportDto) ModelEntityMapper.converObjectToPoJo(entityObject, ReportDto.class);
+                reportLists.add(reportDto);
+            }
 
             return reportLists;
 

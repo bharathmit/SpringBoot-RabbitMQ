@@ -256,23 +256,7 @@
 													
 								<li><a href="#"><i class="icon-screen-desktop" /><span
 										class="menu-title">Dashboard</span> <span class="arrow"></span> </a>
-									<ul
-										class="#{loginBean.activeMainMenu eq 'UFC' ? 'nav nav-second-level collapse in' : 'nav nav-second-level collapse'}">
-										<li
-											class="#{loginBean.activeSubMenu eq 'Generate' ? 'active' : ''}"><h:commandLink
-												action="#{generateUFCBean.showGenerateUFC}" value="Generate"
-												immediate="true" styleClass="submenu-title">
-												<i class="fa fa-angle-right"></i>
-												<f:setPropertyActionListener
-													target="#{generateUFCBean.action}" value="View" />
-												<f:setPropertyActionListener
-													target="#{loginBean.activeMainMenu}" value="UFC" />
-												<f:setPropertyActionListener
-													target="#{loginBean.activeSubMenu}" value="Generate" />
-
-											</h:commandLink></li>
-
-									</ul></li>
+								</li>
 									
 								<li
 									class="#{loginBean.activeMainMenu eq 'TV Connection' ? 'active open' : ''}"><a
@@ -498,7 +482,7 @@
 									<ul
 										class="#{loginBean.activeMainMenu eq 'Users' ? 'nav nav-second-level collapse in' : 'nav nav-second-level collapse'}">
 										<li
-											class="#{loginBean.activeSubMenu eq 'Users' ? 'active' : ''}"><h:commandLink
+											class="#{loginBean.activeSubMenu eq 'User Info' ? 'active' : ''}"><h:commandLink
 												action="#{userBean.showUserList}" value="User Info"
 												immediate="true" styleClass="submenu-title">
 												<i class="fa fa-angle-right"></i>
@@ -515,7 +499,7 @@
 									<ul
 										class="#{loginBean.activeMainMenu eq 'Users' ? 'nav nav-second-level collapse in' : 'nav nav-second-level collapse'}">
 										<li
-											class="#{loginBean.activeSubMenu eq 'Users' ? 'active' : ''}"><h:commandLink
+											class="#{loginBean.activeSubMenu eq 'User Account' ? 'active' : ''}"><h:commandLink
 												action="#{userBean.showUserAccountList}" value="User Account"
 												immediate="true" styleClass="submenu-title">
 												<i class="fa fa-angle-right"></i>
@@ -536,116 +520,22 @@
 								<li><a href="#"><i class="icon-share" /><span
 										class="menu-title">Migration</span> <span class="arrow"></span>
 								</a>
-									<ul
-										class="#{loginBean.activeMainMenu eq 'Stock Allotment' ? 'nav nav-second-level collapse in' : 'nav nav-second-level collapse'}">
-										<li
-											class="#{loginBean.activeSubMenu eq 'Allotment' ? 'active' : ''}"><h:commandLink
-												action="#{fPSStockAllotmentBean.showFPSStockAllotmentList}"
-												value="Allotment" immediate="true"
-												styleClass="submenu-title">
-												<i class="fa fa-angle-right"></i>
-												<f:setPropertyActionListener
-													target="#{fPSStockAllotmentBean.action}" value="View" />
-												<f:setPropertyActionListener
-													target="#{loginBean.activeMainMenu}"
-													value="Stock Allotment" />
-												<f:setPropertyActionListener
-													target="#{loginBean.activeSubMenu}" value="Allotment" />
-
-											</h:commandLink></li>
-
-									</ul>
-									<ul
-										class="#{loginBean.activeMainMenu eq 'Stock Allotment' ? 'nav nav-second-level collapse in' : 'nav nav-second-level collapse'}">
-										<li
-											class="#{loginBean.activeSubMenu eq 'History' ? 'active' : ''}"><h:commandLink
-												action="#{fPSStockAllotmentHistoryBean.showFPSStockAllotmentHistoryList}"
-												value="History" immediate="true" styleClass="submenu-title">
-												<i class="fa fa-angle-right"></i>
-												<f:setPropertyActionListener
-													target="#{fPSStockAllotmentHistoryBean.action}"
-													value="View" />
-												<f:setPropertyActionListener
-													target="#{loginBean.activeMainMenu}"
-													value="Stock Allotment" />
-												<f:setPropertyActionListener
-													target="#{loginBean.activeSubMenu}" value="History" />
-											</h:commandLink></li>
-
-									</ul></li>
+									
+								</li>
 
 								<li
 									class="#{loginBean.activeMainMenu eq 'Key Management' ? 'active open' : ''}"><a
 									href="#"><i class="icon-key" /><span class="menu-title">Key
 											Management</span> <span class="arrow"></span> </a>
-									<ul
-										class="#{loginBean.activeMainMenu eq 'Key Management' ? 'nav nav-second-level collapse in' : 'nav nav-second-level collapse'}">
-										<li
-											class="#{loginBean.activeSubMenu eq 'MasterKey' ? 'active' : ''}"><h:commandLink
-												action="#{masterKeyBean.showMasterKeyList}"
-												value="MasterKey" immediate="true"
-												styleClass="submenu-title">
-												<i class="fa fa-angle-right"></i>
-												<f:setPropertyActionListener
-													target="#{userDetailBean.action}" value="View" />
-												<f:setPropertyActionListener
-													target="#{loginBean.activeMainMenu}" value="Key Management" />
-												<f:setPropertyActionListener
-													target="#{loginBean.activeSubMenu}" value="MasterKey" />
-
-											</h:commandLink></li>
-										<li
-											class="#{loginBean.activeSubMenu eq 'MasterKey' ? 'active' : ''}"><h:commandLink
-												action="#{keyBean.showKeyList}" value="Key" immediate="true"
-												styleClass="submenu-title">
-												<i class="fa fa-angle-right"></i>
-												<f:setPropertyActionListener target="#{keyBean.action}"
-													value="View" />
-												<f:setPropertyActionListener
-													target="#{loginBean.activeMainMenu}" value="Key Management" />
-												<f:setPropertyActionListener
-													target="#{loginBean.activeSubMenu}" value="Key" />
-
-											</h:commandLink></li>
-									</ul></li>
+								</li>
+								
 								<li
 									class="#{loginBean.activeMainMenu eq 'Notification' ? 'active open' : ''}"><a
 									href="#"><i class="icon-screen-smartphone" /><span
 										class="menu-title">Notification</span> <span class="arrow"></span>
 								</a>
-									<ul
-										class="#{loginBean.activeMainMenu eq 'Notification' ? 'nav nav-second-level collapse in' : 'nav nav-second-level collapse'}">
-										<li
-											class="#{loginBean.activeSubMenu eq 'SMS Providers' ? 'active' : ''}"><h:commandLink
-												action="#{sMSProviderBean.showSMSProviderList}"
-												value="SMS Providers" immediate="true"
-												styleClass="submenu-title">
-												<i class="fa fa-angle-right"></i>
-												<f:setPropertyActionListener target="#{keyBean.action}"
-													value="View" />
-												<f:setPropertyActionListener
-													target="#{loginBean.activeMainMenu}" value="Notification" />
-												<f:setPropertyActionListener
-													target="#{loginBean.activeSubMenu}" value="SMS Providers" />
-
-											</h:commandLink></li>
-									</ul>
-									<ul
-										class="#{loginBean.activeMainMenu eq 'Notification' ? 'nav nav-second-level collapse in' : 'nav nav-second-level collapse'}">
-										<li
-											class="#{loginBean.activeSubMenu eq 'SMS Template' ? 'active' : ''}"><h:commandLink
-												action="#{sMSTemplateBean.showSMSTemplateList}"
-												value="SMS Template" immediate="true"
-												styleClass="submenu-title">
-												<i class="fa fa-angle-right"></i>
-												<f:setPropertyActionListener target="#{keyBean.action}"
-													value="View" />
-												<f:setPropertyActionListener
-													target="#{loginBean.activeMainMenu}" value="Notification" />
-												<f:setPropertyActionListener
-													target="#{loginBean.activeSubMenu}" value="SMS Template" />
-											</h:commandLink></li>
-									</ul></li>
+									
+								</li>
 								
 							</ul>
 						</div>

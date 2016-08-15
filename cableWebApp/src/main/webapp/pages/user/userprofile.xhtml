@@ -24,25 +24,15 @@
 										User Profile
 						</div>
 					</div>
-
+					
 					<ol class="breadcrumb page-breadcrumb hidden-xs">
-						<li><i class="fa fa-home" />&nbsp; <p:commandLink
-								action="#{loginBean.goToHome}" immediate="true" value="Home"
-								styleClass="submenu-title">
+						<li><i class="fa fa-home" />&nbsp; Home &nbsp;&nbsp;<i class="fa fa-angle-right" />&nbsp;&nbsp;</li>
 
-								<f:setPropertyActionListener
-									target="#{loginBean.activeMainMenu}" value="" />
-								<f:setPropertyActionListener target="#{loginBean.activeSubMenu}"
-									value="" />
-
-							</p:commandLink> &nbsp;&nbsp;<i class="fa fa-angle-right" />&nbsp;&nbsp;</li>
-
-						<li>&nbsp;<a
-							href="#{request.contextPath}/pages/master/districtlist.xhtml">
-								User Profile</a>&nbsp;&nbsp;<i class="fa fa-angle-right" />&nbsp;&nbsp;
-						</li>
+						<li class="active">User Profile </li>
 						
 					</ol>
+					
+					
 				</div>
 				<!--END TITLE & BREADCRUMB PAGE-->
 
