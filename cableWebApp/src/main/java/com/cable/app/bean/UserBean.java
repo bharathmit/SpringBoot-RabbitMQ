@@ -223,5 +223,44 @@ public class UserBean {
 		}
 	}
 	
+	
+	public String showUserAccountList(){
+
+		
+		userSelected = new UserDto();
+		numberOfRecords = 0;
+		
+		try{
+           
+			
+			
+			HttpEntity<UserSearch> requestEntity = new HttpEntity<UserSearch>(userSearch, LoginBean.header);
+
+			ResponseEntity<String> response = restTemplate.exchange(restClient.createUrl("user/userlist"),HttpMethod.POST,requestEntity,String.class);
+
+			String responseBody = response.getBody();
+
+			if (RestUtil.isError(response.getStatusCode())) {
+				ErrorResource error = objectMapper.readValue(responseBody, ErrorResource.class);
+
+				FacesUtil.warn(error.getFieldErrors().get(0).getMessage());
+				return "";
+
+			} else {
+				userList = objectMapper.readValue(responseBody, new TypeReference<List<UserDto>>(){});
+				if(userList != null){
+					numberOfRecords = userList.size();
+				}
+
+			}
+
+		}
+		catch(Exception e){
+			log.error("showUserAccountList", e);
+		}
+		userSearch = new UserSearch();
+		return "/pages/user/useraccount.xhtml";
+		
+	}
 
 }

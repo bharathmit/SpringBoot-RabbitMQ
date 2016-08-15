@@ -2,6 +2,7 @@
 package com.cable.rest.service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -18,6 +19,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 
+import com.cable.rest.constants.Status;
 import com.cable.rest.dto.UserDto;
 import com.cable.rest.dto.UserRoleDto;
 import com.cable.rest.exception.RestException;
@@ -81,7 +83,15 @@ public class UserService {
         }
         return true;
     }
-
+    
+    @Transactional
+    public boolean loginUpdate(UserDto user){
+    	if(userRepo.loginUpdate(user.getUserId(),new Date())>0){
+    		return true;
+    	}
+		return false;
+    }
+    
     @Transactional
     public UserDto saveUser(UserDto userObject) {
 
@@ -93,6 +103,10 @@ public class UserService {
         userObject.setPassword(stringDigester.digest(userObject.getPassword()));
 
         System.out.println(userObject.getPassword());
+        
+        if(userObject.getStatus()==Status.InActive){
+        	userObject.setLockDate(new Date());	
+        }
 
         User userEntity = (User) ModelEntityMapper.converObjectToPoJo(userObject, User.class);
 

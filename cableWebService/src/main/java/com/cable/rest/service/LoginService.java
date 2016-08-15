@@ -41,17 +41,20 @@ public class LoginService {
 		boolean result = stringDigester.matches(login.getPassword(),
 				userDto.getPassword());
 		// Assign the user details to LoginResponseDto
-		if (result == true) {
+		if (result && loginUpdate(userDto)) {
 			log.info("Session Id Set");
 			loginResponseDto.setAuthenticationStatus(true);
 			loginResponseDto.setUser(userDto);
-			
 			log.info("LoginService.loginUser method end");
 			return loginResponseDto;
 		} else {
 			log.info("Message" + ErrorCodeDescription.INVALID_PASSWORD.getErrorDescription());
 			throw new RestException(ErrorCodeDescription.INVALID_PASSWORD);		
 		}
+	}
+	
+	public boolean loginUpdate(UserDto user){
+		return userService.loginUpdate(user);
 	}
 	
 	

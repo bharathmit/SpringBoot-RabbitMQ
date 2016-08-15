@@ -156,24 +156,24 @@
 																<h:outputText value="#{itdis.firstName}" />
 															</p:column>
 
-															<p:column headerText="Login Id" sortBy="#{itdis.lastName}">
+															<p:column headerText="Login Id" sortBy="#{itdis.loginId}">
 																<h:outputText
-																	value="#{itdis.lastName}" />
+																	value="#{itdis.loginId}" />
 															</p:column>
 															<p:column headerText="Last Login Date"
-																sortBy="#{itdis.mobile}">
+																sortBy="#{itdis.lastLoginDate}">
 																<h:outputText
-																	value="#{itdis.mobile}" />
+																	value="#{itdis.lastLoginDate}" />
 															</p:column>
 															<p:column headerText="Password Change Date"
-																sortBy="#{itdis.emailId}">
+																sortBy="#{itdis.passwordChangeDate}">
 																<h:outputText
-																	value="#{itdis.emailId}" />
+																	value="#{itdis.passwordChangeDate}" />
 															</p:column>
 															<p:column headerText="Lock Date"
-																sortBy="#{itdis.address}">
+																sortBy="#{itdis.lockDate}">
 																<h:outputText
-																	value="#{itdis.address}" />
+																	value="#{itdis.lockDate}" />
 															</p:column>
 															<p:column headerText="reset Password"
 																styleClass="text-left #{itdis.status eq 'Active'? 'text-success' : 'text-danger'}"
