@@ -37,9 +37,9 @@ Email support is provided throughout the framework in either synchronous or asyn
 
 Spring Batch provides reusable functions that are essential in processing large volumes of records, including job processing statistics, job restart, skip, and resource management. Simple as well as complex, high-volume batch jobs can leverage the framework in a highly scalable manner to process significant volumes of information.
 
-### Paypal 
+### Payment Gateway
 
-Cablecard currently offers integration with the PayPal RestRull API. This module allows users to complete their online payment experience using their PayPal account.
+Cablecard currently offers integration with the PayPal & PayUMoney RestRull API. This module allows users to complete their online payment experience using this account.
 
 ### RabbitMQ 
 
