@@ -21,6 +21,7 @@
 		<module>cableDto</module>
 		<module>cableEntity</module>		
 		<module>cablePaypal</module>
+		<module>cablePayUMoney</module>
 		<module>cableWebService</module>
 		<module>cableWebApp</module>
 		<module>cableBatch</module>
