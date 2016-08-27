@@ -179,6 +179,11 @@ td .label.label-lg.label-success {
     background-position: 8px center;
     background-repeat: no-repeat;
 }
+.btn-upload {
+    background-image: url("../images/icons/white/16/upload.png");
+    background-position: 8px center;
+    background-repeat: no-repeat;
+}
 .btn-search {
 	background-image: url("../images/icons/white/16/search.png");
     background-position: 8px center;

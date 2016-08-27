@@ -9,8 +9,8 @@
 	xmlns:p="http://primefaces.org/ui" template="/template/layout.xhtml">
 
 	<ui:define name="content">
-
-		<h:form id="form">
+	<h:body>
+		<h:form id="form" enctype="multipart/form-data" >
 			<p:growl id="growl" showDetail="true" sticky="false" life="5000"
 				globalOnly="true" />
 
@@ -21,14 +21,14 @@
 				<div class="page-title-breadcrumb">
 					<div class="page-header pull-left">
 						<div class="page-title">
-										Street
+										TV Connection Migration 
 						</div>
 					</div>
 
 					<ol class="breadcrumb page-breadcrumb hidden-xs">
 						<li><i class="fa fa-home" />&nbsp; Home &nbsp;&nbsp;<i class="fa fa-angle-right" />&nbsp;&nbsp;</li>
 
-						<li class="active">Street</li>
+						<li class="active">Migration</li>
 						
 					</ol>
 					
@@ -67,13 +67,13 @@
 																	value="Project Name" />
 																<div>
 																	<h:selectOneMenu id="project" required="true" requiredMessage="Select Project"																		
-																		value="#{streetBean.streetSelected.area.project.projectId}" class="form-control ">
+																		value="#{migrationBean.streetSelected.area.project.projectId}" class="form-control ">
 																		<f:selectItem itemLabel="Select Project"
 																			noSelectionOption="true" />
 																		<f:selectItems
-																			value="#{streetBean.projectList}" var="rl"
+																			value="#{migrationBean.projectList}" var="rl"
 																			itemLabel="#{rl.projectCityVillage}" itemValue="#{rl.projectId}" />	
-																			<p:ajax listener="#{streetBean.updateArea}"
+																			<p:ajax listener="#{migrationBean.updateArea}"
 																				update="area"></p:ajax>																	
 																	</h:selectOneMenu>																	
 																	<p:message for="project" styleClass="form-control" />
@@ -92,11 +92,11 @@
 																	value="Area Name" />
 																<div>
 																<h:selectOneMenu id="area" required="true" requiredMessage="Select Area"																		
-																		value="#{streetBean.streetSelected.area.areaId}" class="form-control ">
+																		value="#{migrationBean.streetSelected.area.areaId}" class="form-control ">
 																		<f:selectItem itemLabel="Select Area"
 																			noSelectionOption="true" />
 																		<f:selectItems
-																			value="#{streetBean.areaList}" var="rl"
+																			value="#{migrationBean.areaList}" var="rl"
 																			itemLabel="#{rl.areaName}" itemValue="#{rl.areaId}" />																																				
 																	</h:selectOneMenu>	
 																	<p:message for="area" styleClass="form-control" />
@@ -114,7 +114,7 @@
 
 																<div>
 																	<h:inputText id="street"
-																		value="#{streetBean.streetSelected.streetName}"
+																		value="#{migrationBean.streetSelected.streetName}"
 																		class="form-control" required="true"
 																		requiredMessage="Street Name Required"
 																		validatorMessage="Street Name should be alphabets only"
@@ -130,45 +130,34 @@
 														</div>
 														
 													</div>
-
-													<div class="row">														
-														<div class="col-md-6 col-sm-6 col-lg-6">
-															<div class="form-group">
-
-																<p:outputLabel class="control-label" for="status"
-																	value="Status" />
-																<div>
-																	<h:selectOneMenu id="status" required="true" requiredMessage="Select Title"																		
-																		value="#{streetBean.streetSelected.status}" class="form-control ">
-																		<f:selectItem itemLabel="Select Title"  noSelectionOption="true" />
-																		<f:selectItems value="#{applicationBean.statusList}"/>
-																	</h:selectOneMenu>
-																	<p:message for="status" styleClass="form-control" />
-																</div>
-															</div>
-
-														</div>
-													</div>	
+								
 
 												</p:outputPanel>
+												
 												<div class="form-group">
-													<div class="form-actions">
-														<h:commandButton value=" Cancel"
-															class="btn btn-cancel btn-xs cus-btn btn-info"
-															immediate="true"
-															action="#{organizationBean.cancelDistrict}"/>
-														&nbsp;
-														<h:commandButton value=" Submit"
-															class="btn btn-submit btn-xs cus-btn btn-info"
-															action="#{streetBean.saveStreet}"
-															update="addorganizion,growl" />
-														&nbsp;
-														<h:commandButton value=" Back"
-															class="btn btn-back btn-xs cus-btn btn-info"
-															action="#{organizationBean.cancelDistrict}" />
-															
+													<div class="form-actions">														
+														
 													</div>
 												</div>
+												
+												
+												<div class="form-group">
+													<div class="form-actions">														
+														<h:commandButton value=" Submit"
+															class="btn btn-submit btn-xs cus-btn btn-info"
+															action="#{migrationBean.uploadExel}"
+															/>
+														&nbsp;
+														<p:commandButton value=" Download" ajax="false" 
+															class="btn btn-download btn-xs cus-btn btn-info"
+															immediate="true">
+															<p:fileDownload value="#{migrationBean.downloadFile}" />
+															</p:commandButton>		
+															&nbsp; Download the template here...												
+													</div>
+												</div>
+												
+												
 
 											</div>
 										</div>
@@ -182,6 +171,7 @@
 			</div>
 			<!--END PAGE CONTENT-->
 		</h:form>
+		</h:body>
 		<script>
 			$("title").html("Cable | Organization Details");
 		</script>

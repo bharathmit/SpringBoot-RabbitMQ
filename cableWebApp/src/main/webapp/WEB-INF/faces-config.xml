@@ -24,6 +24,13 @@
 	    <converter-class>com.cable.app.util.PickListConverter</converter-class>
 	</converter>
 	
+	<render-kit>
+	    <renderer>
+	        <component-family>org.primefaces.component</component-family>
+	        <renderer-type>org.primefaces.component.FileUploadRenderer</renderer-type>
+	        <renderer-class>com.cable.app.utils.MyFileUploadRenderer</renderer-class>
+	    </renderer>
+	</render-kit>
 	
 
 </faces-config>

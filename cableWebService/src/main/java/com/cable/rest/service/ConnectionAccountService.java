@@ -9,6 +9,7 @@ import javax.persistence.PersistenceContext;
 
 import lombok.extern.log4j.Log4j;
 
+import org.apache.commons.lang.StringUtils;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,7 @@ import com.cable.rest.response.ErrorCodeDescription;
 import com.cable.rest.response.ResponseResource;
 import com.cable.rest.search.AccountSearch;
 import com.cable.rest.utils.ModelEntityMapper;
+import com.cable.rest.utils.RandomUtil;
 
 @Service
 @Log4j
@@ -34,11 +36,18 @@ public class ConnectionAccountService {
 
     @Autowired
     ConnectionAccountJPARepo accountRepo;
+    
+    @Autowired
+    RandomUtil randomUtil;
 
     @Transactional
     public ConnectionAccountDto saveAccount(ConnectionAccountDto Object) {
         try {
-
+        	
+        	if(StringUtils.isEmpty(Object.getAccountToken())){
+        		Object.setAccountToken(randomUtil.getTrackId());
+        	}
+        	
             ConnectionAccount accountEntity = (ConnectionAccount) ModelEntityMapper.converObjectToPoJo(Object, ConnectionAccount.class);
             accountRepo.saveAndFlush(accountEntity);
             Object.setAccountId(accountEntity.getAccountId());

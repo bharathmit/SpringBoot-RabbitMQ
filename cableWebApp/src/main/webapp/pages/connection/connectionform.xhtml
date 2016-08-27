@@ -89,17 +89,12 @@
 																	value="Connection Number" />
 
 																<div>
-																	<h:inputText id="number"
+																	<h:inputText readonly="true" id="number"
 																		value="#{connectionBean.accountSelected.accountToken}"
-																		class="form-control" required="true"
-																		requiredMessage="Connection Number Required"
-																		validatorMessage="Connection Number should be alphabets only"
-																		onkeypress="return isNumberKey(event)">
-																		<f:validateRegex pattern="[a-zA-Z ]*"></f:validateRegex>
-																	</h:inputText>
-																	<p:message for="number" styleClass="form-control" />
+																		class="form-control" required="true">
+																	</h:inputText>																	
 																	<p:tooltip styleClass="cus-tooltip" for="number"
-																		value="Connection Number should be alphabets only"></p:tooltip>
+																		value="Connection Number Unique ID"></p:tooltip>
 																</div>
 
 															</div>

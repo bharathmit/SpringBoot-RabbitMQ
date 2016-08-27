@@ -512,14 +512,28 @@
 
 											</h:commandLink></li>
 									</ul>
-									
-									
+																		
 								</li>
 
 
-								<li><a href="#"><i class="icon-share" /><span
-										class="menu-title">Migration</span> <span class="arrow"></span>
-								</a>
+								<li class="#{loginBean.activeMainMenu eq 'Migration' ? 'active open' : ''}"><a
+									href="#"><i class="icon-users" /><span class="menu-title">Migration</span>
+										<span class="arrow"></span></a>												
+									
+									<ul
+										class="#{loginBean.activeMainMenu eq 'Migration' ? 'nav nav-second-level collapse in' : 'nav nav-second-level collapse'}">
+										<li
+											class="#{loginBean.activeSubMenu eq 'Excel-Migration' ? 'active' : ''}"><h:commandLink
+												action="#{migrationBean.showMigration}" value="Excel-Migration"
+												immediate="true" styleClass="submenu-title">
+												<i class="fa fa-angle-right"></i>
+												<f:setPropertyActionListener
+													target="#{loginBean.activeMainMenu}" value="Migration" />
+												<f:setPropertyActionListener
+													target="#{loginBean.activeSubMenu}" value="Excel-Migration" />
+
+											</h:commandLink></li>
+									</ul>
 									
 								</li>
 

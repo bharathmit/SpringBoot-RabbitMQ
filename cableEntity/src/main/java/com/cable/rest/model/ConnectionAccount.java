@@ -30,7 +30,7 @@ public class ConnectionAccount extends Audit implements Serializable{
 	@Getter	@Setter	
 	private Long accountId;
 	
-	@Column(nullable=false)
+	@Column(nullable=false,unique=true)
 	@Getter	@Setter	
 	private String accountToken;
 	
@@ -38,11 +38,11 @@ public class ConnectionAccount extends Audit implements Serializable{
 	@Getter	@Setter	
 	private String name;
 	
-	@Column(unique=true,nullable=false)
+	@Column
 	@Getter	@Setter	
 	private String mobile;
 	
-	@Column(unique=true,nullable=false)
+	@Column
 	@Getter	@Setter	
 	private String emailId;
 	
@@ -50,7 +50,7 @@ public class ConnectionAccount extends Audit implements Serializable{
 	@Getter	@Setter	
 	private String address;
 	
-	@Column(nullable=false)
+	@Column
 	@Getter	@Setter	
 	private String notes;
 	
@@ -72,7 +72,7 @@ public class ConnectionAccount extends Audit implements Serializable{
 	@Getter	@Setter	
 	private double advancePaid;
 	
-	@Column(nullable=false)
+	@Column
 	@Getter	@Setter	
 	private int payGenMonth;
 	
