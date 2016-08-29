@@ -21,6 +21,7 @@ import com.cable.rest.dto.PaymentDetailDto;
 import com.cable.rest.exception.RestException;
 import com.cable.rest.model.GeneratePayment;
 import com.cable.rest.model.PaymentDetails;
+import com.cable.rest.repository.GeneratePaymentJPARepo;
 import com.cable.rest.repository.PaymentDetailJPARepo;
 import com.cable.rest.response.ErrorCodeDescription;
 import com.cable.rest.response.ResponseResource;
@@ -36,6 +37,9 @@ public class PaymentService {
 
     @Autowired
     PaymentDetailJPARepo paymentDetailJPARepo;
+    
+    @Autowired
+    GeneratePaymentJPARepo genPaymentJPARepo;
 
     @Transactional
     public PaymentDetailDto savePayment(PaymentDetailDto Object) {
@@ -91,6 +95,23 @@ public class PaymentService {
         }
 
     }
+    
+    
+    @Transactional
+    public GeneratePaymentDto saveInvoice(GeneratePaymentDto generatePayment) {
+        try {
+
+        	GeneratePayment genPaymentEntity = (GeneratePayment) ModelEntityMapper.converObjectToPoJo(generatePayment, GeneratePaymentDto.class);
+        	genPaymentJPARepo.saveAndFlush(genPaymentEntity);
+        } catch (Exception e) {
+            log.error("saveInvoice", e);
+            throw new RestException(ErrorCodeDescription.TRANSACTION_FAILED);
+        }
+        return generatePayment;
+    
+
+    }
+    
     
     @Transactional
     public List<GeneratePaymentDto> getInvoiceList(PaymentSearch search) {

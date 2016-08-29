@@ -65,6 +65,10 @@ private static final long serialVersionUID = 1L;
 	@Getter	@Setter	
 	private Double billAmount;
 	
+	@Column
+	@Getter	@Setter	
+	private String notes;
+	
 	@ManyToOne
 	@JoinColumn(name="account_Id", nullable=false)
 	@Getter	@Setter	

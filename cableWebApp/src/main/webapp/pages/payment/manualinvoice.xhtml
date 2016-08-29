@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui" template="/template/layout.xhtml">
+
+	<ui:define name="content">
+
+		<h:form id="form">
+			<p:growl id="growl" showDetail="true" sticky="false" life="5000"
+				globalOnly="true" />
+
+			<!--BEGIN PAGE CONTENT-->
+			<div class="page-content">
+				<!--BEGIN TITLE & BREADCRUMB PAGE-->
+
+				<div class="page-title-breadcrumb">
+					<div class="page-header pull-left">
+						<div class="page-title">
+										Manual Invoice
+						</div>
+					</div>
+					
+					<ol class="breadcrumb page-breadcrumb hidden-xs">
+						<li><i class="fa fa-home" />&nbsp; Home &nbsp;&nbsp;<i class="fa fa-angle-right" />&nbsp;&nbsp;</li>
+
+						<li class="active">Manual Invoice </li>
+						
+					</ol>
+
+					
+				</div>
+				<!--END TITLE & BREADCRUMB PAGE-->
+
+				<div class="box-content">
+					<!--BEGIN CONTENT-->
+
+					<div class="content">
+
+						<div class="row">
+
+							<div class="col-lg-12">
+
+								<div class="panel top-space">
+									<div class="hor-space mspace require-block text-right">
+										<p:outputPanel>
+											<div class="require">
+												<p:outputLabel value="* Required" />
+											</div>
+										</p:outputPanel>
+									</div>
+
+
+									<div class="body current" role="tabpanel" id="Add-Bill">
+										<div class="row panel-body">
+											<div class="col-md-12">
+												<p:outputPanel id="addbill">
+
+													<div class="row">
+														<div class="col-md-6 col-sm-6 col-lg-6">
+															<div class="form-group">
+																<p:outputLabel class="control-label" for="customer"
+																	value="Customer Name" />
+
+																<div>
+																	<h:inputText id="customer"
+																		value="#{connectionBean.genPayment.connectionAccount.name}"
+																		class="form-control" required="true"
+																		requiredMessage="Customer Name Required"
+																		validatorMessage="Customer Name should be alphabets only"
+																		onkeypress="return isNumberKey(event)">
+																		<f:validateRegex pattern="[a-zA-Z ]*"></f:validateRegex>
+																	</h:inputText>
+																	<p:message for="customer" styleClass="form-control" />
+																	<p:tooltip styleClass="cus-tooltip" for="customer"
+																		value="Customer Name should be alphabets only"></p:tooltip>
+																</div>
+
+															</div>
+														</div>
+														
+														<div class="col-md-6 col-sm-6 col-lg-6">
+															<div class="form-group">
+																<p:outputLabel class="control-label" for="number"
+																	value="Connection Number" />
+
+																<div>
+																	<h:inputText readonly="true" id="number"
+																		value="#{connectionBean.genPayment.connectionAccount.accountToken}"
+																		class="form-control" required="true">
+																	</h:inputText>																	
+																	<p:tooltip styleClass="cus-tooltip" for="number"
+																		value="Connection Number Unique ID"></p:tooltip>
+																</div>
+
+															</div>
+														</div>
+														
+													</div>
+													
+													
+													<div class="row">
+														
+														<div class="col-md-6 col-sm-6 col-lg-6">
+															<div class="form-group">
+																<p:outputLabel class="control-label" for="billdate"
+																	value="Bill Date " />
+
+																<div>
+																	<h:inputText id="billdate"
+																		value="#{connectionBean.genPayment.billDate}"
+																		maxlength="10" class="form-control" required="true"
+																		requiredMessage="Mobile Number Required"
+																		validatorMessage="Mobile Number should be numeric and length should be 10"																		
+																		onkeypress="return isNumberKey(event)">
+																		<f:validateLength minimum="10" maximum="10" />
+																	</h:inputText>
+																	<p:message for="billdate" styleClass="form-control" />
+																	<p:tooltip styleClass="cus-tooltip" for="billdate"
+																		value="Mobile Number should be numeric and length should be 10"></p:tooltip>
+																</div>
+
+															</div>
+														</div>
+														
+														<div class="col-md-6 col-sm-6 col-lg-6">
+															<div class="form-group">
+																<p:outputLabel class="control-label" for="duedate"
+																	value="Due Date" />
+																<div>
+																	<h:inputText id="duedate"
+																		value="#{connectionBean.genPayment.dueDate}"
+																		class="form-control" required="true"
+																		requiredMessage="Email Address Required."
+																		validatorMessage="Invalid email format"																		
+																		onkeypress="return isNumberKey(event)">	
+																		<f:validateRegex pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$"/>																		
+																	</h:inputText>
+																	<p:message for="duedate" styleClass="form-control" />
+																	<p:tooltip styleClass="cus-tooltip" for="duedate"
+																		value="Email ID should be valid"></p:tooltip>
+																</div>
+															</div>
+														</div>
+
+													</div>
+
+													<div class="row">
+														
+														<div class="col-md-6 col-sm-6 col-lg-6">
+															<div class="form-group">
+																<p:outputLabel class="control-label" for="invoiceamount"
+																	value="Invoice Amount" />
+																<div>
+																	<h:inputText id="invoiceamount"
+																		value="#{connectionBean.genPayment.invoiceAmount}"
+																		class="form-control" required="true"
+																		requiredMessage="Advance Amount Required"																																		
+																		onkeypress="return isNumberKey(event)">																		
+																	</h:inputText>
+																	<p:message for="invoiceamount" styleClass="form-control" />
+																	<p:tooltip styleClass="cus-tooltip" for="invoiceamount"
+																		value="Advance Amount should be numeric and length should be 10"></p:tooltip>																	
+																</div>
+															</div>
+														</div>
+														
+														<div class="col-md-6 col-sm-6 col-lg-6">
+															<div class="form-group">
+																<p:outputLabel class="control-label" for="discountamount"
+																	value="Discount Amount" />
+																<div>
+																	<h:inputText id="discountamount"
+																		value="#{connectionBean.genPayment.discountAmount}"
+																		class="form-control" required="true"
+																		requiredMessage="Advance Amount Required"																																		
+																		onkeypress="return isNumberKey(event)">																		
+																	</h:inputText>
+																	<p:message for="discountamount" styleClass="form-control" />
+																	<p:tooltip styleClass="cus-tooltip" for="discountamount"
+																		value="Advance Amount should be numeric and length should be 10"></p:tooltip>																	
+																</div>
+															</div>
+														</div>
+
+													</div>
+													
+													
+													<div class="row">
+														
+														<div class="col-md-6 col-sm-6 col-lg-6">
+															<div class="form-group">
+																<p:outputLabel class="control-label" for="notes"
+																	value="Notes" />
+																<div>
+																	<h:inputText id="notes"
+																		value="#{connectionBean.genPayment.notes}"
+																		class="form-control" required="true"
+																		requiredMessage="Advance Amount Required"																																		
+																		onkeypress="return isNumberKey(event)">																		
+																	</h:inputText>
+																	<p:message for="notes" styleClass="form-control" />
+																	<p:tooltip styleClass="cus-tooltip" for="notes"
+																		value="Advance Amount should be numeric and length should be 10"></p:tooltip>																	
+																</div>
+															</div>
+														</div>
+														
+														<div class="col-md-6 col-sm-6 col-lg-6">
+															<div class="form-group">
+																<p:outputLabel class="control-label" for="billamount"
+																	value="Bill Amount" />
+																<div>
+																	<h:inputText id="billamount"
+																		value="#{connectionBean.genPayment.billAmount}"
+																		class="form-control" required="true"
+																		requiredMessage="Advance Amount Required"																																		
+																		onkeypress="return isNumberKey(event)">																		
+																	</h:inputText>
+																	<p:message for="billamount" styleClass="form-control" />
+																	<p:tooltip styleClass="cus-tooltip" for="billamount"
+																		value="Advance Amount should be numeric and length should be 10"></p:tooltip>																	
+																</div>
+															</div>
+														</div>
+
+													</div>
+													
+													
+													
+													
+																								
+													
+													
+													
+
+												</p:outputPanel>
+												<div class="form-group pull-right">
+													<div class="form-actions">
+																						
+														<h:commandButton value=" Clear"
+															class="btn btn-clear btn-xs cus-btn btn-info"
+															immediate="true"
+															action="#{connectionBean.clearBill}" />
+															
+														&nbsp;
+														<h:commandButton value=" Submit"
+															class="btn btn-submit btn-xs cus-btn btn-info"
+															action="#{connectionBean.saveInvoice}"
+															update="addbill,growl" />
+															
+														
+
+													</div>
+												</div>
+
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!--END CONTENT-->
+				</div>
+			</div>
+			<!--END PAGE CONTENT-->
+		</h:form>
+		<script>
+			$("title").html("Cable | Manual Invoice");
+		</script>
+
+	</ui:define>
+
+</ui:composition>

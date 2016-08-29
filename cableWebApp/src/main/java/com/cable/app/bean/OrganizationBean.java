@@ -1,19 +1,29 @@
 package com.cable.app.bean;
 
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.log4j.Log4j;
 
+import org.apache.commons.io.IOUtils;
+import org.primefaces.event.FileUploadEvent;
+import org.primefaces.model.DefaultStreamedContent;
+import org.primefaces.model.StreamedContent;
+import org.primefaces.model.UploadedFile;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
+import org.springframework.util.StringUtils;
 import org.springframework.web.client.RestTemplate;
 
 import com.cable.app.exception.FacesUtil;
@@ -46,6 +56,14 @@ public class OrganizationBean {
 	@Getter
 	@Setter
 	ObjectMapper objectMapper;
+	
+	@Setter
+	StreamedContent showImage;
+	
+	@Getter
+	@Setter
+	private UploadedFile file;
+	 
 
 	
 	
@@ -130,7 +148,7 @@ public String getOrganizationValue(){
 		return "/pages/master/organizationlist.xhtml";
 	}
 	
-	public String showOrganizationForm() {
+	public String showOrganizationForm() throws IOException {
 		log.info("show ZIP Code Called Action is "+action);
 		log.info("show ZIP Code Called Value is "+organizionSelected);
 		if(action.equals("Add")){
@@ -146,6 +164,7 @@ public String getOrganizationValue(){
 				return null;
 			}
 		}
+		getShowImage();
 		return "/pages/master/organizationform.xhtml";
 	}
 	
@@ -194,6 +213,7 @@ public String getOrganizationValue(){
 				organizionList = objectMapper.readValue(responseBody, new TypeReference<List<OrganizationDto>>(){});
 				if(organizionList != null){
 					organizionSelected=organizionList.get(0);
+					getShowImage();
 				}
 
 			}
@@ -206,5 +226,51 @@ public String getOrganizationValue(){
 		return "/pages/master/organizationform.xhtml";
 	}
 	
+	
+	/** Image Display */
+	public StreamedContent getShowImage() throws IOException{
+	
+		InputStream is;
+		if(StringUtils.isEmpty(organizionSelected.getLogo())){
+			showImage=new DefaultStreamedContent(FacesContext.getCurrentInstance().getExternalContext().getResourceAsStream("/assets/images/user-placeholder.jpg"), "logo/jpg");
+			return showImage;
+
+		}
+		if(!StringUtils.isEmpty(organizionSelected.getLogo())){
+			is = new ByteArrayInputStream(organizionSelected.getLogo());
+			showImage = new DefaultStreamedContent(is);
+		}
+		
+		return showImage;
+	}
+	
+	
+	public void handleFileUpload(FileUploadEvent event) {
+		 try {
+			 log.info("Method Call"+event.getFile().getFileName());
+			InputStream inputStream = event.getFile().getInputstream();
+			byte[] contents = IOUtils.toByteArray(inputStream);
+			organizionSelected.setLogo(contents);
+			getShowImage();
+			
+		} catch (IOException e) {
+			log.error("handleFileUpload", e);
+		}
+		
+   }
+	
+	public void handleFileUpload() {
+		 try {
+			 log.info("Method Call"+getFile().getFileName());
+			InputStream inputStream = getFile().getInputstream();
+			byte[] contents = IOUtils.toByteArray(inputStream);
+			organizionSelected.setLogo(contents);
+			getShowImage();
+			
+		} catch (IOException e) {
+			log.error("handleFileUpload", e);
+		}
+		
+  }
 
 }

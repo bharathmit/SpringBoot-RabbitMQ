@@ -39,6 +39,9 @@ public class GeneratePaymentDto extends BaseDto implements Serializable  {
 	private Double billAmount;
 	
 	@Getter	@Setter	
-	private ConnectionAccountDto connectionAccount;
+	private String notes;
+	
+	@Getter	@Setter	
+	private ConnectionAccountDto connectionAccount = new ConnectionAccountDto();
 
 }

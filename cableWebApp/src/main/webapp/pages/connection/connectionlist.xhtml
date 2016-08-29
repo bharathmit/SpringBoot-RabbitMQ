@@ -144,12 +144,11 @@
 																		action="#{connectionBean.showAccountForm}"
 																		update="growl"> <f:setPropertyActionListener
 																			target="#{connectionBean.action}" value="Edit" />
-																	</input> &nbsp; <input type="submit" value="View"
+																	</input> &nbsp; <input type="submit" value="Bill"
 																		jsfc="h:commandButton"
-																		class="btn btn-info  cus-btn btn-sm btn-view"
-																		action="#{connectionBean.showAccountForm}"
-																		update="growl"> <f:setPropertyActionListener
-																			target="#{connectionBean.action}" value="View" />
+																		class="btn btn-info  cus-btn btn-sm btn-indian-currency"
+																		action="#{connectionBean.manualBill}"
+																		update="growl"> 
 																	</input>
 
 																</div>

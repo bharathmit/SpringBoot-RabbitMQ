@@ -1,5 +1,6 @@
 package com.cable.app.bean;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,8 +19,10 @@ import com.cable.rest.dto.UserDto;
 @ManagedBean
 @ApplicationScoped
 @Log4j
-public class ApplicationBean {
+public class ApplicationBean implements Serializable {
 	
+	private static final long serialVersionUID = 1L;
+
 	@Getter @Setter
 	List<Status> statusList=new ArrayList<Status>();
 	

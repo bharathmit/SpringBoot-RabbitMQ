@@ -33,7 +33,7 @@ public class PaymentDetailDto extends BaseDto implements Serializable  {
 	private Long paymentUser;
 	
 	@Getter	@Setter	
-	private ConnectionAccountDto paymentCustomer;
+	private ConnectionAccountDto connection;
 	
 	
 	

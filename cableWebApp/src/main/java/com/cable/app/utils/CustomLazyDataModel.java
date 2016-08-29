@@ -16,6 +16,8 @@ import org.primefaces.model.SortOrder;
 
 public class CustomLazyDataModel<T>  extends LazyDataModel<T> {  
 
+	private static final long serialVersionUID = 1L;
+
 	private List<T> datasource;  
 
 	private SimpleDateFormat sdf=new SimpleDateFormat("dd-MMM-yyyy"); 

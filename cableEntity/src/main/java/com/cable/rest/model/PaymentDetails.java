@@ -53,9 +53,10 @@ private static final long serialVersionUID = 1L;
 	@Getter	@Setter	
 	private Long paymentUser;
 	
-	@Column(nullable=false)
+	@ManyToOne
+	@JoinColumn(name="connection", nullable=false)
 	@Getter	@Setter	
-	private ConnectionAccount paymentCustomer;
+	private ConnectionAccount connection;
 	
 	
 }

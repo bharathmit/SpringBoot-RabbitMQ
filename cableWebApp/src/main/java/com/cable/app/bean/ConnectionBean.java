@@ -1,6 +1,7 @@
 package com.cable.app.bean;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
@@ -19,8 +20,10 @@ import org.springframework.web.client.RestTemplate;
 import com.cable.app.exception.FacesUtil;
 import com.cable.app.exception.RestUtil;
 import com.cable.app.utils.RestClient;
+import com.cable.rest.constants.PaymentStatus;
 import com.cable.rest.dto.AreaDto;
 import com.cable.rest.dto.ConnectionAccountDto;
+import com.cable.rest.dto.GeneratePaymentDto;
 import com.cable.rest.dto.ProjectDto;
 import com.cable.rest.dto.StreetDto;
 import com.cable.rest.dto.ZipCodeDto;
@@ -68,6 +71,11 @@ public class ConnectionBean {
 	
 	@Getter @Setter
 	List<StreetDto> streetList=new ArrayList<StreetDto>();
+	
+	@Getter @Setter
+	GeneratePaymentDto genPayment=new GeneratePaymentDto();
+	
+	
 	
 	@Setter @Getter
 	String action;
@@ -269,6 +277,47 @@ public class ConnectionBean {
 	}
 	
 	
+	public String manualBill(){
+		genPayment=new GeneratePaymentDto();
+		genPayment.setConnectionAccount(accountSelected);
+		return "/pages/payment/manualinvoice.xhtml";
+	}
+	
+	public void clearBill(){
+		genPayment=new GeneratePaymentDto();
+	}
+	
+	public String saveInvoice(){
+		try{
+			
+			genPayment.setPayGenDate(new Date());
+			genPayment.setPayGenStatus(PaymentStatus.PENDING);
+			
+			HttpEntity<GeneratePaymentDto> requestEntity = new HttpEntity<GeneratePaymentDto>(genPayment, LoginBean.header);
+
+			ResponseEntity<String> response = restTemplate.exchange(restClient.createUrl("account/saveAccount"),HttpMethod.POST,requestEntity,String.class);
+
+			String responseBody = response.getBody();
+
+			if (RestUtil.isError(response.getStatusCode())) {
+				ErrorResource error = objectMapper.readValue(responseBody, ErrorResource.class);
+
+				FacesUtil.error(error.getFieldErrors().get(0).getMessage());
+				return null;
+
+			} else {
+				GeneratePaymentDto result = objectMapper.readValue(responseBody, GeneratePaymentDto.class);
+				FacesUtil.info("Manual Invoice Sucess");
+
+			}
+		}
+		catch(Exception e){
+			log.error("saveuser", e);
+
+		}
+		showAccountList();
+		return "/pages/connection/connectionlist.xhtml";
+	}
 	
 
 }

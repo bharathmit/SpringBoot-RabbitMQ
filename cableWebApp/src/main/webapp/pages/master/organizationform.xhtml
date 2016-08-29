@@ -9,8 +9,9 @@
 	xmlns:p="http://primefaces.org/ui" template="/template/layout.xhtml">
 
 	<ui:define name="content">
-
-		<h:form id="form">
+	<h:head></h:head>
+	<h:body>
+		<h:form id="organizationpage" enctype="multipart/form-data" >
 			<p:growl id="growl" showDetail="true" sticky="false" life="5000"
 				globalOnly="true" />
 
@@ -114,17 +115,14 @@
 																	value="Organizaion Logo" />
 
 																<div>
-																	<h:inputText id="logo"
-																		value="#{organizationBean.organizionSelected.orgToken}"
-																		maxlength="10" class="form-control" required="true"
-																		requiredMessage="OAuth Token Required"
-																		validatorMessage="OAuth Token should be alphabets only"																		
-																		onkeypress="return isNumberKey(event)">
-																		<f:validateRegex pattern="[a-zA-Z ]*"></f:validateRegex>
-																	</h:inputText>
-																	<p:message for="logo" styleClass="form-control" />
-																	<p:tooltip styleClass="cus-tooltip" for="logo"
-																		value="OAuth Token should be alphabets only"></p:tooltip>
+																<p:graphicImage id="logo" value="#{organizationBean.showImage}" cache="false" />
+																<p:fileUpload actionListener="#{organizationBean.handleFileUpload}" 
+                     												update="logo" auto="true" sizeLimit="1000000" />	
+                     												
+                     											<p:fileUpload value="#{organizationBean.file}" mode="simple" skinSimple="true"/>
+ 
+    															<p:commandButton value="Submit" ajax="false" actionListener="#{organizationBean.handleFileUpload}"  />
+                     																																											
 																</div>
 
 															</div>
@@ -246,6 +244,7 @@
 			</div>
 			<!--END PAGE CONTENT-->
 		</h:form>
+		</h:body>
 		<script>
 			$("title").html("Cable | Organization Details");
 		</script>

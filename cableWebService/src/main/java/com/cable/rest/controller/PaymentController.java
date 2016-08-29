@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.cable.rest.dto.GeneratePaymentDto;
 import com.cable.rest.dto.PaymentDetailDto;
 import com.cable.rest.response.ResponseResource;
 import com.cable.rest.search.PaymentSearch;
@@ -30,6 +31,11 @@ public class PaymentController extends BaseController {
 	@RequestMapping(value="/deletepayment",method=RequestMethod.POST)
 	public ResponseResource deletePayment(@RequestBody PaymentSearch searchObject){
 		return (ResponseResource) sendtoMQ(searchObject, "deletePayment", "paymentService");
+	}
+	
+	@RequestMapping(value="/saveinvoice",method=RequestMethod.POST)
+	public Object savePayment(@RequestBody GeneratePaymentDto generatePayment){
+		return  sendtoMQ(generatePayment, "saveInvoice", "paymentService");
 	}
 	
 	@RequestMapping(value="/invoicelist",method=RequestMethod.POST)

@@ -116,7 +116,7 @@ public class InvoiceBean {
 			
 			paymentSelected.setGeneratepayment(invoicSelected);
 			paymentSelected.setPaymentAmount(invoicSelected.getBillAmount());
-			paymentSelected.setPaymentCustomer(invoicSelected.getConnectionAccount());
+			paymentSelected.setConnection(invoicSelected.getConnectionAccount());
 			paymentSelected.setPaymentStatus(PaymentStatus.PAYED);
 			paymentSelected.setPaymentType(PaymentType.CASH);
 			paymentSelected.setPaymentUser(applicationBean.getUserContext().getUserId());
