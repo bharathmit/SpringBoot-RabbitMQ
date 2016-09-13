@@ -1,11 +1,13 @@
 package com.cable.payUMoney;
 
+import java.lang.reflect.Field;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.util.StringUtils;
 import org.springframework.web.client.RestTemplate;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -42,7 +44,7 @@ public class PayURestTemplate {
     }
 	
 	
-	public String hashCal(String algorithmType, PaymentBuilder paymentBuilder){
+	public String hashCal(String algorithmType, PaymentBuilder paymentBuilder) throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException{
 		StringBuffer hexString = new StringBuffer();
 		try {
 			
@@ -50,12 +52,16 @@ public class PayURestTemplate {
 			String[] hashVarSeq = hashSequence.split("\\|");
 			
 			for (String part : hashVarSeq) {
-				hash.concat("");
-				hash.concat("|");
+				Field field = paymentBuilder.getClass().getDeclaredField(part);    
+				field.setAccessible(true);
+				Object value = field.get(paymentBuilder);
+				if(StringUtils.isEmpty(value)){
+					value="";
+				}
+				hash = hash + value+"|";
 			}
-			hash.concat(this.salt);
 			
-			
+			hash = hash.concat(this.salt);
 			byte[] hashseq = hash.getBytes();
 			MessageDigest algorithm = MessageDigest.getInstance(algorithmType);
 			algorithm.reset();
@@ -85,16 +91,17 @@ public class PayURestTemplate {
 			paymentBuilder.setSurl(this.surl);
 			paymentBuilder.setFurl(this.furl);
 			paymentBuilder.setService_provider(this.provider);
-			paymentBuilder.setChecksum(hashCal("SHA-512",paymentBuilder));
+			paymentBuilder.setHash(hashCal("SHA-512",paymentBuilder));
 			
 			ResponseEntity<String> response = restTemplate.postForEntity(this.api+"/_payment",paymentBuilder, String.class);
 			
 			String responseBody = response.getBody();
+			System.out.println(responseBody);
 			
 			return objectMapper.readValue(responseBody, PaymentReturn.class);
 		}
 		catch(Exception e){
-			
+			e.printStackTrace();
 		}
 		return null;
 	}

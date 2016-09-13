@@ -12,7 +12,7 @@ public class PaymentBuilder {
 	@Setter @Getter
 	private String furl;
 	@Setter @Getter
-	private String checksum;
+	private String hash;
 	@Setter @Getter
 	private String service_provider;
 	
@@ -54,6 +54,16 @@ public class PaymentBuilder {
 	private String udf4;
 	@Setter @Getter
 	private String udf5;
+	@Setter @Getter
+	private String udf6;
+	@Setter @Getter
+	private String udf7;
+	@Setter @Getter
+	private String udf8;
+	@Setter @Getter
+	private String udf9;
+	@Setter @Getter
+	private String udf10;
 	
 
 }
