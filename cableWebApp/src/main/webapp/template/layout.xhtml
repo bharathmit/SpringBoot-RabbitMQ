@@ -196,19 +196,10 @@
 												<div class="row">
 
 													<div class="col-md-6 col-xs-6">
-														<a href="#"> <h:commandButton
-																action="#{userDetailBean.showUserForm}" immediate="true"
-																value="Change Password"
-																styleClass="btn btn-default btn-sm">
-																<f:setPropertyActionListener
-																	target="#{userDetailBean.action}" value="Edit" />
-																<f:setPropertyActionListener
-																	target="#{userDetailBean.isProfile}" value="true" />
-																<f:setPropertyActionListener
-																	target="#{loginBean.activeMainMenu}" value="Users" />
-																<f:setPropertyActionListener
-																	target="#{loginBean.activeSubMenu}" value="Users" />
-															</h:commandButton>
+														<a href="#"> <p:commandButton immediate="true"
+																value="Change Password" onclick="PF('password').show();" 
+																styleClass="btn btn-default btn-sm">																
+															</p:commandButton>
 														</a>
 													</div>
 
@@ -335,9 +326,35 @@
 											</h:commandLink></li>
 											
 										<li
+											class="#{loginBean.activeSubMenu eq 'Remittance' ? 'active' : ''}"><h:commandLink
+												action="#{remittanceBean.showRemittanceList}" immediate="true"
+												value="Remittance List" styleClass="submenu-title">
+												<i class="fa fa-angle-right"></i>
+												<f:setPropertyActionListener target="#{remittanceBean.action}"
+													value="View" />
+												<f:setPropertyActionListener
+													target="#{loginBean.activeMainMenu}" value="Payment" />
+												<f:setPropertyActionListener
+													target="#{loginBean.activeSubMenu}" value="Remittance" />
+											</h:commandLink></li>
+											
+										<li
 											class="#{loginBean.activeSubMenu eq 'Collection' ? 'active' : ''}"><h:commandLink
 												action="#{collectionBean.showCollectionList}" immediate="true"
 												value="Collection" styleClass="submenu-title">
+												<i class="fa fa-angle-right"></i>
+												<f:setPropertyActionListener target="#{collectionBean.action}"
+													value="View" />
+												<f:setPropertyActionListener
+													target="#{loginBean.activeMainMenu}" value="Payment" />
+												<f:setPropertyActionListener
+													target="#{loginBean.activeSubMenu}" value="Collection" />
+											</h:commandLink></li>
+											
+										<li
+											class="#{loginBean.activeSubMenu eq 'Collection' ? 'active' : ''}"><h:commandLink
+												action="#{collectionBean.showCollectionList}" immediate="true"
+												value="Collection List" styleClass="submenu-title">
 												<i class="fa fa-angle-right"></i>
 												<f:setPropertyActionListener target="#{collectionBean.action}"
 													value="View" />
@@ -597,8 +614,22 @@
 		</h:form>
 		<p:dialog widgetVar="dlg" id="progress" styleClass="loading-area"
 			style="opacity:0.5;" showHeader="false">
-
 		</p:dialog>
+		
+		<p:dialog header="Change Password" widgetVar="password" resizable="false">
+	        <h:panelGrid columns="2" cellpadding="5">
+	            <h:outputLabel for="oldpassword" value="Old Password:" />
+	            <p:inputText id="oldpassword" value="#{userBean.userSelected.password}" required="true" label="Old Password" />
+	 
+	            <h:outputLabel for="newpassword" value="New Password:" />
+	            <p:password id="newpassword" value="#{userBean.userSelected.newPassword}" required="true" label="New Password" />
+	 
+	            <f:facet name="footer">
+	                <p:commandButton value="Password Update"  actionListener="#{userBean.changePassword}"/>
+	            </f:facet>  
+	        </h:panelGrid>
+   		 </p:dialog>
+		
 		<!--END FOOTER-->
 	</div>
 

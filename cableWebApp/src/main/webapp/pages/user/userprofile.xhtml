@@ -114,7 +114,7 @@
 																<p:outputLabel class="control-label" for="gender"
 																	value="Gender" />
 																<div>
-																	<h:selectOneMenu id="gender" required="true" requiredMessage="Select Title"																		
+																	<h:selectOneMenu id="gender" required="true" requiredMessage="Select Gender"																		
 																		value="#{userBean.userSelected.gender}" class="form-control ">
 																		<f:selectItem itemLabel="Select Gender"  noSelectionOption="true" />
 																		<f:selectItems value="#{applicationBean.genderList}"/>
@@ -130,10 +130,11 @@
 																	value="Date Of Birth" />
 																<div>
 																	<p:calendar id="dob" styleClass="calender-form-control"
-																		maxdate="#{currentDate}" value="#{userBean.userSelected.dob}"
+																		maxdate="#{userBean.currentDate}" value="#{userBean.userSelected.dob}"
 																		pattern="dd-MMM-yyyy"
-																		navigator="true" >
+																		navigator="true" required="true" requiredMessage="Date Of Join Required" >
 																	</p:calendar>
+																	<p:message for="dob" styleClass="form-control" />
 																</div>
 															</div>
 														</div>
@@ -274,10 +275,12 @@
 																	value="Date Of Join" />
 																<div>
 																	<p:calendar id="doj" styleClass="calender-form-control"
-																		maxdate="#{currentDate}" value="#{userBean.userSelected.dob}"
+																		maxdate="#{userBean.currentDate}" value="#{userBean.userSelected.dob}"
 																		pattern="dd-MMM-yyyy"
-																		navigator="true" >
+																		navigator="true"										
+																		required="true" requiredMessage="Date Of Join Required" >
 																	</p:calendar>
+																	<p:message for="doj" styleClass="form-control" />
 																</div>
 															</div>
 														</div>
@@ -288,7 +291,7 @@
 																<p:outputLabel class="control-label" for="status"
 																	value="Status" />
 																<div>
-																	<h:selectOneMenu id="status" required="true" requiredMessage="Select Title"																		
+																	<h:selectOneMenu id="status" required="true" requiredMessage="Select Status"																		
 																		value="#{userBean.userSelected.status}" class="form-control ">
 																		<f:selectItem itemLabel="Select Status"  noSelectionOption="true" />
 																		<f:selectItems value="#{applicationBean.statusList}"/>
@@ -340,20 +343,19 @@
 														
 														<h:commandButton value=" Back" immediate="true"
 															class="btn btn-back btn-xs cus-btn btn-info"
-															action="#{userBean.cancelZipCodeForm}"
-															 />
-															 &nbsp;
+															action="#{userBean.backZipCodeForm}"/>															 
+														&nbsp;
 														<h:commandButton value=" Clear"
-															class="btn btn-cancel btn-xs cus-btn btn-info"
+															class="btn btn-clear btn-xs cus-btn btn-info"
 															immediate="true"
 															action="#{userBean.clearForm}"
-															rendered="#{userBean.action ne 'View'}" />
+															update="addprofile"
+															rendered="#{userBean.action ne 'Edit'}" />
 														&nbsp;
 														<h:commandButton value=" Submit"
 															class="btn btn-submit btn-xs cus-btn btn-info"
 															action="#{userBean.saveUser}"
-															update="addprofile,growl"
-															rendered="#{userBean.action ne 'View'}" />
+															update="addprofile,growl"/>
 														
 
 													</div>

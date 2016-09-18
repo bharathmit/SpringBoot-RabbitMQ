@@ -1,6 +1,7 @@
 package com.cable.app.bean;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
@@ -24,6 +25,7 @@ import com.cable.rest.dto.UserDto;
 import com.cable.rest.dto.UserRoleDto;
 import com.cable.rest.dto.ZipCodeDto;
 import com.cable.rest.response.ErrorResource;
+import com.cable.rest.response.ResponseResource;
 import com.cable.rest.search.ProjectSearch;
 import com.cable.rest.search.UserSearch;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -70,6 +72,10 @@ public class UserBean {
 	
 	@Getter @Setter
 	RoleDto selectedRole=new RoleDto();
+	
+	@Getter
+	private Date currentDate = new Date();
+
 	
 	
 	
@@ -162,11 +168,6 @@ public class UserBean {
 				FacesUtil.warn("Please select any one User");
 				return null;
 			}
-		}else if(action.equals("View")){
-			if(userSelected == null){
-				FacesUtil.warn("Please select any one User");
-				return null;
-			}
 		}
 		return "/pages/user/userprofile.xhtml";
 	}
@@ -190,7 +191,7 @@ public class UserBean {
 		userSelected.getUserRoles().clear();
 	}
 	
-	public String cancelZipCodeForm(){
+	public String backZipCodeForm(){
 		userSelected = new 	UserDto();
 		return "/pages/user/userlist.xhtml";
 		
@@ -262,5 +263,33 @@ public class UserBean {
 		return "/pages/user/useraccount.xhtml";
 		
 	}
+	
+	
+	public void changePassword(){
+		try{
+			
+			HttpEntity<UserDto> requestEntity = new HttpEntity<UserDto>(userSelected, LoginBean.header);
+
+			ResponseEntity<String> response = restTemplate.exchange(restClient.createUrl("user/changePassword"),HttpMethod.POST,requestEntity,String.class);
+
+			String responseBody = response.getBody();
+
+			if (RestUtil.isError(response.getStatusCode())) {
+				ErrorResource error = objectMapper.readValue(responseBody, ErrorResource.class);
+				FacesUtil.warn(error.getFieldErrors().get(0).getMessage());
+
+			} else {
+				ResponseResource result = objectMapper.readValue(responseBody, ResponseResource.class);
+				FacesUtil.info(result.getMessage());
+			}
+
+		
+		}
+		catch(Exception e){
+			log.error("changePassword", e);	
+		}
+	}
+	
+	
 
 }

@@ -1,4 +1,6 @@
 INSERT INTO `role` (`role_id`, `created_by`, `created_date`, `last_modified_by`, `last_modified_date`, `time_stamp`, `role_name`, `status`) VALUES (1, 1, '2016-07-28 11:31:35', NULL, '2016-07-28 11:31:37', '2016-07-28 11:32:12', 'Admin', 'Active');
+INSERT INTO `role` (`role_id`, `created_by`, `created_date`, `last_modified_by`, `last_modified_date`, `time_stamp`, `role_name`, `status`) VALUES (2, 1, '2016-07-28 11:31:35', NULL, '2016-07-28 11:31:37', '2016-07-28 11:32:12', 'User', 'Active');
+INSERT INTO `role` (`role_id`, `created_by`, `created_date`, `last_modified_by`, `last_modified_date`, `time_stamp`, `role_name`, `status`) VALUES (3, 1, '2016-07-28 11:31:35', NULL, '2016-07-28 11:31:37', '2016-07-28 11:32:12', 'Manager', 'Active');
 
 INSERT INTO `organization` (`org_id`, `created_by`, `created_date`, `last_modified_by`, `last_modified_date`, `time_stamp`, `address`, `email`, `mobile`, `org_name`, `org_token`, `status`) VALUES (1, 1, '2016-07-28 12:30:11', NULL, NULL, '2016-07-28 12:31:31', '1/5 kuruku street', 'bharathkumar.feb14@gmail.com', '9789944159', 'Cablekart', 'cablekart', 'Active');
 

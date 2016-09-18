@@ -295,7 +295,7 @@ public class ConnectionBean {
 			
 			HttpEntity<GeneratePaymentDto> requestEntity = new HttpEntity<GeneratePaymentDto>(genPayment, LoginBean.header);
 
-			ResponseEntity<String> response = restTemplate.exchange(restClient.createUrl("account/saveAccount"),HttpMethod.POST,requestEntity,String.class);
+			ResponseEntity<String> response = restTemplate.exchange(restClient.createUrl("payment/saveinvoice"),HttpMethod.POST,requestEntity,String.class);
 
 			String responseBody = response.getBody();
 

@@ -154,18 +154,21 @@
 															</p:column>
 															<p:column headerText="Last Login Date"
 																sortBy="#{itdis.lastLoginDate}">
-																<h:outputText
-																	value="#{itdis.lastLoginDate}" />
+																<h:outputText value="#{itdis.lastLoginDate}" >
+																<f:convertDateTime pattern="dd-MM-yyyy" />
+																</h:outputText>
 															</p:column>
 															<p:column headerText="Password Change Date"
 																sortBy="#{itdis.passwordChangeDate}">
-																<h:outputText
-																	value="#{itdis.passwordChangeDate}" />
+																<h:outputText value="#{itdis.passwordChangeDate}" >
+																<f:convertDateTime pattern="dd-MM-yyyy" />
+																</h:outputText>
 															</p:column>
 															<p:column headerText="Lock Date"
 																sortBy="#{itdis.lockDate}">
-																<h:outputText
-																	value="#{itdis.lockDate}" />
+																<h:outputText value="#{itdis.lockDate}" >
+																<f:convertDateTime pattern="dd-MM-yyyy" />
+																</h:outputText>
 															</p:column>
 															<p:column headerText="reset Password"
 																styleClass="text-left #{itdis.status eq 'Active'? 'text-success' : 'text-danger'}"

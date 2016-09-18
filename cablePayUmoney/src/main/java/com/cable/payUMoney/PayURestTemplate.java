@@ -1,5 +1,6 @@
 package com.cable.payUMoney;
 
+import java.io.PrintWriter;
 import java.lang.reflect.Field;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -93,7 +94,13 @@ public class PayURestTemplate {
 			paymentBuilder.setService_provider(this.provider);
 			paymentBuilder.setHash(hashCal("SHA-512",paymentBuilder));
 			
-			ResponseEntity<String> response = restTemplate.postForEntity(this.api+"/_payment",paymentBuilder, String.class);
+			html(paymentBuilder);
+			
+			
+			ObjectMapper mapper = new ObjectMapper();
+			
+			
+			ResponseEntity<String> response = restTemplate.postForEntity(this.api+"/_payment",mapper.writeValueAsString(paymentBuilder), String.class);
 			
 			String responseBody = response.getBody();
 			System.out.println(responseBody);
@@ -104,6 +111,105 @@ public class PayURestTemplate {
 			e.printStackTrace();
 		}
 		return null;
+	}
+	
+	
+	public void html(PaymentBuilder paymentBuilder){
+		// build HTML code
+		        String htmlResponse = "<html> <body> \n"
+		                + "      \n"
+		                + "  \n"
+		                + "  <h1>PayUForm </h1>\n"
+		                + "  \n" + "<div>"
+		                + "        <form id=\"payuform\" action=\"" + this.api+"/_payment" + "\"  name=\"payuform\" method=POST >\n"
+		                + "      <input type=\"hidden\" name=\"key\" value=" + paymentBuilder.getKey()+ ">"
+		                + "      <input type=\"hidden\" name=\"hash\" value=" + paymentBuilder.getHash() + ">"
+		                + "      <input type=\"hidden\" name=\"txnid\" value=" + paymentBuilder.getTxnid() + ">"
+		                + "      <table>\n"
+		                + "        <tr>\n"
+		                + "          <td><b>Mandatory Parameters</b></td>\n"
+		                + "        </tr>\n"
+		                + "        <tr>\n"
+		                + "         <td>Amount: </td>\n"
+		                + "          <td><input name=\"amount\" value=" + paymentBuilder.getAmount() + " /></td>\n"
+		                + "          <td>First Name: </td>\n"
+		                + "          <td><input name=\"firstname\" id=\"firstname\" value=" + paymentBuilder.getFirstname() + " /></td>\n"
+		                + "        <tr>\n"
+		                + "          <td>Email: </td>\n"
+		                + "          <td><input name=\"email\" id=\"email\" value=" + paymentBuilder.getEmail() + " /></td>\n"
+		                + "          <td>Phone: </td>\n"
+		                + "          <td><input name=\"phone\" value=" + paymentBuilder.getPhone() + " ></td>\n"
+		                + "        </tr>\n"
+		                + "        <tr>\n"
+		                + "          <td>Product Info: </td>\n"
+		                + "<td><input name=\"productinfo\" value=" + paymentBuilder.getProductinfo() + " ></td>\n"
+		                + "        </tr>\n"
+		                + "        <tr>\n"
+		                + "          <td>Success URI: </td>\n"
+		                + "          <td colspan=\"3\"><input name=\"surl\"  size=\"64\" value=" + paymentBuilder.getSurl() + "></td>\n"
+		                + "        </tr>\n"
+		                + "        <tr>\n"
+		                + "          <td>Failure URI: </td>\n"
+		                + "          <td colspan=\"3\"><input name=\"furl\" value=" + paymentBuilder.getFurl() + " size=\"64\" ></td>\n"
+		                + "        </tr>\n"
+		                + "\n"
+		                + "        <tr>\n"
+		                + "          <td colspan=\"3\"><input type=\"hidden\" name=\"service_provider\" value=\"payu_paisa\" /></td>\n"
+		                + "        </tr>\n"
+		                + "             <tr>\n"
+		                + "          <td><b>Optional Parameters</b></td>\n"
+		                + "        </tr>\n"
+		                + "        <tr>\n"
+		                + "          <td>Last Name: </td>\n"
+		                + "          <td><input name=\"lastname\" id=\"lastname\" value=" + paymentBuilder.getLastname() + " ></td>\n"
+		                + "          <td>Cancel URI: </td>\n"
+		                + "          <td><input name=\"curl\" value=" + paymentBuilder.getLastname() + " ></td>\n"
+		                + "        </tr>\n"
+		                + "        <tr>\n"
+		                + "          <td>Address1: </td>\n"
+		                + "          <td><input name=\"address1\" value=" + paymentBuilder.getLastname() + " ></td>\n"
+		                + "          <td>Address2: </td>\n"
+		                + "          <td><input name=\"address2\" value=" + paymentBuilder.getLastname() + " ></td>\n"
+		                + "        </tr>\n"
+		                + "        <tr>\n"
+		                + "          <td>City: </td>\n"
+		                + "          <td><input name=\"city\" value=" + paymentBuilder.getLastname() + "></td>\n"
+		                + "          <td>State: </td>\n"
+		                + "          <td><input name=\"state\" value=" + paymentBuilder.getLastname() + "></td>\n"
+		                + "        </tr>\n"
+		                + "        <tr>\n"
+		                + "          <td>Country: </td>\n"
+		                + "          <td><input name=\"country\" value=" + paymentBuilder.getLastname() + " ></td>\n"
+		                + "          <td>Zipcode: </td>\n"
+		                + "          <td><input name=\"zipcode\" value=" + paymentBuilder.getLastname() + " ></td>\n"
+		                + "        </tr>\n"
+		                + "          <td>UDF1: </td>\n"
+		                + "          <td><input name=\"udf1\" value=" + paymentBuilder.getLastname() + "></td>\n"
+		                + "          <td>UDF2: </td>\n"
+		                + "          <td><input name=\"udf2\" value=" + paymentBuilder.getLastname() + "></td>\n"
+		                + " <td><input name=\"hashString\" value=" + paymentBuilder.getLastname() + "></td>\n"
+		                + "          <td>UDF3: </td>\n"
+		                + "          <td><input name=\"udf3\" value=" + paymentBuilder.getLastname() + " ></td>\n"
+		                + "          <td>UDF4: </td>\n"
+		                + "          <td><input name=\"udf4\" value=" + paymentBuilder.getLastname() + " ></td>\n"
+		                + "          <td>UDF5: </td>\n"
+		               + "          <td><input name=\"udf5\" value=" + paymentBuilder.getLastname() + " ></td>\n"
+		                 + "          <td>PG: </td>\n"
+		               + "          <td><input name=\"pg\" value=" + paymentBuilder.getLastname() + " ></td>\n"
+		                + "        <td colspan=\"4\"><input type=\"submit\" value=\"Submit\"  /></td>\n"
+		                + "      \n"
+		                + "    \n"
+		                + "      </table>\n"
+		                + "    </form>\n"
+		                + " <script> "
+		                + " document.getElementById(\"payuform\").submit(); "
+		                + " </script> "
+		                + "       </div>   "
+		                + "  \n"
+		                + "  </body>\n"
+		                + "</html>";
+		// return response
+		        System.out.println(htmlResponse);
 	}
 
 }

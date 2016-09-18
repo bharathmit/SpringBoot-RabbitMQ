@@ -78,7 +78,7 @@ public class ConnectionAccountService {
     }
 
     @Transactional
-    public ResponseResource deleteZipCode(AccountSearch search) {
+    public ResponseResource deleteAccount(AccountSearch search) {
         try {
 
             //accountRepo.delete(search.);

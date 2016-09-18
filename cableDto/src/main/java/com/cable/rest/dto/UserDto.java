@@ -86,4 +86,10 @@ public class UserDto extends BaseDto implements Serializable  {
 	@Getter	@Setter	
 	private byte[] photo;
 	
+	@Getter	@Setter	
+	private String newPassword;
+	
+	@Getter	@Setter	
+	private boolean passwordFlag;
+	
 }

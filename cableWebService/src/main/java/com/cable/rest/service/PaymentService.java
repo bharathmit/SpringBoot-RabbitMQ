@@ -45,7 +45,7 @@ public class PaymentService {
     public PaymentDetailDto savePayment(PaymentDetailDto Object) {
         try {
 
-            PaymentDetails paymentEntity = (PaymentDetails) ModelEntityMapper.converObjectToPoJo(Object, PaymentDetailDto.class);
+            PaymentDetails paymentEntity = (PaymentDetails) ModelEntityMapper.converObjectToPoJo(Object, PaymentDetails.class);
             paymentDetailJPARepo.saveAndFlush(paymentEntity);
         } catch (Exception e) {
             log.error("savePayment", e);
@@ -100,9 +100,10 @@ public class PaymentService {
     @Transactional
     public GeneratePaymentDto saveInvoice(GeneratePaymentDto generatePayment) {
         try {
-
-        	GeneratePayment genPaymentEntity = (GeneratePayment) ModelEntityMapper.converObjectToPoJo(generatePayment, GeneratePaymentDto.class);
-        	genPaymentJPARepo.saveAndFlush(genPaymentEntity);
+        	System.out.println(generatePayment.getConnectionAccount().getAccountId());
+        	GeneratePayment genPaymentEntity = (GeneratePayment) ModelEntityMapper.converObjectToPoJo(generatePayment, GeneratePayment.class);
+        	System.out.println(genPaymentEntity.getConnectionAccount().getAccountId());
+        	genPaymentJPARepo.save(genPaymentEntity);
         } catch (Exception e) {
             log.error("saveInvoice", e);
             throw new RestException(ErrorCodeDescription.TRANSACTION_FAILED);

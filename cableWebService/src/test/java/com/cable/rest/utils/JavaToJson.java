@@ -1,6 +1,7 @@
 package com.cable.rest.utils;
 
 
+import com.cable.rest.dto.LoginDto;
 import com.cable.rest.search.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -11,7 +12,7 @@ public class JavaToJson {
 public static void main(String[] args) {
 		
 		try {
-			ProjectSearch object=new ProjectSearch();
+			LoginDto object=new LoginDto();
 			ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
 			
 			//java variables

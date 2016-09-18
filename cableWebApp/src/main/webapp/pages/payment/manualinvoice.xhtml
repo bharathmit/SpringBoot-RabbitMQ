@@ -68,7 +68,7 @@
 
 																<div>
 																	<h:inputText id="customer"
-																		value="#{connectionBean.genPayment.connectionAccount.name}"
+																		readonly="true" value="#{connectionBean.genPayment.connectionAccount.name}"
 																		class="form-control" required="true"
 																		requiredMessage="Customer Name Required"
 																		validatorMessage="Customer Name should be alphabets only"
@@ -108,20 +108,15 @@
 														<div class="col-md-6 col-sm-6 col-lg-6">
 															<div class="form-group">
 																<p:outputLabel class="control-label" for="billdate"
-																	value="Bill Date " />
+																	value="Bill Month " />
 
 																<div>
-																	<h:inputText id="billdate"
+																	<p:calendar id="billdate" styleClass="calender-form-control"
 																		value="#{connectionBean.genPayment.billDate}"
-																		maxlength="10" class="form-control" required="true"
-																		requiredMessage="Mobile Number Required"
-																		validatorMessage="Mobile Number should be numeric and length should be 10"																		
-																		onkeypress="return isNumberKey(event)">
-																		<f:validateLength minimum="10" maximum="10" />
-																	</h:inputText>
+																		pattern="MMM-yyyy"
+																		navigator="true" required="true" requiredMessage="Bill Month Required" >
+																	</p:calendar>
 																	<p:message for="billdate" styleClass="form-control" />
-																	<p:tooltip styleClass="cus-tooltip" for="billdate"
-																		value="Mobile Number should be numeric and length should be 10"></p:tooltip>
 																</div>
 
 															</div>
@@ -132,17 +127,12 @@
 																<p:outputLabel class="control-label" for="duedate"
 																	value="Due Date" />
 																<div>
-																	<h:inputText id="duedate"
+																	<p:calendar id="duedate" styleClass="calender-form-control"
 																		value="#{connectionBean.genPayment.dueDate}"
-																		class="form-control" required="true"
-																		requiredMessage="Email Address Required."
-																		validatorMessage="Invalid email format"																		
-																		onkeypress="return isNumberKey(event)">	
-																		<f:validateRegex pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$"/>																		
-																	</h:inputText>
-																	<p:message for="duedate" styleClass="form-control" />
-																	<p:tooltip styleClass="cus-tooltip" for="duedate"
-																		value="Email ID should be valid"></p:tooltip>
+																		pattern="dd-MMM-yyyy"
+																		navigator="true" required="true" requiredMessage="Due Date Required" >
+																	</p:calendar>
+																	<p:message for="duedate" styleClass="form-control" />																	
 																</div>
 															</div>
 														</div>
@@ -159,12 +149,12 @@
 																	<h:inputText id="invoiceamount"
 																		value="#{connectionBean.genPayment.invoiceAmount}"
 																		class="form-control" required="true"
-																		requiredMessage="Advance Amount Required"																																		
+																		requiredMessage="Invoice Amount Required"																																		
 																		onkeypress="return isNumberKey(event)">																		
 																	</h:inputText>
 																	<p:message for="invoiceamount" styleClass="form-control" />
 																	<p:tooltip styleClass="cus-tooltip" for="invoiceamount"
-																		value="Advance Amount should be numeric and length should be 10"></p:tooltip>																	
+																		value="Invoice Amount should be numeric"></p:tooltip>																	
 																</div>
 															</div>
 														</div>
@@ -176,13 +166,12 @@
 																<div>
 																	<h:inputText id="discountamount"
 																		value="#{connectionBean.genPayment.discountAmount}"
-																		class="form-control" required="true"
-																		requiredMessage="Advance Amount Required"																																		
+																		class="form-control"																																																		
 																		onkeypress="return isNumberKey(event)">																		
 																	</h:inputText>
 																	<p:message for="discountamount" styleClass="form-control" />
 																	<p:tooltip styleClass="cus-tooltip" for="discountamount"
-																		value="Advance Amount should be numeric and length should be 10"></p:tooltip>																	
+																		value="Discount Amount should be numeric "></p:tooltip>																	
 																</div>
 															</div>
 														</div>
@@ -199,13 +188,8 @@
 																<div>
 																	<h:inputText id="notes"
 																		value="#{connectionBean.genPayment.notes}"
-																		class="form-control" required="true"
-																		requiredMessage="Advance Amount Required"																																		
-																		onkeypress="return isNumberKey(event)">																		
-																	</h:inputText>
-																	<p:message for="notes" styleClass="form-control" />
-																	<p:tooltip styleClass="cus-tooltip" for="notes"
-																		value="Advance Amount should be numeric and length should be 10"></p:tooltip>																	
+																		class="form-control" >																		
+																	</h:inputText>																															
 																</div>
 															</div>
 														</div>
@@ -218,12 +202,12 @@
 																	<h:inputText id="billamount"
 																		value="#{connectionBean.genPayment.billAmount}"
 																		class="form-control" required="true"
-																		requiredMessage="Advance Amount Required"																																		
+																		requiredMessage="Bill Amount Required"																																		
 																		onkeypress="return isNumberKey(event)">																		
 																	</h:inputText>
 																	<p:message for="billamount" styleClass="form-control" />
 																	<p:tooltip styleClass="cus-tooltip" for="billamount"
-																		value="Advance Amount should be numeric and length should be 10"></p:tooltip>																	
+																		value="Bill Amount should be numeric"></p:tooltip>																	
 																</div>
 															</div>
 														</div>
@@ -245,6 +229,7 @@
 														<h:commandButton value=" Clear"
 															class="btn btn-clear btn-xs cus-btn btn-info"
 															immediate="true"
+															update="addbill,growl" 
 															action="#{connectionBean.clearBill}" />
 															
 														&nbsp;

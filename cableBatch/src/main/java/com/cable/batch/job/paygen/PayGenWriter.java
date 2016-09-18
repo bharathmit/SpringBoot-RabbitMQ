@@ -37,7 +37,7 @@ public class PayGenWriter implements ItemWriter<GeneratePayment> {
             generatePaymentJPARepo = ApplicationContextHolder.getContext().getBean(GeneratePaymentJPARepo.class);
             
             generatePaymentJPARepo.saveAndFlush(item);
-            generatePaymentJPARepo = ApplicationContextHolder.getContext().getBean(GeneratePaymentJPARepo.class);
+            connectionAccountJPARepo = ApplicationContextHolder.getContext().getBean(ConnectionAccountJPARepo.class);
             connectionAccountJPARepo.updatePayGenMonth(item.getConnectionAccount().getAccountId(), BatchUtils.getCurrentMonth());
         }
 

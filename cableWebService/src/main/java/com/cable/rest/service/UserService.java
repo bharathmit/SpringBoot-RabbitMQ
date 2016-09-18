@@ -20,9 +20,11 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 
 import com.cable.rest.constants.Status;
+import com.cable.rest.dto.CustomerDto;
 import com.cable.rest.dto.UserDto;
 import com.cable.rest.dto.UserRoleDto;
 import com.cable.rest.exception.RestException;
+import com.cable.rest.model.Customer;
 import com.cable.rest.model.User;
 import com.cable.rest.model.UserRole;
 import com.cable.rest.repository.UserJPARepo;
@@ -175,5 +177,27 @@ public class UserService {
             throw new RestException(ErrorCodeDescription.TRANSACTION_FAILED);
         }
     }
+    
+    public ResponseResource changePassword(UserDto userDto){
+		try {
+			if(!userDto.isPasswordFlag()){
+				UserDto user = findLoginId(userDto.getLoginId());
+				log.info("Check the Password");
+				if(!stringDigester.matches(userDto.getPassword(),user.getPassword())){
+					return new ResponseResource(ErrorCodeDescription.INVALID_PASSWORD);
+				}
+			}
+			
+			if(userRepo.passwordUpdate(userDto.getUserId(),stringDigester.digest(userDto.getNewPassword()))>0){
+				return new ResponseResource(ErrorCodeDescription.TRANSACTION_SUCCESS);
+			}
+            
+        } catch (Exception e) {
+            throw new RestException(ErrorCodeDescription.TRANSACTION_FAILED);
+        }
+		return new ResponseResource(ErrorCodeDescription.TRANSACTION_FAILED);
+	}
+    
+    
 
 }

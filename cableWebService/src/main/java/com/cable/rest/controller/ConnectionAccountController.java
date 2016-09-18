@@ -36,5 +36,6 @@ public class ConnectionAccountController extends BaseController {
 	public Object deleteAccount(@RequestBody AccountSearch searchObject){
 		return sendtoMQ(searchObject, "deleteAccount", "connectionAccountService");
 	}
-
+	
+	
 }

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.cable.rest.dto.CustomerDto;
 import com.cable.rest.dto.UserDto;
 import com.cable.rest.exception.InvalidRequestException;
 import com.cable.rest.response.ResponseResource;
@@ -40,9 +41,13 @@ public class UserController extends BaseController {
 	}
 	
 	@RequestMapping(value="/deleteuser",method=RequestMethod.POST)
-	public ResponseResource deleteUser(@RequestBody UserSearch searchObject){
-		return (ResponseResource) sendtoMQ(searchObject, "deleteUser", "userService");
+	public Object deleteUser(@RequestBody UserSearch searchObject){
+		return sendtoMQ(searchObject, "deleteUser", "userService");
 	}
 	
+	@RequestMapping(value="/changePassword",method=RequestMethod.POST)
+	public Object  changePassword(@RequestBody UserDto reqObject){
+		return  sendtoMQ(reqObject, "changePassword", "userService");
+	}
 
 }

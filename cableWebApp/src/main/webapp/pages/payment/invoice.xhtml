@@ -144,25 +144,42 @@
 																<h:outputText value="#{idx+1}" />
 															</p:column>
 
-															<p:column headerText="PayGen ID"
-																sortBy="#{itdis.payGenId}" styleClass="text-left-imp">
-																<h:outputText value="#{itdis.payGenId}" />
-															</p:column>
-
-															<p:column headerText="PayGen Month" sortBy="#{itdis.payGenDate}">
-																<h:outputText
-																	value="#{itdis.payGenDate}" />
-															</p:column>
 															<p:column headerText="Connection ID"
 																sortBy="#{itdis.connectionAccount.accountId}">
 																<h:outputText
 																	value="#{itdis.connectionAccount.accountId}" />
 															</p:column>
+															
+															<p:column headerText="Bill Month" sortBy="#{itdis.payGenDate}">
+																<h:outputText value="#{itdis.billDate}" >
+																<f:convertDateTime pattern="MMM-yyyy" />
+																</h:outputText>
+															</p:column>
+															
+															<p:column headerText="Due Date" sortBy="#{itdis.dueDate}">
+																<h:outputText value="#{itdis.dueDate}" >
+																<f:convertDateTime pattern="dd-MMM-yyyy" />
+																</h:outputText>
+															</p:column>
+																							
 															<p:column headerText="Invoice Amount"
 																sortBy="#{itdis.invoiceAmount}">
 																<h:outputText
 																	value="#{itdis.invoiceAmount}" />
 															</p:column>
+															
+															<p:column headerText="Dis Amount"
+																sortBy="#{itdis.discountAmount}">
+																<h:outputText
+																	value="#{itdis.discountAmount}" />
+															</p:column>
+															
+															<p:column headerText="Bill Amount"
+																sortBy="#{itdis.billAmount}">
+																<h:outputText
+																	value="#{itdis.billAmount}" />
+															</p:column>
+															
 															<p:column headerText="PayGen Status"
 																sortBy="#{itdis.payGenStatus}">
 																<h:outputText
