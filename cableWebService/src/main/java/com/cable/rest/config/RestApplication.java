@@ -1,8 +1,6 @@
 package com.cable.rest.config;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Properties;
 
 import lombok.extern.log4j.Log4j;
@@ -17,8 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.boot.context.embedded.FilterRegistrationBean;
-import org.springframework.boot.orm.jpa.EntityScan;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.cache.ehcache.EhCacheCacheManager;
@@ -26,7 +23,6 @@ import org.springframework.cache.ehcache.EhCacheManagerFactoryBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.ImportResource;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.core.io.ClassPathResource;
@@ -34,8 +30,6 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.ui.velocity.VelocityEngineFactoryBean;
-
-import com.cable.rest.security.CableFilter;
 
 
 
@@ -46,7 +40,7 @@ import com.cable.rest.security.CableFilter;
 @EntityScan(value = {"com.cable.rest.model"})
 @ComponentScan("com.cable.rest")
 @Log4j
-@ImportResource("classpath:security.xml" )
+//@ImportResource("classpath:security.xml" )
 @PropertySource("classpath:application.properties")
 @EnableJpaAuditing
 @EnableCaching
@@ -110,15 +104,7 @@ public class RestApplication {
 		return stringDigester; 
 	}
     
-    @Bean
-    public FilterRegistrationBean authorizationFilter(){
-        FilterRegistrationBean filterRegBean = new FilterRegistrationBean();
-        filterRegBean.setFilter(new CableFilter());
-        List<String> urlPatterns = new ArrayList<String>();
-        urlPatterns.add("/*");
-        filterRegBean.setUrlPatterns(urlPatterns);
-        return filterRegBean;
-    }
+    
     
     
     @Bean
@@ -161,6 +147,7 @@ public class RestApplication {
 		factoryBean.setShared(true);
 		return factoryBean;
 	}
+	
     
     public static void main(String[] args) {
         SpringApplication.run(RestApplication.class, args);

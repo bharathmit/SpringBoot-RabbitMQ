@@ -16,12 +16,15 @@ import com.cable.app.exception.MyResponseErrorHandler;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 
-
 @ComponentScan(basePackages = { "com.cable.app" })
 @Configuration
 @Configurable
 @ImportResource("classpath:security.xml" )
 public class AppConfig {
+	
+	public static void main(String[] args) {
+
+    }
 	
 	@Bean
 	public static PropertySourcesPlaceholderConfigurer propertyConfigInDev() {

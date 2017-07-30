@@ -9,6 +9,7 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import lombok.Getter;
@@ -19,6 +20,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.client.InterceptingClientHttpRequestFactory;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
@@ -65,6 +67,7 @@ public class LoginBean implements Serializable{
 	ExternalContext extCon;
 	HttpSession session;
 	HttpServletRequest req;
+	HttpServletResponse res;
 	
 	@Getter @Setter
 	public static HttpEntity requestEntity;
@@ -85,6 +88,11 @@ public class LoginBean implements Serializable{
 			extCon = FacesContext.getCurrentInstance().getExternalContext();
 			log.info("Login Method Call");
 			
+			
+			MultiValueMap<String, String> headers = new LinkedMultiValueMap<String, String>();
+    		headers.add("Content-Type", "application/json");
+    		
+    		
 	    	if ( StringUtils.isEmpty(loginDto.getLoginId()) && StringUtils.isEmpty(loginDto.getPassword())) 
 			{			
 	    		FacesUtil.warn("Please Enter Your Email Id and Password");
@@ -104,9 +112,17 @@ public class LoginBean implements Serializable{
 	    	LoginResponseDto loginResponseDto=null;
 	    	try{
 	    		
-	    		ResponseEntity<String> response = restTemplate.postForEntity(restClient.createUrl("login/validateuser"),loginDto, String.class);
+	    		ResponseEntity<String> response = restTemplate.postForEntity(restClient.createUrl("login/authenticate"),loginDto, String.class);
+	    		
+	    		restTemplate.setRequestFactory(new InterceptingClientHttpRequestFactory(restTemplate.getRequestFactory(), restTemplate.getInterceptors()));
+	    		
+	    		
 	    		
 	    		String responseBody = response.getBody();
+	    		
+	    		headers.add("Authorization", response.getHeaders().getFirst("Authorization"));
+	    		
+	    		System.out.println("responseHeader" +response.getHeaders().getFirst("Authorization"));
 	    		
 	    		if (RestUtil.isError(response.getStatusCode())) {
 	    			ErrorResource error = objectMapper.readValue(responseBody, ErrorResource.class);
@@ -135,18 +151,14 @@ public class LoginBean implements Serializable{
 	    	}
 	    	
 	    	if(loginResponseDto.isAuthenticationStatus()){
-	    		System.out.println("SESSIONid :"+loginResponseDto.getSessionid());
-	    		
-	    		MultiValueMap<String, String> headers = new LinkedMultiValueMap<String, String>();
-	    		headers.add("Cookie", "JSESSIONID=" + loginResponseDto.getSessionid());
-	    		headers.add("Content-Type", "application/json");
-	    		
-	    		requestEntity = new HttpEntity(headers);    
+	    		 
 	    		header=headers;
 	    		
 	    		extCon = FacesContext.getCurrentInstance().getExternalContext();
 				session = (HttpSession) extCon.getSession(true);
-				req =(HttpServletRequest) extCon.getRequest();	
+				req =(HttpServletRequest) extCon.getRequest();
+				res =(HttpServletResponse) extCon.getResponse();
+				
 				FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put(AUTH_KEY, loginDto.getLoginId());
 				FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("UserObject", loginResponseDto);
 				applicationBean.setUserContext(loginResponseDto.getUser());

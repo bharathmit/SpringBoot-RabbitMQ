@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
@@ -26,6 +27,7 @@ import com.cable.rest.dto.LoginResponseDto;
 import com.cable.rest.exception.BadRequestException;
 import com.cable.rest.exception.InvalidRequestException;
 import com.cable.rest.response.ErrorResource;
+import com.cable.rest.security.TokenAuthenticationService;
 
 @RestController
 @RequestMapping("/login")
@@ -36,8 +38,8 @@ public class LoginController extends BaseController {
     AtomicInteger ctr=new AtomicInteger(1);
 	
 	 /** This method validates whether the provided user is authorized*/
-    @RequestMapping(value = "/validateuser", method = RequestMethod.POST)
-    public @ResponseBody LoginResponseDto login(@RequestBody @Valid LoginDto loginDto,BindingResult bindingResult, HttpServletRequest request) 
+    @RequestMapping(value = "/authenticate", method = RequestMethod.POST)
+    public @ResponseBody LoginResponseDto login(@RequestBody @Valid LoginDto loginDto,BindingResult bindingResult, HttpServletResponse JWTresponse) 
     {
     	
     	if (bindingResult.hasErrors()){
@@ -55,19 +57,8 @@ public class LoginController extends BaseController {
         LoginResponseDto loginRespDto =(LoginResponseDto) response;
         
         if (loginRespDto !=null && loginRespDto.isAuthenticationStatus() == true) {
-            // Create a session id if login is successful
-            HttpSession session = request.getSession(true);
-            // Set the session id in the login Response DTO
-            loginRespDto.setSessionid(session.getId());
-            log.info("Session created " + session.getId());
-            session.setAttribute("userDetailId",loginRespDto.getUser().getUserId());
-
-            List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
-            Integer ctrValue=ctr.getAndIncrement();
-            Authentication authentication = 
-            		new UsernamePasswordAuthenticationToken(ctrValue, loginRespDto.getUser(), authorities);
-            
-            SecurityContextHolder.getContext().setAuthentication(authentication);
+        	String JWTtoken=TokenAuthenticationService.addAuthentication(loginRespDto.getUser().getLoginId(), loginRespDto.getUser());
+        	JWTresponse.addHeader(TokenAuthenticationService.HEADER_STRING, TokenAuthenticationService.TOKEN_PREFIX + " " + JWTtoken);
             
             log.info("LoginController.login method End");
         

@@ -3,18 +3,19 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
 	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<modelVersion>4.0.0</modelVersion>
+	
 	<parent>
 		<groupId>com.cable.card</groupId>
 		<artifactId>cable-card</artifactId>
 		<version>${app.version}</version>
 	</parent>
+	
 	<groupId>com.cable.rest</groupId>
 	<artifactId>cableEntity</artifactId>
 	<packaging>jar</packaging>
-
-	<properties>
-
-	</properties>
+	
+	<name>cableEntity</name>
+	<description>Project Data Base Entity and JPA Repository</description>
 
 	<dependencies>
 
@@ -30,45 +31,20 @@
 		<!-- org.springframework.boot Start -->
 
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-			<version>${org.springframework.boot}</version>
-			<scope>compile</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-log4j</artifactId>
-			<version>${org.springframework.boot}</version>
-			<scope>compile</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<version>${org.springframework.boot}</version>
-			<scope>test</scope>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
-			<version>${org.springframework.boot}</version>
 			<scope>compile</scope>
 		</dependency>
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
-			<version>${org.springframework.boot}</version>
 			<scope>compile</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-tomcat</artifactId>
-			<version>${org.springframework.boot}</version>
-			<scope>provided</scope>
 		</dependency>
 
 		<!-- org.springframework.boot End -->
@@ -76,29 +52,25 @@
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-ehcache</artifactId>
-			<version>4.3.7.Final</version>
 			<scope>compile</scope>
 		</dependency>
-
-
+		
+		<!-- Lombok is used to reduce boilerplate code for model/data objects  -->
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
-			<version>0.11.6</version>
 			<scope>compile</scope>
 		</dependency>
 
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
-			<version>5.1.29</version>
 			<scope>compile</scope>
 		</dependency>
 
 		<dependency>
 			<groupId>net.sf.ehcache</groupId>
 			<artifactId>ehcache</artifactId>
-			<version>2.10.0</version>
 			<scope>compile</scope>
 		</dependency>
 
@@ -106,14 +78,12 @@
 		<dependency>
 			<groupId>joda-time</groupId>
 			<artifactId>joda-time</artifactId>
-			<version>2.4</version>
 			<scope>compile</scope>
 		</dependency>
 
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context-support</artifactId>
-			<version>4.1.5.RELEASE</version>
 			<scope>compile</scope>
 		</dependency>
 
@@ -122,7 +92,7 @@
 		<dependency>
 			<groupId>org.modelmapper</groupId>
 			<artifactId>modelmapper</artifactId>
-			<version>0.6.5</version>
+			<version>${org.modelmapper.version}</version>
 			<scope>compile</scope>
 		</dependency>
 
@@ -130,7 +100,7 @@
 		<dependency>
 			<groupId>commons-lang</groupId>
 			<artifactId>commons-lang</artifactId>
-			<version>2.4</version>
+			<version>${commons-lang.version}</version>
 			<scope>compile</scope>
 		</dependency>
 
@@ -138,19 +108,22 @@
 	</dependencies>
 
 	<build>
-		<pluginManagement>
-			<plugins>
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-compiler-plugin</artifactId>
-					<version>${maven.source.plugin.version}</version>
-					<configuration>
-						<source>${java.source.plugin.version}</source>
-						<target>${java.source.plugin.version}</target>
-					</configuration>
-				</plugin>
-			</plugins>
-		</pluginManagement>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<executions>
+			      <execution>
+			        <goals>
+			          <goal>repackage</goal>
+			        </goals>
+			        <configuration>
+			          <classifier>exec</classifier>
+			        </configuration>
+			      </execution>
+			    </executions>  	
+			</plugin>
+		</plugins>
 	</build>
 
 
