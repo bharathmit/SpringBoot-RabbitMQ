@@ -8,41 +8,50 @@
   <packaging>pom</packaging>
   
   
+  <parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>1.5.3.RELEASE</version>
+	</parent>
+  
   <properties>
 		<app.version>1.0.0-SNAPSHOT</app.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <org.springframework.boot>1.2.1.RELEASE</org.springframework.boot>
-        <maven.source.plugin.version>3.1</maven.source.plugin.version>
-		<java.source.plugin.version>1.7</java.source.plugin.version>        
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.version>1.8</java.version>   
+		
+		<org.modelmapper.version>0.6.5</org.modelmapper.version>  
+		<commons-lang.version>2.4</commons-lang.version>
+		<jasperreports.version>6.3.0</jasperreports.version>
+		<jwt.version>0.7.0</jwt.version>
+		<velocity.version>1.7</velocity.version>
+		<jmail.version>1.4.7</jmail.version>
+		<jasypt.version>1.7.1</jasypt.version>
+		
+		<primefaces.version>4.0</primefaces.version>
+        <jsf.version>2.2.12</jsf.version>
+        <jsf.themes.version>1.0.10</jsf.themes.version>
   </properties>
   
   
   <modules>		
 		<module>cableDto</module>
 		<module>cableEntity</module>		
-		<module>cablePaypal</module>
-		<module>cablePayUMoney</module>
 		<module>cableWebService</module>
 		<module>cableWebApp</module>
 		<module>cableBatch</module>
   </modules>
+  
 
  
   <build>
-	<pluginManagement>
 		<plugins>
 			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>${maven.source.plugin.version}</version>
-				<configuration>
-					<source>${java.source.plugin.version}</source>
-					<target>${java.source.plugin.version}</target>
-				</configuration>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
-	</pluginManagement>
-</build>
+	</build>
   
   
   
