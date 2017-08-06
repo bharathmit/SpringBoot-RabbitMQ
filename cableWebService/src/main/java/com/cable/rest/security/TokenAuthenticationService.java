@@ -1,13 +1,15 @@
 package com.cable.rest.security;
 
-import java.util.Date;
-
+import static java.util.Collections.emptyList;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 
+import java.io.IOException;
+import java.util.Date;
+import java.util.LinkedHashMap;
+
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import lombok.extern.log4j.Log4j;
 
@@ -16,8 +18,10 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 
 import com.cable.rest.dto.UserDto;
-
-import static java.util.Collections.emptyList;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 @Log4j
 public class TokenAuthenticationService {
@@ -39,16 +43,24 @@ public class TokenAuthenticationService {
 		//res.addHeader(HEADER_STRING, TOKEN_PREFIX + " " + JWT);
 	}
 	
-	static Authentication getAuthentication(HttpServletRequest request) {
+	static Authentication getAuthentication(HttpServletRequest request) throws IOException {
 		log.error("URL = " + request.getRequestURL());
 		String token = request.getHeader(HEADER_STRING);
 		if (!StringUtils.isEmpty(token)  && token.startsWith("Bearer") ) {
 			// parse the token.
 			Claims claims = Jwts.parser().setSigningKey(SECRET)
 					.parseClaimsJws(token.replace(TOKEN_PREFIX, "")).getBody();
+			LinkedHashMap userObj= (LinkedHashMap) claims.get("user");
+			ObjectMapper mapper=new ObjectMapper();
+			String json= mapper.writeValueAsString(userObj);
+			 UserDto user = mapper.readValue(json, UserDto.class);
+			/*Gson gson = new Gson();
+			String json = gson.toJson(userObj,LinkedHashMap.class);
 			
-			return claims != null ? new UsernamePasswordAuthenticationToken(claims.get("user"),
-					null, emptyList()) : null;
+			UserDto user = gson.fromJson(json, UserDto.class);
+			*/
+			return claims != null ? new UsernamePasswordAuthenticationToken(user,
+					user, emptyList()) : null;
 		}
 		return null;
 	}

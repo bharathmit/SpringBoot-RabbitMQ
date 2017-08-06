@@ -36,7 +36,7 @@ public class Organization extends Audit implements Serializable{
 	@Getter	@Setter	
 	private String orgToken;
 	
-	@Column(name="logo",columnDefinition="LONGBLOB")
+	@Column(nullable=true,name="logo",columnDefinition="LONGBLOB")
 	@Getter	@Setter	
 	private byte[] logo;
 	

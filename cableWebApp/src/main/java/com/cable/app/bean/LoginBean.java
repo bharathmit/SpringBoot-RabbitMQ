@@ -82,6 +82,11 @@ public class LoginBean implements Serializable{
 	private String activeSubMenu;
 	
 	
+	@ManagedProperty(value="#{connectionBean}")
+	@Getter @Setter
+	ConnectionBean connectionBean;
+	
+	
 	
 	public void submit() throws IOException{
 		try{
@@ -162,7 +167,8 @@ public class LoginBean implements Serializable{
 				FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put(AUTH_KEY, loginDto.getLoginId());
 				FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("UserObject", loginResponseDto);
 				applicationBean.setUserContext(loginResponseDto.getUser());
-				loginResponse=loginResponseDto;				
+				loginResponse=loginResponseDto;			
+				connectionBean.showAccountList();
 				extCon.redirect(extCon.getRequestContextPath()+"/pages/connection/connectionlist.xhtml?faces-redirect=true");
 				
 	    		
