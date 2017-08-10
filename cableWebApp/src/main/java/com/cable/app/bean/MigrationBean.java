@@ -6,7 +6,6 @@ import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
-import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
@@ -108,7 +107,8 @@ public class MigrationBean {
 
 		}
 		catch(Exception e){
-			log.error("showProjectList", e);
+			FacesUtil.warn("Connection refused by remote server, please try again later");
+			log.error("getProjectsList", e);
 		}
 	}
 	
@@ -137,7 +137,8 @@ public class MigrationBean {
 
 		}
 		catch(Exception e){
-			log.error("showAreaList", e);
+			FacesUtil.warn("Connection refused by remote server, please try again later");
+			log.error("getAreaLists", e);
 		}
 	}
 	
@@ -146,6 +147,13 @@ public class MigrationBean {
 	
 	//Display error msg in dilog
 	public void uploadExel(FileUploadEvent event){
+		List<ConnectionAccountDto> connectionList=new ArrayList<ConnectionAccountDto>();
+		
+		
+		
+		
+		ConnectionAccountDto connection=new ConnectionAccountDto();
+		
 		
 		System.out.println(event.getFile().getFileName());
 		

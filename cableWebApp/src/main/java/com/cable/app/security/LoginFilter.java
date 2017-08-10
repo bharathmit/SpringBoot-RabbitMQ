@@ -43,7 +43,7 @@ public class LoginFilter implements Filter {
     				.getAttribute("UserObject");
         	 String path = req.getRequestURI().substring(req.getContextPath().length());
         	 
-        	 if (path.contains("/pages/")) {
+        	/* if (path.contains("/pages/")) {
         		 String contextPath = ((HttpServletRequest)request).getContextPath();
 	        	if (!StringUtils.isEmpty(loginBean)) {
 	        		 if (!StringUtils.isEmpty(loginBean.getUser())) {
@@ -58,8 +58,8 @@ public class LoginFilter implements Filter {
         	 }
         	 else{
         		 chain.doFilter(request, response);
-        	 }
-        	 
+        	 }*/
+        	 chain.doFilter(request, response);
         	
         	//chain.doFilter(request, response);
         	 

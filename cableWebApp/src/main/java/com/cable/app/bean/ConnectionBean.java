@@ -105,6 +105,7 @@ public class ConnectionBean {
 			}
 		}
 		catch(Exception e){
+			FacesUtil.warn("Connection refused by remote server, please try again later");
 			log.error("saveuser", e);
 
 		}
