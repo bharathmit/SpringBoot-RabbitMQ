@@ -142,6 +142,7 @@ public String getOrganizationValue(){
 
 		}
 		catch(Exception e){
+			FacesUtil.warn("Connection refused by remote server, please try again later");
 			log.error("getOrganizationValue", e);
 		}
 		masterSearch = new MasterSearch();
@@ -220,6 +221,7 @@ public String getOrganizationValue(){
 
 		}
 		catch(Exception e){
+			FacesUtil.warn("Connection refused by remote server, please try again later");
 			log.error("getOrganizationValue", e);
 		}
 		

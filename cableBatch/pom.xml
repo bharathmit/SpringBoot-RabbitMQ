@@ -3,28 +3,21 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
 	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<modelVersion>4.0.0</modelVersion>
-
+	
+	<parent>
+		<groupId>com.cable.card</groupId>
+		<artifactId>cable-card</artifactId>
+		<version>${app.version}</version>
+	</parent>
+	
 	<groupId>com.cable.batch</groupId>
-	<artifactId>cableBatch</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<artifactId>cableBatch</artifactId>	
 	<packaging>jar</packaging>
 
 	<name>cableBatch</name>
-	<description>cableBatch</description>
+	<description>Project for cable notification send </description>
 	
-	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>1.5.3.RELEASE</version>
-		<relativePath/> <!-- lookup parent from repository -->
-	</parent>
-
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<java.version>1.8</java.version>
-	</properties>
-
+	
 	<dependencies>
 
 		<!-- CableEntity Dependency -->
@@ -32,7 +25,7 @@
 		<dependency>
 			<groupId>com.cable.rest</groupId>
 			<artifactId>cableEntity</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<version>${app.version}</version>
 			<scope>compile</scope>
 		</dependency>
 
@@ -41,7 +34,7 @@
 		<dependency>
 			<groupId>com.cable.rest</groupId>
 			<artifactId>cableDto</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<version>${app.version}</version>
 			<scope>compile</scope>
 		</dependency>
 
@@ -69,23 +62,33 @@
 
 		<!-- org.springframework.boot End -->
 
-
-
-
-
 		<dependency>
-			<groupId>javax.mail</groupId>
-			<artifactId>mail</artifactId>
-			<version>1.4.7</version>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
 			<scope>compile</scope>
 		</dependency>
-
-
+		
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<scope>compile</scope>
 		</dependency>
+
+
+		<dependency>
+			<groupId>javax.mail</groupId>
+			<artifactId>mail</artifactId>
+			<version>${jmail.version}</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.modelmapper</groupId>
+			<artifactId>modelmapper</artifactId>
+			<version>${org.modelmapper.version}</version>
+			<scope>compile</scope>
+		</dependency>
+		
 
 		<dependency>
 			<groupId>org.quartz-scheduler</groupId>
@@ -94,18 +97,9 @@
 			<scope>compile</scope>
 		</dependency>
 
-		<dependency>
-			<groupId>org.modelmapper</groupId>
-			<artifactId>modelmapper</artifactId>
-			<version>0.6.5</version>
-			<scope>compile</scope>
-		</dependency>
+		
 
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-context-support</artifactId>
-			<scope>compile</scope>
-		</dependency>
+		
 
 		<dependency>
 			<groupId>commons-lang</groupId>

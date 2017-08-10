@@ -139,6 +139,7 @@ public class StreetBean {
 
 		}
 		catch(Exception e){
+			FacesUtil.warn("Connection refused by remote server, please try again later");
 			log.error("showStreetList", e);
 		}
 		masterSearch = new MasterSearch();
@@ -206,6 +207,7 @@ public class StreetBean {
 
 		}
 		catch(Exception e){
+			FacesUtil.warn("Connection refused by remote server, please try again later");
 			log.error("showProjectList", e);
 		}
 	}

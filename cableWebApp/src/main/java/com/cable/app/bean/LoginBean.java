@@ -150,7 +150,7 @@ public class LoginBean implements Serializable{
 	    		
 	    		
 	    	}catch(Exception e){
-	    		FacesUtil.warn("Connection Refused");
+	    		FacesUtil.warn("Connection refused by remote server, please try again later");
 	    		log.error("Connection Refused",e);
 	    		return ;
 	    	}

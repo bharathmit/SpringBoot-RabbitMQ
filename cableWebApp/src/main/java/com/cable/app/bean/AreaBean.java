@@ -134,6 +134,7 @@ public class AreaBean {
 
 		}
 		catch(Exception e){
+			FacesUtil.warn("Connection refused by remote server, please try again later");
 			log.error("showAreaList", e);
 		}
 		masterSearch = new MasterSearch();
@@ -200,6 +201,7 @@ public class AreaBean {
 
 		}
 		catch(Exception e){
+			FacesUtil.warn("Connection refused by remote server, please try again later");
 			log.error("showProjectList", e);
 		}
 	}

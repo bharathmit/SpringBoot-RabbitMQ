@@ -121,6 +121,7 @@ public class ZipCodeBean {
 
 		}
 		catch(Exception e){
+			FacesUtil.warn("Connection refused by remote server, please try again later");
 			log.error("getZipCodeValue", e);
 		}
 		masterSearch = new MasterSearch();
